@@ -23,18 +23,7 @@ const HeroSection = () => {
     const cardsGrid = useRef();
     const description = useRef();
     const cardsSectionHeader = useRef();
-    const [scrollY, setScrollY] = useState(0);
     const [isDesktop, setIsDesktop] = useState(window.innerWidth > 768);
-
-    // Track scroll position
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrollY(window.scrollY);
-        };
-
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
 
     // Handle resize - recreate animations when crossing breakpoint
     useEffect(() => {
@@ -322,24 +311,6 @@ const HeroSection = () => {
                 ogUrl="https://ilocksecure.com/"
             />
             <StructuredData type="all" />
-
-            {/* Floating Scroll Indicator */}
-            <div style={{
-                position: 'fixed',
-                bottom: '20px',
-                left: '20px',
-                background: 'rgba(0, 0, 0, 0.8)',
-                color: 'white',
-                padding: '12px 20px',
-                borderRadius: '8px',
-                fontFamily: 'monospace',
-                fontSize: '14px',
-                zIndex: 9999,
-                backdropFilter: 'blur(10px)',
-                border: '1px solid rgba(255, 255, 255, 0.2)'
-            }}>
-                Scroll: {scrollY}px
-            </div>
 
             <div className="hero-wrapper" ref={container}>
                 <Header />
