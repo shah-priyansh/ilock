@@ -35,6 +35,7 @@ const SEO = ({
       <meta property="og:title" content={ogTitle || title} />
       <meta property="og:description" content={ogDescription || description} />
       <meta property="og:image" content={fullOgImage} />
+      <meta property="og:image:alt" content="iLock Secure - Sell luxury watches for immediate cash with highest market prices guaranteed" />
       <meta property="og:site_name" content="iLock" />
 
       {/* Twitter */}
