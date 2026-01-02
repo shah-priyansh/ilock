@@ -63,12 +63,12 @@ export default function AboutUs() {
     return (
         <>
             <SEO
-                title="About iLock Secure - Redefining Global Luxury Watch Trading"
-                description="Learn how iLock revolutionized luxury watch trading with our secure global auction platform. Trusted by collectors worldwide for authentication, highest prices, and buyback options."
-                keywords="luxury watch trading company, authenticated watch platform, secure watch marketplace, global watch auction, iLock about us"
+                title="About iLockSecure - Redefining Global Luxury Watch Trading"
+                description="Learn how iLockSecure revolutionized luxury watch trading with our secure global auction platform. Trusted by collectors worldwide for authentication, highest prices, and buyback options."
+                keywords="luxury watch trading company, authenticated watch platform, secure watch marketplace, global watch auction, iLockSecure about us"
                 canonical="/about"
-                ogTitle="About iLock - Trusted Global Luxury Watch Trading Platform"
-                ogDescription="Discover how iLock combines cutting-edge technology with expert authentication to deliver the highest prices for luxury watches. Join thousands of satisfied collectors worldwide."
+                ogTitle="About iLockSecure - Trusted Global Luxury Watch Trading Platform"
+                ogDescription="Discover how iLockSecure combines cutting-edge technology with expert authentication to deliver the highest prices for luxury watches. Join thousands of satisfied collectors worldwide."
                 ogUrl="https://ilocksecure.com/about"
             />
 

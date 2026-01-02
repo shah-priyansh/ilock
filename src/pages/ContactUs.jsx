@@ -188,11 +188,11 @@ export default function ContactUs() {
     return (
         <>
             <SEO
-                title="Contact iLock Secure - Luxury Watch Trading Support | Dubai"
-                description="Get in touch with iLock's expert team. Based in Dubai DIFC, we provide 24/7 support for luxury watch trading, valuations, and secure transactions. Contact us today."
-                keywords="contact iLock, luxury watch support, Dubai DIFC watch traders, watch trading contact, iLock support team"
+                title="Contact iLockSecure - Luxury Watch Trading Support | Dubai"
+                description="Get in touch with iLockSecure's expert team. Based in Dubai DIFC, we provide 24/7 support for luxury watch trading, valuations, and secure transactions. Contact us today."
+                keywords="contact iLockSecure, luxury watch support, Dubai DIFC watch traders, watch trading contact, iLockSecure support team"
                 canonical="/contact"
-                ogTitle="Contact iLock - Expert Luxury Watch Trading Support"
+                ogTitle="Contact iLockSecure - Expert Luxury Watch Trading Support"
                 ogDescription="Reach our team of luxury watch experts based in Dubai DIFC. Get support for valuations, trading, authentication, and secure transactions."
                 ogUrl="https://ilocksecure.com/contact"
             />

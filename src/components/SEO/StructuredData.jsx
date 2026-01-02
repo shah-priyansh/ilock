@@ -5,7 +5,7 @@ const StructuredData = ({ type = 'organization' }) => {
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "iLock",
+    "name": "iLockSecure",
     "description": "Global luxury watch trading platform with authentication, highest prices, and buyback options",
     "url": "https://ilocksecure.com",
     "logo": "https://ilocksecure.com/images/logo-icon.svg",
@@ -23,7 +23,7 @@ const StructuredData = ({ type = 'organization' }) => {
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "iLock",
+    "name": "iLockSecure",
     "image": "https://ilocksecure.com/images/logo-icon.svg",
     "description": "Luxury watch trading platform with global dealer auction and authentication services",
     "address": {
@@ -49,7 +49,7 @@ const StructuredData = ({ type = 'organization' }) => {
     "serviceType": "Luxury Watch Trading",
     "provider": {
       "@type": "Organization",
-      "name": "iLock"
+      "name": "iLockSecure"
     },
     "areaServed": "Worldwide",
     "hasOfferCatalog": {

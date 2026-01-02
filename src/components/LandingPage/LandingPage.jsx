@@ -143,11 +143,11 @@ export default function LandingPage() {
     return (
         <>
             <SEO
-                title="Free Luxury Watch Valuation - Get Instant Cash Offer | iLock Secure"
+                title="Free Luxury Watch Valuation - Get Instant Cash Offer | iLockSecure"
                 description="Get a free, no-obligation valuation for your luxury watch in minutes. Upload photos, receive competitive offers from global dealers. Rolex, AP, Patek Philippe & all luxury brands."
                 keywords="luxury watch valuation, free watch appraisal, sell my Rolex, watch price estimate, luxury timepiece quote, online watch valuation"
                 canonical="/landing"
-                ogTitle="Free Watch Valuation - Discover Your Watch's True Value | iLock"
+                ogTitle="Free Watch Valuation - Discover Your Watch's True Value | iLockSecure"
                 ogDescription="Upload your watch details and photos to receive instant competitive offers from verified global dealers. Simple, secure, and free."
                 ogUrl="https://ilocksecure.com/landing"
             />
