@@ -23,7 +23,14 @@ const HeroSection = () => {
     const cardsGrid = useRef();
     const description = useRef();
     const cardsSectionHeader = useRef();
-    const [isDesktop, setIsDesktop] = useState(window.innerWidth > 768);
+    const getDevice = () => {
+        const w = window.innerWidth;
+        if (w <= 768) return "mobile";
+        if (w <= 1024) return "tablet";
+        return "desktop";
+      };
+      const [device, setDevice] = useState(getDevice());
+      const isDesktop = device === "desktop";
 
     // Handle resize - recreate animations when crossing breakpoint
     useEffect(() => {
@@ -31,14 +38,13 @@ const HeroSection = () => {
         const handleResize = () => {
             clearTimeout(resizeTimeout);
             resizeTimeout = setTimeout(() => {
-                const nowDesktop = window.innerWidth > 768;
-                if (nowDesktop !== isDesktop) {
-                    setIsDesktop(nowDesktop);
-                }
-                ScrollTrigger.refresh();
+              const next = getDevice();
+              if (next !== device) {
+                setDevice(next);
+              }
+              ScrollTrigger.refresh();
             }, 150);
-        };
-
+          };
         window.addEventListener('resize', handleResize);
         return () => {
             clearTimeout(resizeTimeout);
@@ -55,19 +61,25 @@ const HeroSection = () => {
 
     // Run animations on all devices - recreates when isDesktop changes
     useGSAP(() => {
-        const isMobile = !isDesktop;
-
+        const isMobile = device === "mobile";
+        const isTablet = device === "tablet";
+        const mobileEnd = Math.max(window.innerHeight * 0.9, 400);
         const tl = gsap.timeline({
             scrollTrigger: {
               trigger: container.current,
               start: "top top",
-              end: isMobile ? "+=120%" : "bottom bottom",
-              scrub: 1,
-              pin: isMobile,               // 🔥 THIS IS KEY
+              end: isDesktop
+                ? "bottom bottom"
+                : () => "+=" + Math.max(window.innerHeight * 0.9, 400),
+              scrub: isDesktop ? 1 : 4,
+              pin: !isDesktop,
               pinSpacing: true,
               anticipatePin: 1
             }
           });
+          if (!isDesktop) {
+            tl.timeScale(0.15);
+          }
         // 1. Description fade out/up
         tl.to(description.current, {
             x: -100,
@@ -82,7 +94,7 @@ const HeroSection = () => {
             opacity: 0,
             duration: 0.8,
             ease: "power1.inOut"
-          }, isMobile ? 0.6 : 0);
+          }, (isMobile || isTablet) ? 0.8 : 0);
 
         // 2.5. Cards section header fades in
         tl.to(cardsSectionHeader.current, {
@@ -100,7 +112,7 @@ const HeroSection = () => {
         );
 
         // Box shrinking animation - different sizes for mobile vs desktop
-        if (isMobile) {
+        if (isMobile || isTablet) {
             // Set centering for expanding-box on mobile (same as side cards)
             gsap.set(expandingBox.current, { xPercent: -50, yPercent: -50 });
 
@@ -142,7 +154,7 @@ const HeroSection = () => {
             0);
 
         // 5. Side cards slide in (desktop) or slide from right (mobile)
-        if (isMobile) {
+        if (isMobile || isTablet) {
             // Mobile: Slide in from right like a carousel - wait for main animation
             // Set centering for positioning
             gsap.set(leftCard.current, { xPercent: -50, yPercent: -50 });
