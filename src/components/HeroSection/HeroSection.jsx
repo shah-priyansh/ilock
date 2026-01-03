@@ -28,9 +28,9 @@ const HeroSection = () => {
         if (w <= 768) return "mobile";
         if (w <= 1024) return "tablet";
         return "desktop";
-      };
-      const [device, setDevice] = useState(getDevice());
-      const isDesktop = device === "desktop";
+    };
+    const [device, setDevice] = useState(getDevice());
+    const isDesktop = device === "desktop";
 
     // Handle resize - recreate animations when crossing breakpoint
     useEffect(() => {
@@ -38,13 +38,13 @@ const HeroSection = () => {
         const handleResize = () => {
             clearTimeout(resizeTimeout);
             resizeTimeout = setTimeout(() => {
-              const next = getDevice();
-              if (next !== device) {
-                setDevice(next);
-              }
-              ScrollTrigger.refresh();
+                const next = getDevice();
+                if (next !== device) {
+                    setDevice(next);
+                }
+                ScrollTrigger.refresh();
             }, 150);
-          };
+        };
         window.addEventListener('resize', handleResize);
         return () => {
             clearTimeout(resizeTimeout);
@@ -63,22 +63,32 @@ const HeroSection = () => {
     useGSAP(() => {
         const isMobile = device === "mobile";
         const isTablet = device === "tablet";
-        const mobileEnd = Math.max(window.innerHeight * 0.9, 400);
+        const isSmallLaptop = !isDesktop && !isMobile && !isTablet; 
+        const getEnd = () => {
+            if (isDesktop) return "bottom bottom";
+          
+            // mobile + tablet + small laptop
+            return "+=" + Math.max(window.innerHeight * 1.4, 700);
+          };
+        const getScrub = () => {
+            if (isDesktop) return 1;
+            if (isTablet) return 2.5;
+            if (isSmallLaptop) return 6.5;
+            return 3; // mobile + small laptop
+          };
         const tl = gsap.timeline({
             scrollTrigger: {
               trigger: container.current,
               start: "top top",
-              end: isDesktop
-                ? "bottom bottom"
-                : () => "+=" + Math.max(window.innerHeight * 0.9, 400),
-              scrub: isDesktop ? 1 : 4,
+              end: getEnd(),
+              scrub: getScrub(),
               pin: !isDesktop,
               pinSpacing: true,
               anticipatePin: 1
             }
           });
-          if (!isDesktop) {
-            tl.timeScale(0.15);
+        if (!isDesktop) {
+            tl.timeScale(0.85); // subtle, safe
           }
         // 1. Description fade out/up
         tl.to(description.current, {
@@ -94,7 +104,7 @@ const HeroSection = () => {
             opacity: 0,
             duration: 0.8,
             ease: "power1.inOut"
-          }, (isMobile || isTablet) ? 0.8 : 0);
+        }, (isMobile || isTablet) ? 0.8 : 0);
 
         // 2.5. Cards section header fades in
         tl.to(cardsSectionHeader.current, {
@@ -111,8 +121,8 @@ const HeroSection = () => {
             0
         );
 
-        // Box shrinking animation - different sizes for mobile vs desktop
-        if (isMobile || isTablet) {
+        // Box shrinking animation - different sizes for mobile vs tablet vs desktop
+        if (isMobile) {
             // Set centering for expanding-box on mobile (same as side cards)
             gsap.set(expandingBox.current, { xPercent: -50, yPercent: -50 });
 
@@ -126,6 +136,22 @@ const HeroSection = () => {
                     width: 300,
                     height: 520,
                     borderRadius: 28,
+                    boxShadow: "0 20px 80px rgba(0,0,0,0.12)",
+                    duration: 1.4,
+                    ease: "expo.inOut"
+                }, 0);
+        } else if (isTablet) {
+            // Tablet (1024px) - use larger card size
+            tl.fromTo(expandingBox.current,
+                {
+                    width: 380,
+                    height: 560,
+                    borderRadius: 20,
+                },
+                {
+                    width: 320,
+                    height: 500,
+                    borderRadius: 32,
                     boxShadow: "0 20px 80px rgba(0,0,0,0.12)",
                     duration: 1.4,
                     ease: "expo.inOut"
@@ -153,8 +179,8 @@ const HeroSection = () => {
             { scale: 0.9, duration: 1.4, ease: "expo.inOut" }, // Scaled down by 10%
             0);
 
-        // 5. Side cards slide in (desktop) or slide from right (mobile)
-        if (isMobile || isTablet) {
+        // 5. Side cards slide in (desktop) or slide from right (mobile/tablet)
+        if (isMobile) {
             // Mobile: Slide in from right like a carousel - wait for main animation
             // Set centering for positioning
             gsap.set(leftCard.current, { xPercent: -50, yPercent: -50 });
@@ -244,6 +270,107 @@ const HeroSection = () => {
                     duration: 0.8,
                     ease: "power2.out"
                 }, 3.0);
+
+        } else if (isTablet) {
+            // Tablet (1024px): Use larger card sizes and desktop-style animation
+            const cardShift = 352; // 320px card + 32px gap for tablet
+
+            // Set initial positions for tablet cards (same as desktop)
+            gsap.set(leftCard.current, {
+                x: -150,
+                y: 0,
+                scale: 0.85,
+                opacity: 0,
+                width: 320,
+                height: 500,
+                borderRadius: 32
+            });
+
+            gsap.set(rightCard.current, {
+                x: 150,
+                y: 0,
+                scale: 0.85,
+                opacity: 0,
+                width: 320,
+                height: 500,
+                borderRadius: 32
+            });
+
+            gsap.set(card4.current, {
+                x: cardShift,
+                opacity: 0,
+                scale: 0.85,
+                width: 320,
+                height: 500,
+                borderRadius: 32
+            });
+
+            gsap.set(card5.current, {
+                x: cardShift * 2,
+                opacity: 0,
+                scale: 0.85,
+                width: 320,
+                height: 500,
+                borderRadius: 32
+            });
+
+            // Phase 1: Left and right cards slide in
+            tl.to(leftCard.current, {
+                x: 0,
+                y: 0,
+                opacity: 1,
+                scale: 1,
+                duration: 0.7,
+                ease: "back.out(1.4)"
+            }, 0.6);
+
+            tl.to(rightCard.current, {
+                x: 0,
+                y: 0,
+                opacity: 1,
+                scale: 1,
+                duration: 0.7,
+                ease: "back.out(1.4)"
+            }, 0.6);
+
+            // Phase 2: Card 4 enters - shift entire grid left
+            tl.to(card4.current, {
+                x: 0,
+                opacity: 1,
+                scale: 1,
+                duration: 0.8,
+                ease: "power2.out"
+            }, 1.5);
+
+            // Shift entire grid left when card 4 enters
+            tl.to(cardsGrid.current, {
+                x: -cardShift,
+                duration: 0.8,
+                ease: "power2.out"
+            }, 1.5);
+
+            // Phase 3: Card 5 enters - shift grid more
+            tl.to(card5.current, {
+                x: 0,
+                opacity: 1,
+                scale: 1,
+                duration: 0.8,
+                ease: "power2.out"
+            }, 2.3);
+
+            // Shift entire grid left again when card 5 enters
+            tl.to(cardsGrid.current, {
+                x: -cardShift * 2,
+                duration: 0.8,
+                ease: "power2.out"
+            }, 2.3);
+
+            // Fade out left card as it goes off screen
+            tl.to(leftCard.current, {
+                opacity: 0,
+                duration: 0.8,
+                ease: "power2.out"
+            }, 2.3);
 
         } else {
             // Desktop: Carousel-style animation

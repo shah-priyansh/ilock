@@ -32,6 +32,13 @@ body {
   width: 100%;
 }
 
+@media (max-width: 1024px) and (min-width: 769px) {
+  .hero-wrapper {
+    height: 200vh;
+    min-height: 200vh;
+  }
+}
+
 @media (max-width: 768px) {
   .hero-wrapper {
     height: 100vh;
@@ -334,10 +341,22 @@ body {
     height: 100svh;
   }
 }
-@media (max-width: 1024px) {
+@media (max-width: 1024px) and (min-width: 769px) {
   .sticky-container {
-    /* position: relative; */
-    height: auto;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  @supports (height: 100svh) {
+    .sticky-container {
+      height: 100svh;
+    }
   }
 }
 
@@ -416,6 +435,11 @@ body {
   transition: opacity 0.5s ease, transform 0.5s ease;
   padding: 0 20px;
 }
+@media (max-width: 1024px) and (min-width: 769px) {
+  .cards-section-header {
+    top: 5%;
+  }
+}
 
 .cards-section-title {
   font-family: 'Inter', sans-serif;
@@ -462,7 +486,7 @@ body {
 /* The "Window" that shrinks - MAIN CENTER CARD */
 .expanding-box {
   width: 340px;
-  min-width: 340px;
+  min-width: 140px;
   height: 480px;
   border-radius: 40px;
   overflow: hidden;
@@ -476,6 +500,12 @@ body {
   z-index: 10;
   align-self: flex-end;
   transition: none;
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .expanding-box {
+    min-width: 320px;
+  }
 }
 
 .box-inner-image {
@@ -513,6 +543,15 @@ body {
   z-index: 1;
   align-self: flex-end;
   /* Lower z-index than expanding box */
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .side-card {
+    width: 320px;
+    min-width: 320px;
+    height: 500px;
+    border-radius: 32px;
+  }
 }
 
 @media (max-width: 560px) {
