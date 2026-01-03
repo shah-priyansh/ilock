@@ -34,8 +34,17 @@ body {
 
 @media (max-width: 768px) {
   .hero-wrapper {
-    height: 250vh;
-    min-height: 250vh;
+    height: 180vh;
+    /* was 250vh */
+    min-height: 180vh;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero-wrapper {
+    height: 100vh;
+    /* was 250vh */
+    min-height: 100vh;
   }
 }
 
@@ -317,11 +326,20 @@ body {
   position: sticky;
   top: 0;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
+}
+
+@supports (height: 100svh) {
+  .sticky-container {
+    height: 100svh;
+  }
+}
+
+.background-base,
+.background-image-fade,
+.expanding-box {
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 /* Base background - blue for cards section */
@@ -443,7 +461,7 @@ body {
   border-radius: 40px;
   overflow: hidden;
   position: relative;
-  box-shadow: 0 20px 80px rgba(0,0,0,0.12);
+  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.12);
   background: transparent;
   opacity: 0;
   display: flex;
@@ -489,6 +507,12 @@ body {
   z-index: 1;
   align-self: flex-end;
   /* Lower z-index than expanding box */
+}
+
+@media (max-width: 560px) {
+  .side-card {
+    margin-top: 75px;
+  }
 }
 
 .side-card .box-inner-image {
@@ -854,6 +878,12 @@ body {
     opacity: 0;
     z-index: 10;
     /* GSAP will handle transform for centering */
+  }
+
+  @media (max-width: 560px) {
+    .expanding-box {
+      margin-top: 75px;
+    }
   }
 
   .box-inner-image {

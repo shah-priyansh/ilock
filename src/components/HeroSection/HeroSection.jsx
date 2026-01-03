@@ -59,13 +59,15 @@ const HeroSection = () => {
 
         const tl = gsap.timeline({
             scrollTrigger: {
-                trigger: container.current,
-                start: "top top",
-                end: "bottom bottom",
-                scrub: 1,
+              trigger: container.current,
+              start: "top top",
+              end: isMobile ? "+=120%" : "bottom bottom",
+              scrub: 1,
+              pin: isMobile,               // 🔥 THIS IS KEY
+              pinSpacing: true,
+              anticipatePin: 1
             }
-        });
-
+          });
         // 1. Description fade out/up
         tl.to(description.current, {
             x: -100,
@@ -78,9 +80,9 @@ const HeroSection = () => {
         // 2. The background image layer fades to blue
         tl.to(backgroundFade.current, {
             opacity: 0,
-            duration: 1.0,
+            duration: 0.8,
             ease: "power1.inOut"
-        }, 0);
+          }, isMobile ? 0.6 : 0);
 
         // 2.5. Cards section header fades in
         tl.to(cardsSectionHeader.current, {
