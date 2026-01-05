@@ -438,7 +438,6 @@ body {
   transition: opacity 0.5s ease, transform 0.5s ease;
   padding: 0 20px;
 }
-
 @media (max-width: 1024px) and (min-width: 769px) {
   .cards-section-header {
     top: 5%;
@@ -1119,7 +1118,7 @@ body {
   }
 
   .header.scrolled {
-    padding: 12px 12px;
+    padding: 20px 24px;
     min-height: 60px;
   }
 
