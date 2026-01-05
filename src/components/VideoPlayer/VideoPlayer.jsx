@@ -16,7 +16,7 @@ export default function VideoPlayer({ src, className = "img-fluid" }) {
   }, [isInView]);
 
   return (
-    <video ref={videoRef} className={className} muted loop playsInline>
+    <video ref={videoRef} className={className} autoPlay muted loop playsInline>
       <source src={src} type="video/mp4" />
     </video>
   );

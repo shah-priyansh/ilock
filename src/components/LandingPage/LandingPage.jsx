@@ -155,7 +155,7 @@ export default function LandingPage() {
 
             <div className="landing-page">
 
-                <div className={'landing-form-div py-5'}
+                <div id="valuation-form" className={'landing-form-div py-5'}
                     style={{ backgroundImage: `url('/images/landing-img.jpg')` }}
                 >
                     <div className={'container py-5'}>
@@ -634,15 +634,9 @@ export default function LandingPage() {
                                     </motion.h1>
                                 </div>
                             </motion.div>
-                            <motion.div
-                                className="col-md-12 text-center"
-                                initial="hidden"
-                                whileInView="visible"
-                                viewport={{ once: true, margin: "-100px" }}
-                                variants={scaleIn}
-                            >
+                            <div className="col-md-12 text-center">
                                 <VideoPlayer src="/images/brandscoin.mp4" className="img-fluid mx-auto" />
-                            </motion.div>
+                            </div>
                         </div>
                         <div className={'py-5'}>
                             <hr className={'border-white border-1 opacity-100'} />
@@ -1075,6 +1069,7 @@ export default function LandingPage() {
                                 className={'btn mb-3'}
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
+                                onClick={() => document.getElementById('valuation-form').scrollIntoView({ behavior: 'smooth' })}
                             >
                                 Get your free valuation now
                             </motion.button>

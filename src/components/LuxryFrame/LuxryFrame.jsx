@@ -13,7 +13,7 @@ export const LuxryFrame = () => {
                 <div className="container">
                     <div className="row align-items-center">
                         <div className="col-md-6 order-1 order-sm-1 order-md-2 mb-5 mb-sm-5 mb-md-0">
-                            <VideoPlayer src="/images/map.mp4" className="img-fluid animated wow fadeInRight" />
+                            <VideoPlayer src="/images/map.mp4" className="img-fluid" />
                         </div>
                         <div className="col-md-6 order-2 order-sm-2 order-md-1">
                             <div className="section-content animated wow fadeInLeft">
@@ -77,7 +77,7 @@ export const LuxryFrame = () => {
                 <div className="container">
                     <div className="row align-items-center">
                         <div className="col-md-6 order-1 order-sm-1 order-md-1 mb-5 mb-sm-5 mb-md-0">
-                            <VideoPlayer src="/images/coin.mp4" className="img-fluid animated wow fadeInLeft" />
+                            <VideoPlayer src="/images/coin.mp4" className="img-fluid" />
                         </div>
                         <div className="col-md-6 order-2 order-sm-2 order-md-2">
                             <div className="section-content animated wow fadeInRight">
@@ -216,7 +216,7 @@ export const LuxryFrame = () => {
 
                         </div>
                         <div className="col-md-12 text-center">
-                            <VideoPlayer src="/images/brandscoin.mp4" className="img-fluid animated wow zoomIn mx-auto" />
+                            <VideoPlayer src="/images/brandscoin.mp4" className="img-fluid mx-auto" />
                         </div>
                     </div>
                 </div>
