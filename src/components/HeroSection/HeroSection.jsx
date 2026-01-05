@@ -447,7 +447,7 @@ const HeroSection = () => {
                 description="Get instant cash for your luxury watches with iLockSecure's global dealer auction. Guaranteed highest prices, authentication, and buyback options. Rolex, Patek Philippe, AP & more."
                 keywords="sell luxury watches, luxury watch trading, sell Rolex, Patek Philippe buyers, authenticated watch dealers, watch buyback program, instant cash for watches"
                 canonical="/"
-                ogTitle="Sell Your Luxury Watches Securely for Top Dollar | iLockSecure"
+                ogTitle="Sell or Buyback Your Luxury Watches Securely for Top Value | iLockSecure"
                 ogDescription="Join thousands of watch owners who chose iLockSecure for instant cash. Global auction platform with authentication, bank-vault storage, and immediate payment. Get your valuation today."
                 ogUrl="https://ilocksecure.com/"
             />
