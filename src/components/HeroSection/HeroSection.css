@@ -25,7 +25,7 @@ body {
 .hero-wrapper {
   height: 500vh;
   /* More scroll space for the zoom effect */
-  background: #83d7f5; 
+  background: #83d7f5;
   position: relative;
   margin: 0;
   padding: 0;
@@ -69,11 +69,14 @@ body {
 }
 
 .header.scrolled {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  padding: 20px 80px;
-  min-height: 80px;
+  background: transparent;
+  box-shadow: none;
+  padding: 32px 80px;
+  min-height: 100px;
+}
+
+.header:not(.scrolled) {
+  background: transparent !important;
 }
 
 .header-content {
@@ -352,7 +355,7 @@ body {
     align-items: center;
     justify-content: center;
   }
-  
+
   @supports (height: 100svh) {
     .sticky-container {
       height: 100svh;
@@ -435,6 +438,7 @@ body {
   transition: opacity 0.5s ease, transform 0.5s ease;
   padding: 0 20px;
 }
+
 @media (max-width: 1024px) and (min-width: 769px) {
   .cards-section-header {
     top: 5%;
