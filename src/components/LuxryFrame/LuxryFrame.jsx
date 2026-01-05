@@ -1,6 +1,7 @@
 import './LuxryFrame.css';
 import { motion } from 'framer-motion';
 import Footer from '../Footer/Footer';
+import VideoPlayer from '../VideoPlayer/VideoPlayer';
 
 export const LuxryFrame = () => {
     return (
@@ -12,9 +13,7 @@ export const LuxryFrame = () => {
                 <div className="container">
                     <div className="row align-items-center">
                         <div className="col-md-6 order-1 order-sm-1 order-md-2 mb-5 mb-sm-5 mb-md-0">
-                            <video className="img-fluid animated wow fadeInRight" autoPlay muted loop playsInline>
-                                <source src="/images/map.mp4" type="video/mp4"/>
-                            </video>
+                            <VideoPlayer src="/images/map.mp4" className="img-fluid animated wow fadeInRight" />
                         </div>
                         <div className="col-md-6 order-2 order-sm-2 order-md-1">
                             <div className="section-content animated wow fadeInLeft">
@@ -78,9 +77,7 @@ export const LuxryFrame = () => {
                 <div className="container">
                     <div className="row align-items-center">
                         <div className="col-md-6 order-1 order-sm-1 order-md-1 mb-5 mb-sm-5 mb-md-0">
-                            <video className="img-fluid animated wow fadeInLeft" autoPlay muted loop playsInline>
-                                <source src="/images/coin.mp4" type="video/mp4"/>
-                            </video>
+                            <VideoPlayer src="/images/coin.mp4" className="img-fluid animated wow fadeInLeft" />
                         </div>
                         <div className="col-md-6 order-2 order-sm-2 order-md-2">
                             <div className="section-content animated wow fadeInRight">
@@ -199,7 +196,7 @@ export const LuxryFrame = () => {
                 </div>
             </section>
 
-            <section className="our-globle-section custom-padding" style={{backgroundColor: 'rgb(140, 214, 243)'}}>
+            <section className="our-globle-section custom-padding" style={{backgroundColor: 'rgb(149, 219, 247)'}}>
                 <div className="container overflow-hidden">
                     <div className="row align-items-center">
 
@@ -219,15 +216,13 @@ export const LuxryFrame = () => {
 
                         </div>
                         <div className="col-md-12 text-center">
-                            <video className="img-fluid animated wow zoomIn mx-auto" autoPlay muted loop playsInline>
-                                <source src="/images/brandscoin.mp4" type="video/mp4"/>
-                            </video>
+                            <VideoPlayer src="/images/brandscoin.mp4" className="img-fluid animated wow zoomIn mx-auto" />
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section className="join-network-section custom-padding" style={{backgroundColor: 'rgb(147, 185, 176)'}}>
+            <section className="join-network-section custom-padding" style={{backgroundColor: 'rgb(150, 187, 180)'}}>
                 <div className="container overflow-hidden">
                     <div className="row align-items-center">
                         <div
@@ -244,9 +239,7 @@ export const LuxryFrame = () => {
                                     transition={{ duration: 0.6, ease: "easeOut" }}
                                 />
                             </div>
-                            <video className="img-fluid w-100" autoPlay muted loop playsInline>
-                                <source src="/images/shield.mp4" type="video/mp4"/>
-                            </video>
+                            <VideoPlayer src="/images/shield.mp4" className="img-fluid w-100" />
                         </div>
                         <div className="col-md-6 order-2 order-sm-2 order-md-1 ">
                             <div className="section-content green-section-content animated wow fadeInLeft">
