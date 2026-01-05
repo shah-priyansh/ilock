@@ -20,7 +20,7 @@ export const LuxryFrame = () => {
                             <div className="section-content animated wow fadeInLeft">
                                 <div className="sec-tag mb-5">
                                     <motion.span
-                                        initial={{opacity: 0, y: 50, borderColor: "transparent"}}
+                                        initial={{opacity: 0, y: 50, borderColor: "white"}}
                                         whileInView={{
                                             opacity: 1,
                                             y: 0,
@@ -199,7 +199,7 @@ export const LuxryFrame = () => {
                 </div>
             </section>
 
-            <section className="our-globle-section custom-padding" style={{backgroundColor: 'rgb(149, 220, 247)'}}>
+            <section className="our-globle-section custom-padding" style={{backgroundColor: 'rgb(140, 214, 243)'}}>
                 <div className="container overflow-hidden">
                     <div className="row align-items-center">
 
@@ -227,7 +227,7 @@ export const LuxryFrame = () => {
                 </div>
             </section>
 
-            <section className="join-network-section custom-padding" style={{backgroundColor: 'rgb(157, 193, 185)'}}>
+            <section className="join-network-section custom-padding" style={{backgroundColor: 'rgb(147, 185, 176)'}}>
                 <div className="container overflow-hidden">
                     <div className="row align-items-center">
                         <div
