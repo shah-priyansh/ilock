@@ -422,14 +422,14 @@ const NewHeroSection = () => {
           ) : (
             <div className="animation-viewport">
               {/* Cards Section Title */}
-              <div className="cards-section-header cards-section-header-mobile">
+              {/* <div className="cards-section-header cards-section-header-mobile">
                 <h2 className="cards-section-title">
                   Luxury trading, reimagined
                 </h2>
                 <p className="cards-section-subtitle">
                   Speed, convenience and security like never before
                 </p>
-              </div>
+              </div> */}
               {/* Cards Section Title */}
               <div className="cards-grid">
                 <div className="cards-grid-inner viewport-swiper">
@@ -482,7 +482,7 @@ const NewHeroSection = () => {
                       </div>
                     </SwiperSlide>
 
-                    <SwiperSlide>
+                    {/* <SwiperSlide>
                       <div
                         className="expanding-box expanding-boxs"
                         style={{
@@ -510,7 +510,7 @@ const NewHeroSection = () => {
                           </div>
                         </div>
                       </div>
-                    </SwiperSlide>
+                    </SwiperSlide> */}
 
                     <SwiperSlide>
                       <div className="side-card card-right">
