@@ -453,7 +453,7 @@ const HeroSection = () => {
             />
             <StructuredData type="all" />
 
-            <div className="hero-wrapper" ref={container}>
+            <div className="hero-wrapper" ref={container}  style={{ backgroundImage: `url('/images/banner-bg.png')` }}>
                 <Header />
                 <div className="sticky-container">
                     {/* Layer 1: Base background (Solid White) */}
@@ -463,7 +463,7 @@ const HeroSection = () => {
                     <div
                         className="background-image-fade"
                         ref={backgroundFade}
-                        style={{ backgroundImage: `url('/images/hero-background.jpg')` }}
+                        style={{ backgroundImage: `url('/images/girl-banner.png')` }}
                     ></div>
 
                     <div className="description-text" ref={description}>
@@ -507,7 +507,7 @@ const HeroSection = () => {
                             <div className="side-card card-left" ref={leftCard}>
                                 <img
                                     className="box-inner-image"
-                                    src="/images/cash.webp"
+                                    src="/images/cash.png"
                                     alt="Image 1"
                                 />
                                 <div className="ui-overlay ui-bottom">
@@ -522,7 +522,7 @@ const HeroSection = () => {
                             <div className="expanding-box" ref={expandingBox}>
                                 <img
                                     className="box-inner-image"
-                                    src="/images/hero-background.jpg"
+                                    src="/images/girl-banner.png"
                                     alt="Hero"
                                     ref={innerImage}
                                 />
@@ -538,7 +538,7 @@ const HeroSection = () => {
                             <div className="side-card card-right" ref={rightCard}>
                                 <img
                                     className="box-inner-image"
-                                    src="/images/track-value.webp"
+                                    src="/images/track-value.png"
                                     alt="Image 1"
                                 />
                                 <div className="ui-overlay ui-bottom">

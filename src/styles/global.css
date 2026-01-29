@@ -420,12 +420,12 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .swiper-wrapper {
-    display: flex;
+    /* display: flex;
     align-items: center;
     justify-content: center;
     gap: 6px;
     width: 100%;
-    height: 100%;
+    height: 100%; */
 }
 
 .card {
@@ -884,11 +884,11 @@ h1,h2,h3,h4,h5,h6 {
     }
 
     .swiper-wrapper {
-        display: flex;
+        /* display: flex;
         width: 100%;
         height: 100%;
         gap: 0;
-        align-items: stretch;
+        align-items: stretch; */
     }
 
     .card {
@@ -953,9 +953,9 @@ h1,h2,h3,h4,h5,h6 {
     }
 
     .swiper-slide {
-        width: 90% !important;
-        flex-shrink: 0;
-        padding: 0 10px;
+        /* width: 90% !important; */
+        /* flex-shrink: 0;
+        padding: 0 10px; */
     }
 
     .cards-section-text {
@@ -1025,7 +1025,7 @@ h1,h2,h3,h4,h5,h6 {
     }
 
     .swiper-wrapper {
-        gap: 8px;
+        /* gap: 8px; */
     }
 }
 
@@ -1104,7 +1104,7 @@ h1,h2,h3,h4,h5,h6 {
     }
 
     .swiper-wrapper {
-        gap: 6px;
+        /* gap: 6px; */
     }
 
     .card {
@@ -1203,8 +1203,8 @@ h1,h2,h3,h4,h5,h6 {
     }
 
     .swiper-slide {
-        width: 92% !important;
-        padding: 0 8px;
+        /* width: 92% !important; */
+        /* padding: 0 8px; */
     }
 }
 
@@ -1216,7 +1216,7 @@ h1,h2,h3,h4,h5,h6 {
     }
 
     .swiper-wrapper {
-        gap: 8px;
+        /* gap: 8px; */
     }
 
     .card {
@@ -1295,8 +1295,8 @@ h1,h2,h3,h4,h5,h6 {
     }
 
     .swiper-slide {
-        width: 95% !important;
-        padding: 0 5px;
+        /* width: 95% !important; */
+        /* padding: 0 5px; */
     }
 }
 

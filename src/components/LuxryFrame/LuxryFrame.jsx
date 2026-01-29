@@ -5,7 +5,7 @@ import VideoPlayer from '../VideoPlayer/VideoPlayer';
 
 export const LuxryFrame = () => {
     return (
-        <div>
+        <div className="luxry-frame">
 
 
 
@@ -134,7 +134,7 @@ export const LuxryFrame = () => {
                 <div className="container-fluid px-0 overflow-hidden">
                     <div className="row align-items-center">
                         <div className="col-md-6 order-1 order-sm-1 order-md-2 mb-5 mb-sm-5 mb-md-0">
-                            <img src="/images/img3.jpg" className="img-fluid w-100 animated wow fadeInRight" alt="Secure Storage"/>
+                            <img src="/images/img3.png" className="img-fluid w-100 animated wow fadeInRight" alt="Secure Storage"/>
                         </div>
                         <div className="col-md-6 order-2 order-sm-2 order-md-1">
                             <div className="section-content left-custom-padding animated wow fadeInLeft">
