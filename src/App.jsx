@@ -1,10 +1,11 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import LandingPage from './components/LandingPage/LandingPage';
 import About from './pages/About';
 import ContactUs from './pages/ContactUs';
 import HeroSection from './components/HeroSection/HeroSection';
 import NewHeroSection from './components/HeroSection/NewHeroSection';
 import { trackPageView } from './utils/analytics';
+import { useEffect } from 'react';
 
 function PageTracker() {
   const location = useLocation();

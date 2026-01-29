@@ -12,6 +12,8 @@ import "swiper/css";
 import { Pagination } from "swiper/modules";
 import "swiper/css/pagination";
 import "./NewHeroSection.css";
+import { useNavigate } from "react-router-dom";
+import { trackEvent } from "../../utils/analytics";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -27,6 +29,7 @@ const NewHeroSection = () => {
   const whiteBgRef = useRef();
   const outerGirl = useRef();
   const threeCard = useRef();
+  const navigate = useNavigate();
   // const fourCard = useRef();
 
   const useMediaQuery = (query) => {
@@ -256,14 +259,14 @@ const NewHeroSection = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
                 >
-                  End-to-end Global Trading of Luxury Watches with guaranteed
-                  protection
+                Priced globally; traded locally...no shipping hassles or payment delays
                 </motion.p>
                 <motion.button
                   className="cta-button"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
+                  onClick={() => {trackEvent("click", "learn_more", "new_hero_section"); navigate("/about")}}
                 >
                   Learn More
                 </motion.button>

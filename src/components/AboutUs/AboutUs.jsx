@@ -149,16 +149,13 @@ export default function AboutUs() {
                                     viewport={{once: true}}
                                 >
                                     <motion.p variants={fadeInUp}>
-                                        The luxury watch market has long been plagued by slow transactions, opaque
-                                        pricing, and unnecessary risk. Traditional dealers take weeks to process sales,
-                                        leaving
-                                        sellers vulnerable and uncertain.
+                                    The luxury watch market has long been plagued by slow transactions, opaque pricing, and high risk with authentication, ownership and settlement.
                                     </motion.p>
                                     <motion.p variants={fadeInUp}>
-                                        iLock was founded to solve these problems through technology and trust.
-                                        We've built a platform that combines instant liquidity with bank-grade security,
-                                        giving
-                                        collectors the confidence to trade their most valuable assets.
+                                    Traditional dealers take weeks to assess quality and process sales, leaving sellers vulnerable and uncertain.
+                                    </motion.p>
+                                    <motion.p variants={fadeInUp}>
+                                    iLockSecure was created to solve these problems through technology and trust. We've built a platform that combines instant liquidity with bank-grade security, giving both buyers and sellers the confidence to trade their most valuable assets safely and securely.
                                     </motion.p>
                                     <motion.p
                                         style={{color: '#9CC2B8', fontSize: 'clamp(1.25rem, 2vw, 1.5rem)'}}

@@ -290,10 +290,10 @@
     }
 }
 
-.hero-sub-text,
+/* .hero-sub-text,
 .hero-main-text {
     color: #ffffff;
-}
+} */
 
 @media (max-width:1023px) {
     .sticky-container {
