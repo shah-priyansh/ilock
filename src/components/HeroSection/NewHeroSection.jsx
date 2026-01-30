@@ -12,8 +12,6 @@ import "swiper/css";
 import { Pagination } from "swiper/modules";
 import "swiper/css/pagination";
 import "./NewHeroSection.css";
-import { useNavigate } from "react-router-dom";
-import { trackEvent } from "../../utils/analytics";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -29,7 +27,6 @@ const NewHeroSection = () => {
   const whiteBgRef = useRef();
   const outerGirl = useRef();
   const threeCard = useRef();
-  const navigate = useNavigate();
   // const fourCard = useRef();
 
   const useMediaQuery = (query) => {
@@ -114,24 +111,6 @@ const NewHeroSection = () => {
               },
               "<",
             )
-            // .to(
-            //   threeCard.current,
-            //   {
-            //     opacity: 1,
-            //     "--website-hero-carousel-left-translate": "95%",
-            //     ease: "power1.inOut",
-            //   },
-            //   "<",
-            // )
-            // .to(
-            //   fourCard.current,
-            //   {
-            //     opacity: 1,
-            //     "--website-hero-carousel-left-translate": "95%",
-            //     ease: "power1.inOut",
-            //   },
-            //   "<",
-            // )
             .to(
               cardsSectionHeader.current,
               {
