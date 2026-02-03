@@ -348,6 +348,7 @@ const HeroSection = () => {
                 duration: 0.8,
                 ease: "power2.out"
             }, 1.5);
+            
 
             // Phase 3: Card 5 enters - shift grid more
             tl.to(card5.current, {
