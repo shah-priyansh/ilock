@@ -190,6 +190,17 @@ const NewHeroSection = () => {
       return () => ctx.revert();
     });
   });
+  const desktopAnimation = {
+    initial: { opacity: 0, y: 50 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6, ease: "easeOut" }
+  };
+
+  const mobileAnimation = {
+    initial: { opacity: 0, filter: "blur(10px)", scale: 0.95 },
+    animate: { opacity: 1, filter: "blur(0px)", scale: 1 },
+    transition: { duration: 1, ease: [0.16, 1, 0.3, 1] }
+  };
 
   return (
     <>
@@ -225,9 +236,10 @@ const NewHeroSection = () => {
               <div className="description-text-inner">
                 <motion.h1
                   className="hero-main-text"
-                  initial={{ opacity: 0, y: 50 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  key={isMobile ? "mobile" : "desktop"} // Forces a re-render when switching modes
+                  initial={isMobile ? { opacity: 0, filter: "blur(4px)" } : { opacity: 0, y: 50 }}
+                  animate={isMobile ? { opacity: 1, filter: "blur(0px)" } : { opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8 }}
                 >
                   A smarter way to {" "}
                   <span className="highlight-text">
@@ -238,26 +250,34 @@ const NewHeroSection = () => {
                 <motion.p
                   className="hero-sub-text"
                   initial={{ opacity: 0, y: 50 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  animate={!isMobile ? { opacity: 1, y: 0 } : undefined}
+                  whileInView={isMobile ? { opacity: 1, y: 0 } : undefined}
+                  viewport={isMobile ? { once: true, margin: "-80px" } : undefined}
                   transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
                 >
-                Priced globally; traded locally...no shipping hassles or payment delays
+                  Priced globally; traded locally...no shipping hassles or payment delays
                 </motion.p>
                 <motion.button
                   className="cta-button"
                   initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
+                  animate={!isMobile ? { opacity: 1 } : undefined}
+                  whileInView={isMobile ? { opacity: 1 } : undefined}
+                  viewport={isMobile ? { once: true, margin: "0px" } : undefined}
                   transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
-                  onClick={() => {trackEvent("click", "learn_more", "new_hero_section"); navigate("/contact")}}
+                  onClick={() => { trackEvent("click", "learn_more", "new_hero_section"); navigate("/contact") }}
                 >
                   Learn More
                 </motion.button>
               </div>
             </div>
             {/* Card 2 - Girl (expanding box mobile) - CENTERED */}
-            <div
+            <motion.div
               className="expanding-box expanding-boxs expanding-box-mobile"
               style={{ backgroundImage: `url('/images/imgi_13_banner-bg.png')` }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
             >
               <div className="expanding-box-in">
                 <div className="expanding-box-img">
@@ -278,17 +298,21 @@ const NewHeroSection = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
             {/* Card 2 - Girl (expanding box mobile) - CENTERED */}
           </div>
 
           {/* Cards Section Title */}
-          <div className="cards-section-header" ref={cardsSectionHeader}>
-            <h2 className="cards-section-title">Luxury trading, reimagined</h2>
-            <p className="cards-section-subtitle">
-              Speed, convenience and security like never before
-            </p>
-          </div>
+          {isMobile ? (
+            <></>
+          ) : (
+            <div className="cards-section-header" ref={cardsSectionHeader}>
+              <h2 className="cards-section-title">Luxury trading, reimagined</h2>
+              <p className="cards-section-subtitle">
+                Speed, convenience and security like never before
+              </p>
+            </div>
+          )}
 
           {!isMobile ? (
             <div className="animation-viewport">
@@ -402,17 +426,13 @@ const NewHeroSection = () => {
               </div>
             </div>
           ) : (
-            <div className="animation-viewport">
-              {/* Cards Section Title */}
-              {/* <div className="cards-section-header cards-section-header-mobile">
-                <h2 className="cards-section-title">
-                  Luxury trading, reimagined
-                </h2>
-                <p className="cards-section-subtitle">
-                  Speed, convenience and security like never before
-                </p>
-              </div> */}
-              {/* Cards Section Title */}
+            <motion.div
+              className="animation-viewport"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
               <div className="cards-grid">
                 <div className="cards-grid-inner viewport-swiper">
                   <Swiper
@@ -539,7 +559,7 @@ const NewHeroSection = () => {
                   </Swiper>
                 </div>
               </div>
-            </div>
+            </motion.div>
           )}
         </div>
       </div>
