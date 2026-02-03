@@ -114,24 +114,6 @@ const NewHeroSection = () => {
               },
               "<",
             )
-            // .to(
-            //   threeCard.current,
-            //   {
-            //     opacity: 1,
-            //     "--website-hero-carousel-left-translate": "95%",
-            //     ease: "power1.inOut",
-            //   },
-            //   "<",
-            // )
-            // .to(
-            //   fourCard.current,
-            //   {
-            //     opacity: 1,
-            //     "--website-hero-carousel-left-translate": "95%",
-            //     ease: "power1.inOut",
-            //   },
-            //   "<",
-            // )
             .to(
               cardsSectionHeader.current,
               {
@@ -266,7 +248,7 @@ const NewHeroSection = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
-                  onClick={() => {trackEvent("click", "learn_more", "new_hero_section"); navigate("/about")}}
+                  onClick={() => {trackEvent("click", "learn_more", "new_hero_section"); navigate("/contact")}}
                 >
                   Learn More
                 </motion.button>

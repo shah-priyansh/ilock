@@ -78,7 +78,7 @@
         position: absolute;
         bottom: 0px;
         left: 50%;
-        transform-origin: 50% 70%;
+        transform-origin: 50% 40%;
         pointer-events: none;
         display: block;
         min-height: 370px;
@@ -123,12 +123,10 @@
         z-index: 21;
         max-width: 1600px;
         margin: 0 auto;
-        padding: 6rem 48px 0;
+        padding: 3rem 18px 0;
     }
 
     .description-text-inner {
-        margin-top: 130px;
-        margin-left: -80px;
         display: flex;
         flex-direction: column;
         gap: 21px;
@@ -270,7 +268,7 @@
         position: absolute;
         bottom: 0px;
         left: 50%;
-        transform-origin: 50% 70%;
+        transform-origin: 50% 40%;
         pointer-events: none;
         display: block;
         color: transparent;
@@ -287,6 +285,33 @@
     .expanding-box.expanding-boxs.expanding-box-mobile,
     .cards-section-header.cards-section-header-mobile {
         display: none;
+    }
+}
+
+
+
+@media (min-width: 1440px) {
+    .description-text {
+        padding: 10rem 18px 0;
+    }
+
+    .description-text-inner {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1439px) {
+    .hero-main-text {
+        font-size: 2rem;
+    }
+
+    .description-text {
+        padding: 6rem 18px 0;
+    }
+
+    .description-text-inner {
+        gap: 16px;
+        max-width: 550px;
     }
 }
 
@@ -367,8 +392,21 @@
         height: auto;
     }
 
-    .expanding-box.expanding-boxs.expanding-box-mobile {
+    .background-image-fades .expanding-box.expanding-boxs.expanding-box-mobile {
+        width: 400px;
+        min-width: 400px;
+        max-width: 400px;
+    }
+
+    .viewport-swiper .expanding-box.expanding-boxs.expanding-box-mobile {
         width: 100%;
+    }
+
+    .expanding-box .box-inner-image {
+        left: -124px;
+        top: 0;
+        width: 589px;
+        height: 690px;
     }
 
     .hero-main-text {
@@ -496,6 +534,12 @@
     .side-card.card-left, .side-card.card-right {
         height: 440px;
         min-height: 440px;
+    }
+
+    .background-image-fades .expanding-box.expanding-boxs.expanding-box-mobile {
+        width: 288px;
+        min-width: 288px;
+        max-width: 288px;
     }
 }
 

@@ -141,9 +141,9 @@ h1,h2,h3,h4,h5,h6 {
     background-repeat: no-repeat;
 }
 
-/* HEADER/NAVIGATION - scoped to luxry-frame so main site header stays fixed */
-.luxry-frame .header {
-    position: absolute;
+/* HEADER/NAVIGATION */
+.header {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -154,7 +154,7 @@ h1,h2,h3,h4,h5,h6 {
     /*justify-content: space-between;*/
     /*align-items: flex-start;*/
 }
-.luxry-frame .header .navbar-nav .nav-item .nav-link {
+.header .navbar-nav .nav-item .nav-link {
     font-weight: 700;
     font-size: 24px;
     line-height: 100%;
@@ -164,7 +164,7 @@ h1,h2,h3,h4,h5,h6 {
     border-radius: 5px;
     margin: 0 10px;
 }
-.luxry-frame .header .navbar-nav .nav-item .nav-link:hover, .luxry-frame .header .navbar-nav .nav-item .nav-link.active {
+.header .navbar-nav .nav-item .nav-link:hover, .header .navbar-nav .nav-item .nav-link.active {
     background-color: var(--primary);
     color: #ffffff;
 }
@@ -869,7 +869,7 @@ h1,h2,h3,h4,h5,h6 {
         width: 100%;
     }
 
-    .luxry-frame .header {
+    .header {
         padding: 20px 24px;
     }
 
@@ -1072,7 +1072,7 @@ h1,h2,h3,h4,h5,h6 {
     .hero-text .btn-download {
         font-size: 20px;
     }
-    .luxry-frame .header .navbar-nav .nav-item .nav-link {
+    .header .navbar-nav .nav-item .nav-link {
         font-size: 20px;
     }
     .cards-section-text h2 {
@@ -1143,7 +1143,7 @@ h1,h2,h3,h4,h5,h6 {
     .hero-text .btn-download {
         font-size: 18px;
     }
-    .luxry-frame .header .navbar-brand img {
+    .header .navbar-brand img {
         max-width: 120px;
     }
     .navbar-toggler {
@@ -1151,7 +1151,7 @@ h1,h2,h3,h4,h5,h6 {
         width: 50px;
         height: 50px;
     }
-    .luxry-frame .header .navbar-nav .nav-item .nav-link {
+    .header .navbar-nav .nav-item .nav-link {
         font-size: 18px;
     }
     .cards-section-text h2 {
@@ -1224,12 +1224,12 @@ h1,h2,h3,h4,h5,h6 {
         font-size: 14px;
         padding: 10px 30px;
     }
-    .luxry-frame .header .navbar-collapse {
+    .header .navbar-collapse {
         background-color: #000000;
         padding: 15px 20px;
         border-radius: 10px;
     }
-    .luxry-frame .header .navbar-nav .nav-item .nav-link {
+    .header .navbar-nav .nav-item .nav-link {
         font-size: 14px;
     }
     .cards-section-text h2 {
