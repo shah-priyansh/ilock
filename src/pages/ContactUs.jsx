@@ -104,7 +104,10 @@ export default function ContactUs() {
                 body: JSON.stringify(formData)
             });
 
-            const data = await response.json();
+            const data = await response.json().catch(() => ({
+                success: false,
+                message: 'Invalid response from server. Please try again.'
+            }));
 
             if (data.success) {
                 setMessage({ type: 'success', text: data.message });
