@@ -11,22 +11,22 @@ import { trackEvent } from "../../utils/analytics";
 /* Card order and copy per Figma: Get Highest Market Price, Get Immediate Cash, Buy your watch back, Bank-Vault Storage */
 const featureCards = [
   {
-    image: "/images/Rectangle 31.png",
-    title: "Get Highest Market Price",
-    subtitle: "Through our global dealer network",
-  },
-  {
-    image: "/images/Rectangle-29.jpg",
+    image: "/images/1.png",
     title: "Get Immediate Cash",
     subtitle: "Cash or Bank Transfer",
   },
   {
-    image: "/images/imgi_3_girl-banner.png",
+    image: "/images/2.png",
+    title: "Get Highest Market Price",
+    subtitle: "Through our global dealer network",
+  },
+  {
+    image: "/images/3.png",
     title: "Buy your watch back",
     subtitle: "Lock in a future buy-back price at low rates",
   },
   {
-    image: "/images/img3.png",
+    image: "/images/4.png",
     title: "Bank-Vault Storage",
     subtitle: "Secured, Insured & Tamper Proof",
   },
@@ -70,28 +70,34 @@ const NewHeroSection = () => {
         <Header />
         <div className="hero-video-bg">
           <iframe
-            src="https://www.youtube.com/embed/0M8OMMbyBD0?autoplay=1&mute=1&loop=1&playlist=0M8OMMbyBD0&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
-            title="iLock Secure"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
+              src="https://www.youtube.com/embed/0M8OMMbyBD0?autoplay=1&mute=1&loop=1&playlist=0M8OMMbyBD0&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
+              title="iLock Secure"
+              frameBorder="0"
+              allow="autoplay; encrypted-media"
+              allowFullScreen
           ></iframe>
+          {/*<iframe
+                src="https://www.youtube.com/embed/0M8OMMbyBD0?autoplay=1&mute=1&loop=1&playlist=0M8OMMbyBD0&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
+                title="iLock Secure"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+            ></iframe>*/}
           <div className="hero-video-overlay"></div>
         </div>
 
         <div className="hero-text-overlay">
           <motion.div
-            className="hero-text-content"
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+              className="hero-text-content"
+              initial={{opacity: 0, y: 40}}
+              animate={{opacity: 1, y: 0}}
+              transition={{duration: 0.8}}
           >
             <h1 className="hero-main-text">
-              <span className="hero-text-italic">Sell your watch </span>
-              <span className="hero-text-regular">today</span>
+              <b>Sell your watch </b> today
               <br />
-              <span className="hero-text-italic">Buy it back </span>
-              <span className="hero-text-regular">tomorrow</span>
+              <b>Buy it back</b>  tomorrow
+
               <br />
               <span className="hero-text-large">Live Better</span>
             </h1>
@@ -122,8 +128,8 @@ const NewHeroSection = () => {
             transition={{ duration: 0.6 }}
           >
             <h2 className="features-title">
-              What if selling your watch{" "}
-              <strong>didn't have to be permanent?</strong>
+              What if selling your watch
+              <strong>didn't have to be permanent? </strong>
             </h2>
             <p className="features-subtitle">
               Speed, convenience and security like never before

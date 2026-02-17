@@ -1,10 +1,10 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useGSAP } from '@gsap/react';
-import { motion } from 'framer-motion';
+import React, {useRef, useEffect, useState} from 'react';
+import {gsap} from 'gsap';
+import {ScrollTrigger} from 'gsap/ScrollTrigger';
+import {useGSAP} from '@gsap/react';
+import {motion} from 'framer-motion';
 import './HeroSection.css';
-import { LuxryFrame } from '../LuxryFrame/LuxryFrame';
+import {LuxryFrame} from '../LuxryFrame/LuxryFrame';
 import Header from '../Header/Header';
 import SEO from '../SEO/SEO';
 import StructuredData from '../SEO/StructuredData';
@@ -55,7 +55,7 @@ const HeroSection = () => {
     // Set initial zoomed-in state for desktop
     useEffect(() => {
         if (innerImage.current) {
-            gsap.set(innerImage.current, { scale: 1.5 });
+            gsap.set(innerImage.current, {scale: 1.5});
         }
     }, []);
 
@@ -63,33 +63,33 @@ const HeroSection = () => {
     useGSAP(() => {
         const isMobile = device === "mobile";
         const isTablet = device === "tablet";
-        const isSmallLaptop = !isDesktop && !isMobile && !isTablet; 
+        const isSmallLaptop = !isDesktop && !isMobile && !isTablet;
         const getEnd = () => {
             if (isDesktop) return "bottom bottom";
-          
+
             // mobile + tablet + small laptop
             return "+=" + Math.max(window.innerHeight * 1.4, 700);
-          };
+        };
         const getScrub = () => {
             if (isDesktop) return 1;
             if (isTablet) return 2.5;
             if (isSmallLaptop) return 6.5;
             return 3; // mobile + small laptop
-          };
+        };
         const tl = gsap.timeline({
             scrollTrigger: {
-              trigger: container.current,
-              start: "top top",
-              end: getEnd(),
-              scrub: getScrub(),
-              pin: !isDesktop,
-              pinSpacing: true,
-              anticipatePin: 1
+                trigger: container.current,
+                start: "top top",
+                end: getEnd(),
+                scrub: getScrub(),
+                pin: !isDesktop,
+                pinSpacing: true,
+                anticipatePin: 1
             }
-          });
+        });
         if (!isDesktop) {
             tl.timeScale(0.85); // subtle, safe
-          }
+        }
         // 1. Description fade out/up
         tl.to(description.current, {
             x: -100,
@@ -116,15 +116,15 @@ const HeroSection = () => {
 
         // 3. The "Box" fades in and shrinks down from full-screen to card size
         tl.fromTo(expandingBox.current,
-            { opacity: 0 },
-            { opacity: 1, duration: 0.3, ease: "power1.in" }, // Reduced from 0.5 to 0.3
+            {opacity: 0},
+            {opacity: 1, duration: 0.3, ease: "power1.in"}, // Reduced from 0.5 to 0.3
             0
         );
 
         // Box shrinking animation - different sizes for mobile vs tablet vs desktop
         if (isMobile) {
             // Set centering for expanding-box on mobile (same as side cards)
-            gsap.set(expandingBox.current, { xPercent: -50, yPercent: -50 });
+            gsap.set(expandingBox.current, {xPercent: -50, yPercent: -50});
 
             tl.fromTo(expandingBox.current,
                 {
@@ -175,16 +175,16 @@ const HeroSection = () => {
 
         // 4. The image inside the box ZOOMS OUT
         tl.fromTo(innerImage.current,
-            { scale: 1.09 }, // Start 5% bigger
-            { scale: 0.9, duration: 1.4, ease: "expo.inOut" }, // Scaled down by 10%
+            {scale: 1.09}, // Start 5% bigger
+            {scale: 0.9, duration: 1.4, ease: "expo.inOut"}, // Scaled down by 10%
             0);
 
         // 5. Side cards slide in (desktop) or slide from right (mobile/tablet)
         if (isMobile) {
             // Mobile: Slide in from right like a carousel - wait for main animation
             // Set centering for positioning
-            gsap.set(leftCard.current, { xPercent: -50, yPercent: -50 });
-            gsap.set(rightCard.current, { xPercent: -50, yPercent: -50 });
+            gsap.set(leftCard.current, {xPercent: -50, yPercent: -50});
+            gsap.set(rightCard.current, {xPercent: -50, yPercent: -50});
 
             // Animate with explicit dimensions to match expanding-box
             tl.fromTo(leftCard.current,
@@ -228,8 +228,8 @@ const HeroSection = () => {
                 }, 2.0);
 
             // Mobile: Cards 4, 5 slide in from right
-            gsap.set(card4.current, { xPercent: -50, yPercent: -50 });
-            gsap.set(card5.current, { xPercent: -50, yPercent: -50 });
+            gsap.set(card4.current, {xPercent: -50, yPercent: -50});
+            gsap.set(card5.current, {xPercent: -50, yPercent: -50});
 
             tl.fromTo(card4.current,
                 {
@@ -348,7 +348,7 @@ const HeroSection = () => {
                 duration: 0.8,
                 ease: "power2.out"
             }, 1.5);
-            
+
 
             // Phase 3: Card 5 enters - shift grid more
             tl.to(card5.current, {
@@ -439,7 +439,7 @@ const HeroSection = () => {
         }
 
 
-    }, { scope: container, dependencies: [isDesktop] });
+    }, {scope: container, dependencies: [isDesktop]});
 
     return (
         <>
@@ -452,10 +452,10 @@ const HeroSection = () => {
                 ogDescription="Join thousands of watch owners who chose iLockSecure for instant cash. Global auction platform with authentication, bank-vault storage, and immediate payment. Get your valuation today."
                 ogUrl="https://ilocksecure.com/"
             />
-            <StructuredData type="all" />
+            <StructuredData type="all"/>
 
-            <div className="hero-wrapper" ref={container}  style={{ backgroundImage: `url('/images/banner-bg.png')` }}>
-                <Header />
+            <div className="hero-wrapper" ref={container} style={{backgroundImage: `url('/images/banner-bg.png')`}}>
+                <Header/>
                 <div className="sticky-container">
                     {/* Layer 1: Base background (Solid White) */}
                     <div className="background-base"></div>
@@ -464,15 +464,15 @@ const HeroSection = () => {
                     <div
                         className="background-image-fade"
                         ref={backgroundFade}
-                        style={{ backgroundImage: `url('/images/girl-banner.png')` }}
+                        style={{backgroundImage: `url('/images/girl-banner.png')`}}
                     ></div>
 
                     <div className="description-text" ref={description}>
                         <motion.h1
                             className="hero-main-text"
-                            initial={{ opacity: 0, y: 50 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, ease: "easeOut" }}
+                            initial={{opacity: 0, y: 50}}
+                            animate={{opacity: 1, y: 0}}
+                            transition={{duration: 0.6, ease: "easeOut"}}
                         >
                             A safer, smarter way to{' '}
                             <span className="highlight-text">sell your watch for immediate cash</span>
@@ -480,17 +480,17 @@ const HeroSection = () => {
                         </motion.h1>
                         <motion.p
                             className="hero-sub-text"
-                            initial={{ opacity: 0, y: 50 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+                            initial={{opacity: 0, y: 50}}
+                            animate={{opacity: 1, y: 0}}
+                            transition={{duration: 0.6, ease: "easeOut", delay: 0.2}}
                         >
                             End-to-end Global Trading of Luxury Watches with guaranteed protection
                         </motion.p>
                         <motion.button
                             className="cta-button"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
+                            initial={{opacity: 0}}
+                            animate={{opacity: 1}}
+                            transition={{duration: 0.6, ease: "easeOut", delay: 0.3}}
                         >
                             Learn More
                         </motion.button>
@@ -530,7 +530,9 @@ const HeroSection = () => {
                                 <div className="ui-overlay ui-bottom">
                                     <div className="card-notification">
                                         <div className="card-notification-title">Get The Highest Prices</div>
-                                        <div className="card-notification-subtitle">Through our global dealer auction platform</div>
+                                        <div className="card-notification-subtitle">Through our global dealer auction
+                                            platform
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -544,8 +546,12 @@ const HeroSection = () => {
                                 />
                                 <div className="ui-overlay ui-bottom">
                                     <div className="card-notification">
-                                        <div className="card-notification-title">Track value of your collection in real-time</div>
-                                        <div className="card-notification-subtitle">With our free Watch Collector's App</div>
+                                        <div className="card-notification-title">Track value of your collection in
+                                            real-time
+                                        </div>
+                                        <div className="card-notification-subtitle">With our free Watch Collector's
+                                            App
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -560,7 +566,9 @@ const HeroSection = () => {
                                 <div className="ui-overlay ui-bottom">
                                     <div className="card-notification">
                                         <div className="card-notification-title">Authenticate before you Buy</div>
-                                        <div className="card-notification-subtitle">Through our network of certified Watch Makers</div>
+                                        <div className="card-notification-subtitle">Through our network of certified
+                                            Watch Makers
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -585,7 +593,7 @@ const HeroSection = () => {
                 </div>
 
             </div>
-            <LuxryFrame />
+            <LuxryFrame/>
         </>
     );
 };
