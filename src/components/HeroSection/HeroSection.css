@@ -191,6 +191,7 @@ body {
 .nav-link {
   color: #ffffff;
   text-decoration: none;
+  font-family: 'Poppins', sans-serif;
   font-size: 1rem;
   font-weight: 600;
   padding: 8px 12px;
@@ -211,6 +212,51 @@ body {
   border-radius: 9999px;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(107, 200, 172, 0.3);
+}
+
+/* Header CTA button (Figma: Get Quote Today) */
+.header-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #6BC8AC;
+  color: #fff !important;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 18px 36px;
+  border-radius: 30px;
+  transition: background 0.3s ease, transform 0.2s ease;
+  white-space: nowrap;
+}
+
+.header-cta:hover {
+  background: #5ab89a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(107, 200, 172, 0.3);
+}
+
+.header.scrolled .header-cta {
+  color: #fff !important;
+}
+
+.mobile-header-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #6BC8AC;
+  color: #fff !important;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 16px 24px;
+  border-radius: 30px;
+  margin-top: 12px;
+  transition: background 0.3s ease;
+}
+
+.mobile-header-cta:hover {
+  background: #5ab89a;
 }
 
 /* Mobile Menu Button */

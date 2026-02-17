@@ -62,10 +62,11 @@ const Header = ({ logo }) => {
                 {/* Desktop Navigation Menu */}
                 <nav className="nav-menu">
                     <Link to="/" className="nav-link">Home</Link>
-                    {/* <a href="#" className="nav-link">Services</a> */}
+                    <a href="#" className="nav-link">Services</a>
                     <Link to="/about" className="nav-link">About Us</Link>
                     <Link to="/contact" className="nav-link">Contact & Support</Link>
                     <a href="#" className="nav-link">Download App</a>
+                    <Link to="/contact" className="header-cta">Get Quote Today</Link>
                 </nav>
 
                 {/* Mobile Menu Button */}
@@ -94,13 +95,14 @@ const Header = ({ logo }) => {
             >
                 <div className="mobile-menu-content">
                     <Link to="/" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
-                    {/* <a href="#" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>Services</a> */}
+                    <a href="#" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>Services</a>
                     <Link to="/about" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>About Us</Link>
                     <div className="mobile-menu-logo">
                         <Logo />
                     </div>
                     <Link to="/contact" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>Contact & Support</Link>
                     <a href="#" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>Download App</a>
+                    <Link to="/contact" className="mobile-header-cta" onClick={() => setIsMobileMenuOpen(false)}>Get Quote Today</Link>
                 </div>
             </nav>
         </header>
