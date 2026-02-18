@@ -1,36 +1,39 @@
-import React, { useRef, useEffect, useState } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
+import React from "react";
 import { motion } from "framer-motion";
 import { LuxryFrame } from "../LuxryFrame/LuxryFrame";
 import Header from "../Header/Header";
 import SEO from "../SEO/SEO";
 import StructuredData from "../SEO/StructuredData";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import { Pagination } from "swiper/modules";
-import "swiper/css/pagination";
 import "./NewHeroSection.css";
 import { useNavigate } from "react-router-dom";
 import { trackEvent } from "../../utils/analytics";
 
-gsap.registerPlugin(ScrollTrigger);
+/* Card order and copy per Figma: Get Highest Market Price, Get Immediate Cash, Buy your watch back, Bank-Vault Storage */
+const featureCards = [
+  {
+    image: "/images/1.png",
+    title: "Get Immediate Cash",
+    subtitle: "Cash or Bank Transfer",
+  },
+  {
+    image: "/images/2.png",
+    title: "Get Highest Market Price",
+    subtitle: "Through our global dealer network",
+  },
+  {
+    image: "/images/3.png",
+    title: "Buy your watch back",
+    subtitle: "Lock in a future buy-back price at low rates",
+  },
+  {
+    image: "/images/4.png",
+    title: "Bank-Vault Storage",
+    subtitle: "Secured, Insured & Tamper Proof",
+  },
+];
 
 const NewHeroSection = () => {
-  const container = useRef();
-  const innerImage = useRef();
-  const leftCard = useRef();
-  const rightCard = useRef();
-  const cardsGrid = useRef();
-  const description = useRef();
-  const cardsSectionHeader = useRef();
-  const girlCard = useRef();
-  const whiteBgRef = useRef();
-  const outerGirl = useRef();
-  const threeCard = useRef();
   const navigate = useNavigate();
-  // const fourCard = useRef();
 
   const useMediaQuery = (query) => {
     const [matches, setMatches] = React.useState(false);
@@ -47,160 +50,7 @@ const NewHeroSection = () => {
 
     return matches;
   };
-  const isMobile = useMediaQuery("(max-width: 1023px)");
-
-  useEffect(() => {
-    const matchMediaScreen = gsap.matchMedia();
-
-    matchMediaScreen.add(
-      "(min-width: 1024px)",
-      () => {
-        const ctx = gsap.context(() => {
-          gsap
-            .timeline({
-              scrollTrigger: {
-                trigger: container.current,
-                start: "top+=50 top",
-                end: "top+=50 top",
-                scrub: 2,
-              },
-            })
-            .to(whiteBgRef.current, {
-              bottom: 0,
-              borderRadius: 0,
-              width: "100vw",
-              height: "100vh",
-              ease: "power1.inOut",
-            })
-            .to(
-              cardsGrid.current,
-              {
-                scale: 0.6,
-                ease: "power1.inOut",
-              },
-              "<",
-            )
-            .to(
-              innerImage.current,
-              {
-                scale: 1.3,
-                ease: "power1.inOut",
-              },
-              "<",
-            )
-            .to(
-              outerGirl.current,
-              {
-                scale: 1.3,
-                ease: "power1.inOut",
-              },
-              "<",
-            )
-            .to(
-              leftCard.current,
-              {
-                opacity: 1,
-                "--website-hero-carousel-left-translate": "-95%",
-                ease: "power1.inOut",
-              },
-              "<",
-            )
-            .to(
-              rightCard.current,
-              {
-                opacity: 1,
-                "--website-hero-carousel-left-translate": "95%",
-                ease: "power1.inOut",
-              },
-              "<",
-            )
-            .to(
-              cardsSectionHeader.current,
-              {
-                opacity: 1,
-                y: "50%",
-                ease: "power3.inOut",
-              },
-              "<",
-            );
-
-          gsap.to(description.current, {
-            y: -200,
-            opacity: 0,
-            ease: "power1.inOut",
-            scrollTrigger: {
-              trigger: container.current,
-              start: "top+=50 top",
-              toggleActions: "play reverse play reverse",
-            },
-          });
-        });
-        return () => ctx.revert();
-      },
-      [],
-    );
-  });
-
-  useEffect(() => {
-    const matchMediaScreen = gsap.matchMedia();
-    matchMediaScreen.add("(min-width: 1024px)", () => {
-      const ctx = gsap.context(() => {
-        gsap
-          .timeline({
-            scrollTrigger: {
-              trigger: container.current,
-              start: "top+=200 top",
-              end: "top+=300 top",
-              scrub: 2,
-            },
-          })
-          .to(
-            cardsGrid.current,
-            {
-              translateX: "-29%",
-              ease: "power1.inOut",
-            },
-            "<",
-          )
-          .to(
-            girlCard.current,
-            {
-              scale: 0.92,
-              ease: "none",
-            },
-            "<",
-          )
-          .to(
-            threeCard.current,
-            {
-              opacity: 1,
-              ease: "power1.inOut",
-            },
-            "<",
-          )
-        // .to(
-        //   fourCard.current,
-        //   {
-        //     opacity: 1,
-        //     ease: "power1.inOut",
-        //   },
-        //   "<",
-        // );
-      });
-      return () => ctx.revert();
-    });
-  });
-  const desktopAnimation = {
-    initial: { opacity: 0, y: 50 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6, ease: "easeOut" }
-  };
-
-  const mobileAnimation = {
-    initial: { opacity: 0, filter: "blur(10px)", scale: 0.95 },
-    animate: { opacity: 1, filter: "blur(0px)", scale: 1 },
-    transition: { duration: 1, ease: [0.16, 1, 0.3, 1] }
-  };
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   return (
     <>
@@ -215,354 +65,103 @@ const NewHeroSection = () => {
       />
       <StructuredData type="all" />
 
-      <div
-        className="hero-wrapper"
-        ref={container}
-        style={{ backgroundImage: `url('/images/imgi_13_banner-bg.png')` }}
-      >
+      {/* Hero Section with Video */}
+      <div className="hero-wrapper">
         <Header />
-        <div className="sticky-container">
-          {/* Layer 1: Base background (Solid White) */}
-          <div className="background-base"></div>
+        <div className="hero-video-bg">
+          <iframe
+              src="https://www.youtube.com/embed/0M8OMMbyBD0?autoplay=1&mute=1&loop=1&playlist=0M8OMMbyBD0&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
+              title="iLock Secure"
+              frameBorder="0"
+              allow="autoplay; encrypted-media"
+              allowFullScreen
+          ></iframe>
+          {/*<iframe
+                src="https://www.youtube.com/embed/0M8OMMbyBD0?autoplay=1&mute=1&loop=1&playlist=0M8OMMbyBD0&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
+                title="iLock Secure"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+            ></iframe>*/}
+          <div className="hero-video-overlay"></div>
+        </div>
 
-          {/* Layer 2: Background Image Fade */}
-          <div className="background-image-fades">
-            <div className="background-image-fade-inner">
-              <div className="background-image-fade-img">
-                <img src="/images/imgi_3_girl-banner.png" alt="" ref={outerGirl} />
-              </div>
-            </div>
-            <div className="description-text" ref={description}>
-              <div className="description-text-inner">
-                <motion.h1
-                  className="hero-main-text"
-                  key={isMobile ? "mobile" : "desktop"} // Forces a re-render when switching modes
-                  initial={isMobile ? { opacity: 0, filter: "blur(4px)" } : { opacity: 0, y: 50 }}
-                  animate={isMobile ? { opacity: 1, filter: "blur(0px)" } : { opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8 }}
-                >
-                  A smarter way to {" "}
-                  <span className="highlight-text">
-                    sell your luxury watch for immediate cash
-                  </span>{" "}
-                  at the highest prices…with an option to buy back
-                </motion.h1>
-                <motion.p
-                  className="hero-sub-text"
-                  initial={{ opacity: 0, y: 50 }}
-                  animate={!isMobile ? { opacity: 1, y: 0 } : undefined}
-                  whileInView={isMobile ? { opacity: 1, y: 0 } : undefined}
-                  viewport={isMobile ? { once: true, margin: "-80px" } : undefined}
-                  transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-                >
-                  Priced globally; traded locally...no shipping hassles or payment delays
-                </motion.p>
-                <motion.button
-                  className="cta-button"
-                  initial={{ opacity: 0 }}
-                  animate={!isMobile ? { opacity: 1 } : undefined}
-                  whileInView={isMobile ? { opacity: 1 } : undefined}
-                  viewport={isMobile ? { once: true, margin: "0px" } : undefined}
-                  transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
-                  onClick={() => { trackEvent("click", "learn_more", "new_hero_section"); navigate("/contact") }}
-                >
-                  Learn More
-                </motion.button>
-              </div>
-            </div>
-            {/* Card 2 - Girl (expanding box mobile) - CENTERED */}
-            <motion.div
-              className="expanding-box expanding-boxs expanding-box-mobile"
-              style={{ backgroundImage: `url('/images/imgi_13_banner-bg.png')` }}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
+        <div className="hero-text-overlay">
+          <motion.div
+              className="hero-text-content"
+              initial={{opacity: 0, y: 40}}
+              animate={{opacity: 1, y: 0}}
+              transition={{duration: 0.8}}
+          >
+            <h1 className="hero-main-text">
+              <b>Sell your watch </b> today
+              <br />
+              <b>Buy it back</b>  tomorrow
+
+              <br />
+              <span className="hero-text-large">Live Better</span>
+            </h1>
+            <motion.button
+              className="cta-button"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              onClick={() => {
+                trackEvent("click", "get_an_offer", "hero_section");
+                navigate("/contact");
+              }}
             >
-              <div className="expanding-box-in">
-                <div className="expanding-box-img">
-                  <img
-                    className="box-inner-image"
-                    src="/images/imgi_3_girl-banner.png"
-                    alt="Hero"
-                  />
-                </div>
-                <div className="ui-overlay ui-bottom">
-                  <div className="card-notification">
-                    <div className="card-notification-title">
-                      Get The Highest Prices
-                    </div>
-                    <div className="card-notification-subtitle">
-                      Through our global dealer auction platform
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-            {/* Card 2 - Girl (expanding box mobile) - CENTERED */}
-          </div>
-
-          {/* Cards Section Title */}
-          {isMobile ? (
-            <></>
-          ) : (
-            <div className="cards-section-header" ref={cardsSectionHeader}>
-              <h2 className="cards-section-title">Luxury trading, reimagined</h2>
-              <p className="cards-section-subtitle">
-                Speed, convenience and security like never before
-              </p>
-            </div>
-          )}
-
-          {!isMobile ? (
-            <div className="animation-viewport">
-              <div
-                className="animation-viewport-white-bg"
-                ref={whiteBgRef}
-              ></div>
-              {/* Cards Section Title */}
-              <div className="cards-section-header cards-section-header-mobile">
-                <h2 className="cards-section-title">
-                  Luxury trading, reimagined
-                </h2>
-                <p className="cards-section-subtitle">
-                  Speed, convenience and security like never before
-                </p>
-              </div>
-              {/* Cards Section Title */}
-
-              <div className="cards-grid">
-                <div className="cards-grid-inner" ref={cardsGrid}>
-                  {/* Card 1 - Get Immediate funds */}
-                  <div className="side-card card-left" ref={leftCard}>
-                    <div className="side-card-left-in">
-                      <img
-                        className="box-inner-image"
-                        src="/images/cash.png"
-                        alt="Image 1"
-                      />
-                      <div className="ui-overlay ui-bottom">
-                        <div className="card-notification">
-                          <div className="card-notification-title">
-                            Get Immediate funds
-                          </div>
-                          <div className="card-notification-subtitle">
-                            Cash or bank transfer
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Card 2 - Girl (expanding box) - CENTERED */}
-                  <div
-                    className="expanding-box expanding-boxs"
-                    style={{ backgroundImage: `url('/images/imgi_13_banner-bg.png')` }}
-                    ref={girlCard}
-                  >
-                    <div className="expanding-box-in">
-                      <div className="expanding-box-img">
-                        <img
-                          className="box-inner-image"
-                          src="/images/imgi_3_girl-banner.png"
-                          alt="Hero"
-                          ref={innerImage}
-                        />
-                      </div>
-                      <div className="ui-overlay ui-bottom">
-                        <div className="card-notification">
-                          <div className="card-notification-title">
-                            Get The Highest Prices
-                          </div>
-                          <div className="card-notification-subtitle">
-                            Through our global dealer auction platform
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Card 3 - Track value */}
-                  <div className="side-card card-right" ref={rightCard}>
-                    <div className="side-card-right-in">
-                      <img
-                        className="box-inner-image"
-                        src="/images/track-value.png"
-                        alt="Image 1"
-                      />
-                      <div className="ui-overlay ui-bottom">
-                        <div className="card-notification">
-                          <div className="card-notification-title">
-                            Get Cash & Buy Back
-                          </div>
-                          <div className="card-notification-subtitle">
-                            Fixed price to buy back
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="side-card card-three" ref={threeCard}>
-                    <div className="side-card-right-in">
-                      <img
-                        className="box-inner-image"
-                        src="/images/img3.png"
-                        alt="Image 1"
-                      />
-                      <div className="ui-overlay ui-bottom">
-                        <div className="card-notification">
-                          <div className="card-notification-title">
-                            Bank-Vault Storage
-                          </div>
-                          <div className="card-notification-subtitle">
-                            Secure, Insured & tamper proof
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-          ) : (
-            <motion.div
-              className="animation-viewport"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-            >
-              <div className="cards-grid">
-                <div className="cards-grid-inner viewport-swiper">
-                  <Swiper
-                    modules={[Pagination]}
-                    slidesPerView={1}
-                    spaceBetween={16}
-                    pagination={{ clickable: true }}
-                    grabCursor
-                    loop={true}
-                    centeredSlides
-                    breakpoints={{
-                      0: {
-                        slidesPerView: 1,
-                        centeredSlides: false,
-                      },
-                      600: {
-                        slidesPerView: 2,
-                        centeredSlides: true,
-                      },
-                      992: {
-                        slidesPerView: 3,
-                        centeredSlides: true,
-                      },
-                      1024: {
-                        slidesPerView: 1, // or whatever layout you want above 1024
-                        centeredSlides: false,
-                      },
-                    }}
-                  >
-                    <SwiperSlide>
-                      <div className="side-card card-left">
-                        <div className="side-card-left-in">
-                          <img
-                            className="box-inner-image"
-                            src="/images/cash.png"
-                            alt="Image 1"
-                          />
-                          <div className="ui-overlay ui-bottom">
-                            <div className="card-notification">
-                              <div className="card-notification-title">
-                                Get Immediate funds
-                              </div>
-                              <div className="card-notification-subtitle">
-                                Cash or bank transfer
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </SwiperSlide>
-
-                    {/* <SwiperSlide>
-                      <div
-                        className="expanding-box expanding-boxs"
-                        style={{
-                          backgroundImage: `url('/images/banner-bg.png')`,
-                        }}
-                      >
-                        <div className="expanding-box-in">
-                          <div className="expanding-box-img">
-                            <img
-                              className="box-inner-image"
-                              src="/images/imgi_3_girl-banner.png"
-                              alt="Hero"
-                              ref={innerImage}
-                            />
-                          </div>
-                          <div className="ui-overlay ui-bottom">
-                            <div className="card-notification">
-                              <div className="card-notification-title">
-                                Get The Highest Prices
-                              </div>
-                              <div className="card-notification-subtitle">
-                                Through our global dealer auction platform
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </SwiperSlide> */}
-
-                    <SwiperSlide>
-                      <div className="side-card card-right">
-                        <div className="side-card-right-in">
-                          <img
-                            className="box-inner-image"
-                            src="/images/track-value.png"
-                            alt="Image 1"
-                          />
-                          <div className="ui-overlay ui-bottom">
-                            <div className="card-notification">
-                              <div className="card-notification-title">
-                                Get Cash & Buy Back
-                              </div>
-                              <div className="card-notification-subtitle">
-                                Fixed price to buy back
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <div className="side-card card-right">
-                        <div className="side-card-right-in">
-                          <img
-                            className="box-inner-image"
-                            src="/images/img3.png"
-                            alt="Image 1"
-                          />
-                          <div className="ui-overlay ui-bottom">
-                            <div className="card-notification">
-                              <div className="card-notification-title">
-                                Bank-Vault Storage
-                              </div>
-                              <div className="card-notification-subtitle">
-                                Secure, Insured & tamper proof
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </SwiperSlide>
-                  </Swiper>
-                </div>
-              </div>
-            </motion.div>
-          )}
+              Get An Offer
+            </motion.button>
+          </motion.div>
         </div>
       </div>
+
+      {/* Feature Cards Section */}
+      <div className="features-section">
+        <div className="features-content">
+          <motion.div
+            className="features-header"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="features-title">
+              What if selling your watch
+              <strong>didn't have to be permanent? </strong>
+            </h2>
+            <p className="features-subtitle">
+              Speed, convenience and security like never before
+            </p>
+          </motion.div>
+
+          <div className="features-cards">
+            {featureCards.map((card, index) => (
+              <motion.div
+                className="feature-card"
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{
+                  duration: 0.5,
+                  delay: isMobile ? 0 : index * 0.1,
+                }}
+              >
+                <div className="feature-card-image">
+                  <img src={card.image} alt={card.title} />
+                </div>
+                <div className="feature-card-info">
+                  <h3 className="feature-card-title">{card.title}</h3>
+                  <p className="feature-card-subtitle">{card.subtitle}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+
       <LuxryFrame />
     </>
   );

@@ -42,9 +42,10 @@ export const LuxryFrame = () => {
                                     viewport={{ once: true, margin: "-100px" }}
                                     transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
                                 >
-                                    Get the highest price<br />
-                                    from our Global<br />
-                                    Dealer Network
+
+                                    Get the <span>best price</span><br />
+                                    from our <span> Global<br />
+                                    Dealer</span> Network
                                 </motion.h1>
                                 <motion.div
                                     className="sec-pra"
@@ -53,14 +54,19 @@ export const LuxryFrame = () => {
                                     viewport={{ once: true, margin: "-100px" }}
                                     transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
                                 >
+
+
+
+
+
                                     <p>
-                                        Our ‘Dealers-only’ auction platform connects you to professional buyers from around the world who specialize in unique brands and models.
+                                        We identify dealers specializing in your particular brand or model. All prices are fully transparent so you know exact market value for your watch before you trade
                                     </p>
                                     <p>
-                                        Our pricing is transparent, so you get an accurate market value before you sell
+                                        And once you get the highest price, we take care of the rest
                                     </p>
                                     <p>
-                                        And we take care of the rest. You get immediate cash with no hassles for shipping, duties or currency exchange, no matter where in the world the dealer may be
+                                        You get instant cash with no hastles for shipping and transport, no matter where in the world the dealer may be
                                     </p>
                                 </motion.div>
 
@@ -93,18 +99,19 @@ export const LuxryFrame = () => {
                                             borderColor: { duration: 0.8, delay: 0.2 }
                                         }}
                                     >
-                                        Instant Finance
+                                        Watch Buy Back
+
                                     </motion.span>
                                 </div>
                                 <motion.h1
                                     className="mb-3 text-primary"
-                                    initial={{ opacity: 0, y: 50 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true, margin: "-100px" }}
-                                    transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+                                    initial={{opacity: 0, y: 50}}
+                                    whileInView={{opacity: 1, y: 0}}
+                                    viewport={{once: true, margin: "-100px"}}
+                                    transition={{duration: 0.6, ease: "easeOut", delay: 0.1}}
                                 >
-                                    Get the <br /> highest price
-                                    from <br />our Global Dealer Network
+                                    <span>Selling your <br/> watch</span> doesn't <br/> have to be<br/>
+                                    <span>permanent</span>
                                 </motion.h1>
                                 <motion.div
                                     className="sec-pra"
@@ -114,7 +121,7 @@ export const LuxryFrame = () => {
                                     transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
                                 >
                                     <p>
-                                        Get a fixed future price to buy back your watch while we store this safely in a tamper-proof and fully insured 3rd party high-security facility
+                                        You can get the highest market price for your watch through our global dealer network and choose to lock in a future buy-back price with a timeline that suits you.
                                     </p>
                                 </motion.div>
 
@@ -128,7 +135,7 @@ export const LuxryFrame = () => {
                 <div className="container-fluid px-0 overflow-hidden">
                     <div className="row align-items-center">
                         <div className="col-md-6 order-1 order-sm-1 order-md-2 mb-5 mb-sm-5 mb-md-0">
-                            <img src="/images/img3.png" className="img-fluid w-100 animated wow fadeInRight" alt="Secure Storage" />
+                            <img src="/images/trans.png " className="img-fluid w-100 animated wow fadeInRight" alt="Secure Storage" />
                         </div>
                         <div className="col-md-6 order-2 order-sm-2 order-md-1">
                             <div className="section-content left-custom-padding animated wow fadeInLeft">
@@ -158,21 +165,32 @@ export const LuxryFrame = () => {
                                     viewport={{ once: true, margin: "-100px" }}
                                     transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
                                 >
-                                    Custody by TransGuard - we've partnered with the best in the business!
+                                    Custody by<br/>
+                                    <span>TransGuard</span>
                                 </motion.h1>
                                 <motion.div
                                     className="sec-pra"
-                                    initial={{ opacity: 0, y: 50 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true, margin: "-100px" }}
-                                    transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+                                    initial={{opacity: 0, y: 50}}
+                                    whileInView={{opacity: 1, y: 0}}
+                                    viewport={{once: true, margin: "-100px"}}
+                                    transition={{duration: 0.6, ease: "easeOut", delay: 0.2}}
                                 >
                                     <p className="text-white">
-                                        Trusted custodians for banks, bullion investors and jewelers with billions in cash and valuables at their ultra-secure sites across the country.
+                                        We’ve partnered with the best in the business!
                                     </p>
                                     <p className="text-white">
-                                        PLUS, your ownership is assured via your unique Digital NFT (Non-fungible Token) and accessible only by you
+                                        TransGuard is the trusted custodian of banks, bullion investors and jewelers and
+                                        holds Billions of dollars in Cash and valuables in their ultra-secured sites
+                                        across the country
                                     </p>
+                                    <p className="text-white">
+                                        Your assets are not only insured and stored under the highest levels of security
+                                        available in the country, your ownership is also assured via your unique Digital NFT
+                                        (Non-fungible Token) stored on the blockchain and accessible only by you
+                                    </p>
+
+
+
 
                                 </motion.div>
 
@@ -183,7 +201,7 @@ export const LuxryFrame = () => {
                 </div>
             </section>
 
-            <section className="our-globle-section custom-padding" style={{ backgroundColor: 'rgb(149, 219, 247)' }}>
+            <section className="our-globle-section custom-padding">
                 <div className="container overflow-hidden">
                     <div className="row align-items-center">
 
@@ -191,13 +209,14 @@ export const LuxryFrame = () => {
                             <div className="section-content animated wow fadeInDown">
                                 <motion.h1
                                     className="mb-3 text-white text-center"
-                                    initial={{ opacity: 0, y: 50 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true, margin: "-100px" }}
-                                    transition={{ duration: 0.6, ease: "easeOut" }}
+                                    initial={{opacity: 0, y: 50}}
+                                    whileInView={{opacity: 1, y: 0}}
+                                    viewport={{once: true, margin: "-100px"}}
+                                    transition={{duration: 0.6, ease: "easeOut"}}
                                 >
-                                    Our global dealer network<br />
-                                    specilizes in the best luxury brands
+                                    Our <span>global dealer network</span> specializes<br/>
+                                    in the best luxury brands
+
                                 </motion.h1>
                             </div>
 
