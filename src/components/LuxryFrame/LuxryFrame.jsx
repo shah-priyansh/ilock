@@ -5,7 +5,7 @@ import VideoPlayer from '../VideoPlayer/VideoPlayer';
 
 export const LuxryFrame = () => {
     return (
-        <div className="luxry-frame">
+        <div className="luxry-frame overflow-hidden">
 
 
 
@@ -23,7 +23,7 @@ export const LuxryFrame = () => {
                                         whileInView={{
                                             opacity: 1,
                                             y: 0,
-                                            borderColor: "#0290C4"
+                                            borderColor: "#003D69"
                                         }}
                                         viewport={{ once: true, margin: "-100px" }}
                                         transition={{
@@ -43,9 +43,9 @@ export const LuxryFrame = () => {
                                     transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
                                 >
 
-                                    Get the <span>best price</span><br />
-                                    from our <span> Global<br />
-                                    Dealer</span> Network
+                                    Get the <span>best price</span> from<br />
+                                     our <span> Global Dealer</span><br />
+                                     Network
                                 </motion.h1>
                                 <motion.div
                                     className="sec-pra"
@@ -58,16 +58,19 @@ export const LuxryFrame = () => {
 
 
 
+                                    <p>
+                                        Your watch is priced through a competitive global dealer auction.
+                                    </p>
+                                  <p>
+                                      Our dealers specialize in both popular and rare brands and models.
+                                  </p>
+                                   <p>
+                                       Auction results are tansparentso you know market value of your watch.
+                                   </p>
+                                    <p>
+                                        And once you get the best price, we take care of the rest. You access liquidity easily and we manage shipping and transport to anywhere in the world
+                                    </p>
 
-                                    <p>
-                                        We identify dealers specializing in your particular brand or model. All prices are fully transparent so you know exact market value for your watch before you trade
-                                    </p>
-                                    <p>
-                                        And once you get the highest price, we take care of the rest
-                                    </p>
-                                    <p>
-                                        You get instant cash with no hastles for shipping and transport, no matter where in the world the dealer may be
-                                    </p>
                                 </motion.div>
 
                             </div>
@@ -76,21 +79,23 @@ export const LuxryFrame = () => {
                     </div>
                 </div>
             </section>
-            <section className="highest-prices-section" style={{ backgroundColor: 'rgb(250, 250, 250)' }}>
-                <div className="container">
+            <section className="highest-prices-section" style={{ backgroundColor: '#3581A3' }}>
+                <div className="container-fluid px-0">
                     <div className="row align-items-center">
                         <div className="col-md-6 order-1 order-sm-1 order-md-1 mb-5 mb-sm-5 mb-md-0">
-                            <VideoPlayer src="/images/coin.mp4" className="img-fluid" />
+                            <img src="/images/watch.png " className="img-fluid w-100 animated wow fadeInRight"
+                                 alt="Secure Storage"/>
                         </div>
                         <div className="col-md-6 order-2 order-sm-2 order-md-2">
-                            <div className="section-content animated wow fadeInRight">
+                        <div className="section-content left-custom-padding animated wow fadeInRight">
                                 <div className="sec-tag mb-5">
                                     <motion.span
                                         initial={{ opacity: 0, y: 50, borderColor: "transparent" }}
                                         whileInView={{
                                             opacity: 1,
                                             y: 0,
-                                            borderColor: "#0290C4"
+                                            borderColor: "#ffffff",
+                                            color: "#ffffff",
                                         }}
                                         viewport={{ once: true, margin: "-100px" }}
                                         transition={{
@@ -104,24 +109,29 @@ export const LuxryFrame = () => {
                                     </motion.span>
                                 </div>
                                 <motion.h1
-                                    className="mb-3 text-primary"
+                                    className="mb-3 text-white"
                                     initial={{opacity: 0, y: 50}}
                                     whileInView={{opacity: 1, y: 0}}
                                     viewport={{once: true, margin: "-100px"}}
                                     transition={{duration: 0.6, ease: "easeOut", delay: 0.1}}
                                 >
-                                    <span>Selling your <br/> watch</span> doesn't <br/> have to be<br/>
+                                    <span>Selling your watch  </span> doesn't <br/> have to be
                                     <span>permanent</span>
                                 </motion.h1>
                                 <motion.div
                                     className="sec-pra"
-                                    initial={{ opacity: 0, y: 50 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true, margin: "-100px" }}
-                                    transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+                                    initial={{opacity: 0, y: 50}}
+                                    whileInView={{opacity: 1, y: 0}}
+                                    viewport={{once: true, margin: "-100px"}}
+                                    transition={{duration: 0.6, ease: "easeOut", delay: 0.2}}
                                 >
-                                    <p>
-                                        You can get the highest market price for your watch through our global dealer network and choose to lock in a future buy-back price with a timeline that suits you.
+                                    <p className={'text-white'}>
+                                        You can get the highest market price for your watch through our global dealer
+                                        network and choose to lock in a future buy-back price with a timeline that suits
+                                        you.
+                                    </p>
+                                    <p className={'text-white'}>
+                                        We facilitate structured asset transactions for luxury timepieces, enabling owners to unlock value through transparent resale and marketplace mechanisms.
                                     </p>
                                 </motion.div>
 
@@ -131,11 +141,11 @@ export const LuxryFrame = () => {
                     </div>
                 </div>
             </section>
-            <section className="secure-storage-section" style={{ backgroundColor: '#484C52' }}>
-                <div className="container-fluid px-0 overflow-hidden">
+            <section className="secure-storage-section" style={{backgroundColor: '#003D69'}}>
+            <div className="container-fluid px-0 overflow-hidden">
                     <div className="row align-items-center">
                         <div className="col-md-6 order-1 order-sm-1 order-md-2 mb-5 mb-sm-5 mb-md-0">
-                            <img src="/images/trans.png " className="img-fluid w-100 animated wow fadeInRight" alt="Secure Storage" />
+                            <img src="/images/secure.png " className="img-fluid w-100 animated wow fadeInRight" alt="Secure Storage" />
                         </div>
                         <div className="col-md-6 order-2 order-sm-2 order-md-1">
                             <div className="section-content left-custom-padding animated wow fadeInLeft">
@@ -146,7 +156,7 @@ export const LuxryFrame = () => {
                                         whileInView={{
                                             opacity: 1,
                                             y: 0,
-                                            borderColor: "#0290C4"
+                                            borderColor: "#ffffff"
                                         }}
                                         viewport={{ once: true, margin: "-100px" }}
                                         transition={{
@@ -160,13 +170,13 @@ export const LuxryFrame = () => {
                                 </div>
                                 <motion.h1
                                     className="mb-3 text-white"
-                                    initial={{ opacity: 0, y: 50 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true, margin: "-100px" }}
-                                    transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+                                    initial={{opacity: 0, y: 50}}
+                                    whileInView={{opacity: 1, y: 0}}
+                                    viewport={{once: true, margin: "-100px"}}
+                                    transition={{duration: 0.6, ease: "easeOut", delay: 0.1}}
                                 >
-                                    Custody by<br/>
-                                    <span>TransGuard</span>
+                                    Custody by <span>TransGuard</span>
+
                                 </motion.h1>
                                 <motion.div
                                     className="sec-pra"
@@ -179,15 +189,17 @@ export const LuxryFrame = () => {
                                         We’ve partnered with the best in the business!
                                     </p>
                                     <p className="text-white">
-                                        TransGuard is the trusted custodian of banks, bullion investors and jewelers and
-                                        holds Billions of dollars in Cash and valuables in their ultra-secured sites
-                                        across the country
+                                        TransGuard is the trusted custodian of banks, bullion investors and jewelers and holds Billions of dollars in Cash and valuables in their ultra-secured sites across the country
                                     </p>
                                     <p className="text-white">
-                                        Your assets are not only insured and stored under the highest levels of security
-                                        available in the country, your ownership is also assured via your unique Digital NFT
-                                        (Non-fungible Token) stored on the blockchain and accessible only by you
+                                        All asset are:
                                     </p>
+                                    <ul className={'text-white ps-4'}>
+                                        <li>Fully insured</li>
+                                        <li>Camera-controlled authentication</li>
+                                        <li>Tamper-proof packaging</li>
+                                        <li>24/7 monitored vault storage</li>
+                                    </ul>
 
 
 

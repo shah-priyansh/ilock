@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import SEO from '../SEO/SEO';
+import React, {Fragment} from "react";
 
 export default function AboutUs() {
     // Animation variants
@@ -74,733 +75,614 @@ export default function AboutUs() {
 
             <div style={{minHeight: '100vh'}}>
                 {/* Header */}
-                <Header />
+                <Header/>
 
-            <motion.div 
-                className={'page-banner position-relative'}
-                initial="hidden"
-                animate="visible"
-                variants={fadeInUp}
-            >
-                <img src="/images/about-banner.jpg" className={'img-fluid'} alt="About Banner"/>
-                <motion.div 
-                    className={'page-content text-center text-white'}
-                    variants={staggerContainer}
+                <motion.div
+                    className={'page-banner position-relative'}
                     initial="hidden"
                     animate="visible"
+                    variants={fadeInUp}
                 >
-                    <motion.h1 variants={fadeInUp}>
-                        Redefining how the world<br/>
-                        trades luxury timepieces
-                    </motion.h1>
-                    <motion.p variants={fadeInUp}>
-                        Combining advanced re-commerce technology with legacy wealth expertise
-                    </motion.p>
+                    <img src="/images/about.png" className={'img-fluid'} alt="About Banner"/>
+                    <motion.div
+                        className={'page-content text-center text-white'}
+                        variants={staggerContainer}
+                        initial="hidden"
+                        animate="visible"
+                    >
+                        <motion.h1 variants={fadeInUp}>
+                            About <span>Capital Custodia</span>
+                        </motion.h1>
+                    </motion.div>
                 </motion.div>
-            </motion.div>
+                <motion.div
+                    className="py-5 text-center"
+                    initial={{opacity: 0, y: 30}}
+                    whileInView={{opacity: 1, y: 0, backgroundColor: "#003D69",}}
+                    viewport={{once: true, margin: "-60px"}}
+                    transition={{duration: 0.6}}
 
-            {/* Mission Section */}
-            <div className="bg-white py-5">
-                <div className="container">
-                    <div className="row align-items-center py-5 py-xl-5">
-                        <motion.div
-                            className="col-12 col-md-6 mb-4 mb-md-0"
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true, margin: "-100px" }}
-                            variants={fadeInLeft}
-                        >
-                            <motion.img
-                                src="/images/our-mission.jpg"
-                                className={'img-fluid'}
-                                alt="Our Mission"
-                                style={{ borderRadius: '30px' }}
-                                whileHover={{ scale: 1.05 }}
-                                transition={{ duration: 0.3 }}
-                            />
-                        </motion.div>
-                        <motion.div
-                            className="col-12 col-md-6"
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{once: true, margin: "-100px"}}
-                            variants={fadeInRight}
-                        >
-                            <div className="d-flex flex-column" style={{gap: '1rem'}}>
-                                <motion.h1
-                                    className="display-1 fw-light text-black mb-3"
-                                    style={{
-                                        fontSize: 'clamp(2rem, 5vw, 4.5rem)',
-                                        color: '#000000'
-                                    }}
-                                    variants={fadeInUp}
-                                >
-                                    Our Mission
-                                </motion.h1>
-                                <motion.div
-                                    className="d-flex flex-column"
-                                    style={{
-                                        fontSize: 'clamp(1rem, 2vw, 1.5rem)',
-                                        gap: '1.5rem'
-                                    }}
-                                    variants={staggerContainer}
-                                    initial="hidden"
-                                    whileInView="visible"
-                                    viewport={{once: true}}
-                                >
-                                    <motion.p variants={fadeInUp}>
-                                    The luxury watch market has long been plagued by slow transactions, opaque pricing, and high risk with authentication, ownership and settlement.
-                                    </motion.p>
-                                    <motion.p variants={fadeInUp}>
-                                    Traditional dealers take weeks to assess quality and process sales, leaving sellers vulnerable and uncertain.
-                                    </motion.p>
-                                    <motion.p variants={fadeInUp}>
-                                    iLockSecure was created to solve these problems through technology and trust. We've built a platform that combines instant liquidity with bank-grade security, giving both buyers and sellers the confidence to trade their most valuable assets safely and securely.
-                                    </motion.p>
-                                    <motion.p
-                                        style={{color: '#9CC2B8', fontSize: 'clamp(1.25rem, 2vw, 1.5rem)'}}
-                                        variants={fadeInUp}
-                                    >
-                                        Fast. Fair. Secure. That's the iLock promise.
-                                    </motion.p>
-                                </motion.div>
+                >
+                    <div className={'py-md-5'}>
+                        <h2 className="features-title">
+                            <strong>Redefining</strong> how the world trades<br/>
+                            <strong>luxury timepieces</strong>
+                        </h2>
+                        <p className="features-subtitle text-white">
+                            Combining advanced re-commerce technology with legacy wealth expertise
+                        </p>
+                    </div>
+                </motion.div>
+
+                <section className="highest-prices-section overflow-hidden" style={{backgroundColor: '#3581A3'}}>
+                    <div className="container-fluid px-0">
+                        <div className="row align-items-center">
+                            <div className="col-md-6 order-1 order-sm-1 order-md-1 mb-5 mb-sm-5 mb-md-0">
+                                <img src="/images/watch.png " className="img-fluid w-100 animated wow fadeInRight"
+                                     alt="Secure Storage"/>
                             </div>
-                        </motion.div>
-                    </div>
-                </div>
-            </div>
+                            <div className="col-md-6 order-2 order-sm-2 order-md-2">
+                                <div className="section-content left-custom-padding animated wow fadeInRight">
 
-            {/* Core Pillars Section */}
-            <div style={{backgroundColor: '#83D7F5'}}>
-                <div className="container-fluid px-3">
-                    <div className="container" style={{maxWidth: '85%'}}>
-                        <div className="py-5 py-xl-5">
-                            <motion.h2
-                                className="display-1 fw-light text-center mb-5"
-                                style={{
-                                    fontSize: 'clamp(2rem, 5vw, 4.5rem)',
-                                    color: '#000000'
-                                }}
-                                initial="hidden"
-                                whileInView="visible"
-                                viewport={{once: true, margin: "-100px"}}
-                                variants={fadeInUp}
-                            >
-                                Our Core Pillars
-                            </motion.h2>
-                            <motion.div
-                                className="row g-3 g-lg-4"
-                                variants={staggerContainer}
-                                initial="hidden"
-                                whileInView="visible"
-                                viewport={{once: true, margin: "-50px"}}
-                            >
-                                <motion.div
-                                    className="col-12 col-sm-6 col-lg-4 h-100"
-                                    variants={cardAnimation}
-                                >
-                                    <motion.div
-                                        className="bg-white shadow h-100 p-4 p-xl-5"
-                                        style={{borderRadius: '30px'}}
-                                        whileHover={{y: -10, transition: {duration: 0.3}}}
+                                    <motion.h1
+                                        className="mb-3 text-white"
+                                        initial={{opacity: 0, y: 50}}
+                                        whileInView={{opacity: 1, y: 0}}
+                                        viewport={{once: true, margin: "-100px"}}
+                                        transition={{duration: 0.6, ease: "easeOut", delay: 0.1}}
                                     >
-                                        <motion.div
-                                            className="d-flex justify-content-center align-items-center mb-3 mb-md-4"
-                                            style={{
-                                                width: '105px',
-                                                height: '105px',
-                                                borderRadius: '50%',
-                                                backgroundColor: '#83D7F5'
-                                            }}
-                                            variants={scaleIn}
-                                            whileHover={{rotate: 360, transition: {duration: 0.6}}}
-                                        >
-                                            <span className="fs-1 fw-bold">
-                                               <svg width="50" height="50" viewBox="0 0 50 50" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-<path
-    d="M44.5867 15.2489C42.4369 15.9004 38.706 16.9591 34.7079 17.7834C33.7871 12.186 32.1727 6.60314 31.3962 4.07495C37.1712 5.83806 41.9319 9.92639 44.5867 15.2489Z"
-    fill="white"/>
-<path
-    d="M31.4825 18.3798C29.2193 18.7454 26.9818 18.9844 25 18.9844C23.0181 18.9844 20.7807 18.7454 18.5175 18.3798C19.3847 13.0834 20.9329 7.67304 21.7243 5.09027C21.927 4.42929 22.0075 4.16967 22.147 3.82121C22.2166 3.64712 22.2875 3.48746 22.3868 3.27946C23.2437 3.17746 24.1156 3.125 25 3.125C25.9235 3.125 26.8339 3.18225 27.7275 3.2934C27.7466 3.36592 27.7641 3.43081 27.7814 3.49221C27.8325 3.6736 27.9127 3.92854 28.0472 4.35633L28.0614 4.40127C28.7364 6.54631 30.5245 12.5292 31.4825 18.3798Z"
-    fill="white"/>
-<path
-    d="M15.2916 17.7833C16.2084 12.2106 17.8121 6.65785 18.5872 4.12878L18.6037 4.07495C12.8285 5.83803 8.068 9.92637 5.41309 15.2489C7.56275 15.9004 11.2935 16.9591 15.2916 17.7833Z"
-    fill="white"/>
-<path
-    d="M25 35.3906C26.8269 35.3906 28.8311 35.2077 30.8652 34.9164C30.0033 39.0469 28.9023 42.8646 28.2754 44.9096C28.0729 45.5706 27.9923 45.8302 27.8529 46.1787C27.7833 46.3529 27.7123 46.5125 27.6129 46.7206C26.7563 46.8225 25.8842 46.875 25 46.875C24.1156 46.875 23.2438 46.8225 22.3869 46.7206C22.2875 46.5125 22.2167 46.3529 22.1471 46.1787C22.0077 45.8304 21.9271 45.5706 21.7244 44.9098C21.0977 42.8648 19.9967 39.0473 19.1349 34.9173C21.1623 35.2075 23.1667 35.3906 25 35.3906Z"
-    fill="white"/>
-<path
-    d="M10.4968 33.1789C7.78852 32.505 5.48189 31.8281 4.07483 31.3962C6.19279 38.3337 11.6662 43.8071 18.6037 45.925L18.5872 45.8712C17.9104 43.6629 16.6019 39.1494 15.6705 34.33C13.8593 33.9798 12.0983 33.5773 10.4968 33.1789Z"
-    fill="white"/>
-<path
-    d="M45.8712 31.4127C43.6627 32.0896 39.1489 33.3981 34.3293 34.3294C33.3981 39.1489 32.0893 43.6627 31.4127 45.8712L31.396 45.925C38.3335 43.8071 43.807 38.3337 45.925 31.3962L45.8712 31.4127Z"
-    fill="white"/>
-<path
-    d="M4.1705 18.2994C3.49163 20.4112 3.125 22.6631 3.125 25.0004C3.125 25.915 3.1811 26.8163 3.29006 27.7011L3.63481 27.8161L3.63756 27.8171L3.64094 27.8181L3.64331 27.819C3.75427 27.8556 7.00635 28.9296 11.2891 29.9952C12.4976 30.2959 13.7772 30.5931 15.0835 30.8654C14.7922 28.8315 14.6094 26.8273 14.6094 25.0004C14.6094 23.7481 14.6953 22.4125 14.8432 21.0409C10.4881 20.1554 6.48371 19.0049 4.34577 18.3544L4.3309 18.3499L4.1705 18.2994Z"
-    fill="white"/>
-<path
-    d="M3.35474 27.7567C3.43047 27.7665 3.49219 27.7769 3.51267 27.7815C3.53061 27.7861 3.55872 27.7934 3.5689 27.7963L3.59142 27.8028L3.60355 27.8063L3.6163 27.8103L3.62699 27.8136C3.62099 27.8117 3.49944 27.7813 3.35474 27.7567Z"
-    fill="white"/>
-<path
-    d="M35.1567 21.0409C35.3048 22.4127 35.3907 23.7486 35.3907 25.0004C35.3907 26.8275 35.208 28.8317 34.9165 30.8656C39.0469 30.0038 42.8648 28.9027 44.9098 28.2761C45.5707 28.0734 45.8305 27.9927 46.1788 27.8534C46.353 27.7838 46.5125 27.7129 46.7207 27.6136C46.8225 26.7567 46.875 25.8848 46.875 25.0004C46.875 22.6631 46.5084 20.4112 45.8296 18.2994L45.6528 18.355C43.5144 19.0056 39.5109 20.1557 35.1567 21.0409Z"
-    fill="white"/>
-<path
-    d="M31.9213 21.6317C32.0408 22.804 32.1094 23.9386 32.1094 25.0005C32.1094 26.9882 31.8692 29.2328 31.5017 31.5021C29.2323 31.8694 26.9877 32.1098 25 32.1098C23.0213 32.1098 20.7774 31.8703 18.4981 31.5013C18.1309 29.2321 17.8906 26.988 17.8906 25.0005C17.8906 23.939 17.9591 22.8042 18.0789 21.6317C20.471 22.0146 22.8573 22.2661 25 22.2661C27.1429 22.2661 29.5292 22.0146 31.9213 21.6317Z"
-    fill="white"/>
-</svg>
-
-
-                                            </span>
-                                        </motion.div>
-                                        <div>
-                                            <h3 className="fw-semibold mb-3 mb-md-4" style={{
-                                                fontSize: 'clamp(1.25rem, 2vw, 2.25rem)'
-                                            }}>
-                                                Microscopic<br/>
-                                                Inspection
-                                            </h3>
-                                            <p style={{fontSize: 'clamp(1rem, 1.5vw, 1.5rem)'}}>
-                                                Unrivaled market access to vetted dealers across continents. Our network
-                                                ensures
-                                                you receive the most competitive offers, anywhere in the world.
-                                            </p>
-                                        </div>
-                                    </motion.div>
-                                </motion.div>
-                                <motion.div
-                                    className="col-12 col-sm-6 col-lg-4 h-100"
-                                    variants={cardAnimation}
-                                >
+                                        Our <span>Mission</span>
+                                    </motion.h1>
                                     <motion.div
-                                        className="bg-white shadow h-100 p-4 p-xl-5"
-                                        style={{borderRadius: '30px'}}
-                                        whileHover={{y: -10, transition: {duration: 0.3}}}
+                                        className="sec-pra"
+                                        initial={{opacity: 0, y: 50}}
+                                        whileInView={{opacity: 1, y: 0}}
+                                        viewport={{once: true, margin: "-100px"}}
+                                        transition={{duration: 0.6, ease: "easeOut", delay: 0.2}}
                                     >
-                                        <motion.div
-                                            className="d-flex justify-content-center align-items-center mb-3 mb-md-4"
-                                            style={{
-                                                width: '105px',
-                                                height: '105px',
-                                                borderRadius: '50%',
-                                                backgroundColor: '#83D7F5'
-                                            }}
-                                            variants={scaleIn}
-                                            whileHover={{rotate: 360, transition: {duration: 0.6}}}
-                                        >
-                                            <span className="fs-1 fw-bold">
-                                                <svg width="48" height="50" viewBox="0 0 48 50" fill="none"
-                                                     xmlns="http://www.w3.org/2000/svg">
-<path
-    d="M23.5664 0C24.0181 0 24.4698 0.0981932 24.8822 0.28476L43.372 8.1304C45.5322 9.0436 47.1426 11.1744 47.1328 13.7471C47.0837 23.4878 43.0774 41.3099 26.1587 49.4108C24.5189 50.1964 22.6139 50.1964 20.9741 49.4108C4.05543 41.3099 0.0491413 23.4878 4.46631e-05 13.7471C-0.00977466 11.1744 1.60059 9.0436 3.76085 8.1304L22.2605 0.28476C22.663 0.0981932 23.1147 0 23.5664 0ZM23.5664 6.55931V43.6764C37.1171 37.117 40.7601 22.5943 40.8484 13.8845L23.5664 6.55931Z"
-    fill="white"/>
-</svg>
-
-                                            </span>
-                                        </motion.div>
-                                        <div>
-                                            <h3 className="fw-semibold mb-3 mb-md-4" style={{
-                                                fontSize: 'clamp(1.25rem, 2vw, 2.25rem)'
-                                            }}>
-                                                Bank-Grade <br/>
-                                                Custody
-                                            </h3>
-                                            <p style={{fontSize: 'clamp(1rem, 1.5vw, 1.5rem)'}}>
-                                                Assets insured and protected by TransGuard. Your timepieces are secured
-                                                in
-                                                climate-controlled vaults with 24/7 monitoring and full insurance
-                                                coverage.
-                                            </p>
-                                        </div>
+                                        <p className={'text-white'}>
+                                            The luxury watch market has long been plagued by slow transactions, opaque pricing, and unnecessary risk. Traditional dealers take weeks to process sales, leaving sellers vulnerable and uncertain.
+                                        </p>
+                                        <p className={'text-white'}>
+                                            iLock was founded to solve these problems through technology and trust.
+                                            We've built a platform that combines instant liquidity with bank-grade
+                                            security, giving collectors the confidence to trade their most valuable
+                                            assets.
+                                        </p>
+                                        <p className={'text-white'}>
+                                            <b>Transparent, Confidential, Secure.  That's the Capital Custodia promise.</b>
+                                        </p>
                                     </motion.div>
-                                </motion.div>
-                                <motion.div
-                                    className="col-12 col-sm-12 col-lg-4 h-100"
-                                    variants={cardAnimation}
-                                >
-                                    <motion.div
-                                        className="bg-white shadow h-100 p-4 p-xl-5"
-                                        style={{borderRadius: '30px'}}
-                                        whileHover={{y: -10, transition: {duration: 0.3}}}
-                                    >
-                                        <motion.div
-                                            className="d-flex justify-content-center align-items-center mb-3 mb-md-4"
-                                            style={{
-                                                width: '105px',
-                                                height: '105px',
-                                                borderRadius: '50%',
-                                                backgroundColor: '#83D7F5'
-                                            }}
-                                            variants={scaleIn}
-                                            whileHover={{rotate: 360, transition: {duration: 0.6}}}
-                                        >
-                                            <span className="fs-1 fw-bold">
-                                                <svg width="39" height="50" viewBox="0 0 39 50" fill="none"
-                                                     xmlns="http://www.w3.org/2000/svg">
-<path
-    d="M30.9389 4.8545C31.4964 3.55976 31.0806 2.04767 29.9371 1.21601C28.7936 0.384361 27.2342 0.459965 26.1663 1.38612L1.97275 22.5555C1.02769 23.3871 0.687472 24.7197 1.13165 25.8915C1.57583 27.0634 2.7099 27.8573 3.96683 27.8573H14.5043L7.23674 44.8117C6.67916 46.1064 7.09498 47.6185 8.23851 48.4501C9.38203 49.2818 10.9414 49.2062 12.0093 48.28L36.2028 27.1107C37.1479 26.279 37.4881 24.9465 37.0439 23.7746C36.5998 22.6027 35.4752 21.8183 34.2088 21.8183H23.6713L30.9389 4.8545Z"
-    fill="white"/>
-</svg>
 
-                                            </span>
-                                        </motion.div>
-                                        <div>
-                                            <h3 className="fw-semibold mb-3 mb-md-4" style={{
-                                                fontSize: 'clamp(1.25rem, 2vw, 2.25rem)'
-                                            }}>
-                                                Immediate <br/>
-                                                Liquidity
-                                            </h3>
-                                            <p style={{fontSize: 'clamp(1rem, 1.5vw, 1.5rem)'}}>
-                                            Instant offers and fast payments. No waiting weeks for a sale. Get your
-                                                cash
-                                                offer within 24 hours and payment within 48 hours of acceptance.
-                                            </p>
-                                        </div>
-                                    </motion.div>
-                                </motion.div>
-                            </motion.div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                </section>
 
-            {/* Trust & Expertise Section */}
-            <div style={{backgroundColor: '#9CC2B8'}}>
-                <div className="container-fluid px-3">
-                    <div className="container" style={{maxWidth: '1240px'}}>
-                        <div className="py-5 py-xl-5">
-                            <motion.div
-                                className="mb-5 text-white text-center"
-                                initial="hidden"
-                                whileInView="visible"
-                                viewport={{once: true, margin: "-100px"}}
-                                variants={staggerContainer}
-                            >
-                                <motion.div
-                                    style={{fontSize: 'clamp(1.5rem, 3vw, 3.75rem)'}}
-                                    variants={fadeInUp}
-                                >
-                                    Build on a foundation of
-                                </motion.div>
-                                <motion.h2
-                                    className="display-1 fw-bold"
-                                    style={{
-                                        fontSize: 'clamp(2rem, 5vw, 4.5rem)'
-                                    }}
-                                    variants={fadeInUp}
-                                >
-                                    Trust & Expertise
-                                </motion.h2>
-                            </motion.div>
-                            <motion.div
-                                className="row"
-                                variants={staggerContainer}
-                                initial="hidden"
-                                whileInView="visible"
-                                viewport={{once: true, margin: "-50px"}}
-                            >
-                                <motion.div
-                                    className="col-12 col-md-6 h-100"
-                                    variants={cardAnimation}
-                                >
-                                    <motion.div
-                                        className="person-card bg-white shadow h-100 p-4 p-xl-5"
-                                        style={{borderRadius: '30px'}}
-                                        whileHover={{y: -10, transition: {duration: 0.3}}}
-                                    >
-                                        <div className="d-flex align-items-center mb-4" style={{gap: '1rem'}}>
-                                            <motion.div
-                                                whileHover={{scale: 1.1, rotate: 5}}
-                                                transition={{duration: 0.3}}
-                                            >
-                                                <div
-                                                    className="d-flex justify-content-center align-items-center border-2 rounded-circle ust-div"
-                                                    style={{
-                                                        width: '100px',
-                                                        height: '100px',
-                                                        borderColor: '#6BC8AC',
-                                                        backgroundColor: '#83D7F5'
-                                                    }}>
-                                                    <span className="fs-2 fw-bold">
-                                                        <img src="/images/pishu.png" alt={'Pishu Uttam Ganglani'} className={'w-full h-full object-cover rounded-full'}/>
-                                                    </span>
-                                                </div>
-                                            </motion.div>
-                                            <div className="d-flex flex-column">
-                                                <h4 className="fw-bold mb-0" style={{
-                                                    fontSize: 'clamp(1.25rem, 2.5vw, 2.25rem)'
-                                                }}>
-                                                    Pishu Uttam Ganglani
-                                                </h4>
-                                                <p className="fw-semibold mb-0" style={{
-                                                    fontSize: 'clamp(0.875rem, 1.5vw, 1.125rem)',
-                                                    color: '#6BC8AC'
-                                                }}>
-                                                    Co-Founder & Operational Strategist
+
+
+                {/* Core Pillars Section */}
+                <div className={'py-md-5'} style={{backgroundColor: '#ffffff'}}>
+                    <div className="container-fluid px-3">
+                        <div className="container" style={{maxWidth: '85%'}}>
+                            <div className="py-5 py-xl-5">
+                                <div className={'ps-title text-center mb-5'}>
+                                    <motion.h3 className="mb-2" >Our <span> Core Pillars</span> </motion.h3>
+
+                                </div>
+
+                                <div className={'row'}>
+                                    <div className={'col-md-4'}>
+                                        <div className={'core-card mb-5 mb-sm-5 mb-md-0 text-center'}>
+                                            <div className={'core-icon mx-auto'}>
+                                                <svg width="90" height="103" viewBox="0 0 90 103" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <g clip-path="url(#clip0_40001045_4081)">
+                                                        <path
+                                                            d="M88.9079 93.304L66.5618 70.3098C66.5618 70.3098 66.5811 70.2901 66.5907 70.2802C69.8043 65.6962 71.9354 60.5546 72.9313 55.0034C73.8934 49.625 73.701 43.9998 72.378 38.7299C72.1664 37.8812 71.5891 37.2052 70.7953 36.8746C69.9967 36.539 69.1163 36.6131 68.3659 37.0818C67.346 37.7183 66.8601 38.9421 67.1583 40.1214C68.5102 45.485 68.4861 51.1596 67.0958 56.5331C65.6622 62.0695 62.7998 67.1469 58.8165 71.2079C52.8559 77.287 44.947 80.6424 36.5474 80.6572H36.5041C28.1237 80.6572 20.2821 77.3265 14.413 71.272C2.25617 58.7338 2.39568 38.3006 14.7257 25.7278C19.6664 20.6898 25.9156 17.5269 32.7998 16.5746C34.2238 16.3772 35.234 15.0696 35.1041 13.5942C35.0368 12.8343 34.6808 12.1534 34.0987 11.6797C33.5214 11.206 32.7998 11.0037 32.0685 11.1073C24.0345 12.2323 16.7318 15.943 10.9492 21.8396C3.95918 28.9648 0.0672643 38.4388 -8.65559e-05 48.5098C-0.0674374 58.5809 3.68978 68.0499 10.5884 75.1603C16.7799 81.5454 25.0208 85.4189 33.7956 86.0702C34.6808 86.1344 35.566 86.1689 36.4512 86.1689C44.2302 86.1689 51.8553 83.6474 58.1766 78.94C58.1862 78.9302 58.1959 78.9203 58.2055 78.9154L80.5227 101.875C81.2202 102.595 82.1583 102.995 83.159 103C84.1885 103.01 85.1555 102.6 85.8819 101.86L88.879 98.7959C89.5958 98.0607 89.9951 97.0887 89.9999 96.0475C90.0047 95.0063 89.6199 94.0343 88.9079 93.304Z"
+                                                            fill="white"/>
+                                                        <path
+                                                            d="M76.2849 19.318L74.0719 18.4792C72.393 17.8426 70.7766 17.0137 69.2708 16.0218C67.7795 15.0399 66.3891 13.8902 65.1383 12.6073C63.8875 11.3243 62.7666 9.89829 61.8093 8.36864C60.8423 6.82418 60.0341 5.16623 59.4135 3.44414L58.5957 1.17433C58.3407 0.468713 57.6864 0.00488281 56.9552 0.00488281C56.224 0.00488281 55.5697 0.473648 55.3147 1.17433L54.4969 3.44414C53.8763 5.16623 53.0681 6.82418 52.1011 8.36864C51.1438 9.89829 50.0229 11.3243 48.7721 12.6073C47.5213 13.8902 46.131 15.0399 44.6396 16.0218C43.1338 17.0137 41.5174 17.8426 39.8385 18.4792L37.6255 19.318C36.9376 19.5795 36.4854 20.2506 36.4854 21.0006C36.4854 21.7506 36.9424 22.4217 37.6255 22.6832L39.8385 23.5221C41.5174 24.1586 43.1338 24.9876 44.6396 25.9794C46.131 26.9613 47.5213 28.111 48.7721 29.394C50.0229 30.6769 51.1438 32.1029 52.1011 33.6326C53.0681 35.1771 53.8763 36.835 54.4969 38.5571L55.3147 40.8269C55.5697 41.5325 56.224 41.9964 56.9552 41.9964C57.6864 41.9964 58.3407 41.5276 58.5957 40.8269L59.4135 38.5571C60.0341 36.835 60.8423 35.1771 61.8093 33.6326C62.7666 32.1029 63.8875 30.6769 65.1383 29.394C66.3891 28.111 67.7795 26.9613 69.2708 25.9794C70.7766 24.9876 72.393 24.1586 74.0719 23.5221L76.2849 22.6832C76.9728 22.4217 77.4251 21.7506 77.4251 21.0006C77.4251 20.2506 76.968 19.5795 76.2849 19.318Z"
+                                                            fill="white"/>
+                                                    </g>
+                                                    <defs>
+                                                        <clipPath id="clip0_40001045_4081">
+                                                            <rect width="90" height="103" fill="white"/>
+                                                        </clipPath>
+                                                    </defs>
+                                                </svg>
+
+                                            </div>
+                                            <div className={'core-detail mt-3 mt-sm-3 mt-md-5'}>
+                                                <h3 className={'mb-3'}>Transparency </h3>
+                                                <p>
+                                                    We create a full market pricing report so you know exatly what
+                                                    professional dealers around the world are offering for your watch.
+                                                    Our terms are clear, no fine print, no hidden clauses
                                                 </p>
                                             </div>
                                         </div>
-                                        <div className="d-flex flex-column" style={{
-                                            fontSize: 'clamp(1rem, 2vw, 1.5rem)',
-                                            gap: '1.5rem'
-                                        }}>
-                                            <p>
-                                                Former McKinsey consultant and founder of NorthLadder, Pishu brings
-                                                world-class
-                                                expertise in re-commerce operations, architecting the technology that
-                                                powers
-                                                iLock's speed and fairness.
-                                            </p>
-                                            <p>
-                                                With deep experience in scaling marketplace platforms and optimizing
-                                                supply
-                                                chains, Pishu ensures every transaction on iLock is seamless,
-                                                transparent, and
-                                                built on cutting-edge infrastructure.
-                                            </p>
-                                        </div>
-                                    </motion.div>
-                                </motion.div>
-                                <motion.div
-                                    className="col-12 col-md-6 h-100"
-                                    variants={cardAnimation}
-                                >
-                                    <motion.div
-                                        className="person-card bg-white shadow h-100 p-4 p-xl-5"
-                                        style={{borderRadius: '30px'}}
-                                        whileHover={{y: -10, transition: {duration: 0.3}}}
-                                    >
-                                        <div className="d-flex align-items-center mb-4" style={{gap: '1rem'}}>
-                                            <motion.div
-                                                whileHover={{scale: 1.1, rotate: 5}}
-                                                transition={{duration: 0.3}}
-                                            >
-                                                <div
-                                                    className="d-flex justify-content-center align-items-center border border-2 rounded-circle ust-div"
-                                                    style={{
-                                                        width: '100px',
-                                                        height: '100px',
-                                                        borderColor: '#6BC8AC',
-                                                        backgroundColor: '#83D7F5'
-                                                    }}>
-                                                    <span className="fs-2 fw-bold">
-                                                        <img src="/images/harsh.png" alt={'Harsh Kamani'}
-                                                             className={'w-full h-full object-cover rounded-full'}/>
-                                                    </span>
-                                                </div>
-                                            </motion.div>
-                                            <div className="d-flex flex-column">
-                                                <h4 className="fw-bold mb-0" style={{
-                                                    fontSize: 'clamp(1.25rem, 2.5vw, 2.25rem)'
-                                                }}>
-                                                    Harsh Kamani
-                                                </h4>
-                                                <p className="fw-semibold mb-0" style={{
-                                                    fontSize: 'clamp(0.875rem, 1.5vw, 1.125rem)',
-                                                    color: '#6BC8AC'
-                                                }}>
-                                                    Co-Founder & Wealth Strategist
+
+                                    </div>
+                                    <div className={'col-md-4'}>
+                                        <div className={'core-card mb-5 mb-sm-5 mb-md-0 text-center'}>
+                                            <div className={'core-icon mx-auto'}>
+                                                <svg width="87" height="87" viewBox="0 0 87 87" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <g clip-path="url(#clip0_40001045_4085)">
+                                                        <path
+                                                            d="M55.5143 0C39.6134 0 26.4843 11.7934 24.3955 27.1318C27.0307 28.1799 29.4393 29.7288 31.5281 31.8218C36.8883 37.1927 38.8872 44.8402 37.0716 51.987L46.8859 61.821C49.611 62.6421 52.5193 63.0494 55.5176 63.0494C72.8743 63.0494 87.0029 48.936 87.0029 31.5481C87.0029 14.1601 72.871 0 55.5143 0ZM52.3361 12.017C53.2423 11.1525 54.335 10.6952 55.6509 10.6952C56.9668 10.6952 58.1028 11.1525 58.9656 12.017C59.8285 12.8816 60.3282 14.0199 60.3282 15.3384C60.3282 16.6569 59.8751 17.7518 58.9656 18.6598C58.1028 19.5243 56.9668 19.9349 55.6509 19.9349C54.335 19.9349 53.2423 19.5243 52.3361 18.6598C51.4733 17.7952 51.0169 16.6569 51.0169 15.3384C51.0169 14.0199 51.4699 12.8816 52.3361 12.017ZM63.7829 49.9375C63.7829 50.8454 63.1033 51.5297 62.1471 51.5297H49.4711C48.5916 51.5297 47.882 50.8154 47.882 49.9375V48.5255C47.882 47.6142 48.565 46.9332 49.4711 46.9332L52.3794 46.6161V29.9091L49.2446 29.5886C48.3817 29.4985 47.7454 28.8609 47.7454 27.9964V26.6745C47.7454 25.8066 48.3351 25.1724 49.1546 25.0822L55.7475 23.974C56.044 23.9239 56.3471 23.8972 56.6503 23.8972H57.9662C58.8757 23.8972 59.5553 24.5815 59.5553 25.4895V46.6561L62.327 46.9299C63.0999 46.9299 63.7795 47.6108 63.7795 48.5221V49.9341L63.7829 49.9375Z"
+                                                            fill="white"/>
+                                                        <path
+                                                            d="M56.707 85.9185L56.4938 78.311C56.4871 78.044 56.3772 77.7869 56.1873 77.5967L31.8746 53.2355C34.4032 47.1969 33.2238 39.9667 28.3167 35.0463C21.8404 28.5571 11.3364 28.5571 4.86014 35.0463C-1.61614 41.5355 -1.61614 52.0605 4.86014 58.5497C9.76732 63.4666 16.9832 64.6516 23.013 62.1147L29.1062 68.22C29.3028 68.417 29.5693 68.5271 29.8491 68.5271H34.2732C34.8529 68.5271 35.3226 68.9978 35.3226 69.5786V74.0116C35.3226 74.292 35.4326 74.559 35.6291 74.756L37.7479 76.879C37.9445 77.0759 38.211 77.1861 38.4908 77.1861H42.9149C43.4946 77.1861 43.9643 77.6567 43.9643 78.2376V82.6705C43.9643 82.9509 44.0743 83.218 44.2708 83.4149L47.3224 86.4726C47.5123 86.6628 47.7688 86.773 48.0353 86.7797L55.6276 86.9967C56.2306 87.0133 56.7237 86.5193 56.707 85.9151V85.9185ZM9.41752 46.2189C7.59856 44.3963 7.59856 41.4387 9.41752 39.6128C11.2398 37.7869 14.1914 37.7869 16.0104 39.6128C17.8327 41.4354 17.8327 44.3929 16.0104 46.2189C14.1914 48.0448 11.2398 48.0448 9.41752 46.2189Z"
+                                                            fill="white"/>
+                                                    </g>
+                                                    <defs>
+                                                        <clipPath id="clip0_40001045_4085">
+                                                            <rect width="87" height="87" fill="white"/>
+                                                        </clipPath>
+                                                    </defs>
+                                                </svg>
+
+
+                                            </div>
+                                            <div className={'core-detail mt-3 mt-sm-3 mt-md-5'}>
+                                                <h3 className={'mb-3'}>Confidentiality </h3>
+                                                <p>
+                                                    All our records are encrypted and customer information is never
+                                                    shared or revealed to anyone. All client meetings are private and by
+                                                    appointment only
                                                 </p>
                                             </div>
                                         </div>
-                                        <div className="d-flex flex-column" style={{
-                                            fontSize: 'clamp(1rem, 2vw, 1.5rem)',
-                                            gap: '1.5rem'
-                                        }}>
-                                            <p>
-                                                With a background in high-net-worth asset management and industrial
-                                                legacy,
-                                                Harsh ensures iLock adheres to the highest standards of financial
-                                                security and
-                                                wealth preservation.
-                                            </p>
-                                            <p>
-                                                Drawing from years in private banking and family office management,
-                                                Harsh has
-                                                built iLock's trust framework around institutional-grade protocols that
-                                                protect
-                                                client assets like Fort Knox.
-                                            </p>
+
+                                    </div>
+                                    <div className={'col-md-4'}>
+                                        <div className={'core-card mb-5 mb-sm-5 mb-md-0 text-center'}>
+                                            <div className={'core-icon mx-auto'}>
+                                                <svg width="80" height="84" viewBox="0 0 80 84" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M39.5916 0C40.3504 0 41.1093 0.164965 41.8021 0.478397L72.865 13.6591C76.4942 15.1932 79.1996 18.773 79.1831 23.0951C79.1006 39.4595 72.3701 69.4006 43.9467 83.0102C41.1917 84.3299 37.9914 84.3299 35.2365 83.0102C6.81312 69.4006 0.0825574 39.4595 7.5034e-05 23.0951C-0.0164214 18.773 2.689 15.1932 6.31822 13.6591L37.3976 0.478397C38.0739 0.164965 38.8328 0 39.5916 0ZM39.5916 11.0196V73.3763C62.3567 62.3566 68.4769 37.9584 68.6254 23.326L39.5916 11.0196Z"
+                                                        fill="white"/>
+                                                </svg>
+
+
+                                            </div>
+                                            <div className={'core-detail mt-3 mt-sm-3 mt-md-5'}>
+                                                <h3 className={'mb-3'}>Security </h3>
+                                                <p>
+                                                    All assets in custody are fully insured and stored with Transguard,
+                                                    a leading secure storage provider trusted by major banks, jewellers
+                                                    and bullion tradewrs
+                                                </p>
+                                            </div>
                                         </div>
-                                    </motion.div>
-                                </motion.div>
-                            </motion.div>
+
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            {/* Security Section */}
-            <div style={{backgroundColor: '#484C52'}} className={'overflow-hidden'}>
-                <div className="container-fluid">
-                    <div className="row align-items-center g-0">
-                        <motion.div
-                            className="col-12 col-md-6"
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{once: true, margin: "-100px"}}
-                            variants={fadeInLeft}
-                        >
-                            <div className="p-4 p-lg-5" style={{paddingLeft: 'clamp(2.5rem, 10vw, 10rem)'}}>
-                                <motion.div
-                                    className="d-flex flex-column text-white mb-4"
-                                    style={{gap: '1rem'}}
-                                    variants={staggerContainer}
-                                    initial="hidden"
-                                    whileInView="visible"
-                                    viewport={{once: true}}
-                                >
-                                    <motion.h2
-                                        className="display-1 fw-light"
-                                        style={{
-                                            fontSize: 'clamp(2rem, 5vw, 4.5rem)'
-                                        }}
-                                        variants={fadeInUp}
-                                    >
-                                        Security is<br/>
-                                        our Obsession
-                                    </motion.h2>
-                                    <motion.div
-                                        className="d-flex flex-column"
-                                        style={{
-                                            fontSize: 'clamp(1rem, 1.5vw, 1.5rem)',
-                                            gap: '1.25rem'
-                                        }}
-                                        variants={fadeInUp}
-                                    >
+                <div className={'team-section py-5'} style={{backgroundColor: '#003D69'}}>
+                    <div className={'container'}>
+                        <div className={'row'}>
+                            <div className={'col-md-12'}>
+                                <div className={'mb-5 py-md-5 text-center'}>
+                                    <h2 className="features-title">
+                                        Build on a foundation of   <strong>Trust & Expertise</strong>
+                                    </h2>
+                                    <p className="features-subtitle text-white">
+                                        Meet the visionaries behind iLock
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div className={'row justify-content-center'}>
+                            <div className={'col-md-4 mb-5 pb-md-5'}>
+                                <div className={'team-card'}>
+                                    <div className={'team-img mb-4'}>
+                                        <img src={'/images/team1.png'} alt={'img'} className={'img-fluid'}/>
+                                    </div>
+                                    <div className={'team-detail'}>
+                                        <h4>Pishu Ganglani</h4>
+                                        <h6>Co-Founder & CEO</h6>
                                         <p>
-                                            When you trust us with your luxury timepieces, we take that responsibility
+                                            Senior roles in financial services and consulting with companies like
+                                            McKinsey & Co, Metlife, EmiratesNBD and Reuters
+                                        </p>
+                                        <div className={'text-center td-icon mt-31'}>
+                                            <a href={'#'}>
+                                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M10.5317 8.02593C10.7963 7.72824 11.0132 7.42817 11.285 7.17334C12.1193 6.38744 13.1063 5.99211 14.2601 6.00163C14.8942 6.0064 15.5187 6.05165 16.129 6.22788C17.526 6.63036 18.3365 7.59249 18.7251 8.95472C19.0159 9.9764 19.0683 11.0266 19.0707 12.0793C19.0755 14.2989 19.0636 16.5208 19.0707 18.7404C19.0707 18.9476 19.0135 19.0024 18.8085 19C17.6642 18.9905 16.5176 18.9905 15.3733 19C15.1707 19 15.1278 18.9405 15.1278 18.7499C15.1349 16.6375 15.1349 14.5251 15.1278 12.4103C15.1278 11.8816 15.092 11.3505 14.9442 10.8361C14.6701 9.88828 13.9907 9.40483 12.9966 9.45722C11.6378 9.52867 10.9322 10.2003 10.7605 11.5792C10.72 11.9078 10.6986 12.2388 10.7009 12.5699C10.7009 14.6251 10.7009 16.6804 10.7057 18.7356C10.7057 18.9405 10.6556 19 10.4459 19C9.29207 18.9905 8.13828 18.9905 6.98448 19C6.79854 19 6.74609 18.9524 6.74609 18.7642C6.75086 14.6966 6.75086 10.6266 6.74609 6.55891C6.74609 6.35648 6.81285 6.31123 7.00356 6.31123C8.09775 6.31838 9.19433 6.32076 10.2885 6.31123C10.4912 6.31123 10.5412 6.37553 10.5388 6.56605C10.5269 7.05188 10.5341 7.53772 10.5341 8.02593H10.5317Z"
+                                                        fill="#FEFEFE"/>
+                                                    <path
+                                                        d="M4.25757 12.6745C4.25757 14.6869 4.25519 16.6992 4.26234 18.7116C4.26234 18.9355 4.20751 19.0022 3.97628 18.9998C2.83202 18.9879 1.68776 18.9903 0.541122 18.9998C0.357563 18.9998 0.302734 18.9545 0.302734 18.7664C0.307502 14.6916 0.307502 10.6168 0.302734 6.53966C0.302734 6.37057 0.343256 6.31104 0.522047 6.31104C1.68299 6.31818 2.84394 6.32056 4.00488 6.31104C4.22897 6.31104 4.25757 6.39439 4.25757 6.58729C4.2528 8.61635 4.25519 10.6454 4.25519 12.6745H4.25757Z"
+                                                        fill="#FEFEFE"/>
+                                                    <path
+                                                        d="M4.57467 2.27436C4.57467 3.53894 3.54959 4.56776 2.28614 4.56776C1.03938 4.56776 0.00478416 3.53894 1.64127e-05 2.29341C-0.00475133 1.03596 1.02985 0 2.29091 0C3.54245 0 4.57228 1.02644 4.57467 2.27197V2.27436Z"
+                                                        fill="#FEFEFE"/>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className={'col-md-4 mb-5 pb-md-5'}>
+                                <div className={'team-card'}>
+                                    <div className={'team-img mb-4'}>
+                                        <img src={'/images/team2.png'} alt={'img'} className={'img-fluid'}/>
+                                    </div>
+                                    <div className={'team-detail'}>
+                                        <h4>Harsh Kamani </h4>
+                                        <h6>Co-Founder & Board Member</h6>
+                                        <p>
+                                            CEO of Sun Global, a DFSA-regulated financial services firm with extensive
+                                            experience managing family offices, UHNW investors across MEA, UK, Europe,
+                                            and Asia
+                                        </p>
+                                        <div className={'text-center td-icon mt-31'}>
+                                            <a href={'#'}>
+                                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M10.5317 8.02593C10.7963 7.72824 11.0132 7.42817 11.285 7.17334C12.1193 6.38744 13.1063 5.99211 14.2601 6.00163C14.8942 6.0064 15.5187 6.05165 16.129 6.22788C17.526 6.63036 18.3365 7.59249 18.7251 8.95472C19.0159 9.9764 19.0683 11.0266 19.0707 12.0793C19.0755 14.2989 19.0636 16.5208 19.0707 18.7404C19.0707 18.9476 19.0135 19.0024 18.8085 19C17.6642 18.9905 16.5176 18.9905 15.3733 19C15.1707 19 15.1278 18.9405 15.1278 18.7499C15.1349 16.6375 15.1349 14.5251 15.1278 12.4103C15.1278 11.8816 15.092 11.3505 14.9442 10.8361C14.6701 9.88828 13.9907 9.40483 12.9966 9.45722C11.6378 9.52867 10.9322 10.2003 10.7605 11.5792C10.72 11.9078 10.6986 12.2388 10.7009 12.5699C10.7009 14.6251 10.7009 16.6804 10.7057 18.7356C10.7057 18.9405 10.6556 19 10.4459 19C9.29207 18.9905 8.13828 18.9905 6.98448 19C6.79854 19 6.74609 18.9524 6.74609 18.7642C6.75086 14.6966 6.75086 10.6266 6.74609 6.55891C6.74609 6.35648 6.81285 6.31123 7.00356 6.31123C8.09775 6.31838 9.19433 6.32076 10.2885 6.31123C10.4912 6.31123 10.5412 6.37553 10.5388 6.56605C10.5269 7.05188 10.5341 7.53772 10.5341 8.02593H10.5317Z"
+                                                        fill="#FEFEFE"/>
+                                                    <path
+                                                        d="M4.25757 12.6745C4.25757 14.6869 4.25519 16.6992 4.26234 18.7116C4.26234 18.9355 4.20751 19.0022 3.97628 18.9998C2.83202 18.9879 1.68776 18.9903 0.541122 18.9998C0.357563 18.9998 0.302734 18.9545 0.302734 18.7664C0.307502 14.6916 0.307502 10.6168 0.302734 6.53966C0.302734 6.37057 0.343256 6.31104 0.522047 6.31104C1.68299 6.31818 2.84394 6.32056 4.00488 6.31104C4.22897 6.31104 4.25757 6.39439 4.25757 6.58729C4.2528 8.61635 4.25519 10.6454 4.25519 12.6745H4.25757Z"
+                                                        fill="#FEFEFE"/>
+                                                    <path
+                                                        d="M4.57467 2.27436C4.57467 3.53894 3.54959 4.56776 2.28614 4.56776C1.03938 4.56776 0.00478416 3.53894 1.64127e-05 2.29341C-0.00475133 1.03596 1.02985 0 2.29091 0C3.54245 0 4.57228 1.02644 4.57467 2.27197V2.27436Z"
+                                                        fill="#FEFEFE"/>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className={'col-md-4 mb-5 pb-md-5'}>
+                                <div className={'team-card'}>
+                                    <div className={'team-img mb-4'}>
+                                        <img src={'/images/team3.png'} alt={'img'} className={'img-fluid'}/>
+                                    </div>
+                                    <div className={'team-detail'}>
+                                        <h4>C’Quon Gottlieb </h4>
+                                        <h6>Senior Director</h6>
+                                        <p>
+                                            Founder, Gottlieb & Co and Senior Advisor for some of the best US watch
+                                            companies like The 1916 Co, DavidSW, WatchBox and Chronofy
+                                        </p>
+                                        <div className={'text-center td-icon mt-31'}>
+                                            <a href={'#'}>
+                                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M10.5317 8.02593C10.7963 7.72824 11.0132 7.42817 11.285 7.17334C12.1193 6.38744 13.1063 5.99211 14.2601 6.00163C14.8942 6.0064 15.5187 6.05165 16.129 6.22788C17.526 6.63036 18.3365 7.59249 18.7251 8.95472C19.0159 9.9764 19.0683 11.0266 19.0707 12.0793C19.0755 14.2989 19.0636 16.5208 19.0707 18.7404C19.0707 18.9476 19.0135 19.0024 18.8085 19C17.6642 18.9905 16.5176 18.9905 15.3733 19C15.1707 19 15.1278 18.9405 15.1278 18.7499C15.1349 16.6375 15.1349 14.5251 15.1278 12.4103C15.1278 11.8816 15.092 11.3505 14.9442 10.8361C14.6701 9.88828 13.9907 9.40483 12.9966 9.45722C11.6378 9.52867 10.9322 10.2003 10.7605 11.5792C10.72 11.9078 10.6986 12.2388 10.7009 12.5699C10.7009 14.6251 10.7009 16.6804 10.7057 18.7356C10.7057 18.9405 10.6556 19 10.4459 19C9.29207 18.9905 8.13828 18.9905 6.98448 19C6.79854 19 6.74609 18.9524 6.74609 18.7642C6.75086 14.6966 6.75086 10.6266 6.74609 6.55891C6.74609 6.35648 6.81285 6.31123 7.00356 6.31123C8.09775 6.31838 9.19433 6.32076 10.2885 6.31123C10.4912 6.31123 10.5412 6.37553 10.5388 6.56605C10.5269 7.05188 10.5341 7.53772 10.5341 8.02593H10.5317Z"
+                                                        fill="#FEFEFE"/>
+                                                    <path
+                                                        d="M4.25757 12.6745C4.25757 14.6869 4.25519 16.6992 4.26234 18.7116C4.26234 18.9355 4.20751 19.0022 3.97628 18.9998C2.83202 18.9879 1.68776 18.9903 0.541122 18.9998C0.357563 18.9998 0.302734 18.9545 0.302734 18.7664C0.307502 14.6916 0.307502 10.6168 0.302734 6.53966C0.302734 6.37057 0.343256 6.31104 0.522047 6.31104C1.68299 6.31818 2.84394 6.32056 4.00488 6.31104C4.22897 6.31104 4.25757 6.39439 4.25757 6.58729C4.2528 8.61635 4.25519 10.6454 4.25519 12.6745H4.25757Z"
+                                                        fill="#FEFEFE"/>
+                                                    <path
+                                                        d="M4.57467 2.27436C4.57467 3.53894 3.54959 4.56776 2.28614 4.56776C1.03938 4.56776 0.00478416 3.53894 1.64127e-05 2.29341C-0.00475133 1.03596 1.02985 0 2.29091 0C3.54245 0 4.57228 1.02644 4.57467 2.27197V2.27436Z"
+                                                        fill="#FEFEFE"/>
+                                                </svg>
+                                            </a>
+                                            <a href={'#'}>
+                                                <svg width="22" height="15" viewBox="0 0 22 15" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M21.0067 2.34342C20.7611 1.42177 20.0341 0.695405 19.1091 0.447727C17.4357 2.5551e-07 10.7274 0 10.7274 0C10.7274 0 4.01922 2.5551e-07 2.34574 0.447727C1.42318 0.695405 0.696092 1.41939 0.448169 2.34342C1.16514e-06 4.01525 0 7.5018 0 7.5018C0 7.5018 1.16514e-06 10.9884 0.448169 12.6602C0.693708 13.5818 1.42079 14.3082 2.34574 14.5559C4.01922 15.0036 10.7274 15.0036 10.7274 15.0036C10.7274 15.0036 17.4357 15.0036 19.1091 14.5559C20.0317 14.3082 20.7588 13.5842 21.0067 12.6602C21.4549 10.9884 21.4549 7.5018 21.4549 7.5018C21.4549 7.5018 21.4549 4.01525 21.0067 2.34342ZM8.58194 10.7169V4.28674L14.1554 7.5018L8.58194 10.7169Z"
+                                                        fill="white"/>
+                                                </svg>
+
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className={'col-md-4 mb-5 pb-md-5'}>
+                                <div className={'team-card'}>
+                                    <div className={'team-img mb-4'}>
+                                        <img src={'/images/team4.png'} alt={'img'} className={'img-fluid'}/>
+                                    </div>
+                                    <div className={'team-detail'}>
+                                        <h4>Bilal Karimbath </h4>
+                                        <h6>CFO</h6>
+                                        <p>
+                                            Senior roles in financial services and consulting with companies like
+                                            McKinsey & Co, Metlife, EmiratesNBD and Reuters
+                                        </p>
+                                        <div className={'text-center td-icon mt-31'}>
+                                            <a href={'#'}>
+                                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M10.5317 8.02593C10.7963 7.72824 11.0132 7.42817 11.285 7.17334C12.1193 6.38744 13.1063 5.99211 14.2601 6.00163C14.8942 6.0064 15.5187 6.05165 16.129 6.22788C17.526 6.63036 18.3365 7.59249 18.7251 8.95472C19.0159 9.9764 19.0683 11.0266 19.0707 12.0793C19.0755 14.2989 19.0636 16.5208 19.0707 18.7404C19.0707 18.9476 19.0135 19.0024 18.8085 19C17.6642 18.9905 16.5176 18.9905 15.3733 19C15.1707 19 15.1278 18.9405 15.1278 18.7499C15.1349 16.6375 15.1349 14.5251 15.1278 12.4103C15.1278 11.8816 15.092 11.3505 14.9442 10.8361C14.6701 9.88828 13.9907 9.40483 12.9966 9.45722C11.6378 9.52867 10.9322 10.2003 10.7605 11.5792C10.72 11.9078 10.6986 12.2388 10.7009 12.5699C10.7009 14.6251 10.7009 16.6804 10.7057 18.7356C10.7057 18.9405 10.6556 19 10.4459 19C9.29207 18.9905 8.13828 18.9905 6.98448 19C6.79854 19 6.74609 18.9524 6.74609 18.7642C6.75086 14.6966 6.75086 10.6266 6.74609 6.55891C6.74609 6.35648 6.81285 6.31123 7.00356 6.31123C8.09775 6.31838 9.19433 6.32076 10.2885 6.31123C10.4912 6.31123 10.5412 6.37553 10.5388 6.56605C10.5269 7.05188 10.5341 7.53772 10.5341 8.02593H10.5317Z"
+                                                        fill="#FEFEFE"/>
+                                                    <path
+                                                        d="M4.25757 12.6745C4.25757 14.6869 4.25519 16.6992 4.26234 18.7116C4.26234 18.9355 4.20751 19.0022 3.97628 18.9998C2.83202 18.9879 1.68776 18.9903 0.541122 18.9998C0.357563 18.9998 0.302734 18.9545 0.302734 18.7664C0.307502 14.6916 0.307502 10.6168 0.302734 6.53966C0.302734 6.37057 0.343256 6.31104 0.522047 6.31104C1.68299 6.31818 2.84394 6.32056 4.00488 6.31104C4.22897 6.31104 4.25757 6.39439 4.25757 6.58729C4.2528 8.61635 4.25519 10.6454 4.25519 12.6745H4.25757Z"
+                                                        fill="#FEFEFE"/>
+                                                    <path
+                                                        d="M4.57467 2.27436C4.57467 3.53894 3.54959 4.56776 2.28614 4.56776C1.03938 4.56776 0.00478416 3.53894 1.64127e-05 2.29341C-0.00475133 1.03596 1.02985 0 2.29091 0C3.54245 0 4.57228 1.02644 4.57467 2.27197V2.27436Z"
+                                                        fill="#FEFEFE"/>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className={'col-md-4 mb-5 pb-md-5'}>
+                                <div className={'team-card'}>
+                                    <div className={'team-img mb-4'}>
+                                        <img src={'/images/team5.png'} alt={'img'} className={'img-fluid'}/>
+                                    </div>
+                                    <div className={'team-detail'}>
+                                        <h4>Dinesh Ganglani </h4>
+                                        <h6>CFO</h6>
+                                        <p>
+                                            Managed SEC and global investor reporting at Fortune 500 companies like
+                                            Hewlett Packard and BHP Billiton
+                                        </p>
+                                        <div className={'text-center td-icon mt-31'}>
+                                            <a href={'#'}>
+                                                <svg width="20" height="19" viewBox="0 0 20 19" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M10.5317 8.02593C10.7963 7.72824 11.0132 7.42817 11.285 7.17334C12.1193 6.38744 13.1063 5.99211 14.2601 6.00163C14.8942 6.0064 15.5187 6.05165 16.129 6.22788C17.526 6.63036 18.3365 7.59249 18.7251 8.95472C19.0159 9.9764 19.0683 11.0266 19.0707 12.0793C19.0755 14.2989 19.0636 16.5208 19.0707 18.7404C19.0707 18.9476 19.0135 19.0024 18.8085 19C17.6642 18.9905 16.5176 18.9905 15.3733 19C15.1707 19 15.1278 18.9405 15.1278 18.7499C15.1349 16.6375 15.1349 14.5251 15.1278 12.4103C15.1278 11.8816 15.092 11.3505 14.9442 10.8361C14.6701 9.88828 13.9907 9.40483 12.9966 9.45722C11.6378 9.52867 10.9322 10.2003 10.7605 11.5792C10.72 11.9078 10.6986 12.2388 10.7009 12.5699C10.7009 14.6251 10.7009 16.6804 10.7057 18.7356C10.7057 18.9405 10.6556 19 10.4459 19C9.29207 18.9905 8.13828 18.9905 6.98448 19C6.79854 19 6.74609 18.9524 6.74609 18.7642C6.75086 14.6966 6.75086 10.6266 6.74609 6.55891C6.74609 6.35648 6.81285 6.31123 7.00356 6.31123C8.09775 6.31838 9.19433 6.32076 10.2885 6.31123C10.4912 6.31123 10.5412 6.37553 10.5388 6.56605C10.5269 7.05188 10.5341 7.53772 10.5341 8.02593H10.5317Z"
+                                                        fill="#FEFEFE"/>
+                                                    <path
+                                                        d="M4.25757 12.6745C4.25757 14.6869 4.25519 16.6992 4.26234 18.7116C4.26234 18.9355 4.20751 19.0022 3.97628 18.9998C2.83202 18.9879 1.68776 18.9903 0.541122 18.9998C0.357563 18.9998 0.302734 18.9545 0.302734 18.7664C0.307502 14.6916 0.307502 10.6168 0.302734 6.53966C0.302734 6.37057 0.343256 6.31104 0.522047 6.31104C1.68299 6.31818 2.84394 6.32056 4.00488 6.31104C4.22897 6.31104 4.25757 6.39439 4.25757 6.58729C4.2528 8.61635 4.25519 10.6454 4.25519 12.6745H4.25757Z"
+                                                        fill="#FEFEFE"/>
+                                                    <path
+                                                        d="M4.57467 2.27436C4.57467 3.53894 3.54959 4.56776 2.28614 4.56776C1.03938 4.56776 0.00478416 3.53894 1.64127e-05 2.29341C-0.00475133 1.03596 1.02985 0 2.29091 0C3.54245 0 4.57228 1.02644 4.57467 2.27197V2.27436Z"
+                                                        fill="#FEFEFE"/>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+                {/* Security Section */}
+                <div style={{backgroundColor: '#1F253B'}} className={'overflow-hidden'}>
+                    <div className="container-fluid">
+                        <div className="row align-items-center g-0">
+                            <motion.div
+                                className="col-12 col-md-6"
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{once: true, margin: "-100px"}}
+                                variants={fadeInLeft}
+                            >
+                                <div className="p-4 p-lg-5" style={{paddingLeft: 'clamp(2.5rem, 10vw, 10rem)'}}>
+                                    <motion.div
+                                        className="ps-title d-flex flex-column text-white mb-4"
+                                        style={{gap: '1rem'}}
+                                        variants={staggerContainer}
+                                        initial="hidden"
+                                        whileInView="visible"
+                                        viewport={{once: true}}
+                                    >
+                                        <motion.h3
+                                            className="mb-3 text-start text-white"
+
+                                            variants={fadeInUp}
+                                        >
+                                            Security is <span>our Obsession</span>
+
+                                        </motion.h3>
+                                        <p className={'text-white'}>
+                                            When you trust us with your luxury timepieces, we take that
+                                            responsibility
                                             seriously. Every watch is stored in state-of-the-art facilities with
                                             multiple layers of protection.
                                         </p>
-                                    </motion.div>
-                                </motion.div>
+
+                            </motion.div>
+                            <motion.div
+                                className="row g-3"
+                                variants={staggerContainer}
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{once: true}}
+                            >
+                                        <motion.div
+                                            className="col-12 col-lg-4"
+                                            variants={cardAnimation}
+                                        >
+                                            <motion.div
+                                                className="d-flex flex-column text-white"
+                                                style={{gap: '0.5rem'}}
+                                                whileHover={{x: 10, transition: {duration: 0.3}}}
+                                            >
+                                                <motion.div
+                                                    className="d-flex justify-content-center align-items-center rounded-circle"
+                                                    style={{
+                                                        width: '55px',
+                                                        height: '55px',
+                                                        backgroundColor: '#CCA35A'
+                                                    }}
+                                                    variants={scaleIn}
+                                                    whileHover={{scale: 1.2, rotate: 360, transition: {duration: 0.5}}}
+                                                >
+                                                <span className="fw-bold">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px"
+                                                         viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path
+                                                        d="M200-280v-280h80v280h-80Zm240 0v-280h80v280h-80ZM80-120v-80h800v80H80Zm600-160v-280h80v280h-80ZM80-640v-80l400-200 400 200v80H80Z"/></svg>
+
+
+
+                                                </span>
+                                                </motion.div>
+                                                <h5 className="fw-semibold mb-0" style={{
+                                                    fontSize: 'clamp(1rem, 1.5vw, 1.25rem)'
+                                                }}>
+                                                    TransGuard<br/>
+                                                    Partnership
+                                                </h5>
+                                                <p className="small mb-0" style={{fontSize: '0.875rem'}}>
+                                                    Industry-leading custody and insurance protocols backed by Lloyd's
+                                                    of London.
+                                                </p>
+                                            </motion.div>
+                                        </motion.div>
                                 <motion.div
-                                    className="row g-3"
-                                    variants={staggerContainer}
-                                    initial="hidden"
-                                    whileInView="visible"
-                                    viewport={{once: true}}
+                                    className="col-12 col-lg-4"
+                                    variants={cardAnimation}
                                 >
                                     <motion.div
-                                        className="col-12 col-lg-4"
-                                        variants={cardAnimation}
-                                    >
-                                        <motion.div
-                                            className="d-flex flex-column text-white"
-                                            style={{gap: '0.5rem'}}
-                                            whileHover={{x: 10, transition: {duration: 0.3}}}
-                                        >
-                                            <motion.div
-                                                className="d-flex justify-content-center align-items-center rounded-circle"
-                                                style={{
-                                                    width: '55px',
-                                                    height: '55px',
-                                                    backgroundColor: '#9CC2B8'
-                                                }}
-                                                variants={scaleIn}
-                                                whileHover={{scale: 1.2, rotate: 360, transition: {duration: 0.5}}}
+                                        className="d-flex flex-column text-white"
+                                                style={{gap: '0.5rem'}}
+                                                whileHover={{x: 10, transition: {duration: 0.3}}}
                                             >
+                                                <motion.div
+                                                    className="d-flex justify-content-center align-items-center rounded-circle"
+                                                    style={{
+                                                        width: '55px',
+                                                        height: '55px',
+                                                        backgroundColor: '#CCA35A'
+                                                    }}
+                                                    variants={scaleIn}
+                                                       whileHover={{scale: 1.2, rotate: 360, transition: {duration: 0.5}}}
+                                                >
                                                 <span className="fw-bold">
-                                                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
-                                                         xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_41_53)">
-<path
-    d="M15 7.96875C15.7767 7.96875 16.4062 7.33915 16.4062 6.5625C16.4062 5.78585 15.7767 5.15625 15 5.15625C14.2233 5.15625 13.5938 5.78585 13.5938 6.5625C13.5938 7.33915 14.2233 7.96875 15 7.96875Z"
-    fill="#484C52"/>
-<path
-    d="M1.87499 11.7188H28.125C28.9659 11.7188 29.7037 11.1591 29.9306 10.3491C30.1575 9.53906 29.8172 8.6775 29.0986 8.24109L15.9736 0.272344C15.6741 0.0904687 15.337 0 15 0C14.663 0 14.3259 0.0904687 14.0269 0.272344L0.901869 8.24109C0.183275 8.6775 -0.157506 9.53953 0.0698378 10.3491C0.296244 11.1591 1.03406 11.7188 1.87499 11.7188ZM15 4.21875C16.2947 4.21875 17.3437 5.26781 17.3437 6.5625C17.3437 7.85719 16.2947 8.90625 15 8.90625C13.7053 8.90625 12.6562 7.85719 12.6562 6.5625C12.6562 5.26781 13.7053 4.21875 15 4.21875Z"
-    fill="#484C52"/>
-<path d="M19.6875 12.6562H15.9375V24.375H19.6875V12.6562Z" fill="#484C52"/>
-<path d="M25.3125 12.6562H21.5625V24.375H25.3125V12.6562Z" fill="#484C52"/>
-<path d="M14.0625 12.6562H10.3125V24.375H14.0625V12.6562Z" fill="#484C52"/>
-<path d="M8.4375 12.6562H4.6875V24.375H8.4375V12.6562Z" fill="#484C52"/>
-<path
-    d="M1.875 27.1875H28.125C28.125 26.152 27.2855 25.3125 26.25 25.3125H3.75C2.71453 25.3125 1.875 26.152 1.875 27.1875Z"
-    fill="#484C52"/>
-<path
-    d="M29.7398 28.125H0.260156C0.0989062 28.402 0 28.7194 0 29.0625V30H30V29.0625C30 28.7194 29.9011 28.402 29.7398 28.125Z"
-    fill="#484C52"/>
-</g>
-<defs>
-<clipPath id="clip0_41_53">
-<rect width="30" height="30" fill="white"/>
-</clipPath>
-</defs>
-</svg>
+                                                   <svg xmlns="http://www.w3.org/2000/svg" height="24px"
+                                                        viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path
+                                                       d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h480q33 0 56.5 23.5T720-720v180l160-160v440L720-420v180q0 33-23.5 56.5T640-160H160Z"/></svg>
+
 
                                                 </span>
+                                                </motion.div>
+                                        <h5 className="fw-semibold mb-0" style={{
+                                            fontSize: 'clamp(1rem, 1.5vw, 1.25rem)'
+                                        }}>
+                                        24/7 <br/>
+                                            Surveillance
+                                        </h5>
+                                        <p className="small mb-0" style={{fontSize: '0.875rem'}}>
+                                                    Real-time monitoring with biometric access controls and redundant security systems.
+                                                </p>
                                             </motion.div>
-                                            <h5 className="fw-semibold mb-0" style={{
-                                                fontSize: 'clamp(1rem, 1.5vw, 1.25rem)'
-                                            }}>
-                                                TransGuard<br/>
-                                                Partnership
-                                            </h5>
-                                            <p className="small mb-0" style={{fontSize: '0.875rem'}}>
-                                                Industry-leading custody and insurance protocols backed by Lloyd's of
-                                                London.
-                                            </p>
                                         </motion.div>
-                                    </motion.div>
-                                    <motion.div
-                                        className="col-12 col-lg-4"
-                                        variants={cardAnimation}
-                                    >
                                         <motion.div
-                                            className="d-flex flex-column text-white"
-                                            style={{gap: '0.5rem'}}
-                                            whileHover={{x: 10, transition: {duration: 0.3}}}
+                                            className="col-12 col-lg-4"
+                                            variants={cardAnimation}
                                         >
                                             <motion.div
-                                                className="d-flex justify-content-center align-items-center rounded-circle"
-                                                style={{
-                                                    width: '55px',
-                                                    height: '55px',
-                                                    backgroundColor: '#9CC2B8'
-                                                }}
-                                                variants={scaleIn}
-                                                whileHover={{scale: 1.2, rotate: 360, transition: {duration: 0.5}}}
+                                                className="d-flex flex-column text-white"
+                                                style={{gap: '0.5rem'}}
+                                                whileHover={{x: 10, transition: {duration: 0.3}}}
                                             >
+                                                <motion.div
+                                                    className="d-flex justify-content-center align-items-center rounded-circle"
+                                                    style={{
+                                                        width: '55px',
+                                                        height: '55px',
+                                                        backgroundColor: '#CCA35A'
+                                                    }}
+                                                    variants={scaleIn}
+                                                    whileHover={{scale: 1.2, rotate: 360, transition: {duration: 0.5}}}
+                                                >
                                                 <span className="fw-bold">
-                                                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
-                                                         xmlns="http://www.w3.org/2000/svg">
+                                                   <svg width="23" height="20" viewBox="0 0 23 20" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
 <path
-    d="M8.16175 12.2513H18.0627C18.6809 12.2513 19.1821 11.7501 19.1821 11.1318C19.1821 10.5136 18.6809 10.0124 18.0627 10.0124H8.16175C7.54351 10.0124 7.0423 10.5136 7.0423 11.1318C7.0423 11.7501 7.54351 12.2513 8.16175 12.2513Z"
-    fill="#484C52"/>
-<path
-    d="M22.0389 18.9542H21.4385C20.7695 18.9542 20.225 19.4987 20.225 20.1679V21.6347H23.2524V20.1679C23.2524 19.4987 22.708 18.9542 22.0389 18.9542Z"
-    fill="#484C52"/>
-<path
-    d="M26.4943 20.2684V20.1679C26.4943 18.2452 25.2702 16.6033 23.5605 15.9802V5.50046C23.5605 5.20679 23.444 4.92536 23.2363 4.71804L18.8424 0.32382C18.6345 0.116497 18.3535 0 18.06 0H4.83663C3.63859 0 2.664 0.974668 2.664 2.17263V25.4643C2.664 26.6624 3.63859 27.637 4.83656 27.637H16.1414V27.7442C16.1414 28.9881 17.1533 30 18.3972 30H25.0801C26.324 30 27.3359 28.9881 27.3359 27.7442V22.0247C27.3359 21.3158 27.0073 20.6823 26.4943 20.2684ZM16.9831 20.1679V20.2684C16.4701 20.6823 16.1414 21.3158 16.1414 22.0247V25.2179H5.02335V2.41898H16.5229V5.67114C16.5229 6.45886 17.1613 7.09702 17.9488 7.09702H21.2011V15.7188C20.1707 15.7732 19.2328 16.1799 18.5039 16.8196C18.3685 16.7615 18.2194 16.729 18.0626 16.729H8.16177C7.54354 16.729 7.04232 17.2302 7.04232 17.8484C7.04232 18.4667 7.54354 18.9679 8.16177 18.9679H17.1486C17.0416 19.35 16.9831 19.7521 16.9831 20.1679ZM25.4702 23.5442H24.1444C23.8105 23.5442 23.5389 23.8159 23.5389 24.1496C23.5389 24.4836 23.8106 24.7551 24.1444 24.7551H25.4702V25.8743H24.1444C23.8105 25.8743 23.5389 26.146 23.5389 26.4798C23.5389 26.8137 23.8106 27.0853 24.1444 27.0853H25.4702V27.7441C25.4702 27.9595 25.2956 28.1341 25.0801 28.1341H18.3972C18.1817 28.1341 18.0071 27.9595 18.0071 27.7441V22.0246C18.0071 21.8092 18.1817 21.6345 18.3972 21.6345H18.8489V20.1677C18.8489 18.7397 20.0106 17.578 21.4385 17.578H22.0389C23.4667 17.578 24.6284 18.7397 24.6284 20.1677V21.6345H25.0801C25.2956 21.6345 25.4702 21.8092 25.4702 22.0246V23.5442Z"
-    fill="#484C52"/>
+    d="M0 2.5C0 1.12109 1.12109 0 2.5 0H8.75V5C8.75 5.69141 9.30859 6.25 10 6.25H15V8.08594L11.375 9.53516C10.543 9.86719 10 10.6719 10 11.5664C10 13.7773 10.7383 17.3477 13.6797 19.7031C13.3281 19.8906 12.9258 20 12.5 20H2.5C1.12109 20 0 18.8789 0 17.5V2.5ZM15 5H10V0L15 5ZM16.5273 8.81641C16.75 8.72656 17 8.72656 17.2227 8.81641L21.9102 10.6914C22.2656 10.8359 22.5 11.1797 22.5 11.5625C22.5 14.0352 21.4883 18.1562 17.2344 19.9297C17.0039 20.0273 16.7422 20.0273 16.5117 19.9297C12.2617 18.1562 11.25 14.0352 11.25 11.5625C11.25 11.1797 11.4844 10.8359 11.8398 10.6914L16.5273 8.81641ZM20.6016 12.1875L16.875 10.6953V18.0352C19.5391 16.7461 20.4492 14.168 20.6016 12.1875Z"
+    fill="white"/>
 </svg>
 
-                                                </span>
-                                            </motion.div>
-                                            <h5 className="fw-semibold mb-0" style={{
-                                                fontSize: 'clamp(1rem, 1.5vw, 1.25rem)'
-                                            }}>
-                                                24/7 <br/>
-                                                Surveillance
-                                            </h5>
-                                            <p className="small mb-0" style={{fontSize: '0.875rem'}}>
-                                                Real-time monitoring with biometric access controls and redundant
-                                                security systems.
-                                            </p>
-                                        </motion.div>
-                                    </motion.div>
-                                    <motion.div
-                                        className="col-12 col-lg-4"
-                                        variants={cardAnimation}
-                                    >
-                                        <motion.div
-                                            className="d-flex flex-column text-white"
-                                            style={{gap: '0.5rem'}}
-                                            whileHover={{x: 10, transition: {duration: 0.3}}}
-                                        >
-                                            <motion.div
-                                                className="d-flex justify-content-center align-items-center rounded-circle"
-                                                style={{
-                                                    width: '55px',
-                                                    height: '55px',
-                                                    backgroundColor: '#9CC2B8'
-                                                }}
-                                                variants={scaleIn}
-                                                whileHover={{scale: 1.2, rotate: 360, transition: {duration: 0.5}}}
-                                            >
-                                                <span className="fw-bold">
-                                                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
-                                                         xmlns="http://www.w3.org/2000/svg">
-<path d="M18.75 5.625H0V24.375H18.75V5.625Z" fill="#484C52"/>
-<path d="M28.125 5.625L22.5 11.25V18.75L28.125 24.375H30V5.625H28.125Z" fill="#484C52"/>
-</svg>
 
                                                 </span>
+                                                </motion.div>
+                                                <h5 className="fw-semibold mb-0" style={{
+                                                    fontSize: 'clamp(1rem, 1.5vw, 1.25rem)'
+                                                }}>
+                                                    Full Insurance<br/>
+                                                    Coverage
+                                                </h5>
+                                                <p className="small mb-0" style={{fontSize: '0.875rem'}}>
+                                                    Every asset is insured from the moment it enters our custody until
+                                                    final delivery.
+                                                </p>
                                             </motion.div>
-                                            <h5 className="fw-semibold mb-0" style={{
-                                                fontSize: 'clamp(1rem, 1.5vw, 1.25rem)'
-                                            }}>
-                                                Full Insurance<br/>
-                                                Coverage
-                                            </h5>
-                                            <p className="small mb-0" style={{fontSize: '0.875rem'}}>
-                                                Every asset is insured from the moment it enters our custody until final
-                                                delivery.
-                                            </p>
                                         </motion.div>
                                     </motion.div>
-                                </motion.div>
-                            </div>
-                        </motion.div>
-                        <motion.div
-                            className="col-12 col-md-6"
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{once: true, margin: "-100px"}}
-                            variants={fadeInRight}
-                        >
-                            <motion.div
-                                whileHover={{scale: 1.05}}
-                                transition={{duration: 0.3}}
-                            >
-                                <img src="/images/securty.jpg" className="img-fluid w-100" style={{objectFit: 'cover'}}
-                                     alt="Security"/>
+                                </div>
                             </motion.div>
-                        </motion.div>
+                            <motion.div
+                                className="col-12 col-md-6"
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{once: true, margin: "-100px"}}
+                                variants={fadeInRight}
+                            >
+                                <motion.div
+                                    whileHover={{scale: 1.05}}
+                                    transition={{duration: 0.3}}
+                                >
+                                    <img src="/images/securty.jpg" className="img-fluid w-100"
+                                         style={{objectFit: 'cover'}}
+                                         alt="Security"/>
+                                </motion.div>
+                            </motion.div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
 
-            <motion.div 
-                className={'ready-section py-5 py-md-5 my-md-5 text-center'}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-100px" }}
-                variants={fadeInUp}
-            >
-                <div className={'container'}>
-                    <motion.div 
-                        className={'ready-content mb-5'}
-                        variants={staggerContainer}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                    >
-                        <motion.h1 
-                            className={'mb-3'}
+                <motion.div
+                    className={'ready-section py-5 py-md-5 my-md-5 text-center'}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{once: true, margin: "-100px"}}
+                    variants={fadeInUp}
+                >
+                    <div className={'container'}>
+
+                        <div className={'ps-title text-center mb-5'}>
+                            <h3 className={'mb-2'}>
+                                <span>Redefining</span> how the world trades<br/> <span>luxury timepieces</span>
+                            </h3>
+                            <p>
+                                Combining advanced re-commerce technology with legacy wealth expertise
+                            </p>
+                        </div>
+
+
+                        <motion.div
+                            className={'ready-btn-div text-center'}
                             variants={fadeInUp}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{once: true}}
                         >
-                            Redefining how the world<br/>
-                            trades luxury timepieces
-                        </motion.h1>
-                        <motion.p variants={fadeInUp}>
-                            Combining advanced re-commerce technology with legacy wealth expertise
-                        </motion.p>
-                    </motion.div>
-                    <motion.div 
-                        className={'ready-btn-div text-center'}
-                        variants={fadeInUp}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                    >
-                        <motion.button 
-                            className={'btn mb-3'}
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                        >
-                            Get your free valuation now
-                        </motion.button>
-                        <p>100% Secured & Confidential</p>
-                    </motion.div>
-                </div>
-            </motion.div>
+                            <motion.button
+                                className={'btn mb-3'}
+                                whileHover={{scale: 1.05}}
+                                whileTap={{scale: 0.95}}
+                            >
+                                Get your free valuation now
+                            </motion.button>
+                            <p>100% Secured & Confidential</p>
+                        </motion.div>
+                    </div>
+                </motion.div>
 
-            <Footer />
-        </div>
+                <Footer/>
+            </div>
         </>
     );
 }

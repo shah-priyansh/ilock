@@ -1,6 +1,6 @@
 /* Footer Styles */
 .main-footer {
-    background-color: #484C52;
+    background-color: #003D69;
     padding: 80px 0 30px;
 }
 
@@ -14,7 +14,7 @@
 }
 
 .footer-links {
-    background-color: #000000;
+    background-color: #3581A3;
     display: flex;
     gap: 50px;
     padding: 15px 0;
@@ -45,7 +45,7 @@
     display: flex;
     gap: 50px;
     justify-content: center;
-    margin-top: 40px;
+    margin-top: 90px;
 }
 
 .footer-social a {
@@ -57,7 +57,7 @@
 }
 
 .footer-social a:hover svg path {
-    fill: var(--primary, #0290C4);
+    fill: #3581A3;
 }
 
 .footer-social svg {
@@ -67,8 +67,8 @@
 
 .bottom-footer {
     margin-top: 40px;
-    padding-top: 30px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 0;
+    /*border-top: 1px solid rgba(255, 255, 255, 0.1);*/
 }
 
 .bottom-footer p {
