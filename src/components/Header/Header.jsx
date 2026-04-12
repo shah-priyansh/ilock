@@ -62,11 +62,11 @@ const Header = ({ logo }) => {
                 {/* Desktop Navigation Menu */}
                 <nav className="nav-menu">
                     <Link to="/" className="nav-link">Home</Link>
-                    <a href="#" className="nav-link">Services</a>
+                    {/*<a href="#" className="nav-link">Services</a>*/}
                     <Link to="/about" className="nav-link">About Us</Link>
                     <Link to="/contact" className="nav-link">Contact & Support</Link>
                     <a href="#" className="nav-link">Download App</a>
-                    <Link to="/contact" className="header-cta">Get Quote Today</Link>
+                    <Link to="/contact" className="header-cta">Speak to a Specialist</Link>
                 </nav>
 
                 {/* Mobile Menu Button */}

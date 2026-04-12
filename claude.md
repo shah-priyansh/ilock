@@ -30,7 +30,7 @@ ilockwebsite/
 │       └── coin.mp4
 ├── src/
 │   ├── components/
-│   │   ├── AboutUs/
+│   │   ├── Faq/
 │   │   ├── Footer/      # Footer with styled links
 │   │   ├── Header/      # Navigation header
 │   │   ├── LandingPage/

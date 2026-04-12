@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'r
 import LandingPage from './components/LandingPage/LandingPage';
 import About from './pages/About';
 import ContactUs from './pages/ContactUs';
+import Faq from './pages/Faq';
 import HeroSection from './components/HeroSection/HeroSection';
 import NewHeroSection from './components/HeroSection/NewHeroSection';
 import { trackPageView } from './utils/analytics';
@@ -28,6 +29,7 @@ function App() {
           <Route path="/sell-luxury-watches" element={<LandingPage />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<ContactUs />} />
+          <Route path="/faq" element={<Faq />} />
         </Routes>
       </div>
     </Router>

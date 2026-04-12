@@ -51,6 +51,7 @@
     color: #191c1f;
     flex: 1;
     line-height: 1.5;
+    font-family: 'Poppins', sans-serif;
 }
 
 .accordion-icon {
@@ -90,7 +91,7 @@
     font-size: 1rem;
     line-height: 1.7;
     color: #434454;
-    padding-top: 16px;
+    padding-top: 0;
 }
 
 /* Responsive Styles */

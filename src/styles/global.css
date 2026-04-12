@@ -179,7 +179,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .logo-container img {
-    height: 40px;
+    height: 70px;
     width: auto;
 }
 
@@ -1822,6 +1822,18 @@ h1,h2,h3,h4,h5,h6 {
     justify-content: center;
     gap: 20px;
     align-items: center;
+}
+.faq-accordion .accordion-answer p {
+    margin-bottom: 15px;
+    font-family: 'Poppins', sans-serif;
+}
+.faq-accordion .accordion-answer ul {
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+.faq-accordion .accordion-item {
+    border: 1px solid #cca35a;
+    border-radius: 10px !important;
 }
 /* Responsive Styles for Hero Section */
 
