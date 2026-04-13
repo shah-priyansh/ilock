@@ -48,7 +48,7 @@ export const LuxryFrame = () => {
                             viewport={{ once: true, margin: "-100px" }}
                             variants={scaleIn}
                         >
-                            <VideoPlayer src="/images/map.mp4" className="img-fluid" />
+                            <VideoPlayer src="/images/map-ilock.mp4" className="img-fluid" />
                         </motion.div>
 
                         <motion.div
@@ -306,7 +306,7 @@ export const LuxryFrame = () => {
                             viewport={{ once: true, margin: "-100px" }}
                             variants={scaleIn}
                         >
-                            <VideoPlayer src="/images/brandscoin.mp4" className="img-fluid mx-auto" />
+                            <VideoPlayer src="/images/Coin 01.mp4" className="img-fluid mx-auto" />
                         </motion.div>
                     </div>
                 </div>

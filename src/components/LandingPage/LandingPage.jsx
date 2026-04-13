@@ -635,7 +635,7 @@ export default function LandingPage() {
                                 </div>
                             </motion.div>
                             <div className="col-md-12 text-center">
-                                <VideoPlayer src="/images/brandscoin.mp4" className="img-fluid mx-auto" />
+                                <VideoPlayer src="/images/Coin 01.mp4" className="img-fluid mx-auto" />
                             </div>
                         </div>
                         <div className={'py-5'}>
