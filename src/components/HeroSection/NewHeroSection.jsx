@@ -235,25 +235,36 @@ const NewHeroSection = () => {
 
           <div className="features-cards">
             {featureCards.map((card, index) => (
-              <motion.div
-                className="feature-card"
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{
-                  duration: 0.5,
-                  delay: isMobile ? 0 : index * 0.1,
-                }}
-              >
+              <div className="feature-card" key={index}>
                 <div className="feature-card-image">
-                  <img src={card.image} alt={card.title} />
+                  <motion.img
+                    src={card.image}
+                    alt={card.title}
+                    initial={{ opacity: 0, scale: 1.15 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true, margin: "-40px" }}
+                    transition={{
+                      duration: 0.65,
+                      ease: [0.16, 1, 0.3, 1],
+                      delay: isMobile ? 0 : index * 0.12,
+                    }}
+                  />
                 </div>
-                <div className="feature-card-info">
+                <motion.div
+                  className="feature-card-info"
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{
+                    duration: 0.4,
+                    ease: "easeOut",
+                    delay: isMobile ? 0.1 : index * 0.12 + 0.25,
+                  }}
+                >
                   <h3 className="feature-card-title">{card.title}</h3>
                   <p className="feature-card-subtitle">{card.subtitle}</p>
-                </div>
-              </motion.div>
+                </motion.div>
+              </div>
             ))}
           </div>
         </div>

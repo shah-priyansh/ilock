@@ -194,6 +194,7 @@
     text-align: center;
     display: flex;
     justify-content: center;
+    overflow: hidden;
 }
 
 .feature-card-image img {
