@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { trackEvent } from "../../utils/analytics";
 
 // Hero animation variants
+// Container has no own animation; it exists solely to stagger children
 const heroContainerVariants = {
   hidden: {},
   visible: {
@@ -34,6 +35,8 @@ const taglineVariants = {
   visible: {
     y: 0,
     opacity: 1,
+    // intentional overlap: last word (index 10) finishes ~1.9s, tagline starts at 1.6s
+    // if word count changes, update this delay accordingly
     transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 1.6 },
   },
 };
