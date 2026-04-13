@@ -220,15 +220,15 @@ export default function ContactUs() {
     return (
         <>
             <SEO
-                title="Contact iLockSecure - Luxury Watch Trading Support | Dubai"
-                description="Get in touch with iLockSecure's expert team. Based in Dubai DIFC, we provide 24/7 support for luxury watch trading, valuations, and secure transactions. Contact us today."
-                keywords="contact iLockSecure, luxury watch support, Dubai DIFC watch traders, watch trading contact, iLockSecure support team"
-                canonical="/contact"
-                ogTitle="Contact iLockSecure - Expert Luxury Watch Trading Support"
-                ogDescription="Reach our team of luxury watch experts based in Dubai DIFC. Get support for valuations, trading, authentication, and secure transactions."
-                ogUrl="https://ilocksecure.com/contact"
+                title="FAQ | Capital Custodia by iLock - Luxury Watch Trading Questions"
+                description="Frequently asked questions about Capital Custodia by iLock. Learn how we determine watch prices, our structured asset purchase model, global dealer network, and how we differ from pawn shops and traditional dealers."
+                keywords="Capital Custodia FAQ, iLock FAQ, luxury watch trading questions, sell Rolex FAQ, watch buyback FAQ, Capital Custodia repurchase agreement, how to sell luxury watch Dubai, watch valuation process, iLockSecure FAQ"
+                canonical="/faq"
+                ogTitle="FAQ | Capital Custodia by iLock - Your Luxury Watch Trading Questions Answered"
+                ogDescription="Get answers about selling luxury watches with Capital Custodia by iLock. Learn about our global dealer auction, pricing process, buyback options, and how we ensure the highest market value for your timepiece."
+                ogUrl="https://ilocksecure.com/faq"
             />
-            <StructuredData type="localBusiness" />
+            <StructuredData type="faq" />
 
             <div className="min-h-screen bg-white">
 

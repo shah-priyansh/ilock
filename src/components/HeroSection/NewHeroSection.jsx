@@ -63,12 +63,12 @@ const NewHeroSection = () => {
   return (
     <>
       <SEO
-        title="Sell Luxury Watches for Highest Cash Prices | iLockSecure"
-        description="Get instant cash for your luxury watches with iLockSecure's global dealer auction. Guaranteed highest prices, authentication, and buyback options. Rolex, Patek Philippe, AP & more."
-        keywords="sell luxury watches, luxury watch trading, sell Rolex, Patek Philippe buyers, authenticated watch dealers, watch buyback program, instant cash for watches"
+        title="Sell Luxury Watches for Highest Cash Prices | Capital Custodia by iLock"
+        description="Get instant cash for your luxury watches with Capital Custodia's global dealer auction powered by iLock. Guaranteed highest prices, professional authentication, buyback options, and bank-vault storage. Rolex, Patek Philippe, Audemars Piguet & more."
+        keywords="sell luxury watches, Capital Custodia, iLock, iLockSecure, luxury watch trading, sell Rolex Dubai, Patek Philippe buyers, authenticated watch dealers, watch buyback program, instant cash for watches, luxury watch auction, watch valuation Dubai, sell watches online, repurchase agreement watches"
         canonical="/"
-        ogTitle="Sell or Buyback Your Luxury Watches Securely for Top Value | iLockSecure"
-        ogDescription="Join thousands of watch owners who chose iLockSecure for instant cash. Global auction platform with authentication, bank-vault storage, and immediate payment. Get your valuation today."
+        ogTitle="Sell or Buyback Your Luxury Watches Securely | Capital Custodia by iLock"
+        ogDescription="Capital Custodia by iLock — the trusted global dealer auction platform for luxury watches. Get highest market prices, professional authentication, bank-vault storage, and immediate payment. Free valuation today."
         ogUrl="https://ilocksecure.com/"
       />
       <StructuredData type="all" />

@@ -64,12 +64,12 @@ export default function AboutUs() {
     return (
         <>
             <SEO
-                title="About iLockSecure - Redefining Global Luxury Watch Trading"
-                description="Learn how iLockSecure revolutionized luxury watch trading with our secure global auction platform. Trusted by collectors worldwide for authentication, highest prices, and buyback options."
-                keywords="luxury watch trading company, authenticated watch platform, secure watch marketplace, global watch auction, iLockSecure about us"
+                title="About Capital Custodia by iLock | Redefining Global Luxury Watch Trading"
+                description="Capital Custodia by iLock is redefining luxury watch trading with a secure global dealer auction platform. Professional authentication, competitive pricing from worldwide dealers, buyback options, and bank-vault storage — trusted by collectors and dealers globally."
+                keywords="Capital Custodia, iLock, about iLockSecure, luxury watch trading company, authenticated watch platform, secure watch marketplace, global watch auction, luxury watch dealers Dubai, watch repurchase agreement, Capital Custodia watches"
                 canonical="/about"
-                ogTitle="About iLockSecure - Trusted Global Luxury Watch Trading Platform"
-                ogDescription="Discover how iLockSecure combines cutting-edge technology with expert authentication to deliver the highest prices for luxury watches. Join thousands of satisfied collectors worldwide."
+                ogTitle="About Capital Custodia by iLock | Trusted Global Luxury Watch Trading"
+                ogDescription="Capital Custodia by iLock combines advanced re-commerce technology with legacy wealth expertise to deliver the highest prices for luxury watches. Trusted by collectors and professional dealers worldwide."
                 ogUrl="https://ilocksecure.com/about"
             />
 
