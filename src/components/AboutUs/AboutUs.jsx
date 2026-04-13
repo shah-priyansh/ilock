@@ -185,7 +185,7 @@ export default function AboutUs() {
                 {/* Core Pillars Section */}
                 <div className={'py-md-5'} style={{backgroundColor: '#ffffff'}}>
                     <div className="container-fluid px-3">
-                        <div className="container" style={{maxWidth: '85%'}}>
+                        <div className="container about-container">
                             <div className="py-5 py-xl-5">
                                 <div className={'ps-title text-center mb-5'}>
                                     <motion.h3

@@ -294,7 +294,7 @@ body {
 
 @media (max-width: 768px) {
   .hamburger span {
-    background-color: var(--text-color);
+    background-color: #ffffff;
   }
 }
 

@@ -97,6 +97,16 @@ h1,h2,h3,h4,h5,h6 {
     color: var(--primary)!important;
 }
 
+.about-container {
+    max-width: 85%;
+}
+
+@media screen and (max-width: 768px) {
+    .about-container {
+        max-width: 100%;
+    }
+}
+
 @media (min-width: 1400px) {
     .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
         max-width: 85%;
@@ -104,6 +114,18 @@ h1,h2,h3,h4,h5,h6 {
 }
 .custom-padding {
     padding: 120px 0;
+}
+
+@media screen and (max-width: 768px) {
+    .custom-padding {
+        padding: 50px 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .custom-padding {
+        padding: 35px 0;
+    }
 }
 /* --- 2. DESKTOP LAYOUT --- */
 .scroll-wrapper {
@@ -726,6 +748,20 @@ h1,h2,h3,h4,h5,h6 {
     padding-left: 15%;
     padding-right: 40px;
 }
+
+@media screen and (max-width: 1199px) {
+    .left-custom-padding {
+        padding-left: 8%;
+        padding-right: 24px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .left-custom-padding {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
 .green-section-content .sec-tag span {
     border-color: #388768;
     color: #388768;
@@ -781,6 +817,15 @@ h1,h2,h3,h4,h5,h6 {
 }
 .footer-social a:hover svg path {
     fill: var(--primary);
+}
+@media screen and (max-width: 768px) {
+    .footer-social {
+        gap: 20px;
+    }
+    .footer-social svg {
+        width: 24px;
+        height: 24px;
+    }
 }
 .footer-social svg{
     width: 35px;
@@ -1139,7 +1184,7 @@ h1,h2,h3,h4,h5,h6 {
         font-size: 14px;
     }
     .left-custom-padding {
-        padding: 15px;
+        padding: 24px;
     }
     .footer-links a {
         font-size: 14px;
@@ -2082,5 +2127,153 @@ h1,h2,h3,h4,h5,h6 {
     }
     .page-banner {
         height: 280px;
+    }
+
+    .section-content h1 {
+        font-size: 26px;
+    }
+    .section-content p {
+        font-size: 13px;
+    }
+    .section-content ul li {
+        font-size: 13px;
+    }
+    .sec-tag span {
+        font-size: 13px;
+        padding: 3px 10px;
+    }
+
+    .lf-content h1 {
+        font-size: 28px;
+        line-height: 34px;
+    }
+    .lf-content p {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    .ready-content h1 {
+        font-size: 28px;
+    }
+    .ready-content p {
+        font-size: 16px;
+    }
+    .ready-btn-div .btn {
+        padding: 12px 16px;
+        font-size: 16px;
+    }
+
+    .form-group .form-control {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+    .form-btn-div .btn {
+        font-size: 14px;
+        padding: 10px 0;
+    }
+
+    .contact-box {
+        flex-direction: column;
+        gap: 12px;
+    }
+    .icon-box {
+        width: 48px;
+        height: 48px;
+        flex: 0 0 48px;
+        border-radius: 10px;
+    }
+    .contact-detail-box h4 {
+        font-size: 14px;
+    }
+    .contact-detail-box p {
+        font-size: 13px;
+    }
+    .contact-detail-box span {
+        font-size: 12px;
+    }
+
+    .core-icon {
+        width: 90px;
+        height: 90px;
+    }
+    .core-icon svg {
+        width: 40px;
+    }
+    .core-detail h3 {
+        font-size: 20px;
+        line-height: 26px;
+    }
+    .core-detail p {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .team-card {
+        max-width: 100%;
+    }
+    .team-detail h4 {
+        font-size: 20px;
+    }
+    .team-detail h6 {
+        font-size: 13px;
+        line-height: 24px;
+    }
+    .team-detail p {
+        font-size: 13px;
+        line-height: 20px;
+    }
+
+    .howit-box h4 {
+        font-size: 16px;
+    }
+    .howit-box p {
+        font-size: 14px;
+        line-height: 20px;
+    }
+    .hi-icon {
+        width: 60px;
+        height: 60px;
+    }
+    .hi-icon svg {
+        width: 30px;
+        height: 30px;
+    }
+
+    .landing-form {
+        padding: 16px;
+        border-radius: 20px;
+        border-width: 3px;
+    }
+
+    .lf-head h4 {
+        font-size: 20px;
+        line-height: 28px;
+    }
+    .lf-head p {
+        font-size: 13px;
+    }
+
+    .lfp-box h3 {
+        font-size: 14px;
+    }
+    .lfp-box p {
+        font-size: 12px;
+    }
+
+    .page-content h1 {
+        font-size: 24px;
+    }
+    .page-content p {
+        font-size: 14px;
+    }
+
+    .page-banner {
+        height: 220px;
+    }
+
+    .header .navbar-nav .nav-item .nav-link {
+        font-size: 14px;
+        padding: 8px 10px;
+        margin: 0 5px;
     }
 }

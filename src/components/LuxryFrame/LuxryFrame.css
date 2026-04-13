@@ -729,14 +729,32 @@ h1,h2,h3,h4,h5,h6 {
 
 @media screen and (max-width: 576px) {
     .section-content h1 {
-        font-size: 32px;
+        font-size: 26px;
     }
     .section-content p {
-        font-size: 14px;
+        font-size: 13px;
     }
     .sec-tag span {
+        font-size: 13px;
+        padding: 3px 10px;
+    }
+    .section-content ul li {
+        font-size: 13px;
+    }
+    .custom-padding {
+        padding: 35px 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .custom-padding {
+        padding: 50px 0;
+    }
+    .section-content ul {
+        padding-left: 20px;
+    }
+    .section-content ul li {
         font-size: 14px;
-        padding: 4px 12px;
     }
 }
 
@@ -745,6 +763,20 @@ h1,h2,h3,h4,h5,h6 {
 .left-custom-padding {
     padding-left: 15%;
     padding-right: 40px;
+}
+
+@media screen and (max-width: 1199px) {
+    .left-custom-padding {
+        padding-left: 8%;
+        padding-right: 24px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .left-custom-padding {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 }
 .green-section-content .sec-tag span {
     border-color: #388768;
@@ -1144,7 +1176,7 @@ h1,h2,h3,h4,h5,h6 {
         font-size: 14px;
     }
     .left-custom-padding {
-        padding: 15px;
+        padding: 24px;
     }
     .footer-links a {
         font-size: 14px;
@@ -1630,5 +1662,76 @@ h1,h2,h3,h4,h5,h6 {
 
     .revolut-hero-text-wrapper {
         padding: 0;
+    }
+
+    .section-content h1 {
+        font-size: 26px;
+    }
+    .section-content p {
+        font-size: 13px;
+    }
+    .sec-tag span {
+        font-size: 13px;
+        padding: 3px 10px;
+    }
+    .section-content ul li {
+        font-size: 13px;
+    }
+
+    .footer-links a {
+        font-size: 13px;
+    }
+    .footer-social {
+        gap: 16px;
+    }
+    .footer-social svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .hero-text h1 {
+        font-size: 20px;
+    }
+    .hero-text h1 span {
+        font-size: 30px;
+    }
+    .hero-text p {
+        font-size: 13px;
+    }
+    .hero-text .btn-download {
+        font-size: 13px;
+        padding: 8px 24px;
+    }
+    .hero-text {
+        gap: 14px;
+    }
+
+    .cards-section-text h2 {
+        font-size: 24px;
+    }
+    .cards-section-text p {
+        font-size: 13px;
+    }
+    .cards-container {
+        padding: 16px 8px 30px;
+    }
+    .card {
+        height: 380px;
+    }
+    .card-content .card-title {
+        font-size: 14px;
+    }
+    .card-content .card-description {
+        font-size: 11px;
+    }
+    .card-amount {
+        font-size: 28px;
+    }
+    .card-label {
+        font-size: 11px;
+    }
+    .pill {
+        padding: 6px 12px;
+        font-size: 11px;
     }
 }
