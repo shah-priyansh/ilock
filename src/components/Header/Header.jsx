@@ -97,9 +97,9 @@ const Header = ({ logo }) => {
                     <Link to="/" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
                     <a href="#" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>Services</a>
                     <Link to="/about" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>About Us</Link>
-                    <div className="mobile-menu-logo">
+                    {/*<div className="mobile-menu-logo">
                         <Logo />
-                    </div>
+                    </div>*/}
                     <Link to="/contact" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>Contact & Support</Link>
                     <a href="#" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>Download App</a>
                     <Link to="/contact" className="mobile-header-cta" onClick={() => setIsMobileMenuOpen(false)}>Get Quote Today</Link>

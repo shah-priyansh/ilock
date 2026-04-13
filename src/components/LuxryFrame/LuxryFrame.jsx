@@ -38,7 +38,7 @@ export const LuxryFrame = () => {
 
 
 
-            <section className="highest-prices-section custom-padding">
+            <section className="highest-prices-section custom-padding" style={{ backgroundColor: '#c5d9de' }}>
                 <div className="container">
                     <div className="row align-items-center">
                         <motion.div
@@ -283,10 +283,10 @@ export const LuxryFrame = () => {
                 <div className="container overflow-hidden">
                     <div className="row align-items-center">
 
-                        <div className="col-md-12 mb-5">
+                        <div className="col-md-12">
                             <div className="section-content">
                                 <motion.h1
-                                    className="mb-3 text-white text-center"
+                                    className="text-white text-center"
                                     initial={{opacity: 0, y: 50}}
                                     whileInView={{opacity: 1, y: 0}}
                                     viewport={{once: true, margin: "-100px"}}
@@ -306,7 +306,7 @@ export const LuxryFrame = () => {
                             viewport={{ once: true, margin: "-100px" }}
                             variants={scaleIn}
                         >
-                            <VideoPlayer src="/images/Coin 01.mp4" className="img-fluid mx-auto" />
+                            <VideoPlayer src="/images/coin-video.mp4" className="img-fluid mx-auto" />
                         </motion.div>
                     </div>
                 </div>

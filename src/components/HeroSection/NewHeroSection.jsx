@@ -171,7 +171,7 @@ const NewHeroSection = () => {
         </div>
       </div>
 
-      <div className={'process-section py-5 my-5'}>
+      <div className={'process-section py-5 my-md-5'}>
         <div className={'container'}>
           <div className={'row'}>
             <div className={'col-md-12'}>
