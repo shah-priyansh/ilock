@@ -1924,6 +1924,21 @@ h1,h2,h3,h4,h5,h6 {
 .fc-body a:hover {
     color: #CCA35A;
 }
+.banner-bottom-text {
+    position: absolute;
+    bottom: 25px;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.banner-bottom-text p{
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 108%;
+    letter-spacing: -0.02em;
+    color: #CCA35A;
+}
 /* Responsive Styles for Hero Section */
 
 
@@ -2168,6 +2183,12 @@ h1,h2,h3,h4,h5,h6 {
     }
     .faq-card {
         padding: 30px;
+    }
+    .hero-text-content {
+        padding-bottom: 60px;
+    }
+    .banner-bottom-text p {
+        font-size: 14px;
     }
 
 }

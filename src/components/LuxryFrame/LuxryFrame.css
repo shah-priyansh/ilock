@@ -1026,7 +1026,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 @media screen and (max-width: 1499px)  {
     .section-content h1 {
-        font-size: 70px;
+        font-size: 44px;
     }
     .section-content p {
         font-size: 20px;
@@ -1077,7 +1077,7 @@ h1,h2,h3,h4,h5,h6 {
 
 @media screen and (max-width: 1199px)  {
     .section-content h1 {
-        font-size: 60px;
+        font-size: 40px;
     }
     .section-content p {
         font-size: 18px;

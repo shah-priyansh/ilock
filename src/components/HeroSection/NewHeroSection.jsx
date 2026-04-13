@@ -12,7 +12,7 @@ import { trackEvent } from "../../utils/analytics";
 const featureCards = [
   {
     image: "/images/wi1.png",
-    title: "Get Highest Market Price",
+    title: "Unlock liquidity safely",
     subtitle: "at the best price",
   },
   {
@@ -123,6 +123,11 @@ const NewHeroSection = () => {
               Request Private Consultation
             </motion.button>
           </motion.div>
+        </div>
+        <div className={'banner-bottom-text'}>
+          <p>
+            Designed for collectors, investors and professionals seeking discreet liquidity
+          </p>
         </div>
       </div>
 

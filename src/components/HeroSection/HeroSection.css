@@ -71,11 +71,11 @@ body {
 }
 
 .header.scrolled {
-    background: #ffffff1c;
-    box-shadow: none;
-    padding: 20px 80px;
-    min-height: 80px;
-    /*backdrop-filter: blur(10px);*/
+  background: rgba(31, 37, 59, 0.8);
+  box-shadow: none;
+  padding: 20px 80px;
+  min-height: 80px;
+  /* backdrop-filter: blur(10px); */
 }
 
 /*.header:not(.scrolled) {*/
@@ -202,7 +202,7 @@ body {
 }
 
 .header.scrolled .nav-link {
-  color: var(--nav-text-color);
+  /*color: var(--nav-text-color);*/
   text-shadow: none;
 }
 

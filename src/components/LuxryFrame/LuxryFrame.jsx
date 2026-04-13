@@ -279,37 +279,23 @@ export const LuxryFrame = () => {
                 </div>
             </section>
 
-            <section className="our-globle-section custom-padding">
-                <div className="container overflow-hidden">
-                    <div className="row align-items-center">
+            <section className="our-globle-section position-relative">
+                <div className="section-content position-absolute top-0 w-100 pt-1 pt-sm-1 pt-md-1 pt-lg-1 pt-lg-3">
+                    <motion.h1
+                        className="text-white text-center"
+                        initial={{opacity: 0, y: 50}}
+                        whileInView={{opacity: 1, y: 0}}
+                        viewport={{once: true, margin: "-100px"}}
+                        transition={{duration: 0.6, ease: "easeOut"}}
+                    >
+                        Our <span>global dealer network</span> specializes<br/>
+                        in the best luxury brands
 
-                        <div className="col-md-12">
-                            <div className="section-content">
-                                <motion.h1
-                                    className="text-white text-center"
-                                    initial={{opacity: 0, y: 50}}
-                                    whileInView={{opacity: 1, y: 0}}
-                                    viewport={{once: true, margin: "-100px"}}
-                                    transition={{duration: 0.6, ease: "easeOut"}}
-                                >
-                                    Our <span>global dealer network</span> specializes<br/>
-                                    in the best luxury brands
-
-                                </motion.h1>
-                            </div>
-
-                        </div>
-                        <motion.div
-                            className="col-md-12 text-center"
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true, margin: "-100px" }}
-                            variants={scaleIn}
-                        >
-                            <VideoPlayer src="/images/coin-video.mp4" className="img-fluid mx-auto" />
-                        </motion.div>
-                    </div>
+                    </motion.h1>
                 </div>
+                <VideoPlayer src="/images/fullvideo.mp4" className="img-fluid mx-auto"/>
+
+
             </section>
 
             {/* <section className="join-network-section custom-padding" style={{ backgroundColor: 'rgb(150, 187, 180)' }}>
