@@ -6,6 +6,20 @@ import './ContactUs.css';
 import SEO from '../components/SEO/SEO';
 import StructuredData from '../components/SEO/StructuredData';
 
+// Animation variant for each accordion item
+const accordionItemVariant = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+};
+
+const accordionContainerVariant = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: { staggerChildren: 0.12 }
+    }
+};
+
 // Accordion Component
 const Accordion = () => {
     const [openIndex, setOpenIndex] = useState(null);
@@ -46,9 +60,15 @@ const Accordion = () => {
     };
 
     return (
-        <div className="faq-accordion">
+        <motion.div
+            className="faq-accordion"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={accordionContainerVariant}
+        >
             {questions.map((item, index) => (
-                <div key={index} className="accordion-item">
+                <motion.div key={index} className="accordion-item" variants={accordionItemVariant}>
                     <button
                         className={`accordion-button bg-white rounded-[12px] ${openIndex === index ? 'active' : ''}`}
                         onClick={() => toggleQuestion(index)}
@@ -74,9 +94,9 @@ const Accordion = () => {
                             dangerouslySetInnerHTML={{__html: item.answer}}
                         />
                     </div>
-                </div>
+                </motion.div>
             ))}
-        </div>
+        </motion.div>
     );
 };
 
@@ -216,16 +236,23 @@ export default function ContactUs() {
                 <Header/>
                 <motion.div
                     className={'page-banner position-relative'}
-                    initial="hidden"
-                    animate="visible"
-                    variants={fadeInUp}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.8 }}
                 >
-                    <img src="/images/about.png" className={'img-fluid'} alt="About Banner"/>
+                    <motion.img
+                        src="/images/about.png"
+                        className={'img-fluid'}
+                        alt="About Banner"
+                        initial={{ scale: 1.1 }}
+                        animate={{ scale: 1 }}
+                        transition={{ duration: 1.2, ease: "easeOut" }}
+                    />
                     <motion.div
                         className={'page-content text-center text-white'}
-                        variants={staggerContainer}
-                        initial="hidden"
-                        animate="visible"
+                        initial={{ opacity: 0, y: 40 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
                     >
                         <h1>
                              <span>FAQ</span>

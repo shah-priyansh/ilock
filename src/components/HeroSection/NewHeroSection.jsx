@@ -1,5 +1,5 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { LuxryFrame } from "../LuxryFrame/LuxryFrame";
 import Header from "../Header/Header";
 import SEO from "../SEO/SEO";
@@ -51,6 +51,14 @@ const NewHeroSection = () => {
     return matches;
   };
   const isMobile = useMediaQuery("(max-width: 768px)");
+
+  // Scroll progress for process timeline
+  const processRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: processRef,
+    offset: ["start 80%", "end 60%"]
+  });
+  const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
     <>
@@ -173,7 +181,11 @@ const NewHeroSection = () => {
                   Get paid in 4 simple steps
                 </p>
               </div>
-              <div className={'process-list-div position-relative'}>
+              <div className={'process-list-div position-relative'} ref={processRef}>
+                <motion.div
+                  className="process-progress-line"
+                  style={{ height: lineHeight }}
+                />
                 <div className={'process-box process-box-left pe-5 mb-5 pt-5'}>
                   <div className={'px-text text-md-end'}>
                     <h1 className={'mb-2'}>1</h1>

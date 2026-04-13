@@ -4,6 +4,35 @@ import Footer from '../Footer/Footer';
 import VideoPlayer from '../VideoPlayer/VideoPlayer';
 
 export const LuxryFrame = () => {
+    // Animation variants
+    const fadeInUp = {
+        hidden: { opacity: 0, y: 60 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } }
+    };
+
+    const fadeInLeft = {
+        hidden: { opacity: 0, x: -60 },
+        visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: "easeOut" } }
+    };
+
+    const fadeInRight = {
+        hidden: { opacity: 0, x: 60 },
+        visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: "easeOut" } }
+    };
+
+    const scaleIn = {
+        hidden: { opacity: 0, scale: 0.85 },
+        visible: { opacity: 1, scale: 1, transition: { duration: 0.7, ease: "easeOut" } }
+    };
+
+    const staggerContainer = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: { staggerChildren: 0.15 }
+        }
+    };
+
     return (
         <div className="luxry-frame overflow-hidden">
 
@@ -12,11 +41,24 @@ export const LuxryFrame = () => {
             <section className="highest-prices-section custom-padding">
                 <div className="container">
                     <div className="row align-items-center">
-                        <div className="col-md-6 order-1 order-sm-1 order-md-2 mb-5 mb-sm-5 mb-md-0">
+                        <motion.div
+                            className="col-md-6 order-1 order-sm-1 order-md-2 mb-5 mb-sm-5 mb-md-0"
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, margin: "-100px" }}
+                            variants={scaleIn}
+                        >
                             <VideoPlayer src="/images/map.mp4" className="img-fluid" />
-                        </div>
-                        <div className="col-md-6 order-2 order-sm-2 order-md-1">
-                            <div className="section-content animated wow fadeInLeft">
+                        </motion.div>
+
+                        <motion.div
+                            className="col-md-6 order-2 order-sm-2 order-md-1"
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, margin: "-100px" }}
+                            variants={fadeInLeft}
+                        >
+                            <div className="section-content">
                                 <div className="sec-tag mb-5">
                                     <motion.span
                                         initial={{ opacity: 0, y: 50, borderColor: "white" }}
@@ -75,19 +117,31 @@ export const LuxryFrame = () => {
 
                             </div>
 
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
             </section>
             <section className="highest-prices-section" style={{ backgroundColor: '#3581A3' }}>
                 <div className="container-fluid px-0">
                     <div className="row align-items-center">
-                        <div className="col-md-6 order-1 order-sm-1 order-md-1 mb-5 mb-sm-5 mb-md-0">
-                            <img src="/images/watch.png " className="img-fluid w-100 animated wow fadeInRight"
+                        <motion.div
+                            className="col-md-6 order-1 order-sm-1 order-md-1 mb-5 mb-sm-5 mb-md-0"
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, margin: "-100px" }}
+                            variants={fadeInLeft}
+                        >
+                            <img src="/images/watch.png " className="img-fluid w-100"
                                  alt="Secure Storage"/>
-                        </div>
-                        <div className="col-md-6 order-2 order-sm-2 order-md-2">
-                        <div className="section-content left-custom-padding animated wow fadeInRight">
+                        </motion.div>
+                        <motion.div
+                            className="col-md-6 order-2 order-sm-2 order-md-2"
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, margin: "-100px" }}
+                            variants={fadeInRight}
+                        >
+                        <div className="section-content left-custom-padding">
                                 <div className="sec-tag mb-5">
                                     <motion.span
                                         initial={{ opacity: 0, y: 50, borderColor: "transparent" }}
@@ -137,18 +191,30 @@ export const LuxryFrame = () => {
 
                             </div>
 
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
             </section>
             <section className="secure-storage-section" style={{backgroundColor: '#003D69'}}>
             <div className="container-fluid px-0 overflow-hidden">
                     <div className="row align-items-center">
-                        <div className="col-md-6 order-1 order-sm-1 order-md-2 mb-5 mb-sm-5 mb-md-0">
-                            <img src="/images/secure.png " className="img-fluid w-100 animated wow fadeInRight" alt="Secure Storage" />
-                        </div>
-                        <div className="col-md-6 order-2 order-sm-2 order-md-1">
-                            <div className="section-content left-custom-padding animated wow fadeInLeft">
+                        <motion.div
+                            className="col-md-6 order-1 order-sm-1 order-md-2 mb-5 mb-sm-5 mb-md-0"
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, margin: "-100px" }}
+                            variants={scaleIn}
+                        >
+                            <img src="/images/secure.png " className="img-fluid w-100" alt="Secure Storage" />
+                        </motion.div>
+                        <motion.div
+                            className="col-md-6 order-2 order-sm-2 order-md-1"
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, margin: "-100px" }}
+                            variants={fadeInLeft}
+                        >
+                            <div className="section-content left-custom-padding">
                                 <div className="sec-tag mb-5">
                                     <motion.span
                                         className="text-white"
@@ -208,7 +274,7 @@ export const LuxryFrame = () => {
 
                             </div>
 
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
             </section>
@@ -218,7 +284,7 @@ export const LuxryFrame = () => {
                     <div className="row align-items-center">
 
                         <div className="col-md-12 mb-5">
-                            <div className="section-content animated wow fadeInDown">
+                            <div className="section-content">
                                 <motion.h1
                                     className="mb-3 text-white text-center"
                                     initial={{opacity: 0, y: 50}}
@@ -233,9 +299,15 @@ export const LuxryFrame = () => {
                             </div>
 
                         </div>
-                        <div className="col-md-12 text-center">
+                        <motion.div
+                            className="col-md-12 text-center"
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, margin: "-100px" }}
+                            variants={scaleIn}
+                        >
                             <VideoPlayer src="/images/brandscoin.mp4" className="img-fluid mx-auto" />
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
             </section>

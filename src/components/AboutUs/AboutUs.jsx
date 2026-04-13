@@ -79,20 +79,27 @@ export default function AboutUs() {
 
                 <motion.div
                     className={'page-banner position-relative'}
-                    initial="hidden"
-                    animate="visible"
-                    variants={fadeInUp}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.8 }}
                 >
-                    <img src="/images/about.png" className={'img-fluid'} alt="About Banner"/>
+                    <motion.img
+                        src="/images/about.png"
+                        className={'img-fluid'}
+                        alt="About Banner"
+                        initial={{ scale: 1.1 }}
+                        animate={{ scale: 1 }}
+                        transition={{ duration: 1.2, ease: "easeOut" }}
+                    />
                     <motion.div
                         className={'page-content text-center text-white'}
-                        variants={staggerContainer}
-                        initial="hidden"
-                        animate="visible"
+                        initial={{ opacity: 0, y: 40 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
                     >
-                        <motion.h1 variants={fadeInUp}>
+                        <h1>
                             About <span>Capital Custodia</span>
-                        </motion.h1>
+                        </h1>
                     </motion.div>
                 </motion.div>
                 <motion.div
@@ -117,12 +124,24 @@ export default function AboutUs() {
                 <section className="highest-prices-section overflow-hidden" style={{backgroundColor: '#3581A3'}}>
                     <div className="container-fluid px-0">
                         <div className="row align-items-center">
-                            <div className="col-md-6 order-1 order-sm-1 order-md-1 mb-5 mb-sm-5 mb-md-0">
-                                <img src="/images/watch.png " className="img-fluid w-100 animated wow fadeInRight"
+                            <motion.div
+                                className="col-md-6 order-1 order-sm-1 order-md-1 mb-5 mb-sm-5 mb-md-0"
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true, margin: "-100px" }}
+                                variants={fadeInLeft}
+                            >
+                                <img src="/images/watch.png " className="img-fluid w-100"
                                      alt="Secure Storage"/>
-                            </div>
-                            <div className="col-md-6 order-2 order-sm-2 order-md-2">
-                                <div className="section-content left-custom-padding animated wow fadeInRight">
+                            </motion.div>
+                            <motion.div
+                                className="col-md-6 order-2 order-sm-2 order-md-2"
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true, margin: "-100px" }}
+                                variants={fadeInRight}
+                            >
+                                <div className="section-content left-custom-padding">
 
                                     <motion.h1
                                         className="mb-3 text-white"
@@ -156,7 +175,7 @@ export default function AboutUs() {
 
                                 </div>
 
-                            </div>
+                            </motion.div>
                         </div>
                     </div>
                 </section>
@@ -169,12 +188,24 @@ export default function AboutUs() {
                         <div className="container" style={{maxWidth: '85%'}}>
                             <div className="py-5 py-xl-5">
                                 <div className={'ps-title text-center mb-5'}>
-                                    <motion.h3 className="mb-2" >Our <span> Core Pillars</span> </motion.h3>
+                                    <motion.h3
+                                    className="mb-2"
+                                    initial="hidden"
+                                    whileInView="visible"
+                                    viewport={{ once: true, margin: "-100px" }}
+                                    variants={fadeInUp}
+                                >Our <span> Core Pillars</span> </motion.h3>
 
                                 </div>
 
-                                <div className={'row'}>
-                                    <div className={'col-md-4'}>
+                                <motion.div
+                                    className={'row'}
+                                    initial="hidden"
+                                    whileInView="visible"
+                                    viewport={{ once: true, margin: "-100px" }}
+                                    variants={staggerContainer}
+                                >
+                                    <motion.div className={'col-md-4'} variants={cardAnimation}>
                                         <div className={'core-card mb-5 mb-sm-5 mb-md-0 text-center'}>
                                             <div className={'core-icon mx-auto'}>
                                                 <svg width="90" height="103" viewBox="0 0 90 103" fill="none"
@@ -205,8 +236,8 @@ export default function AboutUs() {
                                             </div>
                                         </div>
 
-                                    </div>
-                                    <div className={'col-md-4'}>
+                                    </motion.div>
+                                    <motion.div className={'col-md-4'} variants={cardAnimation}>
                                         <div className={'core-card mb-5 mb-sm-5 mb-md-0 text-center'}>
                                             <div className={'core-icon mx-auto'}>
                                                 <svg width="87" height="87" viewBox="0 0 87 87" fill="none"
@@ -238,8 +269,8 @@ export default function AboutUs() {
                                             </div>
                                         </div>
 
-                                    </div>
-                                    <div className={'col-md-4'}>
+                                    </motion.div>
+                                    <motion.div className={'col-md-4'} variants={cardAnimation}>
                                         <div className={'core-card mb-5 mb-sm-5 mb-md-0 text-center'}>
                                             <div className={'core-icon mx-auto'}>
                                                 <svg width="80" height="84" viewBox="0 0 80 84" fill="none"
@@ -261,8 +292,8 @@ export default function AboutUs() {
                                             </div>
                                         </div>
 
-                                    </div>
-                                </div>
+                                    </motion.div>
+                                </motion.div>
                             </div>
                         </div>
                     </div>
@@ -272,19 +303,31 @@ export default function AboutUs() {
                     <div className={'container'}>
                         <div className={'row'}>
                             <div className={'col-md-12'}>
-                                <div className={'mb-5 py-md-5 text-center'}>
+                                <motion.div
+                                    className={'mb-5 py-md-5 text-center'}
+                                    initial="hidden"
+                                    whileInView="visible"
+                                    viewport={{ once: true, margin: "-100px" }}
+                                    variants={fadeInUp}
+                                >
                                     <h2 className="features-title">
                                         Build on a foundation of   <strong>Trust & Expertise</strong>
                                     </h2>
                                     <p className="features-subtitle text-white">
                                         Meet the visionaries behind iLock
                                     </p>
-                                </div>
+                                </motion.div>
                             </div>
 
                         </div>
-                        <div className={'row justify-content-center'}>
-                            <div className={'col-md-4 mb-5 pb-md-5'}>
+                        <motion.div
+                            className={'row justify-content-center'}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, margin: "-100px" }}
+                            variants={staggerContainer}
+                        >
+                            <motion.div className={'col-md-4 mb-5 pb-md-5'} variants={cardAnimation}>
                                 <div className={'team-card'}>
                                     <div className={'team-img mb-4'}>
                                         <img src={'/images/team1.png'} alt={'img'} className={'img-fluid'}/>
@@ -314,8 +357,8 @@ export default function AboutUs() {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className={'col-md-4 mb-5 pb-md-5'}>
+                            </motion.div>
+                            <motion.div className={'col-md-4 mb-5 pb-md-5'} variants={cardAnimation}>
                                 <div className={'team-card'}>
                                     <div className={'team-img mb-4'}>
                                         <img src={'/images/team2.png'} alt={'img'} className={'img-fluid'}/>
@@ -346,8 +389,8 @@ export default function AboutUs() {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className={'col-md-4 mb-5 pb-md-5'}>
+                            </motion.div>
+                            <motion.div className={'col-md-4 mb-5 pb-md-5'} variants={cardAnimation}>
                                 <div className={'team-card'}>
                                     <div className={'team-img mb-4'}>
                                         <img src={'/images/team3.png'} alt={'img'} className={'img-fluid'}/>
@@ -386,8 +429,8 @@ export default function AboutUs() {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className={'col-md-4 mb-5 pb-md-5'}>
+                            </motion.div>
+                            <motion.div className={'col-md-4 mb-5 pb-md-5'} variants={cardAnimation}>
                                 <div className={'team-card'}>
                                     <div className={'team-img mb-4'}>
                                         <img src={'/images/team4.png'} alt={'img'} className={'img-fluid'}/>
@@ -417,8 +460,8 @@ export default function AboutUs() {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className={'col-md-4 mb-5 pb-md-5'}>
+                            </motion.div>
+                            <motion.div className={'col-md-4 mb-5 pb-md-5'} variants={cardAnimation}>
                                 <div className={'team-card'}>
                                     <div className={'team-img mb-4'}>
                                         <img src={'/images/team5.png'} alt={'img'} className={'img-fluid'}/>
@@ -448,9 +491,9 @@ export default function AboutUs() {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </motion.div>
 
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
 
