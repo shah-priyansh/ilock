@@ -293,7 +293,7 @@ const NewHeroSection = () => {
                       Send details privately
                     </p>
                   </div>
-                  <div className={'pb-icon'}>
+                  <motion.div className={'pb-icon'} initial={{ opacity: 0, scale: 0.5 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, margin: "-40px" }} transition={{ type: "spring", stiffness: 280, damping: 12 }}>
                     <svg width="91" height="72" viewBox="0 0 91 72" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <g clip-path="url(#clip0_40000895_686)">
                         <path
@@ -312,11 +312,11 @@ const NewHeroSection = () => {
                         </clipPath>
                       </defs>
                     </svg>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className={'process-box process-box-right ps-md-5 mb-5'}>
 
-                  <div className={'pb-icon'}>
+                  <motion.div className={'pb-icon'} initial={{ opacity: 0, scale: 0.5 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, margin: "-40px" }} transition={{ type: "spring", stiffness: 280, damping: 12 }}>
                     <svg width="107" height="72" viewBox="0 0 107 72" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <g clip-path="url(#clip0_40000901_711)">
                         <path
@@ -347,7 +347,7 @@ const NewHeroSection = () => {
                       </defs>
                     </svg>
 
-                  </div>
+                  </motion.div>
                   <div className={'px-text'}>
                     <h1 className={'mb-2'}>2</h1>
                     <h4 className={'mb-2'}>Get the best price</h4>
@@ -367,7 +367,7 @@ const NewHeroSection = () => {
                       custodian
                     </p>
                   </div>
-                  <div className={'pb-icon'}>
+                  <motion.div className={'pb-icon'} initial={{ opacity: 0, scale: 0.5 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, margin: "-40px" }} transition={{ type: "spring", stiffness: 280, damping: 12 }}>
                     <svg width="85" height="87" viewBox="0 0 85 87" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <g clip-path="url(#clip0_40000910_771)">
                         <path
@@ -390,11 +390,11 @@ const NewHeroSection = () => {
                       </defs>
                     </svg>
 
-                  </div>
+                  </motion.div>
                 </div>
                 <div className={'process-box process-box-right ps-md-5 mb-5 pb-5'}>
 
-                  <div className={'pb-icon'}>
+                  <motion.div className={'pb-icon'} initial={{ opacity: 0, scale: 0.5 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, margin: "-40px" }} transition={{ type: "spring", stiffness: 280, damping: 12 }}>
                     <svg width="110" height="98" viewBox="0 0 110 98" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <g clip-path="url(#clip0_40000903_739)">
                         <path
@@ -436,7 +436,7 @@ const NewHeroSection = () => {
                     </svg>
 
 
-                  </div>
+                  </motion.div>
                   <div className={'px-text'}>
                     <h1 className={'mb-2'}>4</h1>
                     <h4 className={'mb-2'}>Choose your Option</h4>

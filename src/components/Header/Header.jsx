@@ -65,7 +65,6 @@ const Header = ({ logo }) => {
                     {/*<a href="#" className="nav-link">Services</a>*/}
                     <Link to="/about" className="nav-link">About Us</Link>
                     <Link to="/contact" className="nav-link">Contact & Support</Link>
-                    <a href="#" className="nav-link">Download App</a>
                     <Link to="/contact" className="header-cta">Speak to a Specialist</Link>
                 </nav>
 
@@ -101,7 +100,6 @@ const Header = ({ logo }) => {
                         <Logo />
                     </div>*/}
                     <Link to="/contact" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>Contact & Support</Link>
-                    <a href="#" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>Download App</a>
                     <Link to="/contact" className="mobile-header-cta" onClick={() => setIsMobileMenuOpen(false)}>Get Quote Today</Link>
                 </div>
             </nav>
