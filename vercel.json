@@ -3,6 +3,11 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "framework": "vite",
+  "git": {
+    "deploymentEnabled": {
+      "Design-11-04-2026": true
+    }
+  },
   "rewrites": [
     {
       "source": "/api/(.*)",
