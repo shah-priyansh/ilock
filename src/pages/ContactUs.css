@@ -36,11 +36,11 @@
 }
 
 .accordion-button:hover {
-    background: #F5F5F5;
+    background: #f7f3eb;
 }
 
 .accordion-button.active {
-    background: #F5F5F5;
+    background: #f7f3eb;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
 }
@@ -48,10 +48,9 @@
 .accordion-question {
     font-size: 20px;
     font-weight: 600;
-    color: #191c1f;
+    color: #003D69;
     flex: 1;
     line-height: 1.5;
-    font-family: 'Poppins', sans-serif;
 }
 
 .accordion-icon {
@@ -60,7 +59,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #6BC8AC;
+    background: transparent;
     border-radius: 50%;
     flex-shrink: 0;
     transition: transform 0.3s ease;
@@ -90,7 +89,7 @@
 .accordion-answer {
     font-size: 1rem;
     line-height: 1.7;
-    color: #434454;
+    color: #2F3042;
     padding-top: 0;
 }
 

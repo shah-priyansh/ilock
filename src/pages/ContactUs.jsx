@@ -50,11 +50,11 @@ const Accordion = () => {
                         <span className={`accordion-icon bg-transparent ${openIndex === index ? 'open' : ''}`}>
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 {openIndex === index ? (
-                                    <path d="M5 12H19" stroke="#6BC8AC" strokeWidth="2" strokeLinecap="round"/>
+                                    <path d="M5 12H19" stroke="#CCA35A" strokeWidth="2" strokeLinecap="round"/>
                                 ) : (
                                     <>
-                                        <path d="M12 5V19" stroke="#6BC8AC" strokeWidth="2" strokeLinecap="round"/>
-                                        <path d="M5 12H19" stroke="#6BC8AC" strokeWidth="2" strokeLinecap="round"/>
+                                        <path d="M12 5V19" stroke="#CCA35A" strokeWidth="2" strokeLinecap="round"/>
+                                        <path d="M5 12H19" stroke="#CCA35A" strokeWidth="2" strokeLinecap="round"/>
                                     </>
                                 )}
                             </svg>

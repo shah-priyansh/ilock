@@ -348,7 +348,7 @@ const NewHeroSection = () => {
                 </div>
               </div>
               <div className={'ps-title text-center mb-5'}>
-                <h3 className={'mb-2'}>This is<span>not a loan</span></h3>
+                <h3 className={'mb-2'}>This is {" "}<span>not a loan</span></h3>
                 <p>
                   This is a structured sale with optional repurchase
                 </p>
@@ -362,12 +362,30 @@ const NewHeroSection = () => {
         <div className={'container py-3'}>
           <div className={'row'}>
             <div className={'col-md-12'}>
-              <div className={'ps-title text-center mb-5'}>
+              <motion.div
+                className={'ps-title text-center mb-5'}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.7, ease: "easeOut" }}
+              >
                 <h3 className={'mb-2'}><span>Why</span> Capital Custodia<span>?</span></h3>
-              </div>
+              </motion.div>
 
-              <div className={'why-box mb-5 text-center'}>
-                <div className={'wb-icon mb-4'}>
+              <motion.div
+                className={'why-box mb-5 text-center'}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              >
+                <motion.div
+                  className={'wb-icon mb-4'}
+                  initial={{ opacity: 0, scale: 0.7 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+                >
                   <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_40000923_748)">
                       <path fill-rule="evenodd" clip-rule="evenodd"
@@ -381,16 +399,34 @@ const NewHeroSection = () => {
                     </defs>
                   </svg>
 
-                </div>
-                <div className={'wb-text'}>
+                </motion.div>
+                <motion.div
+                  className={'wb-text'}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
+                >
                   <h5 className={'mb-3'}><span>A Platform</span>, not a dealer </h5>
                   <p className={'text-white'}>
                     We buy and store with TransGuard, UAE's most trusted custodian
                   </p>
-                </div>
-              </div>
-              <div className={'why-box text-center'}>
-                <div className={'wb-icon mb-4'}>
+                </motion.div>
+              </motion.div>
+              <motion.div
+                className={'why-box text-center'}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+              >
+                <motion.div
+                  className={'wb-icon mb-4'}
+                  initial={{ opacity: 0, scale: 0.7 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+                >
                   <svg width="87" height="94" viewBox="0 0 87 94" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g opacity="0.5" clip-path="url(#clip0_40000923_758)">
                       <path fill-rule="evenodd" clip-rule="evenodd"
@@ -405,14 +441,20 @@ const NewHeroSection = () => {
                   </svg>
 
 
-                </div>
-                <div className={'wb-text'}>
+                </motion.div>
+                <motion.div
+                  className={'wb-text'}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
+                >
                   <h5 className={'mb-3'}><span>Complete Transparency,</span> no hidden fees or surprises </h5>
                   <p className={'text-white'}>
                     Your watch is priced through a competitive global dealer network. You see real market value.
                   </p>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
             </div>
           </div>
         </div>
