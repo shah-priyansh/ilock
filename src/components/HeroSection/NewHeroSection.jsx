@@ -30,13 +30,14 @@ const wordVariants = {
   },
 };
 
-// Line 2 starts after line 1 finishes: 0.1 + (7 words × 0.12) = 0.94s
+// Line 2 starts after line 1 finishes: 0.1 + (4 children × 0.12) = 0.58s
+// Line 1 children: 1 group ("A structured platform to") + 3 words ("sell","luxury","watches")
 const heroLine2ContainerVariants = {
   hidden: {},
   visible: {
     transition: {
       staggerChildren: 0.12,
-      delayChildren: 0.94,
+      delayChildren: 0.58,
     },
   },
 };
@@ -145,59 +146,58 @@ const NewHeroSection = () => {
               <img src={'/images/secured-logo.png'} alt={'img'} className={'img-fluid'}/>
             </div>
             <h1 className="hero-main-text">
+              {/* Line 1: "A structured platform to" fades in together, then "sell luxury watches" word by word */}
               <motion.span
-                className="hero-words-line"
                 style={{ display: "block" }}
                 variants={heroContainerVariants}
                 initial="hidden"
                 animate="visible"
               >
-                {["A", "structured", "platform", "to"].map((word) => (
-                  <motion.span key={word} variants={wordVariants} style={{ display: "inline-block", marginRight: "0.25em" }}>
-                    {word}
-                  </motion.span>
-                ))}
-                {["sell", "luxury", "watches"].map((word) => (
-                  <motion.span key={word} variants={wordVariants} style={{ display: "inline-block", marginRight: "0.25em" }}>
+                <motion.span variants={wordVariants} style={{ display: "inline-block", marginRight: "0.25em" }}>
+                  A structured platform to
+                </motion.span>
+                {["sell", "luxury", "watches"].map((word, i) => (
+                  <motion.span key={i} variants={wordVariants} style={{ display: "inline-block", marginRight: "0.25em" }}>
                     <b>{word}</b>
                   </motion.span>
                 ))}
               </motion.span>
+              {/* Line 2: "with an" fades in together, "optional repurchase" fades in together */}
               <motion.span
-                className="hero-words-line"
                 style={{ display: "block" }}
                 variants={heroLine2ContainerVariants}
                 initial="hidden"
                 animate="visible"
               >
-                {["with", "an"].map((word) => (
-                  <motion.span key={word} variants={wordVariants} style={{ display: "inline-block", marginRight: "0.25em" }}>
-                    {word}
-                  </motion.span>
-                ))}
-                {["optional", "repurchase"].map((word) => (
-                  <motion.span key={word} variants={wordVariants} style={{ display: "inline-block", marginRight: "0.25em" }}>
-                    <b>{word}</b>
-                  </motion.span>
-                ))}
-              </motion.span>
-              <span style={{ display: "block", overflow: "hidden" }}>
-                <motion.span
-                  className="hero-text-md"
-                  style={{ display: "block" }}
-                  variants={taglineVariants}
-                  initial="hidden"
-                  animate="visible"
-                >
-                  Transparent. Secure. Confidential.
+                <motion.span variants={wordVariants} style={{ display: "inline-block", marginRight: "0.25em" }}>
+                  with an
                 </motion.span>
+                <motion.span variants={wordVariants} style={{ display: "inline-block" }}>
+                  <b>optional repurchase</b>
+                </motion.span>
+              </motion.span>
+              {/* Tagline: each phrase slides up one by one */}
+              <span style={{ display: "block", marginTop: "0.2em" }}>
+                {["Transparent.", "Secure.", "Confidential."].map((phrase, i) => (
+                  <span key={phrase} style={{ overflow: "hidden", display: "inline-block", marginRight: "0.35em" }}>
+                    <motion.span
+                      className="hero-text-md"
+                      style={{ display: "inline-block" }}
+                      initial={{ y: "100%", opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: 1.0 + i * 0.18 }}
+                    >
+                      {phrase}
+                    </motion.span>
+                  </span>
+                ))}
               </span>
             </h1>
             <motion.button
               className="cta-button"
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: "easeOut", delay: 2.8 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 2.1 }}
               onClick={() => {
                 trackEvent("click", "get_an_offer", "hero_section");
                 navigate("/contact");
