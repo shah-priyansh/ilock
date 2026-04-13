@@ -21,7 +21,7 @@
     --bg-hero: url('/images/hero-background.jpg');
 
 
-    --primary: #0290C4;
+    --primary: #003D69;
     --blue-dark: #0090C4;
     --sky-color: #84d6f7;
 
@@ -57,7 +57,8 @@
 
 
 body {
-    font-family: "Archivo", sans-serif;
+    /*font-family: "Archivo", sans-serif;*/
+    font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
     background-color: #ffffff;
     color: #2F3042;
@@ -89,6 +90,7 @@ p {
 
 h1,h2,h3,h4,h5,h6 {
     margin: 0;
+    font-family: 'Poppins', sans-serif;
 }
 
 .text-primary {
@@ -148,11 +150,12 @@ h1,h2,h3,h4,h5,h6 {
     left: 0;
     width: 100%;
     z-index: 9999;
-    /*pointer-events: none;*/
+    /* pointer-events: none; */
     padding: 24px 48px;
-    /*display: flex;*/
-    /*justify-content: space-between;*/
-    /*align-items: flex-start;*/
+    /* display: flex; */
+    /* justify-content: space-between; */
+    /* align-items: flex-start; */
+    background: rgba(31, 37, 59, 0.8);
 }
 .header .navbar-nav .nav-item .nav-link {
     font-weight: 700;
@@ -176,7 +179,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .logo-container img {
-    height: 40px;
+    height: 70px;
     width: auto;
 }
 
@@ -322,7 +325,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 /* FEATURE CARDS */
-.feature-cards-container {
+/*.feature-cards-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 32px;
@@ -367,7 +370,7 @@ h1,h2,h3,h4,h5,h6 {
     font-size: 0.95rem;
     color: #1e40af;
     line-height: 1.5;
-}
+}*/
 
 /* CARDS SECTION TEXT */
 .cards-section-text {
@@ -710,10 +713,11 @@ h1,h2,h3,h4,h5,h6 {
     color: #41B6A2;
 }
 .section-content p {
-    font-size: 24px;
+    font-size: 20px;
     line-height: 134%;
     letter-spacing: -0.02em;
     margin-bottom: 20px;
+    color: #003D69;
 }
 
 /* Highest Prices Section End */
@@ -1496,9 +1500,12 @@ h1,h2,h3,h4,h5,h6 {
 
 .page-content h1 {
     font-style: normal;
-    font-weight: 400;
-    font-size: 70px;
+    font-weight: 300;
+    font-size: 44px;
     line-height: 100%;
+}
+.page-content h1 span {
+    font-weight: 600;
 }
 .page-content p {
     font-weight: 400;
@@ -1535,13 +1542,14 @@ h1,h2,h3,h4,h5,h6 {
     color: rgba(0, 0, 0, 0.9);
 }
 .ready-btn-div .btn {
-    padding: 16px 25px;
-    background: #6BC8AC;
+    padding: 16px 30px;
+    background: #CCA35A;
     box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -4px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    border-radius: 30px;
     font-size: 22px;
     line-height: 28px;
     color: #FFFFFF;
+    font-weight: 700;
 }
 
 .form-group label {
@@ -1742,7 +1750,93 @@ h1,h2,h3,h4,h5,h6 {
 .attach-box {
     border: 2px dashed #D1D5DB !important;
 }
+
+.core-icon {
+    width: 160px;
+    height: 160px;
+    background-color: #CCA35A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+.core-detail h3 {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 38px;
+    color: #CCA35A;
+}
+.core-detail p {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;
+    text-align: center;
+    color: #003D69;
+}
+.core-card {
+    max-width: 415px;
+    margin: auto;
+    display: block;
+}
+.core-card:hover .core-icon {
+    background-color: var(--primary);
+    transform: scale(1.1);
+    transition: 0.2s;
+}
+
+.team-detail h4{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 38px;
+    color: #FFFFFF;
+}
+.team-detail h6{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 38px;
+    color: #FFFFFF;
+}
+.team-detail p{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FFFFFF;
+}
+.team-card {
+    text-align: center;
+    position: relative;
+    padding-bottom: 50px;
+    height: 100%;
+    max-width: 420px;
+    margin: auto;
+}
+
+.td-icon {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+}
+.faq-accordion .accordion-answer p {
+    margin-bottom: 15px;
+}
+.faq-accordion .accordion-answer ul {
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+.faq-accordion .accordion-item {
+    border: 1px solid #cca35a;
+    border-radius: 10px !important;
+}
 /* Responsive Styles for Hero Section */
+
+
 @media screen and (max-width: 1654px) {
     .revolut-hero-image-main {
         width: 100%;
@@ -1928,7 +2022,31 @@ h1,h2,h3,h4,h5,h6 {
     .page-banner {
         height: 350px;
     }
+    .core-icon {
+        width: 120px;
+        height: 120px;
+    }
+    .core-icon svg {
+        width: 50px;
+    }
+    .core-detail h3 {
+        font-size: 24px;
+    }
+    .core-detail p {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+    }
 
+    .team-detail h4 {
+        font-size: 24px;
+    }
+    .team-detail h6 {
+        font-size: 14px;
+    }
+    .team-detail p {
+        font-size: 14px;
+    }
 }
 
 @media screen and (max-width: 576px) {
