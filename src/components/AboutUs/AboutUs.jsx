@@ -504,7 +504,7 @@ export default function AboutUs() {
                     <div className="container-fluid">
                         <div className="row align-items-center g-0">
                             <motion.div
-                                className="col-12 col-md-6"
+                                className="col-12 col-md-6 order-2 order-sm-2 order-md-1"
                                 initial="hidden"
                                 whileInView="visible"
                                 viewport={{once: true, margin: "-100px"}}
@@ -666,7 +666,7 @@ export default function AboutUs() {
                                 </div>
                             </motion.div>
                             <motion.div
-                                className="col-12 col-md-6"
+                                className="col-12 col-md-6 order-1 order-sm-1 order-md-2"
                                 initial="hidden"
                                 whileInView="visible"
                                 viewport={{once: true, margin: "-100px"}}
