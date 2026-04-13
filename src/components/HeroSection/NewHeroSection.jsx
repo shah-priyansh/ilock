@@ -30,6 +30,17 @@ const wordVariants = {
   },
 };
 
+// Line 2 starts after line 1 finishes: 0.1 + (7 words × 0.12) = 0.94s
+const heroLine2ContainerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.94,
+    },
+  },
+};
+
 const taglineVariants = {
   hidden: { y: "100%", opacity: 0 },
   visible: {
@@ -155,7 +166,7 @@ const NewHeroSection = () => {
               <motion.span
                 className="hero-words-line"
                 style={{ display: "block" }}
-                variants={heroContainerVariants}
+                variants={heroLine2ContainerVariants}
                 initial="hidden"
                 animate="visible"
               >
