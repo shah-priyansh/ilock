@@ -38,7 +38,7 @@ export const LuxryFrame = () => {
 
 
 
-            <section className="highest-prices-section custom-padding" style={{ backgroundColor: '#c5d9de' }}>
+            <section className="highest-prices-section custom-padding" style={{ backgroundColor: '#cedee2' }}>
                 <div className="container">
                     <div className="row align-items-center">
                         <motion.div
