@@ -129,25 +129,64 @@ const NewHeroSection = () => {
         </div>
 
         <div className="hero-text-overlay">
-          <motion.div
-              className="hero-text-content"
-              initial={{opacity: 0, y: 40}}
-              animate={{opacity: 1, y: 0}}
-              transition={{duration: 0.8}}
-          >
+          <div className="hero-text-content">
             <div className={'text-end security-logo'}>
               <img src={'/images/secured-logo.png'} alt={'img'} className={'img-fluid'}/>
             </div>
             <h1 className="hero-main-text">
-              A structured platform to <b>sell luxury watches</b><br/>
-              with an <b>optional repurchase</b><br/>
-              <span className="hero-text-md">Transparent. Secure. Confidential.</span>
+              <motion.span
+                className="hero-words-line"
+                style={{ display: "block" }}
+                variants={heroContainerVariants}
+                initial="hidden"
+                animate="visible"
+              >
+                {["A", "structured", "platform", "to"].map((word) => (
+                  <motion.span key={word} variants={wordVariants} style={{ display: "inline-block", marginRight: "0.25em" }}>
+                    {word}
+                  </motion.span>
+                ))}
+                {["sell", "luxury", "watches"].map((word) => (
+                  <motion.span key={word} variants={wordVariants} style={{ display: "inline-block", marginRight: "0.25em" }}>
+                    <b>{word}</b>
+                  </motion.span>
+                ))}
+              </motion.span>
+              <motion.span
+                className="hero-words-line"
+                style={{ display: "block" }}
+                variants={heroContainerVariants}
+                initial="hidden"
+                animate="visible"
+              >
+                {["with", "an"].map((word) => (
+                  <motion.span key={word} variants={wordVariants} style={{ display: "inline-block", marginRight: "0.25em" }}>
+                    {word}
+                  </motion.span>
+                ))}
+                {["optional", "repurchase"].map((word) => (
+                  <motion.span key={word} variants={wordVariants} style={{ display: "inline-block", marginRight: "0.25em" }}>
+                    <b>{word}</b>
+                  </motion.span>
+                ))}
+              </motion.span>
+              <span style={{ display: "block", overflow: "hidden" }}>
+                <motion.span
+                  className="hero-text-md"
+                  style={{ display: "block" }}
+                  variants={taglineVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  Transparent. Secure. Confidential.
+                </motion.span>
+              </span>
             </h1>
             <motion.button
               className="cta-button"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 2.8 }}
               onClick={() => {
                 trackEvent("click", "get_an_offer", "hero_section");
                 navigate("/contact");
@@ -155,7 +194,7 @@ const NewHeroSection = () => {
             >
               Request Private Consultation
             </motion.button>
-          </motion.div>
+          </div>
         </div>
         <div className={'banner-bottom-text'}>
           <p>
