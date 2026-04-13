@@ -8,6 +8,36 @@ import "./NewHeroSection.css";
 import { useNavigate } from "react-router-dom";
 import { trackEvent } from "../../utils/analytics";
 
+// Hero animation variants
+const heroContainerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const wordVariants = {
+  hidden: { opacity: 0, filter: "blur(10px)", y: 6 },
+  visible: {
+    opacity: 1,
+    filter: "blur(0px)",
+    y: 0,
+    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+  },
+};
+
+const taglineVariants = {
+  hidden: { y: "100%", opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 1.6 },
+  },
+};
+
 /* Card order and copy per Figma: Get Highest Market Price, Get Immediate Cash, Buy your watch back, Bank-Vault Storage */
 const featureCards = [
   {
