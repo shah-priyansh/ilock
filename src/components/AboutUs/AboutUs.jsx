@@ -16,19 +16,19 @@ export default function AboutUs() {
     };
 
     const fadeInLeft = {
-        hidden: { opacity: 0, x: -50 },
-        visible: { 
-            opacity: 1, 
-            x: 0,
+        hidden: { opacity: 0, y: 50 },
+        visible: {
+            opacity: 1,
+            y: 0,
             transition: { duration: 0.6, ease: "easeOut" }
         }
     };
 
     const fadeInRight = {
-        hidden: { opacity: 0, x: 50 },
-        visible: { 
-            opacity: 1, 
-            x: 0,
+        hidden: { opacity: 0, y: 50 },
+        visible: {
+            opacity: 1,
+            y: 0,
             transition: { duration: 0.6, ease: "easeOut" }
         }
     };
@@ -64,13 +64,13 @@ export default function AboutUs() {
     return (
         <>
             <SEO
-                title="About Capital Custodia by iLock | Redefining Global Luxury Watch Trading"
-                description="Capital Custodia by iLock is redefining luxury watch trading with a secure global dealer auction platform. Professional authentication, competitive pricing from worldwide dealers, buyback options, and bank-vault storage — trusted by collectors and dealers globally."
-                keywords="Capital Custodia, iLock, about iLockSecure, luxury watch trading company, authenticated watch platform, secure watch marketplace, global watch auction, luxury watch dealers Dubai, watch repurchase agreement, Capital Custodia watches"
+                title="About Capital Custodia | Redefining Global Luxury Watch Trading"
+                description="Capital Custodia is redefining luxury watch trading with a secure global dealer auction platform. Professional authentication, competitive pricing from worldwide dealers, buyback options, and bank-vault storage — trusted by collectors and dealers globally."
+                keywords="Capital Custodia, about Capital Custodia, luxury watch trading company, authenticated watch platform, secure watch marketplace, global watch auction, luxury watch dealers Dubai, watch repurchase agreement, Capital Custodia watches"
                 canonical="/about"
-                ogTitle="About Capital Custodia by iLock | Trusted Global Luxury Watch Trading"
-                ogDescription="Capital Custodia by iLock combines advanced re-commerce technology with legacy wealth expertise to deliver the highest prices for luxury watches. Trusted by collectors and professional dealers worldwide."
-                ogUrl="https://ilocksecure.com/about"
+                ogTitle="About Capital Custodia | Trusted Global Luxury Watch Trading"
+                ogDescription="Capital Custodia combines advanced re-commerce technology with legacy wealth expertise to deliver the highest prices for luxury watches. Trusted by collectors and professional dealers worldwide."
+                ogUrl="https://capitalcustodia.com/about"
             />
 
             <div style={{minHeight: '100vh'}}>
@@ -163,7 +163,7 @@ export default function AboutUs() {
                                             The luxury watch market has long been plagued by slow transactions, opaque pricing, and unnecessary risk. Traditional dealers take weeks to process sales, leaving sellers vulnerable and uncertain.
                                         </p>
                                         <p className={'text-white'}>
-                                            iLock was founded to solve these problems through technology and trust.
+                                            Capital Custodia was founded to solve these problems through technology and trust.
                                             We've built a platform that combines instant liquidity with bank-grade
                                             security, giving collectors the confidence to trade their most valuable
                                             assets.
@@ -314,7 +314,7 @@ export default function AboutUs() {
                                         Build on a foundation of   <strong>Trust & Expertise</strong>
                                     </h2>
                                     <p className="features-subtitle text-white">
-                                        Meet the visionaries behind iLock
+                                        Meet the visionaries behind Capital Custodia
                                     </p>
                                 </motion.div>
                             </div>

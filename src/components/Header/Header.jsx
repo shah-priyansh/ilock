@@ -55,7 +55,7 @@ const Header = ({ logo }) => {
                 {/* Logo and Brand */}
                 <div className="logo-section">
                     <Link to="/">
-                        {logo ? <img src={logo} alt="iLock" className="custom-logo" /> : <Logo />}
+                        {logo ? <img src={logo} alt="Capital Custodia" className="custom-logo" /> : <Logo />}
                     </Link>
                 </div>
 

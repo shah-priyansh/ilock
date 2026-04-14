@@ -96,19 +96,19 @@ export default function LandingPage() {
     };
 
     const fadeInLeft = {
-        hidden: { opacity: 0, x: -50 },
+        hidden: { opacity: 0, y: 50 },
         visible: {
             opacity: 1,
-            x: 0,
+            y: 0,
             transition: { duration: 0.6, ease: "easeOut" }
         }
     };
 
     const fadeInRight = {
-        hidden: { opacity: 0, x: 50 },
+        hidden: { opacity: 0, y: 50 },
         visible: {
             opacity: 1,
-            x: 0,
+            y: 0,
             transition: { duration: 0.6, ease: "easeOut" }
         }
     };
@@ -144,13 +144,13 @@ export default function LandingPage() {
     return (
         <>
             <SEO
-                title="Discover Your Watch's True Value - Get Instant Cash Offer | iLockSecure"
+                title="Discover Your Watch's True Value - Get Instant Cash Offer | Capital Custodia"
                 description="Get a valuation for your luxury watch in minutes. Upload photos, receive competitive offers from global dealers. Rolex, AP, Patek Philippe & all luxury brands."
                 keywords="luxury watch valuation, watch appraisal, sell my Rolex, watch price estimate, luxury timepiece quote, online watch valuation"
                 canonical="/sell-luxury-watches"
-                ogTitle="Watch Valuation - Discover Your Watch's True Value | iLockSecure"
+                ogTitle="Watch Valuation - Discover Your Watch's True Value | Capital Custodia"
                 ogDescription="Upload your watch details and photos to receive instant competitive offers from verified global dealers. Simple, secure, and free."
-                ogUrl="https://ilocksecure.com/sell-luxury-watches"
+                ogUrl="https://capitalcustodia.com/sell-luxury-watches"
             />
 
             <div className="landing-page">

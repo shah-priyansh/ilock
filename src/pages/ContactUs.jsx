@@ -143,19 +143,19 @@ export default function ContactUs() {
     };
 
     const fadeInLeft = {
-        hidden: { opacity: 0, x: -50 },
+        hidden: { opacity: 0, y: 50 },
         visible: {
             opacity: 1,
-            x: 0,
+            y: 0,
             transition: { duration: 0.6, ease: "easeOut" }
         }
     };
 
     const fadeInRight = {
-        hidden: { opacity: 0, x: 50 },
+        hidden: { opacity: 0, y: 50 },
         visible: {
             opacity: 1,
-            x: 0,
+            y: 0,
             transition: { duration: 0.6, ease: "easeOut" }
         }
     };
@@ -191,13 +191,13 @@ export default function ContactUs() {
     return (
         <>
             <SEO
-                title="Contact iLockSecure - Luxury Watch Trading Support | Dubai"
-                description="Get in touch with iLockSecure's expert team. Based in Dubai DIFC, we provide 24/7 support for luxury watch trading, valuations, and secure transactions. Contact us today."
-                keywords="contact iLockSecure, luxury watch support, Dubai DIFC watch traders, watch trading contact, iLockSecure support team"
+                title="Contact Capital Custodia - Luxury Watch Trading Support | Dubai"
+                description="Get in touch with Capital Custodia's expert team. Based in Dubai DIFC, we provide 24/7 support for luxury watch trading, valuations, and secure transactions. Contact us today."
+                keywords="contact Capital Custodia, luxury watch support, Dubai DIFC watch traders, watch trading contact, Capital Custodia support team"
                 canonical="/contact"
-                ogTitle="Contact iLockSecure - Expert Luxury Watch Trading Support"
+                ogTitle="Contact Capital Custodia - Expert Luxury Watch Trading Support"
                 ogDescription="Reach our team of luxury watch experts based in Dubai DIFC. Get support for valuations, trading, authentication, and secure transactions."
-                ogUrl="https://ilocksecure.com/contact"
+                ogUrl="https://capitalcustodia.com/contact"
             />
             <StructuredData type="localBusiness" />
 
@@ -316,13 +316,13 @@ export default function ContactUs() {
                                 <div>
                                     <h3 className="text-xl font-semibold mb-3">Email</h3>
                                     <p className="text-base sm:text-lg">
-                                        <a href="mailto:info@ilock.com" className="hover:underline">
-                                            info@ilock.com
+                                        <a href="mailto:info@capitalcustodia.com" className="hover:underline">
+                                            info@capitalcustodia.com
                                         </a>
                                     </p>
                                     <p className="text-base sm:text-lg mt-2">
-                                        <a href="mailto:support@ilock.com" className="hover:underline">
-                                            support@ilock.com
+                                        <a href="mailto:support@capitalcustodia.com" className="hover:underline">
+                                            support@capitalcustodia.com
                                         </a>
                                     </p>
                                 </div>
@@ -609,7 +609,7 @@ export default function ContactUs() {
                                         </div>
                                         <div className={'contact-detail-box'}>
                                             <h4>Email Support</h4>
-                                            <p>info@ilocksecure.com</p>
+                                            <p>info@capitalcustodia.com</p>
                                             <span>We respond within 24 hours</span>
                                         </div>
                                     </motion.div>

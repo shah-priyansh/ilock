@@ -6,7 +6,7 @@ const Logo = ({ variant = 'default' }) => {
     <div className="logo-container" data-variant={variant}>
 
       <div className="logo-text">
-        <img src="/images/logo.svg" alt="iLock Text" />
+        <img src="/images/logo.svg" alt="Capital Custodia" />
       </div>
     </div>
   );

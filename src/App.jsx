@@ -18,10 +18,21 @@ function PageTracker() {
   return null;
 }
 
+function ScrollToTop() {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
+  return null;
+}
+
 function App() {
   return (
     <Router>
       <PageTracker />
+      <ScrollToTop />
       <div className="App">
         <Routes>
           <Route path="/" element={<NewHeroSection />} />

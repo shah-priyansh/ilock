@@ -137,6 +137,26 @@ npm run preview
 
 Modern browsers with ES6+ support (Chrome, Firefox, Safari, Edge)
 
+## Deployment
+
+### Production Server (capitalcustodia-web)
+- **OS**: Amazon Linux 2023
+- **Instance Type**: t3.micro
+- **Region**: ap-southeast-1 (Singapore)
+- **Web Server**: Nginx (static file serving)
+- **Web Root**: `/usr/share/nginx/html/`
+- **Domain**: capitalcustodia.com / www.capitalcustodia.com
+- **SSL**: Let's Encrypt (Certbot managed)
+- **Ports**: 80 (HTTP), 443 (HTTPS), 22 (SSH)
+
+### AWS Access
+- Credentials in `.env.local` as env vars: `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_REGION`
+- To run AWS commands: `set -a && source .env.local && set +a && aws <command>`
+
+### Deploy Process
+- Build: `npm run build` (outputs to `dist/`)
+- Upload `dist/` contents to `/usr/share/nginx/html/` on the server
+
 ## Notes
 
 - Hero text animations use `animate` instead of `whileInView` for Safari compatibility

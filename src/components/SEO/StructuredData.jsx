@@ -5,17 +5,17 @@ const StructuredData = ({ type = 'organization' }) => {
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Capital Custodia by iLock",
-    "alternateName": ["iLockSecure", "iLock", "Capital Custodia"],
-    "description": "Capital Custodia by iLock is a global luxury watch trading platform offering professional authentication, highest market prices through competitive dealer auctions, buyback options, and bank-vault storage.",
-    "url": "https://ilocksecure.com",
-    "logo": "https://ilocksecure.com/images/logo-icon.svg",
+    "name": "Capital Custodia",
+    "alternateName": ["Capital Custodia"],
+    "description": "Capital Custodia is a global luxury watch trading platform offering professional authentication, highest market prices through competitive dealer auctions, buyback options, and bank-vault storage.",
+    "url": "https://capitalcustodia.com",
+    "logo": "https://capitalcustodia.com/images/logo-icon.svg",
     "sameAs": [],
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+971-4-123-4567",
       "contactType": "Customer Service",
-      "email": "info@ilocksecure.com",
+      "email": "info@capitalcustodia.com",
       "areaServed": "Worldwide",
       "availableLanguage": ["English"]
     }
@@ -24,10 +24,10 @@ const StructuredData = ({ type = 'organization' }) => {
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "Capital Custodia by iLock",
-    "alternateName": "iLockSecure",
-    "image": "https://ilocksecure.com/images/logo-icon.svg",
-    "description": "Capital Custodia by iLock — luxury watch trading platform with global dealer auction, professional authentication, buyback options, and bank-vault storage services in Dubai DIFC.",
+    "name": "Capital Custodia",
+    "alternateName": "Capital Custodia",
+    "image": "https://capitalcustodia.com/images/logo-icon.svg",
+    "description": "Capital Custodia — luxury watch trading platform with global dealer auction, professional authentication, buyback options, and bank-vault storage services in Dubai DIFC.",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Dubai",
@@ -39,9 +39,9 @@ const StructuredData = ({ type = 'organization' }) => {
       "latitude": "25.2048",
       "longitude": "55.2708"
     },
-    "url": "https://ilocksecure.com",
+    "url": "https://capitalcustodia.com",
     "telephone": "+971-4-123-4567",
-    "email": "info@ilocksecure.com",
+    "email": "info@capitalcustodia.com",
     "priceRange": "$$$"
   };
 
@@ -51,7 +51,7 @@ const StructuredData = ({ type = 'organization' }) => {
     "serviceType": "Luxury Watch Trading",
     "provider": {
       "@type": "Organization",
-      "name": "Capital Custodia by iLock"
+      "name": "Capital Custodia"
     },
     "areaServed": "Worldwide",
     "hasOfferCatalog": {
@@ -99,7 +99,7 @@ const StructuredData = ({ type = 'organization' }) => {
         "name": "How can I get cash for my Rolex or luxury watch in Dubai?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Capital Custodia by iLock has a global network of professional dealers from the US, Europe, Asia and the GCC who compete on our platform to bid the highest price for your watch. As a Dealer's Buying Platform, we buy your watch immediately based on competitive dealer pricing and offer you the option to reacquire it later under agreed terms."
+          "text": "Capital Custodia has a global network of professional dealers from the US, Europe, Asia and the GCC who compete on our platform to bid the highest price for your watch. As a Dealer's Buying Platform, we buy your watch immediately based on competitive dealer pricing and offer you the option to reacquire it later under agreed terms."
         }
       },
       {

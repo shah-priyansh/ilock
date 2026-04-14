@@ -172,19 +172,19 @@ export default function ContactUs() {
     };
 
     const fadeInLeft = {
-        hidden: { opacity: 0, x: -50 },
+        hidden: { opacity: 0, y: 50 },
         visible: {
             opacity: 1,
-            x: 0,
+            y: 0,
             transition: { duration: 0.6, ease: "easeOut" }
         }
     };
 
     const fadeInRight = {
-        hidden: { opacity: 0, x: 50 },
+        hidden: { opacity: 0, y: 50 },
         visible: {
             opacity: 1,
-            x: 0,
+            y: 0,
             transition: { duration: 0.6, ease: "easeOut" }
         }
     };
@@ -220,13 +220,13 @@ export default function ContactUs() {
     return (
         <>
             <SEO
-                title="FAQ | Capital Custodia by iLock - Luxury Watch Trading Questions"
-                description="Frequently asked questions about Capital Custodia by iLock. Learn how we determine watch prices, our structured asset purchase model, global dealer network, and how we differ from pawn shops and traditional dealers."
-                keywords="Capital Custodia FAQ, iLock FAQ, luxury watch trading questions, sell Rolex FAQ, watch buyback FAQ, Capital Custodia repurchase agreement, how to sell luxury watch Dubai, watch valuation process, iLockSecure FAQ"
+                title="FAQ | Capital Custodia - Luxury Watch Trading Questions"
+                description="Frequently asked questions about Capital Custodia. Learn how we determine watch prices, our structured asset purchase model, global dealer network, and how we differ from pawn shops and traditional dealers."
+                keywords="Capital Custodia FAQ, luxury watch trading questions, sell Rolex FAQ, watch buyback FAQ, Capital Custodia repurchase agreement, how to sell luxury watch Dubai, watch valuation process"
                 canonical="/faq"
-                ogTitle="FAQ | Capital Custodia by iLock - Your Luxury Watch Trading Questions Answered"
-                ogDescription="Get answers about selling luxury watches with Capital Custodia by iLock. Learn about our global dealer auction, pricing process, buyback options, and how we ensure the highest market value for your timepiece."
-                ogUrl="https://ilocksecure.com/faq"
+                ogTitle="FAQ | Capital Custodia - Your Luxury Watch Trading Questions Answered"
+                ogDescription="Get answers about selling luxury watches with Capital Custodia. Learn about our global dealer auction, pricing process, buyback options, and how we ensure the highest market value for your timepiece."
+                ogUrl="https://capitalcustodia.com/faq"
             />
             <StructuredData type="faq" />
 

@@ -11,13 +11,13 @@ export const LuxryFrame = () => {
     };
 
     const fadeInLeft = {
-        hidden: { opacity: 0, x: -60 },
-        visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: "easeOut" } }
+        hidden: { opacity: 0, y: 60 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } }
     };
 
     const fadeInRight = {
-        hidden: { opacity: 0, x: 60 },
-        visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: "easeOut" } }
+        hidden: { opacity: 0, y: 60 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } }
     };
 
     const scaleIn = {
@@ -38,7 +38,7 @@ export const LuxryFrame = () => {
 
 
 
-            <section className="highest-prices-section custom-padding" style={{ backgroundColor: '#cedee2' }}>
+            <section className="highest-prices-section custom-padding" style={{ backgroundColor: 'rgb(196, 216, 222)' }}>
                 <div className="container">
                     <div className="row align-items-center">
                         <motion.div
@@ -129,7 +129,7 @@ export const LuxryFrame = () => {
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, margin: "-100px" }}
-                            variants={fadeInLeft}
+                            variants={fadeInUp}
                         >
                             <img src="/images/watch.png " className="img-fluid w-100"
                                  alt="Secure Storage"/>
@@ -139,7 +139,7 @@ export const LuxryFrame = () => {
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, margin: "-100px" }}
-                            variants={fadeInRight}
+                            variants={fadeInUp}
                         >
                         <div className="section-content left-custom-padding">
                                 <div className="sec-tag mb-5">
@@ -203,7 +203,7 @@ export const LuxryFrame = () => {
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, margin: "-100px" }}
-                            variants={scaleIn}
+                            variants={fadeInUp}
                         >
                             <img src="/images/secure.png " className="img-fluid w-100" alt="Secure Storage" />
                         </motion.div>
@@ -212,7 +212,7 @@ export const LuxryFrame = () => {
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, margin: "-100px" }}
-                            variants={fadeInLeft}
+                            variants={fadeInUp}
                         >
                             <div className="section-content left-custom-padding">
                                 <div className="sec-tag mb-5">

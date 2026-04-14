@@ -108,13 +108,13 @@ const NewHeroSection = () => {
   return (
     <>
       <SEO
-        title="Sell Luxury Watches for Highest Cash Prices | Capital Custodia by iLock"
-        description="Get instant cash for your luxury watches with Capital Custodia's global dealer auction powered by iLock. Guaranteed highest prices, professional authentication, buyback options, and bank-vault storage. Rolex, Patek Philippe, Audemars Piguet & more."
-        keywords="sell luxury watches, Capital Custodia, iLock, iLockSecure, luxury watch trading, sell Rolex Dubai, Patek Philippe buyers, authenticated watch dealers, watch buyback program, instant cash for watches, luxury watch auction, watch valuation Dubai, sell watches online, repurchase agreement watches"
+        title="Sell Luxury Watches for Highest Cash Prices | Capital Custodia"
+        description="Get instant cash for your luxury watches with Capital Custodia's global dealer auction. Guaranteed highest prices, professional authentication, buyback options, and bank-vault storage. Rolex, Patek Philippe, Audemars Piguet & more."
+        keywords="sell luxury watches, Capital Custodia, luxury watch trading, sell Rolex Dubai, Patek Philippe buyers, authenticated watch dealers, watch buyback program, instant cash for watches, luxury watch auction, watch valuation Dubai, sell watches online, repurchase agreement watches"
         canonical="/"
-        ogTitle="Sell or Buyback Your Luxury Watches Securely | Capital Custodia by iLock"
-        ogDescription="Capital Custodia by iLock — the trusted global dealer auction platform for luxury watches. Get highest market prices, professional authentication, bank-vault storage, and immediate payment. Free valuation today."
-        ogUrl="https://ilocksecure.com/"
+        ogTitle="Sell or Buyback Your Luxury Watches Securely | Capital Custodia"
+        ogDescription="Capital Custodia — the trusted global dealer auction platform for luxury watches. Get highest market prices, professional authentication, bank-vault storage, and immediate payment. Free valuation today."
+        ogUrl="https://capitalcustodia.com/"
       />
       <StructuredData type="all" />
 
@@ -124,7 +124,7 @@ const NewHeroSection = () => {
         <div className="hero-video-bg">
           {/*<iframe
               src="https://www.youtube.com/embed/0M8OMMbyBD0?autoplay=1&mute=1&loop=1&playlist=0M8OMMbyBD0&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
-              title="iLock Secure"
+              title="Capital Custodia"
               frameBorder="0"
               allow="autoplay; encrypted-media"
               allowFullScreen
@@ -132,7 +132,7 @@ const NewHeroSection = () => {
           <img src={'/images/hm-b.jpg'} alt={'img'} className={'img-fluid'}/>
           {/*<iframe
                 src="https://www.youtube.com/embed/0M8OMMbyBD0?autoplay=1&mute=1&loop=1&playlist=0M8OMMbyBD0&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
-                title="iLock Secure"
+                title="Capital Custodia"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
@@ -207,11 +207,16 @@ const NewHeroSection = () => {
             </motion.button>
           </div>
         </div>
-        <div className={'banner-bottom-text'}>
+        <motion.div
+          className={'banner-bottom-text'}
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 2.4 }}
+        >
           <p>
             Designed for collectors, investors and professionals seeking discreet liquidity
           </p>
-        </div>
+        </motion.div>
       </div>
 
       {/* Feature Cards Section */}
@@ -244,9 +249,9 @@ const NewHeroSection = () => {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true, margin: "-40px" }}
                     transition={{
-                      duration: 0.65,
+                      duration: 0.9,
                       ease: [0.16, 1, 0.3, 1],
-                      delay: isMobile ? 0 : index * 0.12,
+                      delay: isMobile ? 0 : index * 0.15,
                     }}
                   />
                 </div>
@@ -256,9 +261,9 @@ const NewHeroSection = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-40px" }}
                   transition={{
-                    duration: 0.4,
+                    duration: 0.6,
                     ease: "easeOut",
-                    delay: isMobile ? 0.1 : index * 0.12 + 0.25,
+                    delay: isMobile ? 0.1 : index * 0.15 + 0.3,
                   }}
                 >
                   <h3 className="feature-card-title">{card.title}</h3>
