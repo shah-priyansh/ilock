@@ -62,7 +62,7 @@
     height: 100%;
     max-width: 1600px;
     margin: 0 auto;
-    padding: 0 0 205px 0px;
+    padding: 0 80px 205px 80px;
 }
 
 .hero-text-content {
@@ -396,7 +396,7 @@
 }
 @media (min-width: 1440px) {
     .hero-text-overlay {
-        padding: 0 0 205px 0px;
+        padding: 0 80px 205px 80px;
     }
 
     .hero-main-text {
@@ -432,7 +432,7 @@
     }
 
     .hero-text-overlay {
-        padding: 0 0 70px 80px;
+        padding: 0 80px 70px 80px;
     }
 }
 
@@ -451,7 +451,7 @@
     }
 
     .hero-text-overlay {
-        padding: 0 0 60px 48px;
+        padding: 0 48px 60px 48px;
     }
 
     .features-section {
@@ -491,7 +491,7 @@
     }
 
     .hero-text-overlay {
-        padding: 0 0 50px 24px;
+        padding: 0 24px 50px 24px;
     }
 
     .hero-text-content {
