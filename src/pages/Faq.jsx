@@ -251,7 +251,7 @@ export default function ContactUs() {
                     transition={{duration: 0.8}}
                 >
                     <motion.img
-                        src="/images/faq.png"
+                        src="/images/faq.jpg"
                         className={'img-fluid'}
                         alt="About Banner"
                         initial={{scale: 1.1}}
