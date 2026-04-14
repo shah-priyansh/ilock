@@ -295,7 +295,7 @@ const NewHeroSection = () => {
       <SEO
         title="Sell Luxury Watches for Highest Cash Prices | Capital Custodia"
         description="Get instant cash for your luxury watches with Capital Custodia's global dealer auction. Guaranteed highest prices, professional authentication, buyback options, and bank-vault storage. Rolex, Patek Philippe, Audemars Piguet & more."
-        keywords="sell luxury watches, Capital Custodia, luxury watch trading, sell Rolex Dubai, Patek Philippe buyers, authenticated watch dealers, watch buyback program, instant cash for watches, luxury watch auction, watch valuation Dubai, sell watches online, repurchase agreement watches"
+        keywords="sell luxury watches, Capital Custodia, luxury watch trading, sell Rolex Dubai, Patek Philippe buyers, authenticated watch dealers, watch buyback program, instant cash for watches, luxury watch auction, watch valuation Dubai, sell watches online, re-purchase agreement watches"
         canonical="/"
         ogTitle="Sell or Buyback Your Luxury Watches Securely | Capital Custodia"
         ogDescription="Capital Custodia — the trusted global dealer auction platform for luxury watches. Get highest market prices, professional authentication, bank-vault storage, and immediate payment. Free valuation today."
@@ -467,7 +467,7 @@ const NewHeroSection = () => {
           <div className={'row'}>
             <div className={'col-md-12'}>
               <div className={'ps-title text-center mb-5'}>
-                <h3 className={'mb-2'}><span>Learn more about</span> our<br/> process</h3>
+                <h3 className={'mb-2'}><span>Learn more about</span> our process</h3>
                 <p>
                   Get paid in 4 simple steps
                 </p>

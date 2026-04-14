@@ -66,7 +66,7 @@ export default function AboutUs() {
             <SEO
                 title="About Capital Custodia | Redefining Global Luxury Watch Trading"
                 description="Capital Custodia is redefining luxury watch trading with a secure global dealer auction platform. Professional authentication, competitive pricing from worldwide dealers, buyback options, and bank-vault storage — trusted by collectors and dealers globally."
-                keywords="Capital Custodia, about Capital Custodia, luxury watch trading company, authenticated watch platform, secure watch marketplace, global watch auction, luxury watch dealers Dubai, watch repurchase agreement, Capital Custodia watches"
+                keywords="Capital Custodia, about Capital Custodia, luxury watch trading company, authenticated watch platform, secure watch marketplace, global watch auction, luxury watch dealers Dubai, watch re-purchase agreement, Capital Custodia watches"
                 canonical="/about"
                 ogTitle="About Capital Custodia | Trusted Global Luxury Watch Trading"
                 ogDescription="Capital Custodia combines advanced re-commerce technology with legacy wealth expertise to deliver the highest prices for luxury watches. Trusted by collectors and professional dealers worldwide."

@@ -46,7 +46,7 @@ const Accordion = () => {
         },
         {
             question: "Do you offer loans against watches?",
-            answer: "<p>No, Capital Custodia does not provide loans or financing. We operate a structured asset purchase model where we buy your watch outright and offer you a resale option if you wish to reacquire it later (known as a “Repurchase Agreement” in international financial markets)</p" +
+            answer: “<p>No, Capital Custodia does not provide loans or financing. We operate a structured asset purchase model where we buy your watch outright and offer you a resale option if you wish to reacquire it later (known as a “re-purchase Agreement” in international financial markets)</p” +
                 "<p>This ensures full transparency, avoids hidden interest or repayment structures and ensures you are never under any pressure or obligation to buy back the watch.</p>"
         },
         {
@@ -232,7 +232,7 @@ export default function ContactUs() {
             <SEO
                 title="FAQ | Capital Custodia - Luxury Watch Trading Questions"
                 description="Frequently asked questions about Capital Custodia. Learn how we determine watch prices, our structured asset purchase model, global dealer network, and how we differ from pawn shops and traditional dealers."
-                keywords="Capital Custodia FAQ, luxury watch trading questions, sell Rolex FAQ, watch buyback FAQ, Capital Custodia repurchase agreement, how to sell luxury watch Dubai, watch valuation process"
+                keywords="Capital Custodia FAQ, luxury watch trading questions, sell Rolex FAQ, watch buyback FAQ, Capital Custodia re-purchase agreement, how to sell luxury watch Dubai, watch valuation process"
                 canonical="/faq"
                 ogTitle="FAQ | Capital Custodia - Your Luxury Watch Trading Questions Answered"
                 ogDescription="Get answers about selling luxury watches with Capital Custodia. Learn about our global dealer auction, pricing process, buyback options, and how we ensure the highest market value for your timepiece."
@@ -416,7 +416,7 @@ export default function ContactUs() {
                                                 structured asset purchase model where we buy your watch outright and
                                                 offer
                                                 you a resale option if you wish to reacquire it later (known as a
-                                                “Repurchase Agreement” in international financial markets)
+                                                “re-purchase Agreement” in international financial markets)
 
 
                                             </p>
@@ -624,7 +624,7 @@ export default function ContactUs() {
                                                 structured asset purchase model where we buy your watch outright and
                                                 offer
                                                 you a resale option if you wish to reacquire it later (known as a
-                                                “Repurchase Agreement” in international financial markets)
+                                                “re-purchase Agreement” in international financial markets)
 
 
                                             </p>
