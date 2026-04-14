@@ -166,16 +166,17 @@ const WhyCarousel = () => {
     const exitY = -viewportH * 0.4;
     const enterY = viewportH * 1.1;
 
-    // Initial state — item 0 active, item 1 as blurred preview, rest hidden
+    // Initial state
     items.forEach((item, i) => {
       if (i === 0) {
-        gsap.set(item, { y: activeY, opacity: 1, scale: 1 });
-      } else if (i === 1) {
-        gsap.set(item, { y: previewY, opacity: 0.3, scale: 0.9, filter: "blur(1px)" });
+        gsap.set(item, { y: activeY, opacity: 1, scale: 1, filter: "blur(0px)" });
       } else {
-        gsap.set(item, { y: enterY, opacity: 0, scale: 0.9 });
+        gsap.set(item, { y: enterY, opacity: 0, scale: 0.9, filter: "blur(1px)" });
       }
     });
+
+    // Run one immediate update at progress=0 so positions are correct before any scroll
+    let isFirstUpdate = true;
 
     const transitions = totalItems - 1;
 
@@ -195,45 +196,46 @@ const WhyCarousel = () => {
           const itemStart = (i - 0.4) * segmentSize;
           const diff = (progress - itemStart) / segmentSize;
 
-          const dur = 0.4;
-          const ease = "power2.out";
+          const animate = isFirstUpdate ? gsap.set : gsap.to;
+          const tweenOpts = isFirstUpdate ? {} : { duration: 0.4, ease: "power2.out", overwrite: true };
 
           if (diff < -0.7) {
-            gsap.to(item, { y: enterY, opacity: 0, scale: 0.9, filter: "blur(1px)", duration: dur, ease, overwrite: true });
+            animate(item, { y: enterY, opacity: 0, scale: 0.9, filter: "blur(1px)", ...tweenOpts });
           } else if (diff < 0) {
             const t = (diff + 0.7) / 0.7;
-            gsap.to(item, {
+            animate(item, {
               y: enterY + (previewY - enterY) * t,
               opacity: 0.3 * t,
               scale: 0.9,
               filter: "blur(1px)",
-              duration: dur, ease, overwrite: true,
+              ...tweenOpts,
             });
           } else if (diff < 0.3) {
             const t = diff / 0.3;
-            gsap.to(item, {
+            animate(item, {
               y: previewY + (activeY - previewY) * t,
               opacity: 0.3 + 0.7 * t,
               scale: 0.9 + 0.1 * t,
               filter: `blur(${1 * (1 - t)}px)`,
-              duration: dur, ease, overwrite: true,
+              ...tweenOpts,
             });
           } else if (diff < 0.7 || i === totalItems - 1) {
-            // Holding active — last item stays put
-            gsap.to(item, { y: activeY, opacity: 1, scale: 1, filter: "blur(0px)", duration: dur, ease, overwrite: true });
+            animate(item, { y: activeY, opacity: 1, scale: 1, filter: "blur(0px)", ...tweenOpts });
           } else if (diff < 1.5) {
             const t = (diff - 0.7) / 0.8;
-            gsap.to(item, {
+            animate(item, {
               y: activeY + (exitY - activeY) * t,
               opacity: Math.max(0, 1 - t * 1.3),
               scale: 1 - 0.1 * t,
               filter: "blur(0px)",
-              duration: dur, ease, overwrite: true,
+              ...tweenOpts,
             });
           } else {
-            gsap.to(item, { y: exitY, opacity: 0, scale: 0.9, filter: "blur(0px)", duration: dur, ease, overwrite: true });
+            animate(item, { y: exitY, opacity: 0, scale: 0.9, filter: "blur(0px)", ...tweenOpts });
           }
         });
+
+        isFirstUpdate = false;
 
         const currentIndex = Math.min(Math.floor(progress / segmentSize + 0.3), totalItems - 1);
         setActiveIndex(currentIndex);
