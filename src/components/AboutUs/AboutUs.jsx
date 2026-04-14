@@ -437,10 +437,12 @@ export default function AboutUs() {
                                     </div>
                                     <div className={'team-detail'}>
                                         <h4>Bilal Karimbath </h4>
-                                        <h6>CFO</h6>
+                                        <h6>CTO</h6>
                                         <p>
-                                            Senior roles in financial services and consulting with companies like
-                                            McKinsey & Co, Metlife, EmiratesNBD and Reuters
+                                            Founder of Digital Evolutions, a technology and AI agency with over a
+                                            decade of experience delivering digital platforms across the GCC. Leads
+                                            the technology vision for Capital Custodia, building an AI-powered
+                                            platform engineered for trust, speed, and scale.
                                         </p>
                                         <div className={'text-center td-icon mt-31'}>
                                             <a href={'#'}>
