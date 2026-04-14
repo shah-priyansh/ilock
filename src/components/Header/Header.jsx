@@ -62,8 +62,8 @@ const Header = ({ logo }) => {
                 {/* Desktop Navigation Menu */}
                 <nav className="nav-menu">
                     <Link to="/" className="nav-link">Home</Link>
-                    {/*<a href="#" className="nav-link">Services</a>*/}
                     <Link to="/about" className="nav-link">About Us</Link>
+                    <Link to="/faq" className="nav-link">FAQ</Link>
                     <Link to="/contact" className="nav-link">Contact & Support</Link>
                     <Link to="/contact" className="header-cta">Speak to a Specialist</Link>
                 </nav>
@@ -94,11 +94,8 @@ const Header = ({ logo }) => {
             >
                 <div className="mobile-menu-content">
                     <Link to="/" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
-                    <a href="#" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>Services</a>
                     <Link to="/about" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>About Us</Link>
-                    {/*<div className="mobile-menu-logo">
-                        <Logo />
-                    </div>*/}
+                    <Link to="/faq" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>FAQ</Link>
                     <Link to="/contact" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>Contact & Support</Link>
                     <Link to="/contact" className="mobile-header-cta" onClick={() => setIsMobileMenuOpen(false)}>Get Quote Today</Link>
                 </div>

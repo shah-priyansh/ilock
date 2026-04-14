@@ -115,6 +115,9 @@ const Footer = () => {
                                     <Link to="/about">About Us</Link>
                                 </motion.span>
                                 <motion.span variants={linkVariants}>
+                                    <Link to="/faq">FAQ</Link>
+                                </motion.span>
+                                <motion.span variants={linkVariants}>
                                     <Link to="/contact">Contact & Support</Link>
                                 </motion.span>
                                 <motion.span variants={linkVariants}>
