@@ -331,6 +331,41 @@
 }
 .why-section {
     background-color: #003D69;
+    height: 70vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.why-carousel-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.why-carousel-title {
+    margin-bottom: 0;
+}
+
+.why-carousel-viewport {
+    position: relative;
+    height: calc(70vh - 140px);
+    overflow: hidden;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.why-carousel-item {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    will-change: transform, opacity;
+    padding: 20px 0;
 }
 .wb-text h5 {
     font-weight: 300;
