@@ -84,7 +84,7 @@ const featureCards = [
 const whyItems = [
   {
     title: <><span>A Platform</span>, not a dealer</>,
-    description: "We buy and store with TransGuard, UAE's most trusted custodian",
+    description: "We do not profit from buying low and selling high. Our interests are aligned with you to achieve the best price.",
     icon: (
       <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g clipPath="url(#clip_why_0)">
@@ -123,7 +123,7 @@ const whyItems = [
   },
   {
     title: <><span>Built ground-up for Security,</span> nothing left to luck</>,
-    description: "This is not financing. We facilitate a sale with an optional repurchase at a pre-agreed price.",
+    description: "All watches are authenticated, insured, and stored with TransGuard under 24/7 protection.",
     icon: (
       <svg width="80" height="90" viewBox="0 0 80 90" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="10" y="30" width="60" height="50" rx="5" stroke="white" strokeWidth="2.5" fill="none"/>
