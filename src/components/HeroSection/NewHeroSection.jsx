@@ -71,7 +71,7 @@ const featureCards = [
   },
   {
     image: "/images/wi3.png",
-    title: "Option to Repurchase ",
+    title: "Option to re-purchase ",
     subtitle: "Lock-in a future ‘Buy Back’ price",
   },
   {
@@ -108,7 +108,7 @@ const whyItems = [
   },
   {
     title: <><span>Structured Sale,</span> not a loan</>,
-    description: "This is not financing. We facilitate a sale with an optional repurchase at a pre-agreed price.",
+    description: "This is not financing. We facilitate a sale with an optional re-purchase at a pre-agreed price.",
     icon: (
       <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="40" cy="40" r="30" stroke="white" strokeWidth="2.5" fill="none"/>
@@ -123,7 +123,7 @@ const whyItems = [
   },
   {
     title: <><span>Built ground-up for Security,</span> nothing left to luck</>,
-    description: "All watches are authenticated, insured, and stored with TransGuard under 24/7 protection.",
+    description: "All watches are authenticated, insured, and stored with Transguard under 24/7 protection.",
     icon: (
       <svg width="80" height="90" viewBox="0 0 80 90" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="10" y="30" width="60" height="50" rx="5" stroke="white" strokeWidth="2.5" fill="none"/>
@@ -349,7 +349,7 @@ const NewHeroSection = () => {
                   ))}
                 </span>
               </motion.span>
-              {/* Line 2: "with an" fades in together, "optional repurchase" fades in together */}
+              {/* Line 2: "with an" fades in together, "optional re-purchase" fades in together */}
               <motion.span
                 style={{ display: "block" }}
                 variants={heroLine2ContainerVariants}
@@ -360,7 +360,7 @@ const NewHeroSection = () => {
                   with an
                 </motion.span>
                 <motion.span variants={wordVariants} style={{ display: "inline-block" }}>
-                  <b>optional repurchase</b>
+                  <b>optional re-purchase</b>
                 </motion.span>
               </motion.span>
               {/* Tagline: each phrase slides up one by one */}
@@ -555,7 +555,7 @@ const NewHeroSection = () => {
                     <h4 className={'mb-2'}>Secure Custody</h4>
                     <p>
                       We buy and store with<br/>
-                      TransGuard, UAE's most trusted<br/>
+                      Transguard, UAE's most trusted<br/>
                       custodian
                     </p>
                   </div>
@@ -633,7 +633,7 @@ const NewHeroSection = () => {
                     <h1 className={'mb-2'}>4</h1>
                     <h4 className={'mb-2'}>Choose your Option</h4>
                     <p>
-                      Repurchase . Extend . Exit
+                      Re-purchase . Extend . Exit
                     </p>
                   </div>
                 </div>
@@ -641,7 +641,7 @@ const NewHeroSection = () => {
               <div className={'ps-title text-center mb-5'}>
                 <h3 className={'mb-2'}>This is {" "}<span>not a loan</span></h3>
                 <p>
-                  This is a structured sale with optional repurchase
+                  This is a structured sale with optional re-purchase
                 </p>
               </div>
             </div>
