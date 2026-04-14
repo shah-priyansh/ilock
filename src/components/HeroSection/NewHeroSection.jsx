@@ -161,8 +161,8 @@ const WhyCarousel = () => {
 
     const viewport = section.querySelector('.why-carousel-viewport');
     const viewportH = viewport.offsetHeight;
-    const activeY = viewportH * 0.05;
-    const previewY = viewportH * 0.55;
+    const activeY = viewportH * 0.15;
+    const previewY = viewportH * 0.6;
     const exitY = -viewportH * 0.4;
     const enterY = viewportH * 1.1;
 
@@ -218,7 +218,8 @@ const WhyCarousel = () => {
               filter: `blur(${1 * (1 - t)}px)`,
               duration: dur, ease, overwrite: true,
             });
-          } else if (diff < 0.7) {
+          } else if (diff < 0.7 || i === totalItems - 1) {
+            // Holding active — last item stays put
             gsap.to(item, { y: activeY, opacity: 1, scale: 1, filter: "blur(0px)", duration: dur, ease, overwrite: true });
           } else if (diff < 1.5) {
             const t = (diff - 0.7) / 0.8;
