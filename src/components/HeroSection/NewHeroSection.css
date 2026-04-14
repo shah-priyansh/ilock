@@ -289,7 +289,7 @@
 .px-text p {
     font-weight: 700;
     font-size: 20px;
-    line-height: 100%;
+    line-height: 1.4;
     letter-spacing: -0.02em;
     color: #003D69;
 }
