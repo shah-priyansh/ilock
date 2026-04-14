@@ -37,7 +37,7 @@ const Accordion = () => {
     const questions = [
         {
             question: "How can I get cash for my Rolex or luxury watch in Dubai?",
-            answer: "<p>A luxury watch is a significant investment and, for some, a legacy to pass down to loved ones. However, if you’re looking to unlock liquidity from your investment in Dubai, we provides a structured solution. </p>" +
+            answer: "<p>A luxury watch is a significant investment and, for some, a legacy to pass down to loved ones. However, if you’re looking to unlock liquidity from your investment in Dubai, we provide a structured solution. </p>" +
                 "<p>We have a global network of professional dealers from the US, Europe, Asia and the GCC. And they compete on our platform to bid the highest price for your watch.</p>" +
                 "<p>Plus, since our fees are based on the value of your watch, our interests are fully aligned with you to get the highest price. </p>" +
                 "<p>As a Dealer’s Buying Platform, we buy your watch immediately based on competitive dealer pricing <b>and offer you the option to reacquire it later under agreed terms.</b></p>" +
@@ -51,16 +51,16 @@ const Accordion = () => {
         },
         {
             question: "How is the price of my watch determined?",
-            answer: "<p>Your watch is priced through a competitive process involving multiple professional dealers from around the world who simultaniously compete to bid their highest price.</p>" +
+            answer: "<p>Your watch is priced through a competitive process involving multiple professional dealers from around the world who simultaneously compete to bid their highest price.</p>" +
                 "<p>Global dealers trust our platform to ensure: </p>" +
-                "<ul><li>Watches are professionally authenticated</li><li>Legal ownership is checked and confirmed</li><li>Transguard, our partners, handle storage and shipment to any part of the world</li><li>And we buy the watches up-front so we have Custody before thay pay</li></ul>"+
-                "<p>This confience encourages dealers to bid higher and ensures your price reflects real market demand rather than a single dealer’s opinion, providing a more transparent and competitive outcome.</p>"
+                "<ul><li>Watches are professionally authenticated</li><li>Legal ownership is checked and confirmed</li><li>Transguard, our partners, handle storage and shipment to any part of the world</li><li>And we buy the watches up-front so we have Custody before they pay</li></ul>"+
+                "<p>This confidence encourages dealers to bid higher and ensures your price reflects real market demand rather than a single dealer’s opinion, providing a more transparent and competitive outcome.</p>"
 
         },
         {
             question: "Is this better than selling my watch to a dealer or pawn shop?",
             answer: "<p>Traditional dealers typically offer a single negotiated price, which may not reflect the full market value of your watch. Their intent is to acquire your watch at the lowest price to maximize their profit margins when they sell. Pawn shops give you the ability to buy back your watch but tend to offer very low market values and charge high interest rates.</p>"+
-                "<p>Capital Custodia provides you access to multiple buyers competing simultaniously for your asset. This ensure you receive a fair and market-driven price without the pressure of one-on-one negotiations</p>"
+                "<p>Capital Custodia provides you access to multiple buyers competing simultaneously for your asset. This ensure you receive a fair and market-driven price without the pressure of one-on-one negotiations</p>"
         },
 
     ];
@@ -310,7 +310,7 @@ export default function ContactUs() {
                                                 pass
                                                 down to loved ones. However, if you’re looking to unlock liquidity from
                                                 your
-                                                investment in Dubai, we provides a structured solution.
+                                                investment in Dubai, we provide a structured solution.
                                             </p>
 
                                             <a href={'#'}>
@@ -499,7 +499,7 @@ export default function ContactUs() {
                                         <div className={'fc-body'}>
                                             <p>
                                                 Your watch is priced through a competitive process involving multiple
-                                                professional dealers from around the world who simultaniously compete to
+                                                professional dealers from around the world who simultaneously compete to
                                                 bid
                                                 their highest price.
 
@@ -601,7 +601,7 @@ export default function ContactUs() {
                                                 pass
                                                 down to loved ones. However, if you’re looking to unlock liquidity from
                                                 your
-                                                investment in Dubai, we provides a structured solution.
+                                                investment in Dubai, we provide a structured solution.
                                             </p>
 
                                             <a href={'#'}>
@@ -646,7 +646,7 @@ export default function ContactUs() {
                                         <div className={'fc-body'}>
                                             <p>
                                                 Your watch is priced through a competitive process involving multiple
-                                                professional dealers from around the world who simultaniously compete to
+                                                professional dealers from around the world who simultaneously compete to
                                                 bid
                                                 their highest price.
 

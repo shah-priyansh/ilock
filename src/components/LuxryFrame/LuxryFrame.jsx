@@ -107,7 +107,7 @@ export const LuxryFrame = () => {
                                       Our dealers specialize in both popular and rare brands and models.
                                   </p>
                                    <p>
-                                       Auction results are tansparentso you know market value of your watch.
+                                       Auction results are transparent so you know market value of your watch.
                                    </p>
                                     <p>
                                         And once you get the best price, we take care of the rest. You access liquidity easily and we manage shipping and transport to anywhere in the world
@@ -258,7 +258,7 @@ export const LuxryFrame = () => {
                                         TransGuard is the trusted custodian of banks, bullion investors and jewelers and holds Billions of dollars in Cash and valuables in their ultra-secured sites across the country
                                     </p>
                                     <p className="text-white">
-                                        All asset are:
+                                        All assets are:
                                     </p>
                                     <ul className={'text-white ps-4'}>
                                         <li>Fully insured</li>
