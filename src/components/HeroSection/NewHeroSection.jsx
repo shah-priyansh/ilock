@@ -544,7 +544,7 @@ const NewHeroSection = () => {
                     <h1 className={'mb-2'}>2</h1>
                     <h4 className={'mb-2'}>Get the best price</h4>
                     <p>
-                      Global dealerscompeteto<br/>
+                      Global Dealers compete to<br/>
                       offer the highest price
                     </p>
                   </div>
