@@ -280,7 +280,7 @@ export const LuxryFrame = () => {
             </section>
 
             <section className="our-globle-section position-relative">
-                <div className="section-content position-absolute top-0 w-100 pt-1 pt-sm-1 pt-md-1 pt-lg-1 pt-lg-3">
+                <div className="section-content position-absolute top-0 w-100 pt-1 pt-sm-1 pt-md-1 pt-lg-1 pt-lg-3 pt-xl-5">
                     <motion.h1
                         className="text-white text-center"
                         initial={{opacity: 0, y: 50}}

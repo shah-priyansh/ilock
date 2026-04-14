@@ -1902,6 +1902,7 @@ h1,h2,h3,h4,h5,h6 {
     font-size: 20px;
     line-height: 28px;
     color: #FFFFFF;
+    display: none;
 }
 .fc-body a:hover {
     color: #CCA35A;
@@ -1920,6 +1921,9 @@ h1,h2,h3,h4,h5,h6 {
     line-height: 108%;
     letter-spacing: -0.02em;
     color: #CCA35A;
+}
+header .nav-link:focus,header .nav-link:hover {
+    color: #ffffff;
 }
 /* Responsive Styles for Hero Section */
 
