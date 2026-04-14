@@ -46,7 +46,7 @@ const Accordion = () => {
         },
         {
             question: "Do you offer loans against watches?",
-            answer: “<p>No, Capital Custodia does not provide loans or financing. We operate a structured asset purchase model where we buy your watch outright and offer you a resale option if you wish to reacquire it later (known as a “re-purchase Agreement” in international financial markets)</p” +
+            answer: "<p>No, Capital Custodia does not provide loans or financing. We operate a structured asset purchase model where we buy your watch outright and offer you a resale option if you wish to reacquire it later (known as a &ldquo;re-purchase Agreement&rdquo; in international financial markets)</p" +
                 "<p>This ensures full transparency, avoids hidden interest or repayment structures and ensures you are never under any pressure or obligation to buy back the watch.</p>"
         },
         {
@@ -416,7 +416,7 @@ export default function ContactUs() {
                                                 structured asset purchase model where we buy your watch outright and
                                                 offer
                                                 you a resale option if you wish to reacquire it later (known as a
-                                                “re-purchase Agreement” in international financial markets)
+                                                "re-purchase Agreement" in international financial markets)
 
 
                                             </p>
@@ -624,7 +624,7 @@ export default function ContactUs() {
                                                 structured asset purchase model where we buy your watch outright and
                                                 offer
                                                 you a resale option if you wish to reacquire it later (known as a
-                                                “re-purchase Agreement” in international financial markets)
+                                                "re-purchase Agreement" in international financial markets)
 
 
                                             </p>
