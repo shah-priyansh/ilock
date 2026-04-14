@@ -280,6 +280,7 @@ export const LuxryFrame = () => {
             </section>
 
             <section className="our-globle-section position-relative">
+                {/* Text overlaid on video — all screen sizes */}
                 <div className="section-content position-absolute top-0 w-100 pt-1 pt-sm-1 pt-md-1 pt-lg-1 pt-lg-3 pt-xl-5">
                     <motion.h1
                         className="text-white text-center"
@@ -290,12 +291,12 @@ export const LuxryFrame = () => {
                     >
                         Our <span>global dealer network</span> specializes<br/>
                         in the best luxury brands
-
                     </motion.h1>
                 </div>
-                <VideoPlayer src="/images/fullvideo.mp4" className="img-fluid mx-auto"/>
-
-
+                {/* Desktop video */}
+                <VideoPlayer src="/images/fullvideo.mp4" className="img-fluid mx-auto d-none d-md-block"/>
+                {/* Mobile video */}
+                <VideoPlayer src="/images/Coin01_Mobile.mp4" className="img-fluid w-100 d-block d-md-none"/>
             </section>
 
             {/* <section className="join-network-section custom-padding" style={{ backgroundColor: 'rgb(150, 187, 180)' }}>

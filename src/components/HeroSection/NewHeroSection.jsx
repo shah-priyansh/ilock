@@ -341,11 +341,13 @@ const NewHeroSection = () => {
                 <motion.span variants={wordVariants} style={{ display: "inline-block", marginRight: "0.25em" }}>
                   A structured platform to
                 </motion.span>
-                {["sell", "luxury", "watches"].map((word, i) => (
-                  <motion.span key={i} variants={wordVariants} style={{ display: "inline-block", marginRight: "0.25em" }}>
-                    <b>{word}</b>
-                  </motion.span>
-                ))}
+                <span style={{ display: "inline-block", whiteSpace: "nowrap" }}>
+                  {["sell", "luxury", "watches"].map((word, i) => (
+                    <motion.span key={i} variants={wordVariants} style={{ display: "inline-block", marginRight: "0.25em" }}>
+                      <b>{word}</b>
+                    </motion.span>
+                  ))}
+                </span>
               </motion.span>
               {/* Line 2: "with an" fades in together, "optional repurchase" fades in together */}
               <motion.span
@@ -398,7 +400,7 @@ const NewHeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 2.4 }}
         >
-          <p>
+          <p className="features-subtitle">
             Designed for collectors, investors and professionals seeking discreet liquidity
           </p>
         </motion.div>
