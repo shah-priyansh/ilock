@@ -112,17 +112,14 @@ const Footer = () => {
                                     <Link to="/">Home</Link>
                                 </motion.span>
                                 <motion.span variants={linkVariants}>
-                                    <a href="#features">Features</a>
-                                </motion.span>
-                                <motion.span variants={linkVariants}>
                                     <Link to="/about">About Us</Link>
                                 </motion.span>
                                 <motion.span variants={linkVariants}>
                                     <Link to="/contact">Contact & Support</Link>
                                 </motion.span>
-                                {/*<motion.span variants={linkVariants}>*/}
-                                {/*    <a href="#download">Download App</a>*/}
-                                {/*</motion.span>*/}
+                                <motion.span variants={linkVariants}>
+                                    <Link to="/contact">Speak to a Specialist</Link>
+                                </motion.span>
                             </motion.div>
 
                             <motion.div
@@ -219,7 +216,7 @@ const Footer = () => {
                             viewport={{ once: true, margin: "-30px" }}
                             transition={{ duration: 0.6, delay: 0.4 }}
                         >
-                            <p className="text-white">© 2025 iLock</p>
+                            <p className="text-white">© 2025 Capital Custodia</p>
                         </motion.div>
                     </div>
                 </div>

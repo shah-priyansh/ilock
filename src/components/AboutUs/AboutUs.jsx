@@ -84,7 +84,7 @@ export default function AboutUs() {
                     transition={{ duration: 0.8 }}
                 >
                     <motion.img
-                        src="/images/about.png"
+                        src="/images/about.jpg"
                         className={'img-fluid'}
                         alt="About Banner"
                         initial={{ scale: 1.1 }}
