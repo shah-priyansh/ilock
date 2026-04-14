@@ -20,6 +20,16 @@ const accordionContainerVariant = {
     }
 };
 
+// FAQ card stagger — each card uses custom={index} for its delay
+const cardItemVariant = {
+    hidden: { opacity: 0, y: 40 },
+    visible: (i) => ({
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.5, ease: "easeOut", delay: i * 0.2 }
+    })
+};
+
 // Accordion Component
 const Accordion = () => {
     const [openIndex, setOpenIndex] = useState(null);
@@ -64,7 +74,7 @@ const Accordion = () => {
             className="faq-accordion"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: false, margin: "-50px" }}
             variants={accordionContainerVariant}
         >
             {questions.map((item, index) => (
@@ -285,7 +295,7 @@ export default function ContactUs() {
                         <div className={'d-none d-sm-none d-md-block'}>
                             <div className={'row px-3'}>
                                 <div className={'col-md-4 px-0'}>
-                                    <div className={'faq-card'}>
+                                    <motion.div className={'faq-card'} variants={cardItemVariant} custom={0} initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-50px" }}>
                                         <div className={'fc-head'}>
                                             <div className={'fc-number'}>
                                                 1
@@ -307,9 +317,9 @@ export default function ContactUs() {
                                                 [Read More]
                                             </a>
                                         </div>
-                                    </div>
+                                    </motion.div>
 
-                                    <div className={'faq-card'}>
+                                    <motion.div className={'faq-card'} variants={cardItemVariant} custom={1} initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-50px" }}>
                                         <div className={'fc-head'}>
                                             <div className={'fc-number'}>
                                                 4
@@ -334,9 +344,9 @@ export default function ContactUs() {
                                                 [Read More]
                                             </a>
                                         </div>
-                                    </div>
+                                    </motion.div>
 
-                                    <div className={'faq-card'}>
+                                    <motion.div className={'faq-card'} variants={cardItemVariant} custom={2} initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-50px" }}>
                                         <div className={'fc-head'}>
                                             <div className={'fc-number'}>
                                                 7
@@ -363,9 +373,9 @@ export default function ContactUs() {
                                                 [Read More]
                                             </a>
                                         </div>
-                                    </div>
+                                    </motion.div>
 
-                                    <div className={'faq-card'}>
+                                    <motion.div className={'faq-card'} variants={cardItemVariant} custom={3} initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-50px" }}>
                                         <div className={'fc-head'}>
                                             <div className={'fc-number'}>
                                                 11
@@ -387,11 +397,11 @@ export default function ContactUs() {
                                                 [Read More]
                                             </a>
                                         </div>
-                                    </div>
+                                    </motion.div>
 
                                 </div>
                                 <div className={'col-md-4 px-0 mt-md-5 pt-md-5'}>
-                                    <div className={'faq-card'}>
+                                    <motion.div className={'faq-card'} variants={cardItemVariant} custom={0} initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-50px" }}>
                                         <div className={'fc-head'}>
                                             <div className={'fc-number'}>
                                                 2
@@ -415,9 +425,9 @@ export default function ContactUs() {
                                                 [Read More]
                                             </a>
                                         </div>
-                                    </div>
+                                    </motion.div>
 
-                                    <div className={'faq-card'}>
+                                    <motion.div className={'faq-card'} variants={cardItemVariant} custom={1} initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-50px" }}>
                                         <div className={'fc-head'}>
                                             <div className={'fc-number'}>
                                                 5
@@ -445,9 +455,9 @@ export default function ContactUs() {
                                                 [Read More]
                                             </a>
                                         </div>
-                                    </div>
+                                    </motion.div>
 
-                                    <div className={'faq-card'}>
+                                    <motion.div className={'faq-card'} variants={cardItemVariant} custom={2} initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-50px" }}>
                                         <div className={'fc-head'}>
                                             <div className={'fc-number'}>
                                                 8
@@ -472,12 +482,12 @@ export default function ContactUs() {
                                                 [Read More]
                                             </a>
                                         </div>
-                                    </div>
+                                    </motion.div>
 
 
                                 </div>
                                 <div className={'col-md-4 px-0'}>
-                                    <div className={'faq-card'}>
+                                    <motion.div className={'faq-card'} variants={cardItemVariant} custom={0} initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-50px" }}>
                                         <div className={'fc-head'}>
                                             <div className={'fc-number'}>
                                                 3
@@ -500,9 +510,9 @@ export default function ContactUs() {
                                                 [Read More]
                                             </a>
                                         </div>
-                                    </div>
+                                    </motion.div>
 
-                                    <div className={'faq-card'}>
+                                    <motion.div className={'faq-card'} variants={cardItemVariant} custom={1} initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-50px" }}>
                                         <div className={'fc-head'}>
                                             <div className={'fc-number'}>
                                                 6
@@ -522,9 +532,9 @@ export default function ContactUs() {
                                                 [Read More]
                                             </a>
                                         </div>
-                                    </div>
+                                    </motion.div>
 
-                                    <div className={'faq-card'}>
+                                    <motion.div className={'faq-card'} variants={cardItemVariant} custom={2} initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-50px" }}>
                                         <div className={'fc-head'}>
                                             <div className={'fc-number'}>
                                                 9
@@ -544,9 +554,9 @@ export default function ContactUs() {
                                                 [Read More]
                                             </a>
                                         </div>
-                                    </div>
+                                    </motion.div>
 
-                                    <div className={'faq-card'}>
+                                    <motion.div className={'faq-card'} variants={cardItemVariant} custom={3} initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-50px" }}>
                                         <div className={'fc-head'}>
                                             <div className={'fc-number'}>
                                                 10
@@ -565,7 +575,7 @@ export default function ContactUs() {
                                                 [Read More]
                                             </a>
                                         </div>
-                                    </div>
+                                    </motion.div>
                                 </div>
                             </div>
                         </div>
@@ -576,7 +586,7 @@ export default function ContactUs() {
                         <div className={'d-block d-sm-block d-md-none'}>
                             <div className={'row px-3'}>
                                 <div className={'col-md-4 px-0'}>
-                                    <div className={'faq-card'}>
+                                    <motion.div className={'faq-card'} variants={cardItemVariant} custom={0} initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-50px" }}>
                                         <div className={'fc-head'}>
                                             <div className={'fc-number'}>
                                                 1
@@ -598,8 +608,8 @@ export default function ContactUs() {
                                                 [Read More]
                                             </a>
                                         </div>
-                                    </div>
-                                    <div className={'faq-card'}>
+                                    </motion.div>
+                                    <motion.div className={'faq-card'} variants={cardItemVariant} custom={0} initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-50px" }}>
                                         <div className={'fc-head'}>
                                             <div className={'fc-number'}>
                                                 2
@@ -623,8 +633,8 @@ export default function ContactUs() {
                                                 [Read More]
                                             </a>
                                         </div>
-                                    </div>
-                                    <div className={'faq-card'}>
+                                    </motion.div>
+                                    <motion.div className={'faq-card'} variants={cardItemVariant} custom={0} initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-50px" }}>
                                         <div className={'fc-head'}>
                                             <div className={'fc-number'}>
                                                 3
@@ -647,8 +657,8 @@ export default function ContactUs() {
                                                 [Read More]
                                             </a>
                                         </div>
-                                    </div>
-                                    <div className={'faq-card'}>
+                                    </motion.div>
+                                    <motion.div className={'faq-card'} variants={cardItemVariant} custom={0} initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-50px" }}>
                                         <div className={'fc-head'}>
                                             <div className={'fc-number'}>
                                                 4
@@ -673,8 +683,8 @@ export default function ContactUs() {
                                                 [Read More]
                                             </a>
                                         </div>
-                                    </div>
-                                    <div className={'faq-card'}>
+                                    </motion.div>
+                                    <motion.div className={'faq-card'} variants={cardItemVariant} custom={0} initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-50px" }}>
                                         <div className={'fc-head'}>
                                             <div className={'fc-number'}>
                                                 5
@@ -702,8 +712,8 @@ export default function ContactUs() {
                                                 [Read More]
                                             </a>
                                         </div>
-                                    </div>
-                                    <div className={'faq-card'}>
+                                    </motion.div>
+                                    <motion.div className={'faq-card'} variants={cardItemVariant} custom={0} initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-50px" }}>
                                         <div className={'fc-head'}>
                                             <div className={'fc-number'}>
                                                 6
@@ -723,9 +733,9 @@ export default function ContactUs() {
                                                 [Read More]
                                             </a>
                                         </div>
-                                    </div>
+                                    </motion.div>
 
-                                    <div className={'faq-card'}>
+                                    <motion.div className={'faq-card'} variants={cardItemVariant} custom={0} initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-50px" }}>
                                         <div className={'fc-head'}>
                                             <div className={'fc-number'}>
                                                 7
@@ -752,8 +762,8 @@ export default function ContactUs() {
                                                 [Read More]
                                             </a>
                                         </div>
-                                    </div>
-                                    <div className={'faq-card'}>
+                                    </motion.div>
+                                    <motion.div className={'faq-card'} variants={cardItemVariant} custom={0} initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-50px" }}>
                                         <div className={'fc-head'}>
                                             <div className={'fc-number'}>
                                                 8
@@ -779,8 +789,8 @@ export default function ContactUs() {
                                                 [Read More]
                                             </a>
                                         </div>
-                                    </div>
-                                    <div className={'faq-card'}>
+                                    </motion.div>
+                                    <motion.div className={'faq-card'} variants={cardItemVariant} custom={0} initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-50px" }}>
                                         <div className={'fc-head'}>
                                             <div className={'fc-number'}>
                                                 9
@@ -800,9 +810,9 @@ export default function ContactUs() {
                                                 [Read More]
                                             </a>
                                         </div>
-                                    </div>
+                                    </motion.div>
 
-                                    <div className={'faq-card'}>
+                                    <motion.div className={'faq-card'} variants={cardItemVariant} custom={0} initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-50px" }}>
                                         <div className={'fc-head'}>
                                             <div className={'fc-number'}>
                                                 11
@@ -826,8 +836,8 @@ export default function ContactUs() {
                                                 [Read More]
                                             </a>
                                         </div>
-                                    </div>
-                                    <div className={'faq-card'}>
+                                    </motion.div>
+                                    <motion.div className={'faq-card'} variants={cardItemVariant} custom={0} initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-50px" }}>
                                         <div className={'fc-head'}>
                                             <div className={'fc-number'}>
                                                 10
@@ -846,7 +856,7 @@ export default function ContactUs() {
                                                 [Read More]
                                             </a>
                                         </div>
-                                    </div>
+                                    </motion.div>
 
                                 </div>
                             </div>
