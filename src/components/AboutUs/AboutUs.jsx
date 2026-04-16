@@ -116,7 +116,8 @@ export default function AboutUs() {
                             <strong>luxury timepieces</strong>
                         </h2>
                         <p className="features-subtitle text-white">
-                            Combining advanced re-commerce technology with legacy wealth expertise
+                            Combining AI and advanced technology with legacy
+                            wealth management expertise
                         </p>
                     </div>
                 </motion.div>
@@ -169,7 +170,8 @@ export default function AboutUs() {
                                             assets.
                                         </p>
                                         <p className={'text-white'}>
-                                            <b>Transparent, Confidential, Secure.  That's the Capital Custodia promise.</b>
+                                            <b>Transparent, Confidential, Secure<br/>
+                                                That’s the Custodia promise</b>
                                         </p>
                                     </motion.div>
 
@@ -287,7 +289,7 @@ export default function AboutUs() {
                                                 <p>
                                                     All assets in custody are fully insured and stored with Transguard,
                                                     a leading secure storage provider trusted by major banks, jewellers
-                                                    and bullion tradewrs
+                                                    and bullion Traders
                                                 </p>
                                             </div>
                                         </div>
@@ -340,7 +342,7 @@ export default function AboutUs() {
                                             McKinsey & Co, Metlife, EmiratesNBD and Reuters
                                         </p>
                                         <div className={'text-center td-icon mt-31'}>
-                                            <a href={'#'}>
+                                            <a href={'https://www.linkedin.com/in/pishu-ganglani/'} target={'_blank'}>
                                                 <svg width="20" height="19" viewBox="0 0 20 19" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
                                                     <path
@@ -372,7 +374,7 @@ export default function AboutUs() {
                                             and Asia
                                         </p>
                                         <div className={'text-center td-icon mt-31'}>
-                                            <a href={'#'}>
+                                            <a href={'https://www.linkedin.com/in/harshkamani/'} target={'_blank'}>
                                                 <svg width="20" height="19" viewBox="0 0 20 19" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
                                                     <path
@@ -403,7 +405,7 @@ export default function AboutUs() {
                                             companies like The 1916 Co, DavidSW, WatchBox and Chronofy
                                         </p>
                                         <div className={'text-center td-icon mt-31'}>
-                                            <a href={'#'}>
+                                            <a href={'https://www.linkedin.com/in/c-quon-gottlieb-34a2556a/'} target={'_blank'}>
                                                 <svg width="20" height="19" viewBox="0 0 20 19" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
                                                     <path
@@ -417,7 +419,7 @@ export default function AboutUs() {
                                                         fill="#FEFEFE"/>
                                                 </svg>
                                             </a>
-                                            <a href={'#'}>
+                                            <a href={'https://www.youtube.com/@CQ_TheWatchGuy'} target={'_blank'}>
                                                 <svg width="22" height="15" viewBox="0 0 22 15" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
                                                     <path
@@ -476,7 +478,7 @@ export default function AboutUs() {
                                             Hewlett Packard and BHP Billiton
                                         </p>
                                         <div className={'text-center td-icon mt-31'}>
-                                            <a href={'#'}>
+                                            <a href={'https://www.linkedin.com/in/dinesh-ganglani/'} target={'_blank'}>
                                                 <svg width="20" height="19" viewBox="0 0 20 19" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
                                                     <path

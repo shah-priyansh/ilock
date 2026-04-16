@@ -13,19 +13,28 @@ const Accordion = () => {
     const questions = [
         {
             question: "How quickly will I receive payment?",
-            answer: "Once you accept our offer, you'll receive payment within 48 hours. We process all transactions securely and efficiently to ensure you get your funds as quickly as possible. Payment methods include bank transfer, wire transfer, or other secure payment options based on your preference."
+            answer: "Once you accept our offer, you'll receive payment within 24 to 48 hours.\n" +
+                "We process all transactions securely and efficiently to ensure you get your\n" +
+                "funds as quickly as possible. Payment methods include bank transfer or\n" +
+                "cash based on your preference"
         },
         {
             question: "Is the shipping process fully insured?",
-            answer: "Yes, absolutely. Every watch is fully insured from the moment it leaves your hands until it reaches our secure facility. We partner with leading insurance providers to ensure comprehensive coverage. You'll receive tracking information and insurance details as soon as your watch is in transit."
+            answer: "Yes, absolutely. Every watch is fully insured from the moment it leaves your\n" +
+                "hands and throughout the storage period at our secure facility. We partner\n" +
+                "with leading insurance providers to ensure comprehensive coverage."
         },
         {
             question: "What happens if I reject the final offer?",
-            answer: "If you decide not to accept our offer, your watch will be returned to you at no cost. We cover all return shipping and insurance costs. There are no obligations or fees - you're free to accept or decline any offer we make. Your watch will be returned in the same condition it was received."
+            answer: "You are never obligated to proceed unless you are fully confident of the\n" +
+                "terms of our offer. Should you decide not to go ahead, your watch will be\n" +
+                "returned to you at no cost and in the same condition it was received"
         },
         {
             question: "Do you authenticate every watch?",
-            answer: "Yes, every watch undergoes a comprehensive authentication process by certified watch experts. Our team includes members of the Association of Independent Watch Specialists (AIWS) who verify authenticity, condition, and provenance. This authentication is recorded on an immutable NFT for future reference, significantly enhancing your watch's value."
+            answer: "Yes, every watch undergoes a comprehensive authentication process by\n" +
+                "certified watch experts. Our Authentication Partners verify authenticity,\n" +
+                "condition, and provenance and provide you with a comprehensive report."
         },
         {
             question: "What brands do you accept?",
@@ -718,10 +727,11 @@ export default function ContactUs() {
                             className={'mb-3'}
                             variants={fadeInUp}
                         >
-                            Ready to get your cash offer?
+                            Ready to get an offer?
                         </motion.h1>
                         <motion.p variants={fadeInUp}>
-                            Join thousands of satisfied sellers who got the best price for their luxury timepieces
+                            Find out why Capital Custodia’s dealer network is the smarter way to
+                            sell your watch
                         </motion.p>
                     </motion.div>
                     <motion.div 

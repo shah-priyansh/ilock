@@ -314,7 +314,7 @@ const NewHeroSection = () => {
               allow="autoplay; encrypted-media"
               allowFullScreen
           ></iframe>*/}
-          <img src={'/images/hm-b.jpg'} alt={'img'} className={'img-fluid'}/>
+          <img src={'/images/home-bg.jpg'} alt={'img'} className={'img-fluid'}/>
           {/*<iframe
                 src="https://www.youtube.com/embed/0M8OMMbyBD0?autoplay=1&mute=1&loop=1&playlist=0M8OMMbyBD0&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
                 title="Capital Custodia"
