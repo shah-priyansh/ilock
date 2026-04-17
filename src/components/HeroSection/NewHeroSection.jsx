@@ -187,7 +187,7 @@ const WhyCarousel = () => {
         start: "center center",
         end: `+=${(transitions + 1) * 50}%`,
         pin: true,
-        scrub: 1.2,
+        scrub: 2.5,
         onUpdate: (self) => {
           const progress = self.progress;
           const segmentSize = 1 / totalItems;
@@ -197,25 +197,29 @@ const WhyCarousel = () => {
             const diff = (progress - itemStart) / segmentSize;
 
             const animate = isFirstUpdate ? gsap.set : gsap.to;
-            const tweenOpts = isFirstUpdate ? {} : { duration: 0.4, ease: "power2.out", overwrite: true };
+            const tweenOpts = isFirstUpdate ? {} : { duration: 0.8, ease: "power3.out", overwrite: true };
+
+            // Smooth easing helper to eliminate sharp threshold jumps
+            const smoothstep = (t) => t * t * (3 - 2 * t);
 
             if (diff < -1.0) {
-              animate(item, { y: enterY, opacity: 0, scale: 0.9, filter: "blur(1px)", ...tweenOpts });
-            } else if (diff < -0.5) {
-              const t = (diff + 1.0) / 0.5;
-              animate(item, { y: enterY + (previewY - enterY) * t, opacity: 0.3 * t, scale: 0.9, filter: "blur(1px)", ...tweenOpts });
+              animate(item, { y: enterY, opacity: 0, scale: 0.9, filter: "blur(2px)", ...tweenOpts });
+            } else if (diff < -0.3) {
+              const t = smoothstep((diff + 1.0) / 0.7);
+              animate(item, { y: enterY + (previewY - enterY) * t, opacity: 0.3 * t, scale: 0.9, filter: `blur(${2 - t}px)`, ...tweenOpts });
             } else if (diff < 0) {
-              animate(item, { y: previewY, opacity: 0.3, scale: 0.9, filter: "blur(1px)", ...tweenOpts });
-            } else if (diff < 0.3) {
-              const t = diff / 0.3;
-              animate(item, { y: previewY + (activeY - previewY) * t, opacity: 0.3 + 0.7 * t, scale: 0.9 + 0.1 * t, filter: `blur(${1 * (1 - t)}px)`, ...tweenOpts });
-            } else if (diff < 0.7 || i === totalItems - 1) {
+              const t = smoothstep((diff + 0.3) / 0.3);
+              animate(item, { y: previewY + (activeY - previewY) * t * 0.15, opacity: 0.3 + 0.1 * t, scale: 0.9 + 0.02 * t, filter: `blur(${1 - 0.2 * t}px)`, ...tweenOpts });
+            } else if (diff < 0.35) {
+              const t = smoothstep(diff / 0.35);
+              animate(item, { y: previewY + (activeY - previewY) * (0.15 + 0.85 * t), opacity: 0.4 + 0.6 * t, scale: 0.92 + 0.08 * t, filter: `blur(${0.8 * (1 - t)}px)`, ...tweenOpts });
+            } else if (diff < 0.65 || i === totalItems - 1) {
               animate(item, { y: activeY, opacity: 1, scale: 1, filter: "blur(0px)", ...tweenOpts });
             } else if (diff < 1.5) {
-              const t = (diff - 0.7) / 0.8;
-              animate(item, { y: activeY + (exitY - activeY) * t, opacity: Math.max(0, 1 - t * 1.3), scale: 1 - 0.1 * t, filter: "blur(0px)", ...tweenOpts });
+              const t = smoothstep((diff - 0.65) / 0.85);
+              animate(item, { y: activeY + (exitY - activeY) * t, opacity: Math.max(0, 1 - t), scale: 1 - 0.1 * t, filter: `blur(${t}px)`, ...tweenOpts });
             } else {
-              animate(item, { y: exitY, opacity: 0, scale: 0.9, filter: "blur(0px)", ...tweenOpts });
+              animate(item, { y: exitY, opacity: 0, scale: 0.9, filter: "blur(1px)", ...tweenOpts });
             }
           });
 
