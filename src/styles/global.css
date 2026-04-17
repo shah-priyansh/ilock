@@ -1597,14 +1597,23 @@ h1,h2,h3,h4,h5,h6 {
     color: #9CA3AF;
 }
 .form-btn-div .btn {
-    background-color: #6BC8AC;
+    background-color: #CCA35A;
     display: block;
     width: 100%;
     color: #fff;
-    padding: 12px 0;
-    font-weight: 600;
+    padding: 16px 30px;
+    font-weight: 700;
     font-size: 18px;
     line-height: 28px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+}
+.form-btn-div .btn:hover {
+    background-color: #b8923e;
+    transform: translateY(-2px);
 }
 .cont-title h3 {
     font-weight: 700;
@@ -1683,17 +1692,26 @@ h1,h2,h3,h4,h5,h6 {
     border: 5px solid #6BC8AC;
 }
 .landing-form .btn {
-    background-color: #6BC8AC;
+    background-color: #CCA35A;
     width: 100%;
     color: #fff;
-    padding: 12px 0;
-    font-weight: 600;
+    padding: 16px 30px;
+    font-weight: 700;
     font-size: 18px;
     line-height: 28px;
     display: flex;
     justify-content: center;
     gap: 15px;
     align-items: center;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+}
+.landing-form .btn:hover {
+    background-color: #b8923e;
+    transform: translateY(-2px);
 }
 .form-group .attach-box {
     display: flex;
@@ -2255,7 +2273,7 @@ header .nav-link:focus,header .nav-link:hover {
     }
     .form-btn-div .btn {
         font-size: 14px;
-        padding: 10px 0;
+        padding: 12px 20px;
     }
 
     .contact-box {

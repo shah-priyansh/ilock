@@ -187,21 +187,22 @@
 
 .submit-btn {
     width: 100%;
-    padding: 16px;
-    background: #6BC8AC;
+    padding: 16px 30px;
+    background: #CCA35A;
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 30px;
     font-size: 1.125rem;
-    font-weight: 600;
+    font-weight: 700;
     cursor: pointer;
     transition: all 0.3s;
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -4px rgba(0, 0, 0, 0.1);
 }
 
 .submit-btn:hover {
-    background: #5ab89a;
+    background: #b8923e;
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(107, 200, 172, 0.3);
+    box-shadow: 0 8px 20px rgba(204, 163, 90, 0.3);
 }
 
 /* How It Works Section */

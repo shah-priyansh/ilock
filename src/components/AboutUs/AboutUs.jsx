@@ -447,7 +447,7 @@ export default function AboutUs() {
                                             platform engineered for trust, speed, and scale.
                                         </p>
                                         <div className={'text-center td-icon mt-31'}>
-                                            <a href={'#'}>
+                                            <a href={'https://www.linkedin.com/in/bilal-karimbath/'} target={'_blank'}>
                                                 <svg width="20" height="19" viewBox="0 0 20 19" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
                                                     <path
@@ -720,8 +720,9 @@ export default function AboutUs() {
                                 className={'btn mb-3'}
                                 whileHover={{scale: 1.05}}
                                 whileTap={{scale: 0.95}}
+                                onClick={() => window.location.href = '/contact'}
                             >
-                                Get your free valuation now
+                                Speak to a specialist
                             </motion.button>
                             <p>100% Secured & Confidential</p>
                         </motion.div>

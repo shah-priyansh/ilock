@@ -1069,9 +1069,9 @@ export default function LandingPage() {
                                 className={'btn mb-3'}
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                onClick={() => document.getElementById('valuation-form').scrollIntoView({ behavior: 'smooth' })}
+                                onClick={() => window.location.href = '/contact'}
                             >
-                                Get your free valuation now
+                                Speak to a Specialist
                             </motion.button>
                             <p>100% Secured & Confidential</p>
                         </motion.div>

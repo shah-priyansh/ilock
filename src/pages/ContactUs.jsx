@@ -708,50 +708,6 @@ export default function ContactUs() {
 
             </div>
 
-            <motion.div 
-                className={'ready-section py-5 py-md-5 my-md-5 text-center'}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-100px" }}
-                variants={fadeInUp}
-            >
-                <div className={'container'}>
-                    <motion.div 
-                        className={'ready-content mb-5'}
-                        variants={staggerContainer}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                    >
-                        <motion.h1 
-                            className={'mb-3'}
-                            variants={fadeInUp}
-                        >
-                            Ready to get an offer?
-                        </motion.h1>
-                        <motion.p variants={fadeInUp}>
-                            Find out why Capital Custodia’s dealer network is the smarter way to
-                            sell your watch
-                        </motion.p>
-                    </motion.div>
-                    <motion.div 
-                        className={'ready-btn-div text-center'}
-                        variants={fadeInUp}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                    >
-                        <motion.button 
-                            className={'btn mb-3'}
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                        >
-                            Get your free valuation now
-                        </motion.button>
-                        <p>100% Secured & Confidential</p>
-                    </motion.div>
-                </div>
-            </motion.div>
 
             <Footer />
         </div>
