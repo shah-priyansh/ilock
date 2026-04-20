@@ -201,11 +201,11 @@ export default function ContactUs() {
         <>
             <SEO
                 title="Contact Capital Custodia - Luxury Watch Trading Support | Dubai"
-                description="Get in touch with Capital Custodia's expert team. Based in Dubai DIFC, we provide 24/7 support for luxury watch trading, valuations, and secure transactions. Contact us today."
-                keywords="contact Capital Custodia, luxury watch support, Dubai DIFC watch traders, watch trading contact, Capital Custodia support team"
+                description="Get in touch with Capital Custodia's expert team. Based in Dubai, we provide 24/7 support for luxury watch trading, valuations, and secure transactions. Contact us today."
+                keywords="contact Capital Custodia, luxury watch support, Dubai watch traders, watch trading contact, Capital Custodia support team"
                 canonical="/contact"
                 ogTitle="Contact Capital Custodia - Expert Luxury Watch Trading Support"
-                ogDescription="Reach our team of luxury watch experts based in Dubai DIFC. Get support for valuations, trading, authentication, and secure transactions."
+                ogDescription="Reach our team of luxury watch experts based in Dubai. Get support for valuations, trading, authentication, and secure transactions."
                 ogUrl="https://capitalcustodia.com/contact"
             />
             <StructuredData type="localBusiness" />
@@ -638,8 +638,7 @@ export default function ContactUs() {
                                         </div>
                                         <div className={'contact-detail-box'}>
                                             <h4>Global Headquarters</h4>
-                                            <p>Dubai International Financial Centre</p>
-                                            <span>DIFC, Dubai, United Arab Emirates</span>
+                                            <span>United Arab Emirates</span>
                                         </div>
                                     </motion.div>
 

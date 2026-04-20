@@ -219,7 +219,7 @@ const Footer = () => {
                             viewport={{ once: true, margin: "-30px" }}
                             transition={{ duration: 0.6, delay: 0.4 }}
                         >
-                            <p className="text-white">© 2025 Capital Custodia</p>
+                            <p className="text-white">© 2026 Capital Custodia</p>
                         </motion.div>
                     </div>
                 </div>
