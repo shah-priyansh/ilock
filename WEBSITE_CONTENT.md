@@ -200,7 +200,7 @@ Extracted text from all pages and shared components of the iLock (iLockSecure) w
 - **Title:** Direct Channels
 - **Speak to a Specialist:** +971 4 123 4567 | Monday - Friday, 9am - 6pm (GMT+4)
 - **Email Support:** info@ilocksecure.com | We respond within 24 hours
-- **Global Headquarters:** Dubai International Financial Centre | DIFC, Dubai, United Arab Emirates
+- **Global Headquarters:** Dubai, United Arab Emirates
 - **WhatsApp Support:** +971 50 123 4567 | Instant messaging available
 
 ### Common Questions (FAQ)

@@ -27,11 +27,10 @@ const StructuredData = ({ type = 'organization' }) => {
     "name": "Capital Custodia",
     "alternateName": "Capital Custodia",
     "image": "https://capitalcustodia.com/images/logo-icon.svg",
-    "description": "Capital Custodia — luxury watch trading platform with global dealer auction, professional authentication, buyback options, and bank-vault storage services in Dubai DIFC.",
+    "description": "Capital Custodia — luxury watch trading platform with global dealer auction, professional authentication, buyback options, and bank-vault storage services in Dubai.",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Dubai",
-      "addressRegion": "DIFC",
       "addressCountry": "AE"
     },
     "geo": {
