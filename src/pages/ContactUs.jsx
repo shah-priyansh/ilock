@@ -407,7 +407,7 @@ export default function ContactUs() {
                         <div className="text-4xl mb-4">📧</div>
                         <h3 className="text-xl font-semibold mb-2">Email Support</h3>
                         <p className="text-sm sm:text-base">
-                            Get help via email within 24 hours
+                            We respond promptly, typically within one business day
                         </p>
                         <button className="mt-4 bg-white text-[#484C52] px-6 py-2 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
                             Email Us
@@ -619,7 +619,7 @@ export default function ContactUs() {
                                         <div className={'contact-detail-box'}>
                                             <h4>Email Support</h4>
                                             <p>info@capitalcustodia.com</p>
-                                            <span>We respond within 24 hours</span>
+                                            <span>We respond promptly, typically within one business day</span>
                                         </div>
                                     </motion.div>
 

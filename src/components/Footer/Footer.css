@@ -65,10 +65,43 @@
     height: 35px;
 }
 
+.footer-trust-signals {
+    margin-top: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.trust-badges {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+}
+
+.trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.trust-badge strong {
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.trust-divider {
+    width: 1px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
 .bottom-footer {
-    margin-top: 40px;
+    margin-top: 20px;
     padding-top: 0;
-    /*border-top: 1px solid rgba(255, 255, 255, 0.1);*/
 }
 
 .bottom-footer p {
@@ -157,8 +190,22 @@
         height: 24px;
     }
 
+    .trust-badges {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .trust-divider {
+        width: 40px;
+        height: 1px;
+    }
+
+    .trust-badge {
+        font-size: 13px;
+    }
+
     .bottom-footer {
-        margin-top: 24px;
+        margin-top: 16px;
     }
 
     .bottom-footer p {

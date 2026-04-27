@@ -46,7 +46,7 @@ const Accordion = () => {
         },
         {
             question: "Do you offer loans against watches?",
-            answer: "<p>No, Capital Custodia does not provide loans or financing. We operate a structured asset purchase model where we buy your watch outright and offer you a resale option if you wish to reacquire it later (known as a &ldquo;re-purchase Agreement&rdquo; in international financial markets)</p" +
+            answer: "<p>No, Capital Custodia does not provide loans or financing. We operate a structured asset purchase model where we buy your watch outright and offer you a resale option if you wish to reacquire it later (known as a &ldquo;Re-purchase Agreement&rdquo; in international financial markets)</p" +
                 "<p>This ensures full transparency, avoids hidden interest or repayment structures and ensures you are never under any pressure or obligation to buy back the watch.</p>"
         },
         {
@@ -360,7 +360,7 @@ export default function ContactUs() {
                                                 Our dealers specialize in high-value luxury watches from brands such as
                                                 Rolex, Patek Philippe, Audemars Piguet, Richard Mille, Omega, Franck
                                                 Muller,
-                                                Vacheron Constantin, Jaeger-lecoultre and other more exotic and rare
+                                                Vacheron Constantin, Jaeger-LeCoultre and other more exotic and rare
                                                 brands
                                                 through our US and European dealer network.
                                                 <br/>
@@ -416,7 +416,7 @@ export default function ContactUs() {
                                                 structured asset purchase model where we buy your watch outright and
                                                 offer
                                                 you a resale option if you wish to reacquire it later (known as a
-                                                "re-purchase Agreement" in international financial markets)
+                                                "Re-purchase Agreement" in international financial markets)
 
 
                                             </p>
@@ -442,7 +442,7 @@ export default function ContactUs() {
                                                 obligation, to reacquire your watch at pre-agreed prices and terms.
                                                 <br/>
                                                 <br/>
-                                                This gives you the flexibility get liquidity now without permanently
+                                                This gives you the flexibility to get liquidity now without permanently
                                                 parting
                                                 with the asset. And all our watches are insured and stored at
                                                 Transguard’s
@@ -493,7 +493,7 @@ export default function ContactUs() {
                                                 3
                                             </div>
                                             <h3>
-                                                How can I get cash for my Rolex or luxury watch in Dubai?
+                                                How is the price for my watch determined?
                                             </h3>
                                         </div>
                                         <div className={'fc-body'}>
@@ -545,7 +545,7 @@ export default function ContactUs() {
                                         </div>
                                         <div className={'fc-body'}>
                                             <p>
-                                                No. Capital Custodia operates with a poliy of clear and transparent
+                                                No. Capital Custodia operates with a Policy of clear and transparent
                                                 pricing
                                                 and processes.
                                             </p>
@@ -624,7 +624,7 @@ export default function ContactUs() {
                                                 structured asset purchase model where we buy your watch outright and
                                                 offer
                                                 you a resale option if you wish to reacquire it later (known as a
-                                                "re-purchase Agreement" in international financial markets)
+                                                "Re-purchase Agreement" in international financial markets)
 
 
                                             </p>
@@ -640,7 +640,7 @@ export default function ContactUs() {
                                                 3
                                             </div>
                                             <h3>
-                                                How can I get cash for my Rolex or luxury watch in Dubai?
+                                                How is the price for my watch determined?
                                             </h3>
                                         </div>
                                         <div className={'fc-body'}>
@@ -699,7 +699,7 @@ export default function ContactUs() {
                                                 obligation, to reacquire your watch at pre-agreed prices and terms.
                                                 <br/>
                                                 <br/>
-                                                This gives you the flexibility get liquidity now without permanently
+                                                This gives you the flexibility to get liquidity now without permanently
                                                 parting
                                                 with the asset. And all our watches are insured and stored at
                                                 Transguard’s
@@ -749,7 +749,7 @@ export default function ContactUs() {
                                                 Our dealers specialize in high-value luxury watches from brands such as
                                                 Rolex, Patek Philippe, Audemars Piguet, Richard Mille, Omega, Franck
                                                 Muller,
-                                                Vacheron Constantin, Jaeger-lecoultre and other more exotic and rare
+                                                Vacheron Constantin, Jaeger-LeCoultre and other more exotic and rare
                                                 brands
                                                 through our US and European dealer network.
                                                 <br/>
@@ -801,7 +801,7 @@ export default function ContactUs() {
                                         </div>
                                         <div className={'fc-body'}>
                                             <p>
-                                                No. Capital Custodia operates with a poliy of clear and transparent
+                                                No. Capital Custodia operates with a Policy of clear and transparent
                                                 pricing
                                                 and processes.
                                             </p>

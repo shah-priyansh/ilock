@@ -96,7 +96,7 @@ const whyItems = [
   },
   {
     title: <><span>Complete Transparency,</span> no hidden fees or surprises</>,
-    description: "Your watch is priced through a competitive global dealer network. You see real market value.",
+    description: "Competitive global dealer pricing. All terms disclosed in writing before you accept any offer.",
     icon: (
       <svg width="87" height="94" viewBox="0 0 87 94" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g clipPath="url(#clip_why_1)">

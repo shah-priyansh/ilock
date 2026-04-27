@@ -106,7 +106,7 @@ const StructuredData = ({ type = 'organization' }) => {
         "name": "Do you offer loans against watches?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No, Capital Custodia does not provide loans or financing. We operate a structured asset purchase model where we buy your watch outright and offer you a resale option if you wish to reacquire it later (known as a re-purchase Agreement in international financial markets). This ensures full transparency and avoids hidden interest or repayment structures."
+          "text": "No, Capital Custodia does not provide loans or financing. We operate a structured asset purchase model where we buy your watch outright and offer you a resale option if you wish to reacquire it later (known as a Re-purchase Agreement in international financial markets). This ensures full transparency and avoids hidden interest or repayment structures."
         }
       },
       {

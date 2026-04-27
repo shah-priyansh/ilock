@@ -116,8 +116,7 @@ export default function AboutUs() {
                             <strong>luxury timepieces</strong>
                         </h2>
                         <p className="features-subtitle text-white">
-                            Combining AI and advanced technology with legacy
-                            wealth management expertise
+                            Combining advanced re-commerce technology with legacy wealth expertise
                         </p>
                     </div>
                 </motion.div>
@@ -231,9 +230,8 @@ export default function AboutUs() {
                                             <div className={'core-detail mt-3 mt-sm-3 mt-md-5'}>
                                                 <h3 className={'mb-3'}>Transparency </h3>
                                                 <p>
-                                                    We create a full market pricing report so you know exatly what
-                                                    professional dealers around the world are offering for your watch.
-                                                    Our terms are clear, no fine print, no hidden clauses
+                                                    Full market pricing report so you know exactly what dealers worldwide are offering.
+                                                    All commission and re-purchase terms disclosed in writing before you accept any offer.
                                                 </p>
                                             </div>
                                         </div>
