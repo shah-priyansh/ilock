@@ -51,7 +51,7 @@ export default function LandingPage() {
                 });
             }
 
-            const response = await fetch('http://localhost:3001/api/submit-valuation', {
+            const response = await fetch('/api/submit-valuation', {
                 method: 'POST',
                 body: submitData
             });

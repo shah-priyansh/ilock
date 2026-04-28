@@ -135,7 +135,7 @@ export default function ContactUs() {
         setMessage({ type: '', text: '' });
 
         try {
-            const response = await fetch('http://localhost:3001/api/submit-contact', {
+            const response = await fetch('/api/submit-contact', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

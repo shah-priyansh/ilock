@@ -105,7 +105,7 @@ export default function ContactUs() {
         setMessage({ type: '', text: '' });
 
         try {
-            const response = await fetch('http://localhost:3001/api/submit-contact', {
+            const response = await fetch('/api/submit-contact', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -597,7 +597,11 @@ export default function ContactUs() {
                                         </div>
                                         <div className={'contact-detail-box'}>
                                             <h4>Speak to a Specialist</h4>
-                                            <p>+971 4 123 4567</p>
+                                            <p>
+                                                <a href="tel:+971504790075" style={{ color: '#003D69' }} className="hover:underline">
+                                                    +971 50 479 0075
+                                                </a>
+                                            </p>
                                             <span>Monday - Friday, 9am - 6pm (GMT+4)</span>
                                         </div>
                                     </motion.div>
@@ -638,7 +642,13 @@ export default function ContactUs() {
                                         </div>
                                         <div className={'contact-detail-box'}>
                                             <h4>Global Headquarters</h4>
-                                            <span>United Arab Emirates</span>
+                                            <p>Custodia Luxury Goods Trading FZCO</p>
+                                            <span>
+                                                DMCC Luxury Innovation Centre (DLIC)<br />
+                                                Level 48, Almas Tower<br />
+                                                Jumeirah Lake Towers<br />
+                                                Dubai, UAE
+                                            </span>
                                         </div>
                                     </motion.div>
 
@@ -658,7 +668,11 @@ export default function ContactUs() {
                                         </div>
                                         <div className={'contact-detail-box'}>
                                             <h4>WhatsApp Support</h4>
-                                            <p>+971 50 123 4567</p>
+                                            <p>
+                                                <a href="https://wa.me/971504790075" target="_blank" rel="noopener noreferrer" style={{ color: '#003D69' }} className="hover:underline">
+                                                    +971 50 479 0075
+                                                </a>
+                                            </p>
                                             <span>Instant messaging available</span>
                                         </div>
                                     </motion.div>
