@@ -141,30 +141,96 @@ Modern browsers with ES6+ support (Chrome, Firefox, Safari, Edge)
 
 ### Production Server (capitalcustodia-web)
 - **OS**: Amazon Linux 2023
-- **Instance Type**: t3.micro
+- **Instance Type**: t3.micro (916 MB RAM + 1 GB swap)
 - **Region**: ap-southeast-1 (Singapore)
-- **Web Server**: Nginx (static file serving)
-- **Web Root**: `/usr/share/nginx/html/`
+- **Web Server**: Nginx 1.28.2 (static + reverse-proxy to Express)
+- **Static Web Root**: `/usr/share/nginx/html/`  (owned by `nginx:nginx`)
+- **Backend App Dir**: `/opt/capitalcustodia/`  (owned by `ec2-user`)
+  - `source/`            — Express code (`server/server.js`, `package.json`, deps)
+  - `source/.env`        — production secrets (chmod 600, server-only)
+  - `ecosystem.config.cjs` — PM2 config
+  - `logs/`              — PM2 stdout/stderr
+- **Backend Process**: PM2 service `capitalcustodia-api` (fork mode, port 3001, bound to 127.0.0.1)
+  - Auto-restart on reboot via systemd unit `pm2-ec2-user.service`
+  - `max_memory_restart: 300M` circuit breaker
+- **Nginx Config Snippets** (loaded inside the HTTPS server block via `include /etc/nginx/default.d/*.conf`):
+  - `/etc/nginx/default.d/api-proxy.conf`     — `/api/*` → `http://127.0.0.1:3001`
+  - `/etc/nginx/default.d/spa-fallback.conf`  — `try_files $uri $uri/ /index.html` for React Router
 - **Domain**: capitalcustodia.com / www.capitalcustodia.com
-- **SSL**: Let's Encrypt (Certbot managed)
-- **Ports**: 80 (HTTP), 443 (HTTPS), 22 (SSH)
+- **SSL**: Let's Encrypt (Certbot managed; certs at `/etc/letsencrypt/live/capitalcustodia.com/`)
+- **Ports**: 80 (HTTP→HTTPS redirect), 443 (HTTPS), 22 (SSH)
 
-### AWS Access
-- Credentials in `.env.local` as env vars: `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_REGION`
+### SSH Access
+- **Key**: `C:\GitHub\KEYS\vice-platform.pem` (kept outside any project repo)
+- **Host**: `13.212.240.90` (no Elastic IP — Public IP may change on stop/start)
+- **User**: `ec2-user`
+- **Command**: `ssh -i "C:/GitHub/KEYS/vice-platform.pem" ec2-user@13.212.240.90`
+
+### AWS Access (local dev)
+- Credentials in `.env.local`: `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_REGION`
 - To run AWS commands: `set -a && source .env.local && set +a && aws <command>`
+
+### Email / SMTP (production)
+- Contact + valuation form emails go via Amazon SES SMTP (region: `us-east-1`).
+- Verified sending domain: `capitalcustodia.com` (verified in `us-east-1`).
+- SMTP credentials are an IAM user managed via the SES "Create SMTP credentials" wizard
+  (find existing user via `aws iam list-users` filtered to `ses-smtp-user.*`). Secret
+  access keys are shown only at creation time and cannot be recovered — record them in
+  a vault before leaving the wizard.
+- Production env vars (`SMTP_HOST`, `SMTP_PORT`, `SMTP_USERNAME`, `SMTP_PASSWORD`,
+  `SENDER_EMAIL`, `RECIPIENT_EMAIL`) live in `/opt/capitalcustodia/source/.env` on the
+  server only. Never commit them to the repo or paste in chat.
+- Local dev derives the SMTP password from a fresh IAM access key via
+  `scripts/derive-smtp-and-write-env.mjs` (writes to `.env.local`, gitignored).
 
 ### Deploy Process
 
-Staged upload with backup and atomic swap — never `scp` straight into the web root.
+Two deploy paths depending on what changed.
 
-1. **Build locally**: `npm run build` → outputs to `dist/`
-2. **Stage on server**: upload `dist/*` into `/tmp/deploy/` (clear it first)
-3. **Backup current site**: `sudo cp -r /usr/share/nginx/html /tmp/html-backup-$(date +%Y%m%d-%H%M%S)`
-4. **Atomic swap**: `sudo rm -rf /usr/share/nginx/html/* && sudo cp -r /tmp/deploy/* /usr/share/nginx/html/`
-5. **Fix ownership**: `sudo chown -R nginx:nginx /usr/share/nginx/html`
-6. **Verify**: `curl -sI https://<domain>/` should return `HTTP/1.1 200 OK` with a fresh `Last-Modified`
+#### Frontend-only changes (most deploys)
+1. Build locally: `npm run build` → `dist/`
+2. Stage: `ssh ... "rm -rf /tmp/deploy && mkdir -p /tmp/deploy"` then `scp -r dist/* ...:/tmp/deploy/`
+3. Backup + atomic swap (one-line on server):
+   ```
+   TS=$(date +%Y%m%d-%H%M%S) && \
+     sudo cp -r /usr/share/nginx/html /tmp/html-backup-$TS && \
+     sudo rm -rf /usr/share/nginx/html/* && \
+     sudo cp -r /tmp/deploy/* /usr/share/nginx/html/ && \
+     sudo chown -R nginx:nginx /usr/share/nginx/html
+   ```
+4. Verify from server (Windows curl has cert-revocation issues with this site):
+   `ssh ... "curl -sI https://capitalcustodia.com/ | head -3"` — expect HTTP 200 + fresh `Last-Modified`.
 
-Why backup + swap: if the upload fails partway, the live site stays intact until step 4. The timestamped backup makes rollback a single `cp` away.
+Rollback: `sudo cp -r /tmp/html-backup-<ts>/* /usr/share/nginx/html/ && sudo chown -R nginx:nginx /usr/share/nginx/html`.
+
+#### Backend changes (`server/`, `package.json`)
+1. Tar locally: `tar --exclude=node_modules --exclude=dist --exclude=.git --exclude=src -czf /tmp/cc-backend.tar.gz server/ package.json package-lock.json`
+2. Upload + extract: `scp /tmp/cc-backend.tar.gz ...:/tmp/` then `ssh ... "cd /opt/capitalcustodia/source && tar -xzf /tmp/cc-backend.tar.gz && npm ci --omit=dev"`
+3. Reload zero-downtime: `ssh ... "pm2 reload capitalcustodia-api"`
+4. Verify: `ssh ... "curl -s http://127.0.0.1:3001/api/health"` — expect `{"status":"OK"}`.
+
+#### Nginx snippet changes
+1. Edit/replace files in `/etc/nginx/default.d/` (root permission required).
+2. `sudo nginx -t` (syntax-check; never reload before this passes).
+3. `sudo systemctl reload nginx` (zero-downtime).
+
+### Operations Cheatsheet
+```
+# Service status
+ssh ... "pm2 list"
+
+# Tail backend logs
+ssh ... "pm2 logs capitalcustodia-api --lines 50 --nostream"
+
+# Restart backend
+ssh ... "pm2 restart capitalcustodia-api"
+
+# Free disk on /tmp
+ssh ... "ls -lh /tmp/html-backup-*"   # decide what's safe to remove
+
+# Memory & swap state
+ssh ... "free -h"
+```
 
 ## Notes
 

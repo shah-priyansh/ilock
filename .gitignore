@@ -23,3 +23,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Claude Code / agent session artifacts (runtime only)
+.claude/
+.playwright-cli/
+.superpowers/
