@@ -112,17 +112,23 @@ const Footer = () => {
                                     <Link to="/">Home</Link>
                                 </motion.span>
                                 <motion.span variants={linkVariants}>
-                                    <a href="#features">Features</a>
-                                </motion.span>
-                                <motion.span variants={linkVariants}>
                                     <Link to="/about">About Us</Link>
                                 </motion.span>
                                 <motion.span variants={linkVariants}>
-                                    <Link to="/contact">Contact & Support</Link>
+                                    <Link to="/faq">FAQ</Link>
                                 </motion.span>
                                 {/*<motion.span variants={linkVariants}>*/}
-                                {/*    <a href="#download">Download App</a>*/}
+                                {/*    <Link to="/contact">Contact & Support</Link>*/}
                                 {/*</motion.span>*/}
+                                <motion.span variants={linkVariants}>
+                                    <Link to="/contact">Speak to a Specialist</Link>
+                                </motion.span>
+                                <motion.span variants={linkVariants}>
+                                    <Link to="/privacy-policy">Privacy Policy</Link>
+                                </motion.span>
+                                <motion.span variants={linkVariants}>
+                                    <Link to="/terms">Terms &amp; Conditions</Link>
+                                </motion.span>
                             </motion.div>
 
                             <motion.div
@@ -213,13 +219,38 @@ const Footer = () => {
                             </motion.div>
                         </div>
                         <motion.div
-                            className="bottom-footer text-center "
+                            className="footer-trust-signals text-center"
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: "-30px" }}
+                            transition={{ duration: 0.5, delay: 0.3 }}
+                        >
+                            <div className="trust-badges">
+                                <div className="trust-badge">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10 1L12.39 3.56L15.83 3.13L16.27 6.57L19.51 8.05L18.09 11.27L19.51 14.49L16.27 15.97L15.83 19.41L12.39 18.98L10 21.54L7.61 18.98L4.17 19.41L3.73 15.97L0.49 14.49L1.91 11.27L0.49 8.05L3.73 6.57L4.17 3.13L7.61 3.56L10 1Z" fill="none" stroke="rgba(255,255,255,0.6)" strokeWidth="1"/>
+                                        <path d="M7 11L9 13L13 9" stroke="rgba(255,255,255,0.6)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                                    </svg>
+                                    <span>Secured by <strong>Transguard</strong></span>
+                                </div>
+                                <div className="trust-divider"></div>
+                                <div className="trust-badge">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10 1L12.39 3.56L15.83 3.13L16.27 6.57L19.51 8.05L18.09 11.27L19.51 14.49L16.27 15.97L15.83 19.41L12.39 18.98L10 21.54L7.61 18.98L4.17 19.41L3.73 15.97L0.49 14.49L1.91 11.27L0.49 8.05L3.73 6.57L4.17 3.13L7.61 3.56L10 1Z" fill="none" stroke="rgba(255,255,255,0.6)" strokeWidth="1"/>
+                                        <path d="M7 11L9 13L13 9" stroke="rgba(255,255,255,0.6)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                                    </svg>
+                                    <span>Insured by <strong>Lloyd's of London</strong></span>
+                                </div>
+                            </div>
+                        </motion.div>
+                        <motion.div
+                            className="bottom-footer text-center"
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
                             viewport={{ once: true, margin: "-30px" }}
                             transition={{ duration: 0.6, delay: 0.4 }}
                         >
-                            <p className="text-white">© 2025 iLock</p>
+                            <p className="text-white">© 2026 Capital Custodia</p>
                         </motion.div>
                     </div>
                 </div>

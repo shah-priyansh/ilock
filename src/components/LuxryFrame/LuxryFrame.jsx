@@ -11,13 +11,13 @@ export const LuxryFrame = () => {
     };
 
     const fadeInLeft = {
-        hidden: { opacity: 0, x: -60 },
-        visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: "easeOut" } }
+        hidden: { opacity: 0, y: 60 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } }
     };
 
     const fadeInRight = {
-        hidden: { opacity: 0, x: 60 },
-        visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: "easeOut" } }
+        hidden: { opacity: 0, y: 60 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } }
     };
 
     const scaleIn = {
@@ -38,7 +38,7 @@ export const LuxryFrame = () => {
 
 
 
-            <section className="highest-prices-section custom-padding">
+            <section className="highest-prices-section custom-padding" style={{ backgroundColor: 'rgb(196, 216, 222)' }}>
                 <div className="container">
                     <div className="row align-items-center">
                         <motion.div
@@ -48,7 +48,7 @@ export const LuxryFrame = () => {
                             viewport={{ once: true, margin: "-100px" }}
                             variants={scaleIn}
                         >
-                            <VideoPlayer src="/images/map.mp4" className="img-fluid" />
+                            <VideoPlayer src="/images/map-ilock.mp4" className="img-fluid" />
                         </motion.div>
 
                         <motion.div
@@ -107,7 +107,7 @@ export const LuxryFrame = () => {
                                       Our dealers specialize in both popular and rare brands and models.
                                   </p>
                                    <p>
-                                       Auction results are tansparentso you know market value of your watch.
+                                       Auction results are transparent so you know market value of your watch.
                                    </p>
                                     <p>
                                         And once you get the best price, we take care of the rest. You access liquidity easily and we manage shipping and transport to anywhere in the world
@@ -129,7 +129,7 @@ export const LuxryFrame = () => {
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, margin: "-100px" }}
-                            variants={fadeInLeft}
+                            variants={fadeInUp}
                         >
                             <img src="/images/watch.png " className="img-fluid w-100"
                                  alt="Secure Storage"/>
@@ -139,7 +139,7 @@ export const LuxryFrame = () => {
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, margin: "-100px" }}
-                            variants={fadeInRight}
+                            variants={fadeInUp}
                         >
                         <div className="section-content left-custom-padding">
                                 <div className="sec-tag mb-5">
@@ -203,7 +203,7 @@ export const LuxryFrame = () => {
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, margin: "-100px" }}
-                            variants={scaleIn}
+                            variants={fadeInUp}
                         >
                             <img src="/images/secure.png " className="img-fluid w-100" alt="Secure Storage" />
                         </motion.div>
@@ -212,7 +212,7 @@ export const LuxryFrame = () => {
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, margin: "-100px" }}
-                            variants={fadeInLeft}
+                            variants={fadeInUp}
                         >
                             <div className="section-content left-custom-padding">
                                 <div className="sec-tag mb-5">
@@ -258,7 +258,7 @@ export const LuxryFrame = () => {
                                         TransGuard is the trusted custodian of banks, bullion investors and jewelers and holds Billions of dollars in Cash and valuables in their ultra-secured sites across the country
                                     </p>
                                     <p className="text-white">
-                                        All asset are:
+                                        All assets are:
                                     </p>
                                     <ul className={'text-white ps-4'}>
                                         <li>Fully insured</li>
@@ -279,37 +279,24 @@ export const LuxryFrame = () => {
                 </div>
             </section>
 
-            <section className="our-globle-section custom-padding">
-                <div className="container overflow-hidden">
-                    <div className="row align-items-center">
-
-                        <div className="col-md-12 mb-5">
-                            <div className="section-content">
-                                <motion.h1
-                                    className="mb-3 text-white text-center"
-                                    initial={{opacity: 0, y: 50}}
-                                    whileInView={{opacity: 1, y: 0}}
-                                    viewport={{once: true, margin: "-100px"}}
-                                    transition={{duration: 0.6, ease: "easeOut"}}
-                                >
-                                    Our <span>global dealer network</span> specializes<br/>
-                                    in the best luxury brands
-
-                                </motion.h1>
-                            </div>
-
-                        </div>
-                        <motion.div
-                            className="col-md-12 text-center"
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true, margin: "-100px" }}
-                            variants={scaleIn}
-                        >
-                            <VideoPlayer src="/images/brandscoin.mp4" className="img-fluid mx-auto" />
-                        </motion.div>
-                    </div>
+            <section className="our-globle-section position-relative">
+                {/* Text overlaid on video — all screen sizes */}
+                <div className="section-content position-absolute top-0 w-100 pt-1 pt-sm-1 pt-md-1 pt-lg-1 pt-lg-3 pt-xl-5">
+                    <motion.h1
+                        className="text-white text-center"
+                        initial={{opacity: 0, y: 50}}
+                        whileInView={{opacity: 1, y: 0}}
+                        viewport={{once: true, margin: "-100px"}}
+                        transition={{duration: 0.6, ease: "easeOut"}}
+                    >
+                        Our <span>global dealer network</span> specializes<br/>
+                        in the best luxury brands
+                    </motion.h1>
                 </div>
+                {/* Desktop video */}
+                <VideoPlayer src="/images/fullvideo.mp4" className="img-fluid mx-auto d-none d-md-block"/>
+                {/* Mobile video */}
+                <VideoPlayer src="/images/Coin01_Mobile.mp4" className="img-fluid w-100 d-block d-md-none"/>
             </section>
 
             {/* <section className="join-network-section custom-padding" style={{ backgroundColor: 'rgb(150, 187, 180)' }}>

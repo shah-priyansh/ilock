@@ -16,19 +16,19 @@ export default function AboutUs() {
     };
 
     const fadeInLeft = {
-        hidden: { opacity: 0, x: -50 },
-        visible: { 
-            opacity: 1, 
-            x: 0,
+        hidden: { opacity: 0, y: 50 },
+        visible: {
+            opacity: 1,
+            y: 0,
             transition: { duration: 0.6, ease: "easeOut" }
         }
     };
 
     const fadeInRight = {
-        hidden: { opacity: 0, x: 50 },
-        visible: { 
-            opacity: 1, 
-            x: 0,
+        hidden: { opacity: 0, y: 50 },
+        visible: {
+            opacity: 1,
+            y: 0,
             transition: { duration: 0.6, ease: "easeOut" }
         }
     };
@@ -64,13 +64,13 @@ export default function AboutUs() {
     return (
         <>
             <SEO
-                title="About iLockSecure - Redefining Global Luxury Watch Trading"
-                description="Learn how iLockSecure revolutionized luxury watch trading with our secure global auction platform. Trusted by collectors worldwide for authentication, highest prices, and buyback options."
-                keywords="luxury watch trading company, authenticated watch platform, secure watch marketplace, global watch auction, iLockSecure about us"
+                title="About Capital Custodia | Redefining Global Luxury Watch Trading"
+                description="Capital Custodia is redefining luxury watch trading with a secure global dealer auction platform. Professional authentication, competitive pricing from worldwide dealers, buyback options, and bank-vault storage — trusted by collectors and dealers globally."
+                keywords="Capital Custodia, about Capital Custodia, luxury watch trading company, authenticated watch platform, secure watch marketplace, global watch auction, luxury watch dealers Dubai, watch re-purchase agreement, Capital Custodia watches"
                 canonical="/about"
-                ogTitle="About iLockSecure - Trusted Global Luxury Watch Trading Platform"
-                ogDescription="Discover how iLockSecure combines cutting-edge technology with expert authentication to deliver the highest prices for luxury watches. Join thousands of satisfied collectors worldwide."
-                ogUrl="https://ilocksecure.com/about"
+                ogTitle="About Capital Custodia | Trusted Global Luxury Watch Trading"
+                ogDescription="Capital Custodia combines advanced re-commerce technology with legacy wealth expertise to deliver the highest prices for luxury watches. Trusted by collectors and professional dealers worldwide."
+                ogUrl="https://capitalcustodia.com/about"
             />
 
             <div style={{minHeight: '100vh'}}>
@@ -84,7 +84,7 @@ export default function AboutUs() {
                     transition={{ duration: 0.8 }}
                 >
                     <motion.img
-                        src="/images/about.png"
+                        src="/images/about.jpg"
                         className={'img-fluid'}
                         alt="About Banner"
                         initial={{ scale: 1.1 }}
@@ -163,13 +163,14 @@ export default function AboutUs() {
                                             The luxury watch market has long been plagued by slow transactions, opaque pricing, and unnecessary risk. Traditional dealers take weeks to process sales, leaving sellers vulnerable and uncertain.
                                         </p>
                                         <p className={'text-white'}>
-                                            iLock was founded to solve these problems through technology and trust.
+                                            Capital Custodia was founded to solve these problems through technology and trust.
                                             We've built a platform that combines instant liquidity with bank-grade
                                             security, giving collectors the confidence to trade their most valuable
                                             assets.
                                         </p>
                                         <p className={'text-white'}>
-                                            <b>Transparent, Confidential, Secure.  That's the Capital Custodia promise.</b>
+                                            <b>Transparent, Confidential, Secure<br/>
+                                                That’s the Custodia promise</b>
                                         </p>
                                     </motion.div>
 
@@ -185,7 +186,7 @@ export default function AboutUs() {
                 {/* Core Pillars Section */}
                 <div className={'py-md-5'} style={{backgroundColor: '#ffffff'}}>
                     <div className="container-fluid px-3">
-                        <div className="container" style={{maxWidth: '85%'}}>
+                        <div className="container about-container">
                             <div className="py-5 py-xl-5">
                                 <div className={'ps-title text-center mb-5'}>
                                     <motion.h3
@@ -229,9 +230,8 @@ export default function AboutUs() {
                                             <div className={'core-detail mt-3 mt-sm-3 mt-md-5'}>
                                                 <h3 className={'mb-3'}>Transparency </h3>
                                                 <p>
-                                                    We create a full market pricing report so you know exatly what
-                                                    professional dealers around the world are offering for your watch.
-                                                    Our terms are clear, no fine print, no hidden clauses
+                                                    Full market pricing report so you know exactly what dealers worldwide are offering.
+                                                    All commission and re-purchase terms disclosed in writing before you accept any offer.
                                                 </p>
                                             </div>
                                         </div>
@@ -287,7 +287,7 @@ export default function AboutUs() {
                                                 <p>
                                                     All assets in custody are fully insured and stored with Transguard,
                                                     a leading secure storage provider trusted by major banks, jewellers
-                                                    and bullion tradewrs
+                                                    and bullion Traders
                                                 </p>
                                             </div>
                                         </div>
@@ -314,7 +314,7 @@ export default function AboutUs() {
                                         Build on a foundation of   <strong>Trust & Expertise</strong>
                                     </h2>
                                     <p className="features-subtitle text-white">
-                                        Meet the visionaries behind iLock
+                                        Meet the visionaries behind Capital Custodia
                                     </p>
                                 </motion.div>
                             </div>
@@ -340,7 +340,7 @@ export default function AboutUs() {
                                             McKinsey & Co, Metlife, EmiratesNBD and Reuters
                                         </p>
                                         <div className={'text-center td-icon mt-31'}>
-                                            <a href={'#'}>
+                                            <a href={'https://www.linkedin.com/in/pishu-ganglani/'} target={'_blank'}>
                                                 <svg width="20" height="19" viewBox="0 0 20 19" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
                                                     <path
@@ -372,7 +372,7 @@ export default function AboutUs() {
                                             and Asia
                                         </p>
                                         <div className={'text-center td-icon mt-31'}>
-                                            <a href={'#'}>
+                                            <a href={'https://www.linkedin.com/in/harshkamani/'} target={'_blank'}>
                                                 <svg width="20" height="19" viewBox="0 0 20 19" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
                                                     <path
@@ -403,7 +403,7 @@ export default function AboutUs() {
                                             companies like The 1916 Co, DavidSW, WatchBox and Chronofy
                                         </p>
                                         <div className={'text-center td-icon mt-31'}>
-                                            <a href={'#'}>
+                                            <a href={'https://www.linkedin.com/in/c-quon-gottlieb-34a2556a/'} target={'_blank'}>
                                                 <svg width="20" height="19" viewBox="0 0 20 19" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
                                                     <path
@@ -417,7 +417,7 @@ export default function AboutUs() {
                                                         fill="#FEFEFE"/>
                                                 </svg>
                                             </a>
-                                            <a href={'#'}>
+                                            <a href={'https://www.youtube.com/@CQ_TheWatchGuy'} target={'_blank'}>
                                                 <svg width="22" height="15" viewBox="0 0 22 15" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
                                                     <path
@@ -437,13 +437,15 @@ export default function AboutUs() {
                                     </div>
                                     <div className={'team-detail'}>
                                         <h4>Bilal Karimbath </h4>
-                                        <h6>CFO</h6>
+                                        <h6>CTO</h6>
                                         <p>
-                                            Senior roles in financial services and consulting with companies like
-                                            McKinsey & Co, Metlife, EmiratesNBD and Reuters
+                                            Founder of Digital Evolutions, a technology and AI agency with over a
+                                            decade of experience delivering digital platforms across the GCC. Leads
+                                            the technology vision for Capital Custodia, building an AI-powered
+                                            platform engineered for trust, speed, and scale.
                                         </p>
                                         <div className={'text-center td-icon mt-31'}>
-                                            <a href={'#'}>
+                                            <a href={'https://www.linkedin.com/in/bilal-karimbath/'} target={'_blank'}>
                                                 <svg width="20" height="19" viewBox="0 0 20 19" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
                                                     <path
@@ -474,7 +476,7 @@ export default function AboutUs() {
                                             Hewlett Packard and BHP Billiton
                                         </p>
                                         <div className={'text-center td-icon mt-31'}>
-                                            <a href={'#'}>
+                                            <a href={'https://www.linkedin.com/in/dinesh-ganglani/'} target={'_blank'}>
                                                 <svg width="20" height="19" viewBox="0 0 20 19" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
                                                     <path
@@ -504,7 +506,7 @@ export default function AboutUs() {
                     <div className="container-fluid">
                         <div className="row align-items-center g-0">
                             <motion.div
-                                className="col-12 col-md-6"
+                                className="col-12 col-md-6 order-2 order-sm-2 order-md-1"
                                 initial="hidden"
                                 whileInView="visible"
                                 viewport={{once: true, margin: "-100px"}}
@@ -666,7 +668,7 @@ export default function AboutUs() {
                                 </div>
                             </motion.div>
                             <motion.div
-                                className="col-12 col-md-6"
+                                className="col-12 col-md-6 order-1 order-sm-1 order-md-2"
                                 initial="hidden"
                                 whileInView="visible"
                                 viewport={{once: true, margin: "-100px"}}
@@ -716,8 +718,9 @@ export default function AboutUs() {
                                 className={'btn mb-3'}
                                 whileHover={{scale: 1.05}}
                                 whileTap={{scale: 0.95}}
+                                onClick={() => window.location.href = '/contact'}
                             >
-                                Get your free valuation now
+                                Speak to a specialist
                             </motion.button>
                             <p>100% Secured & Confidential</p>
                         </motion.div>

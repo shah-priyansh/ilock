@@ -3,6 +3,8 @@ import LandingPage from './components/LandingPage/LandingPage';
 import About from './pages/About';
 import ContactUs from './pages/ContactUs';
 import Faq from './pages/Faq';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
 import HeroSection from './components/HeroSection/HeroSection';
 import NewHeroSection from './components/HeroSection/NewHeroSection';
 import { trackPageView } from './utils/analytics';
@@ -18,10 +20,21 @@ function PageTracker() {
   return null;
 }
 
+function ScrollToTop() {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
+  return null;
+}
+
 function App() {
   return (
     <Router>
       <PageTracker />
+      <ScrollToTop />
       <div className="App">
         <Routes>
           <Route path="/" element={<NewHeroSection />} />
@@ -30,6 +43,8 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/faq" element={<Faq />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<TermsOfService />} />
         </Routes>
       </div>
     </Router>

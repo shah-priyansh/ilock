@@ -6,7 +6,8 @@ import dotenv from 'dotenv';
 import multer from 'multer';
 import path from 'path';
 
-dotenv.config();
+dotenv.config({ path: '.env' });
+dotenv.config({ path: '.env.local', override: true });
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -168,7 +169,8 @@ app.post('/api/submit-contact', async (req, res) => {
     }
 });
 
-// Start server
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+// Start server — bind to loopback so Nginx (on the same host) is the only ingress
+const HOST = process.env.HOST || '127.0.0.1';
+app.listen(PORT, HOST, () => {
+    console.log(`Server is running on http://${HOST}:${PORT}`);
 });

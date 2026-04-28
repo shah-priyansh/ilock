@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ilocksecure.com/sitemap.xml
+Sitemap: https://capitalcustodia.com/sitemap.xml

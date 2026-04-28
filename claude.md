@@ -137,6 +137,35 @@ npm run preview
 
 Modern browsers with ES6+ support (Chrome, Firefox, Safari, Edge)
 
+## Deployment
+
+### Production Server (capitalcustodia-web)
+- **OS**: Amazon Linux 2023
+- **Instance Type**: t3.micro
+- **Region**: ap-southeast-1 (Singapore)
+- **Web Server**: Nginx (static file serving)
+- **Web Root**: `/usr/share/nginx/html/`
+- **Domain**: capitalcustodia.com / www.capitalcustodia.com
+- **SSL**: Let's Encrypt (Certbot managed)
+- **Ports**: 80 (HTTP), 443 (HTTPS), 22 (SSH)
+
+### AWS Access
+- Credentials in `.env.local` as env vars: `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_REGION`
+- To run AWS commands: `set -a && source .env.local && set +a && aws <command>`
+
+### Deploy Process
+
+Staged upload with backup and atomic swap — never `scp` straight into the web root.
+
+1. **Build locally**: `npm run build` → outputs to `dist/`
+2. **Stage on server**: upload `dist/*` into `/tmp/deploy/` (clear it first)
+3. **Backup current site**: `sudo cp -r /usr/share/nginx/html /tmp/html-backup-$(date +%Y%m%d-%H%M%S)`
+4. **Atomic swap**: `sudo rm -rf /usr/share/nginx/html/* && sudo cp -r /tmp/deploy/* /usr/share/nginx/html/`
+5. **Fix ownership**: `sudo chown -R nginx:nginx /usr/share/nginx/html`
+6. **Verify**: `curl -sI https://<domain>/` should return `HTTP/1.1 200 OK` with a fresh `Last-Modified`
+
+Why backup + swap: if the upload fails partway, the live site stays intact until step 4. The timestamped backup makes rollback a single `cp` away.
+
 ## Notes
 
 - Hero text animations use `animate` instead of `whileInView` for Safari compatibility

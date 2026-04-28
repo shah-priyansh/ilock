@@ -13,19 +13,28 @@ const Accordion = () => {
     const questions = [
         {
             question: "How quickly will I receive payment?",
-            answer: "Once you accept our offer, you'll receive payment within 48 hours. We process all transactions securely and efficiently to ensure you get your funds as quickly as possible. Payment methods include bank transfer, wire transfer, or other secure payment options based on your preference."
+            answer: "Once you accept our offer, you'll receive payment within 24 to 48 hours.\n" +
+                "We process all transactions securely and efficiently to ensure you get your\n" +
+                "funds as quickly as possible. Payment methods include bank transfer or\n" +
+                "cash based on your preference"
         },
         {
             question: "Is the shipping process fully insured?",
-            answer: "Yes, absolutely. Every watch is fully insured from the moment it leaves your hands until it reaches our secure facility. We partner with leading insurance providers to ensure comprehensive coverage. You'll receive tracking information and insurance details as soon as your watch is in transit."
+            answer: "Yes, absolutely. Every watch is fully insured from the moment it leaves your\n" +
+                "hands and throughout the storage period at our secure facility. We partner\n" +
+                "with leading insurance providers to ensure comprehensive coverage."
         },
         {
             question: "What happens if I reject the final offer?",
-            answer: "If you decide not to accept our offer, your watch will be returned to you at no cost. We cover all return shipping and insurance costs. There are no obligations or fees - you're free to accept or decline any offer we make. Your watch will be returned in the same condition it was received."
+            answer: "You are never obligated to proceed unless you are fully confident of the\n" +
+                "terms of our offer. Should you decide not to go ahead, your watch will be\n" +
+                "returned to you at no cost and in the same condition it was received"
         },
         {
             question: "Do you authenticate every watch?",
-            answer: "Yes, every watch undergoes a comprehensive authentication process by certified watch experts. Our team includes members of the Association of Independent Watch Specialists (AIWS) who verify authenticity, condition, and provenance. This authentication is recorded on an immutable NFT for future reference, significantly enhancing your watch's value."
+            answer: "Yes, every watch undergoes a comprehensive authentication process by\n" +
+                "certified watch experts. Our Authentication Partners verify authenticity,\n" +
+                "condition, and provenance and provide you with a comprehensive report."
         },
         {
             question: "What brands do you accept?",
@@ -96,7 +105,7 @@ export default function ContactUs() {
         setMessage({ type: '', text: '' });
 
         try {
-            const response = await fetch('http://localhost:3001/api/submit-contact', {
+            const response = await fetch('/api/submit-contact', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -143,19 +152,19 @@ export default function ContactUs() {
     };
 
     const fadeInLeft = {
-        hidden: { opacity: 0, x: -50 },
+        hidden: { opacity: 0, y: 50 },
         visible: {
             opacity: 1,
-            x: 0,
+            y: 0,
             transition: { duration: 0.6, ease: "easeOut" }
         }
     };
 
     const fadeInRight = {
-        hidden: { opacity: 0, x: 50 },
+        hidden: { opacity: 0, y: 50 },
         visible: {
             opacity: 1,
-            x: 0,
+            y: 0,
             transition: { duration: 0.6, ease: "easeOut" }
         }
     };
@@ -191,13 +200,13 @@ export default function ContactUs() {
     return (
         <>
             <SEO
-                title="Contact iLockSecure - Luxury Watch Trading Support | Dubai"
-                description="Get in touch with iLockSecure's expert team. Based in Dubai DIFC, we provide 24/7 support for luxury watch trading, valuations, and secure transactions. Contact us today."
-                keywords="contact iLockSecure, luxury watch support, Dubai DIFC watch traders, watch trading contact, iLockSecure support team"
+                title="Contact Capital Custodia - Luxury Watch Trading Support | Dubai"
+                description="Get in touch with Capital Custodia's expert team. Based in Dubai, we provide 24/7 support for luxury watch trading, valuations, and secure transactions. Contact us today."
+                keywords="contact Capital Custodia, luxury watch support, Dubai watch traders, watch trading contact, Capital Custodia support team"
                 canonical="/contact"
-                ogTitle="Contact iLockSecure - Expert Luxury Watch Trading Support"
-                ogDescription="Reach our team of luxury watch experts based in Dubai DIFC. Get support for valuations, trading, authentication, and secure transactions."
-                ogUrl="https://ilocksecure.com/contact"
+                ogTitle="Contact Capital Custodia - Expert Luxury Watch Trading Support"
+                ogDescription="Reach our team of luxury watch experts based in Dubai. Get support for valuations, trading, authentication, and secure transactions."
+                ogUrl="https://capitalcustodia.com/contact"
             />
             <StructuredData type="localBusiness" />
 
@@ -316,13 +325,13 @@ export default function ContactUs() {
                                 <div>
                                     <h3 className="text-xl font-semibold mb-3">Email</h3>
                                     <p className="text-base sm:text-lg">
-                                        <a href="mailto:info@ilock.com" className="hover:underline">
-                                            info@ilock.com
+                                        <a href="mailto:info@capitalcustodia.com" className="hover:underline">
+                                            info@capitalcustodia.com
                                         </a>
                                     </p>
                                     <p className="text-base sm:text-lg mt-2">
-                                        <a href="mailto:support@ilock.com" className="hover:underline">
-                                            support@ilock.com
+                                        <a href="mailto:support@capitalcustodia.com" className="hover:underline">
+                                            support@capitalcustodia.com
                                         </a>
                                     </p>
                                 </div>
@@ -398,7 +407,7 @@ export default function ContactUs() {
                         <div className="text-4xl mb-4">📧</div>
                         <h3 className="text-xl font-semibold mb-2">Email Support</h3>
                         <p className="text-sm sm:text-base">
-                            Get help via email within 24 hours
+                            We respond promptly, typically within one business day
                         </p>
                         <button className="mt-4 bg-white text-[#484C52] px-6 py-2 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
                             Email Us
@@ -588,7 +597,11 @@ export default function ContactUs() {
                                         </div>
                                         <div className={'contact-detail-box'}>
                                             <h4>Speak to a Specialist</h4>
-                                            <p>+971 4 123 4567</p>
+                                            <p>
+                                                <a href="tel:+971504790075" style={{ color: '#003D69' }} className="hover:underline">
+                                                    +971 50 479 0075
+                                                </a>
+                                            </p>
                                             <span>Monday - Friday, 9am - 6pm (GMT+4)</span>
                                         </div>
                                     </motion.div>
@@ -609,8 +622,8 @@ export default function ContactUs() {
                                         </div>
                                         <div className={'contact-detail-box'}>
                                             <h4>Email Support</h4>
-                                            <p>info@ilocksecure.com</p>
-                                            <span>We respond within 24 hours</span>
+                                            <p>info@capitalcustodia.com</p>
+                                            <span>We respond promptly, typically within one business day</span>
                                         </div>
                                     </motion.div>
 
@@ -629,8 +642,13 @@ export default function ContactUs() {
                                         </div>
                                         <div className={'contact-detail-box'}>
                                             <h4>Global Headquarters</h4>
-                                            <p>Dubai International Financial Centre</p>
-                                            <span>DIFC, Dubai, United Arab Emirates</span>
+                                            <p>Custodia Luxury Goods Trading FZCO</p>
+                                            <span>
+                                                DMCC Luxury Innovation Centre (DLIC)<br />
+                                                Level 48, Almas Tower<br />
+                                                Jumeirah Lake Towers<br />
+                                                Dubai, UAE
+                                            </span>
                                         </div>
                                     </motion.div>
 
@@ -650,7 +668,11 @@ export default function ContactUs() {
                                         </div>
                                         <div className={'contact-detail-box'}>
                                             <h4>WhatsApp Support</h4>
-                                            <p>+971 50 123 4567</p>
+                                            <p>
+                                                <a href="https://wa.me/971504790075" target="_blank" rel="noopener noreferrer" style={{ color: '#003D69' }} className="hover:underline">
+                                                    +971 50 479 0075
+                                                </a>
+                                            </p>
                                             <span>Instant messaging available</span>
                                         </div>
                                     </motion.div>
@@ -699,49 +721,6 @@ export default function ContactUs() {
 
             </div>
 
-            <motion.div 
-                className={'ready-section py-5 py-md-5 my-md-5 text-center'}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-100px" }}
-                variants={fadeInUp}
-            >
-                <div className={'container'}>
-                    <motion.div 
-                        className={'ready-content mb-5'}
-                        variants={staggerContainer}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                    >
-                        <motion.h1 
-                            className={'mb-3'}
-                            variants={fadeInUp}
-                        >
-                            Ready to get your cash offer?
-                        </motion.h1>
-                        <motion.p variants={fadeInUp}>
-                            Join thousands of satisfied sellers who got the best price for their luxury timepieces
-                        </motion.p>
-                    </motion.div>
-                    <motion.div 
-                        className={'ready-btn-div text-center'}
-                        variants={fadeInUp}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                    >
-                        <motion.button 
-                            className={'btn mb-3'}
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                        >
-                            Get your free valuation now
-                        </motion.button>
-                        <p>100% Secured & Confidential</p>
-                    </motion.div>
-                </div>
-            </motion.div>
 
             <Footer />
         </div>

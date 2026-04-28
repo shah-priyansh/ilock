@@ -15,7 +15,7 @@ const SEO = ({
   type = 'website',
   noindex = false
 }) => {
-  const siteUrl = 'https://ilocksecure.com';
+  const siteUrl = 'https://capitalcustodia.com';
   const fullOgUrl = ogUrl || `${siteUrl}${canonical || ''}`;
   const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
 
@@ -35,8 +35,8 @@ const SEO = ({
       <meta property="og:title" content={ogTitle || title} />
       <meta property="og:description" content={ogDescription || description} />
       <meta property="og:image" content={fullOgImage} />
-      <meta property="og:image:alt" content="iLockSecure - Sell luxury watches for immediate cash with highest market prices guaranteed" />
-      <meta property="og:site_name" content="iLockSecure" />
+      <meta property="og:image:alt" content="Capital Custodia - Sell luxury watches for immediate cash with highest market prices guaranteed" />
+      <meta property="og:site_name" content="Capital Custodia" />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -49,7 +49,7 @@ const SEO = ({
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
       <meta name="language" content="English" />
-      <meta name="author" content="iLockSecure" />
+      <meta name="author" content="Capital Custodia" />
     </Helmet>
   );
 };

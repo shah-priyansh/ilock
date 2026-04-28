@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useLayoutEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { LuxryFrame } from "../LuxryFrame/LuxryFrame";
 import Header from "../Header/Header";
@@ -7,12 +7,61 @@ import StructuredData from "../SEO/StructuredData";
 import "./NewHeroSection.css";
 import { useNavigate } from "react-router-dom";
 import { trackEvent } from "../../utils/analytics";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+// Hero animation variants
+// Container has no own animation; it exists solely to stagger children
+const heroContainerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const wordVariants = {
+  hidden: { opacity: 0, filter: "blur(10px)", y: 6 },
+  visible: {
+    opacity: 1,
+    filter: "blur(0px)",
+    y: 0,
+    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+  },
+};
+
+// Line 2 starts after line 1 finishes: 0.1 + (4 children × 0.12) = 0.58s
+// Line 1 children: 1 group ("A structured platform to") + 3 words ("sell","luxury","watches")
+const heroLine2ContainerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.58,
+    },
+  },
+};
+
+const taglineVariants = {
+  hidden: { y: "100%", opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    // intentional overlap: last word (index 10) finishes ~1.9s, tagline starts at 1.6s
+    // if word count changes, update this delay accordingly
+    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 1.6 },
+  },
+};
 
 /* Card order and copy per Figma: Get Highest Market Price, Get Immediate Cash, Buy your watch back, Bank-Vault Storage */
 const featureCards = [
   {
     image: "/images/wi1.png",
-    title: "Get Highest Market Price",
+    title: "Unlock liquidity safely",
     subtitle: "at the best price",
   },
   {
@@ -22,7 +71,7 @@ const featureCards = [
   },
   {
     image: "/images/wi3.png",
-    title: "Option to Repurchase ",
+    title: "Option to re-purchase ",
     subtitle: "Lock-in a future ‘Buy Back’ price",
   },
   {
@@ -31,6 +80,191 @@ const featureCards = [
     subtitle: "Secured, Insured & Tamper Proof",
   },
 ];
+
+const whyItems = [
+  {
+    title: <><span>A Platform</span>, not a dealer</>,
+    description: "We do not profit from buying low and selling high. Our interests are aligned with you to achieve the best price.",
+    icon: (
+      <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clipPath="url(#clip_why_0)">
+          <path fillRule="evenodd" clipRule="evenodd" d="M79.9339 6.86875C81.2036 6.86875 82.2356 7.90068 82.2356 9.17043C82.2356 10.4402 81.2036 11.4761 79.9339 11.4761C78.6641 11.4761 77.6282 10.4442 77.6282 9.17043C77.6282 7.89665 78.6601 6.86875 79.9339 6.86875ZM72.1098 6.86875C73.3836 6.86875 74.4155 7.90068 74.4155 9.17043C74.4155 10.4402 73.3836 11.4761 72.1098 11.4761C70.836 11.4761 69.8041 10.4442 69.8041 9.17043C69.8041 7.89665 70.84 6.86875 72.1098 6.86875ZM64.2897 6.86875C65.5595 6.86875 66.5914 7.90068 66.5914 9.17043C66.5914 10.4402 65.5595 11.4761 64.2897 11.4761C63.02 11.4761 61.984 10.4442 61.984 9.17043C61.984 7.89665 63.016 6.86875 64.2897 6.86875ZM67.2041 63.8665C66.7607 63.8665 66.3979 64.2293 66.3979 64.6767C66.3979 65.1242 66.7607 65.4869 67.2041 65.4869C67.6475 65.4869 68.0144 65.1242 68.0144 64.6767C68.0144 64.2293 67.6516 63.8665 67.2041 63.8665ZM65.7893 68.0345C64.4792 67.4782 63.5642 66.1843 63.5642 64.6767C63.5642 63.1691 64.4792 61.8712 65.7893 61.3189V60.6256C65.7893 59.8436 66.4221 59.2107 67.2041 59.2107C67.9861 59.2107 68.623 59.8436 68.623 60.6256V61.3189C69.9291 61.8712 70.8481 63.1691 70.8481 64.6767C70.8481 66.1843 69.9291 67.4782 68.623 68.0345V73.7867C68.623 74.5687 67.9861 75.2015 67.2041 75.2015C66.4221 75.2015 65.7893 74.5687 65.7893 73.7867V68.0345ZM75.3023 68.7238C74.8549 68.7238 74.4921 69.0866 74.4921 69.534C74.4921 69.9815 74.8549 70.3442 75.3023 70.3442C75.7498 70.3442 76.1125 69.9815 76.1125 69.534C76.1125 69.0866 75.7498 68.7238 75.3023 68.7238ZM73.8875 72.8918C72.5774 72.3396 71.6583 71.0456 71.6583 69.534C71.6583 68.0224 72.5774 66.7325 73.8875 66.1762V60.6256C73.8875 59.8436 74.5203 59.2107 75.3023 59.2107C76.0843 59.2107 76.7212 59.8436 76.7212 60.6256V66.1762C78.0273 66.7325 78.9463 68.0264 78.9463 69.534C78.9463 71.0416 78.0273 72.3396 76.7212 72.8918V73.7867C76.7212 74.5687 76.0843 75.2015 75.3023 75.2015C74.5203 75.2015 73.8875 74.5687 73.8875 73.7867V72.8918ZM59.11 68.7238C58.6625 68.7238 58.2997 69.0866 58.2997 69.534C58.2997 69.9815 58.6625 70.3442 59.11 70.3442C59.5574 70.3442 59.9202 69.9815 59.9202 69.534C59.9202 69.0866 59.5574 68.7238 59.11 68.7238ZM57.6911 72.8918C56.385 72.3396 55.466 71.0456 55.466 69.534C55.466 68.0224 56.385 66.7325 57.6911 66.1762V60.6256C57.6911 59.8436 58.328 59.2107 59.11 59.2107C59.892 59.2107 60.5248 59.8436 60.5248 60.6256V66.1762C61.8349 66.7325 62.7539 68.0264 62.7539 69.534C62.7539 71.0416 61.8349 72.3396 60.5248 72.8918V73.7867C60.5248 74.5687 59.892 75.2015 59.11 75.2015C58.328 75.2015 57.6911 74.5687 57.6911 73.7867V72.8918ZM67.2082 82.3887C75.5684 82.3887 82.3887 75.5684 82.3887 67.2082C82.3887 58.8479 75.5684 52.0276 67.2082 52.0276C58.8479 52.0276 52.0276 58.8439 52.0276 67.2082C52.0276 75.5724 58.8439 82.3887 67.2082 82.3887ZM67.2082 85.2225C57.2839 85.2225 49.1938 77.1283 49.1938 67.2082C49.1938 57.288 57.2839 49.1938 67.2082 49.1938C77.1324 49.1938 85.2225 57.2839 85.2225 67.2082C85.2225 77.1324 77.1283 85.2225 67.2082 85.2225ZM96.5213 70.9852C96.88 70.9852 97.1662 70.699 97.1662 70.3442V64.068C97.1662 63.7133 96.88 63.4271 96.5213 63.4271C89.0842 63.4271 85.3475 54.4139 90.6079 49.1495C90.8618 48.8995 90.8618 48.4924 90.6079 48.2425L86.1738 43.8044C85.9199 43.5505 85.5127 43.5505 85.2628 43.8044C79.9984 49.0648 70.9852 45.3321 70.9852 37.891C70.9852 37.5363 70.699 37.2461 70.3442 37.2461H64.068C63.7133 37.2461 63.4271 37.5363 63.4271 37.891C63.4271 45.3321 54.4139 49.0648 49.1495 43.8044C48.8995 43.5505 48.4924 43.5505 48.2425 43.8044L43.8044 48.2425C43.5505 48.4924 43.5505 48.8995 43.8044 49.1495C49.0648 54.4139 45.3321 63.4271 37.891 63.4271C37.5363 63.4271 37.2461 63.7133 37.2461 64.068V70.3442C37.2461 70.699 37.5363 70.9852 37.891 70.9852C45.3321 70.9852 49.0648 79.9984 43.8044 85.2628C43.5505 85.5127 43.5505 85.9239 43.8044 86.1738L48.2425 90.6119C48.4924 90.8618 48.8995 90.8618 49.1495 90.6119C54.4179 85.3475 63.4271 89.0761 63.4271 96.5253C63.4271 96.88 63.7133 97.1703 64.068 97.1703H70.3442C70.699 97.1703 70.9852 96.8841 70.9852 96.5253C70.9852 89.0882 79.9984 85.3515 85.2628 90.6119C85.5127 90.8618 85.9199 90.8618 86.1738 90.6119L90.6079 86.1738C90.8618 85.9239 90.8618 85.5127 90.6079 85.2628C85.3475 79.9984 89.0842 70.9852 96.5213 70.9852ZM2.83376 10.682V15.5071H86.4358V10.674C86.4358 8.60206 85.5732 6.61883 84.0414 5.15156C82.4936 3.66817 80.3894 2.83376 78.2006 2.83376H11.073C8.8802 2.83376 6.77604 3.66817 5.22815 5.15156C3.70042 6.61883 2.83376 8.60206 2.83376 10.674V10.682ZM2.83376 18.3409V67.4258C2.83376 69.4977 3.69639 71.485 5.22412 72.9482C6.77604 74.4357 8.8802 75.266 11.073 75.266H41.6317C40.6845 74.3833 39.4026 73.8189 37.891 73.8189C35.9682 73.8189 34.4123 72.263 34.4123 70.3442V64.068C34.4123 62.1493 35.9682 60.5934 37.891 60.5934C42.8088 60.5934 45.2757 54.6316 41.797 51.1569C40.4426 49.7985 40.4426 47.5975 41.797 46.2391L46.2391 41.797C47.5975 40.4426 49.7985 40.4426 51.1569 41.797C54.6316 45.2757 60.5934 42.8088 60.5934 37.891C60.5934 35.9723 62.1493 34.4123 64.068 34.4123H70.3442C72.263 34.4123 73.8189 35.9723 73.8189 37.891C73.8189 42.8088 79.7807 45.2757 83.2554 41.797C84.118 40.9384 85.3233 40.624 86.4358 40.8578V18.3409H2.83376ZM43.2723 78.0998H11.073C8.14253 78.0998 5.33699 76.9832 3.26508 74.996C1.17301 72.9886 0 70.2636 0 67.4258V10.674C0 4.79684 4.94195 0 11.073 0H78.2006C84.3276 0 89.2696 4.79684 89.2696 10.674V42.8934L92.6153 46.2391C93.9697 47.5975 93.9697 49.7985 92.6153 51.1569C89.1366 54.6316 91.6035 60.5934 96.5213 60.5934C98.4481 60.5934 100 62.1493 100 64.068V70.3442C100 72.263 98.4481 73.8189 96.5213 73.8189C91.6035 73.8189 89.1366 79.7807 92.6153 83.2554C93.9697 84.6138 93.9697 86.8188 92.6153 88.1772L88.1772 92.6153C86.8188 93.9737 84.6138 93.9737 83.2554 92.6153C79.7807 89.1366 73.8189 91.6076 73.8189 96.5253C73.8189 98.4521 72.263 100.004 70.3442 100.004H64.068C62.1493 100.004 60.5934 98.4521 60.5934 96.5253C60.5934 91.6035 54.6356 89.1366 51.1569 92.6153C49.7985 93.9737 47.5975 93.9737 46.2391 92.6153L41.797 88.1772C40.4426 86.8188 40.4426 84.6138 41.797 83.2554C43.2844 81.772 43.6835 79.8331 43.2723 78.0998Z" fill="white"/>
+        </g>
+        <defs><clipPath id="clip_why_0"><rect width="100" height="100" fill="white"/></clipPath></defs>
+      </svg>
+    ),
+  },
+  {
+    title: <><span>Complete Transparency,</span> no hidden fees or surprises</>,
+    description: "Competitive global dealer pricing. All terms disclosed in writing before you accept any offer.",
+    icon: (
+      <svg width="87" height="94" viewBox="0 0 87 94" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clipPath="url(#clip_why_1)">
+          <path fillRule="evenodd" clipRule="evenodd" d="M65.781 63.6035C64.7932 62.6199 63.1905 62.6199 62.2027 63.6035L56.4716 69.3098C55.4856 70.2934 55.4856 71.8892 56.4716 72.8727L73.9066 90.2324C74.8945 91.216 76.4971 91.216 77.4831 90.2324L83.2142 84.5261C84.202 83.5425 84.202 81.9468 83.2142 80.9651L65.7791 63.6054L65.781 63.6035ZM14.165 65.4058C13.5769 64.8088 13.5864 63.8461 14.1878 63.2624C14.7874 62.6768 15.7524 62.6881 16.3406 63.2851L18.4724 65.4532L23.4535 60.3874C24.0417 59.7904 25.0067 59.7791 25.6063 60.3647C26.2058 60.9503 26.2172 61.9111 25.6291 62.5081L19.5592 68.6806C19.2737 68.9725 18.8816 69.1355 18.4705 69.1355C18.0593 69.1355 17.6691 68.9706 17.3836 68.6806L14.1631 65.4058H14.165ZM51.0317 36.3814C50.8357 34.6417 50.4131 32.9701 49.7907 31.3971L37.1903 43.9412C38.2371 44.9817 39.3811 45.9254 40.6049 46.7612L51.0298 36.3814H51.0317ZM47.5009 50.0057C49.4271 47.3108 50.6891 44.1156 51.0488 40.6531L43.3097 48.3588C44.6401 49.0316 46.041 49.585 47.5009 50.0038V50.0057ZM48.3746 28.5222C47.6075 27.2448 46.7015 26.0604 45.6756 24.9896L32.744 37.8653C33.4349 39.2109 34.2495 40.4825 35.1727 41.667L48.3746 28.5222ZM43.4067 22.9599C42.2076 22.0407 40.8981 21.2561 39.5029 20.6288L30.2886 29.8033C30.4942 31.5525 30.8901 33.2468 31.4554 34.8615L43.4086 22.9599H43.4067ZM36.3166 19.5107C34.7863 19.1165 33.1836 18.9023 31.5334 18.8872C30.7644 21.0154 30.2905 23.284 30.1573 25.6415L36.3147 19.5107H36.3166ZM14.4334 48.8231C16.1464 48.2319 17.9832 47.9116 19.898 47.9116C26.7578 47.9116 32.6564 52.0392 35.2241 57.9351C39.147 57.16 42.6549 55.2288 45.3729 52.5149C43.4943 51.8706 41.7089 51.0272 40.0396 50.0095C40.0225 50 40.0054 49.9906 39.9883 49.9792C37.7289 48.5919 35.6885 46.8863 33.9317 44.9191C33.9317 44.9191 33.9317 44.9191 33.9298 44.9191C32.1482 42.9254 30.6598 40.6683 29.5291 38.214C29.5215 38.1951 29.512 38.178 29.5044 38.161C28.2615 35.4433 27.4564 32.485 27.1823 29.375C27.1137 28.5885 27.0776 27.7925 27.0776 26.9909C27.0776 24.2562 27.4868 21.6181 28.2482 19.1317C18.7978 20.6194 11.5631 28.7761 11.5631 38.6006C11.5631 42.3436 12.6137 45.844 14.4353 48.825L14.4334 48.8231ZM8.53098 57.0102C7.09012 59.165 6.24882 61.7519 6.24882 64.534C6.24882 72.0351 12.3644 78.1242 19.898 78.1242C27.4316 78.1242 33.5472 72.0351 33.5472 64.534C33.5472 57.033 27.4316 50.9438 19.898 50.9438C17.9623 50.9438 16.1198 51.3456 14.4505 52.0715C14.4467 52.0715 14.441 52.0752 14.4353 52.0771C12.0446 53.1195 10.0099 54.8232 8.56905 56.9572C8.55763 56.9742 8.54621 56.9932 8.53288 57.0102H8.53098ZM59.0602 62.4456L55.3238 58.7254C54.1818 60.0728 52.9256 61.3217 51.5723 62.4588L55.3086 66.179L59.0602 62.4437V62.4456ZM60.5144 50.1024C70.7241 47.3317 78.2387 38.0264 78.2387 26.9871C78.2387 13.7664 67.4579 3.03226 54.1799 3.03226C48.4697 3.03226 43.2202 5.01839 39.0918 8.33302C52.6629 11.7671 62.7147 24.0212 62.7147 38.5969C62.7147 42.6582 61.9343 46.5395 60.5144 50.1005V50.1024ZM35.62 10.7266C34.2305 10.5181 32.8068 10.4082 31.3583 10.4082C15.7315 10.4082 3.04542 23.0395 3.04542 38.5988C3.04542 44.0928 4.62713 49.223 7.3623 53.5592C8.58237 52.1795 10.027 51.0026 11.6411 50.0853C9.65398 46.7119 8.51385 42.7871 8.51385 38.5988C8.51385 26.3579 18.2459 16.3647 30.418 15.8739C30.418 15.8739 30.418 15.8739 30.4218 15.8739C30.7321 15.8625 31.0442 15.8549 31.3564 15.8549C34.2933 15.8549 37.1008 16.4083 39.6818 17.4146C39.6989 17.4203 39.7161 17.4279 39.7313 17.4336C42.3104 18.4475 44.6592 19.9125 46.6787 21.7356C48.6677 23.5284 50.3389 25.6662 51.5951 28.0522C51.6046 28.0711 51.6141 28.0882 51.6237 28.1071C53.0093 30.7547 53.8887 33.7054 54.1285 36.8344C54.1742 37.4162 54.197 38.0037 54.197 38.5988C54.197 43.909 52.3641 48.7985 49.2958 52.6703C49.2958 52.6703 49.2958 52.6703 49.2958 52.6722C46.062 56.7506 41.4558 59.7033 36.1739 60.8328C36.446 62.0229 36.5907 63.2605 36.5907 64.5321C36.5907 65.1367 36.5583 65.7356 36.4955 66.3231C40.8943 65.5176 44.939 63.7002 48.3746 61.1208C48.3746 61.1208 48.3746 61.1208 48.3765 61.1189C50.493 59.5289 52.3812 57.6508 53.9781 55.5434C53.9781 55.5434 53.9781 55.5434 53.9781 55.5415C54.9394 54.2736 55.794 52.9205 56.5306 51.4991C56.5306 51.4991 56.5306 51.4972 56.5306 51.4953C58.5349 47.6292 59.6655 43.2438 59.6655 38.5969C59.6655 24.4817 49.2254 12.7753 35.6181 10.7247H35.6143L35.62 10.7266ZM5.45701 56.1934C2.01378 51.1807 0 45.1219 0 38.5988C0 21.366 14.0508 7.37597 31.3583 7.37597C32.6964 7.37597 34.0154 7.45935 35.3116 7.62234C40.1919 2.90528 46.8481 0 54.1799 0C69.1405 0 81.2841 12.093 81.2841 26.9871C81.2841 40.2873 71.5997 51.3513 58.8756 53.5686C58.3597 54.5067 57.7963 55.4164 57.1892 56.292L61.388 60.4727C63.4932 59.3659 66.1636 59.6938 67.9338 61.4582L85.3688 78.8179C87.5444 80.984 87.5444 84.5014 85.3688 86.6676L79.6377 92.374C77.4621 94.5401 73.9294 94.5401 71.7539 92.374L54.3189 75.0143C52.5487 73.2518 52.2194 70.5929 53.3291 68.4968L49.1302 64.3161C45.2397 66.9864 40.7172 68.8057 35.8313 69.5031C33.7071 76.2518 27.3726 81.1546 19.8961 81.1546C10.6818 81.1546 3.2015 73.7066 3.2015 64.5321C3.2015 61.4942 4.02186 58.6439 5.45511 56.1915L5.45701 56.1934Z" fill="white"/>
+        </g>
+        <defs><clipPath id="clip_why_1"><rect width="87" height="94" fill="white"/></clipPath></defs>
+      </svg>
+    ),
+  },
+  {
+    title: <><span>Structured Sale,</span> not a loan</>,
+    description: "This is not financing. We facilitate a sale with an optional re-purchase at a pre-agreed price.",
+    icon: (
+      <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="40" cy="40" r="30" stroke="white" strokeWidth="2.5" fill="none"/>
+        <circle cx="40" cy="40" r="20" stroke="white" strokeWidth="2" fill="none"/>
+        <text x="40" y="46" textAnchor="middle" fill="white" fontSize="24" fontWeight="300">$</text>
+        <line x1="40" y1="5" x2="40" y2="12" stroke="white" strokeWidth="2.5"/>
+        <line x1="40" y1="68" x2="40" y2="75" stroke="white" strokeWidth="2.5"/>
+        <line x1="5" y1="40" x2="12" y2="40" stroke="white" strokeWidth="2.5"/>
+        <line x1="68" y1="40" x2="75" y2="40" stroke="white" strokeWidth="2.5"/>
+      </svg>
+    ),
+  },
+  {
+    title: <><span>Built ground-up for Security,</span> nothing left to luck</>,
+    description: "All watches are authenticated, insured, and stored with Transguard under 24/7 protection.",
+    icon: (
+      <svg width="80" height="90" viewBox="0 0 80 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="30" width="60" height="50" rx="5" stroke="white" strokeWidth="2.5" fill="none"/>
+        <path d="M25 30V20C25 11.716 31.716 5 40 5C48.284 5 55 11.716 55 20V30" stroke="white" strokeWidth="2.5" fill="none"/>
+        <circle cx="40" cy="55" r="6" stroke="white" strokeWidth="2.5" fill="none"/>
+        <line x1="40" y1="61" x2="40" y2="70" stroke="white" strokeWidth="2.5"/>
+        <circle cx="15" cy="10" r="3" stroke="white" strokeWidth="1.5" fill="none"/>
+        <path d="M12 10L8 14" stroke="white" strokeWidth="1.5"/>
+        <path d="M18 10L22 14" stroke="white" strokeWidth="1.5"/>
+      </svg>
+    ),
+  },
+  {
+    title: <><span>We take your privacy very seriously,</span> not just in words</>,
+    description: "Private consultations. No public exposure. Fully encrypted communication.",
+    icon: (
+      <svg width="80" height="90" viewBox="0 0 80 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M40 5L10 20V42C10 62 22 80 40 87C58 80 70 62 70 42V20L40 5Z" stroke="white" strokeWidth="2.5" fill="none"/>
+        <path d="M28 45L36 53L52 37" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+      </svg>
+    ),
+  },
+];
+
+const WhyCarousel = () => {
+  const sectionRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const totalItems = whyItems.length;
+
+  useLayoutEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    // useLayoutEffect cleanup runs BEFORE React's DOM commit (removeChild),
+    // giving gsap.context().revert() time to restore pinned nodes first.
+    const ctx = gsap.context(() => {
+      const items = section.querySelectorAll('.why-carousel-item');
+      const viewport = section.querySelector('.why-carousel-viewport');
+      const viewportH = viewport.offsetHeight;
+      const activeY = viewportH * 0.15;
+      const previewY = viewportH * 0.6;
+      const exitY = -viewportH * 0.4;
+      const enterY = viewportH * 1.1;
+
+      // Initial state — matches onUpdate at progress=0
+      items.forEach((item, i) => {
+        if (i === 0) {
+          gsap.set(item, { y: activeY, opacity: 1, scale: 1, filter: "blur(0px)" });
+        } else if (i === 1) {
+          gsap.set(item, { y: previewY, opacity: 0.3, scale: 0.9, filter: "blur(1px)" });
+        } else {
+          gsap.set(item, { y: enterY, opacity: 0, scale: 0.9, filter: "blur(1px)" });
+        }
+      });
+
+      let isFirstUpdate = true;
+      const transitions = totalItems - 1;
+
+      ScrollTrigger.create({
+        trigger: section,
+        start: "center center",
+        end: `+=${(transitions + 1) * 50}%`,
+        pin: true,
+        scrub: 2.5,
+        onUpdate: (self) => {
+          const progress = self.progress;
+          const segmentSize = 1 / totalItems;
+
+          items.forEach((item, i) => {
+            const itemStart = (i - 0.6) * segmentSize;
+            const diff = (progress - itemStart) / segmentSize;
+
+            const animate = isFirstUpdate ? gsap.set : gsap.to;
+            const tweenOpts = isFirstUpdate ? {} : { duration: 0.8, ease: "power3.out", overwrite: true };
+
+            // Smooth easing helper to eliminate sharp threshold jumps
+            const smoothstep = (t) => t * t * (3 - 2 * t);
+
+            if (diff < -1.0) {
+              animate(item, { y: enterY, opacity: 0, scale: 0.9, filter: "blur(2px)", ...tweenOpts });
+            } else if (diff < -0.3) {
+              const t = smoothstep((diff + 1.0) / 0.7);
+              animate(item, { y: enterY + (previewY - enterY) * t, opacity: 0.3 * t, scale: 0.9, filter: `blur(${2 - t}px)`, ...tweenOpts });
+            } else if (diff < 0) {
+              const t = smoothstep((diff + 0.3) / 0.3);
+              animate(item, { y: previewY + (activeY - previewY) * t * 0.15, opacity: 0.3 + 0.1 * t, scale: 0.9 + 0.02 * t, filter: `blur(${1 - 0.2 * t}px)`, ...tweenOpts });
+            } else if (diff < 0.35) {
+              const t = smoothstep(diff / 0.35);
+              animate(item, { y: previewY + (activeY - previewY) * (0.15 + 0.85 * t), opacity: 0.4 + 0.6 * t, scale: 0.92 + 0.08 * t, filter: `blur(${0.8 * (1 - t)}px)`, ...tweenOpts });
+            } else if (diff < 0.65 || i === totalItems - 1) {
+              animate(item, { y: activeY, opacity: 1, scale: 1, filter: "blur(0px)", ...tweenOpts });
+            } else if (diff < 1.5) {
+              const t = smoothstep((diff - 0.65) / 0.85);
+              animate(item, { y: activeY + (exitY - activeY) * t, opacity: Math.max(0, 1 - t), scale: 1 - 0.1 * t, filter: `blur(${t}px)`, ...tweenOpts });
+            } else {
+              animate(item, { y: exitY, opacity: 0, scale: 0.9, filter: "blur(1px)", ...tweenOpts });
+            }
+          });
+
+          isFirstUpdate = false;
+          const currentIndex = Math.min(Math.floor(progress / segmentSize + 0.3), totalItems - 1);
+          setActiveIndex(currentIndex);
+        },
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <div className="why-section" ref={sectionRef}>
+      <div className="why-carousel-wrapper">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12">
+              <div className="ps-title text-center why-carousel-title">
+                <h3 className="mb-2"><span>Why</span> Capital Custodia<span>?</span></h3>
+              </div>
+              <div className="why-carousel-viewport">
+                {whyItems.map((item, index) => (
+                  <div
+                    key={index}
+                    className="why-carousel-item text-center"
+                  >
+                    <div className="wb-icon mb-4">
+                      {item.icon}
+                    </div>
+                    <div className="wb-text">
+                      <h5 className="mb-3">{item.title}</h5>
+                      <p className="text-white">{item.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const NewHeroSection = () => {
   const navigate = useNavigate();
@@ -63,13 +297,13 @@ const NewHeroSection = () => {
   return (
     <>
       <SEO
-        title="Sell Luxury Watches for Highest Cash Prices | iLockSecure"
-        description="Get instant cash for your luxury watches with iLockSecure's global dealer auction. Guaranteed highest prices, authentication, and buyback options. Rolex, Patek Philippe, AP & more."
-        keywords="sell luxury watches, luxury watch trading, sell Rolex, Patek Philippe buyers, authenticated watch dealers, watch buyback program, instant cash for watches"
+        title="Sell Luxury Watches for Highest Cash Prices | Capital Custodia"
+        description="Get instant cash for your luxury watches with Capital Custodia's global dealer auction. Guaranteed highest prices, professional authentication, buyback options, and bank-vault storage. Rolex, Patek Philippe, Audemars Piguet & more."
+        keywords="sell luxury watches, Capital Custodia, luxury watch trading, sell Rolex Dubai, Patek Philippe buyers, authenticated watch dealers, watch buyback program, instant cash for watches, luxury watch auction, watch valuation Dubai, sell watches online, re-purchase agreement watches"
         canonical="/"
-        ogTitle="Sell or Buyback Your Luxury Watches Securely for Top Value | iLockSecure"
-        ogDescription="Join thousands of watch owners who chose iLockSecure for instant cash. Global auction platform with authentication, bank-vault storage, and immediate payment. Get your valuation today."
-        ogUrl="https://ilocksecure.com/"
+        ogTitle="Sell or Buyback Your Luxury Watches Securely | Capital Custodia"
+        ogDescription="Capital Custodia — the trusted global dealer auction platform for luxury watches. Get highest market prices, professional authentication, bank-vault storage, and immediate payment. Free valuation today."
+        ogUrl="https://capitalcustodia.com/"
       />
       <StructuredData type="all" />
 
@@ -79,15 +313,15 @@ const NewHeroSection = () => {
         <div className="hero-video-bg">
           {/*<iframe
               src="https://www.youtube.com/embed/0M8OMMbyBD0?autoplay=1&mute=1&loop=1&playlist=0M8OMMbyBD0&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
-              title="iLock Secure"
+              title="Capital Custodia"
               frameBorder="0"
               allow="autoplay; encrypted-media"
               allowFullScreen
           ></iframe>*/}
-          <img src={'/images/hm-b.png'} alt={'img'} className={'img-fluid'}/>
+          <img src={'/images/home-bg.jpg'} alt={'img'} className={'img-fluid'}/>
           {/*<iframe
                 src="https://www.youtube.com/embed/0M8OMMbyBD0?autoplay=1&mute=1&loop=1&playlist=0M8OMMbyBD0&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
-                title="iLock Secure"
+                title="Capital Custodia"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
@@ -96,25 +330,65 @@ const NewHeroSection = () => {
         </div>
 
         <div className="hero-text-overlay">
-          <motion.div
-              className="hero-text-content"
-              initial={{opacity: 0, y: 40}}
-              animate={{opacity: 1, y: 0}}
-              transition={{duration: 0.8}}
-          >
+          <div className="hero-text-content">
             <div className={'text-end security-logo'}>
               <img src={'/images/secured-logo.png'} alt={'img'} className={'img-fluid'}/>
             </div>
             <h1 className="hero-main-text">
-              A structured platform to <b>sell luxury watches</b><br/>
-              with an <b>optional repurchase</b><br/>
-              <span className="hero-text-md">Transparent. Secure. Confidential.</span>
+              {/* Line 1: "A structured platform to" fades in together, then "sell luxury watches" word by word */}
+              <motion.span
+                style={{ display: "block" }}
+                variants={heroContainerVariants}
+                initial="hidden"
+                animate="visible"
+              >
+                <motion.span variants={wordVariants} style={{ display: "inline-block", marginRight: "0.25em" }}>
+                  A structured platform to
+                </motion.span>
+                <span style={{ display: "inline-block", whiteSpace: "nowrap" }}>
+                  {["sell", "luxury", "watches"].map((word, i) => (
+                    <motion.span key={i} variants={wordVariants} style={{ display: "inline-block", marginRight: "0.25em" }}>
+                      <b>{word}</b>
+                    </motion.span>
+                  ))}
+                </span>
+              </motion.span>
+              {/* Line 2: "with an" fades in together, "optional re-purchase" fades in together */}
+              <motion.span
+                style={{ display: "block" }}
+                variants={heroLine2ContainerVariants}
+                initial="hidden"
+                animate="visible"
+              >
+                <motion.span variants={wordVariants} style={{ display: "inline-block", marginRight: "0.25em" }}>
+                  with an
+                </motion.span>
+                <motion.span variants={wordVariants} style={{ display: "inline-block" }}>
+                  <b>optional re-purchase</b>
+                </motion.span>
+              </motion.span>
+              {/* Tagline: each phrase slides up one by one */}
+              <span style={{ display: "block", marginTop: "0.2em" }}>
+                {["Transparent.", "Secure.", "Confidential."].map((phrase, i) => (
+                  <span key={phrase} style={{ overflow: "hidden", display: "inline-block", marginRight: "0.35em" }}>
+                    <motion.span
+                      className="hero-text-md"
+                      style={{ display: "inline-block" }}
+                      initial={{ y: "100%", opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: 1.0 + i * 0.18 }}
+                    >
+                      {phrase}
+                    </motion.span>
+                  </span>
+                ))}
+              </span>
             </h1>
             <motion.button
               className="cta-button"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 2.1 }}
               onClick={() => {
                 trackEvent("click", "get_an_offer", "hero_section");
                 navigate("/contact");
@@ -122,8 +396,18 @@ const NewHeroSection = () => {
             >
               Request Private Consultation
             </motion.button>
-          </motion.div>
+          </div>
         </div>
+        <motion.div
+          className={'banner-bottom-text'}
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 2.4 }}
+        >
+          <p className="features-subtitle">
+            Designed for collectors, investors and professionals seeking discreet liquidity
+          </p>
+        </motion.div>
       </div>
 
       {/* Feature Cards Section */}
@@ -147,36 +431,47 @@ const NewHeroSection = () => {
 
           <div className="features-cards">
             {featureCards.map((card, index) => (
-              <motion.div
-                className="feature-card"
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{
-                  duration: 0.5,
-                  delay: isMobile ? 0 : index * 0.1,
-                }}
-              >
+              <div className="feature-card" key={index}>
                 <div className="feature-card-image">
-                  <img src={card.image} alt={card.title} />
+                  <motion.img
+                    src={card.image}
+                    alt={card.title}
+                    initial={{ opacity: 0, scale: 1.15 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true, margin: "-40px" }}
+                    transition={{
+                      duration: 0.9,
+                      ease: [0.16, 1, 0.3, 1],
+                      delay: isMobile ? 0 : index * 0.15,
+                    }}
+                  />
                 </div>
-                <div className="feature-card-info">
+                <motion.div
+                  className="feature-card-info"
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{
+                    duration: 0.6,
+                    ease: "easeOut",
+                    delay: isMobile ? 0.1 : index * 0.15 + 0.3,
+                  }}
+                >
                   <h3 className="feature-card-title">{card.title}</h3>
                   <p className="feature-card-subtitle">{card.subtitle}</p>
-                </div>
-              </motion.div>
+                </motion.div>
+              </div>
             ))}
           </div>
         </div>
       </div>
 
-      <div className={'process-section py-5 my-5'}>
+      <div className={'process-section py-5 my-md-5'}>
         <div className={'container'}>
           <div className={'row'}>
             <div className={'col-md-12'}>
               <div className={'ps-title text-center mb-5'}>
-                <h3 className={'mb-2'}><span>Learn more about</span> our<br/> process</h3>
+                <h3 className={'mb-2'}><span>Learn more about</span> our process</h3>
                 <p>
                   Get paid in 4 simple steps
                 </p>
@@ -194,7 +489,7 @@ const NewHeroSection = () => {
                       Send details privately
                     </p>
                   </div>
-                  <div className={'pb-icon'}>
+                  <motion.div className={'pb-icon'} initial={{ opacity: 0, scale: 0.5 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, margin: "-40px" }} transition={{ type: "spring", stiffness: 280, damping: 12 }}>
                     <svg width="91" height="72" viewBox="0 0 91 72" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <g clip-path="url(#clip0_40000895_686)">
                         <path
@@ -213,11 +508,11 @@ const NewHeroSection = () => {
                         </clipPath>
                       </defs>
                     </svg>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className={'process-box process-box-right ps-md-5 mb-5'}>
 
-                  <div className={'pb-icon'}>
+                  <motion.div className={'pb-icon'} initial={{ opacity: 0, scale: 0.5 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, margin: "-40px" }} transition={{ type: "spring", stiffness: 280, damping: 12 }}>
                     <svg width="107" height="72" viewBox="0 0 107 72" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <g clip-path="url(#clip0_40000901_711)">
                         <path
@@ -248,12 +543,12 @@ const NewHeroSection = () => {
                       </defs>
                     </svg>
 
-                  </div>
+                  </motion.div>
                   <div className={'px-text'}>
                     <h1 className={'mb-2'}>2</h1>
                     <h4 className={'mb-2'}>Get the best price</h4>
                     <p>
-                      Global dealerscompeteto<br/>
+                      Global Dealers compete to<br/>
                       offer the highest price
                     </p>
                   </div>
@@ -264,11 +559,11 @@ const NewHeroSection = () => {
                     <h4 className={'mb-2'}>Secure Custody</h4>
                     <p>
                       We buy and store with<br/>
-                      TransGuard, UAE's most trusted<br/>
+                      Transguard, UAE's most trusted<br/>
                       custodian
                     </p>
                   </div>
-                  <div className={'pb-icon'}>
+                  <motion.div className={'pb-icon'} initial={{ opacity: 0, scale: 0.5 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, margin: "-40px" }} transition={{ type: "spring", stiffness: 280, damping: 12 }}>
                     <svg width="85" height="87" viewBox="0 0 85 87" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <g clip-path="url(#clip0_40000910_771)">
                         <path
@@ -291,11 +586,11 @@ const NewHeroSection = () => {
                       </defs>
                     </svg>
 
-                  </div>
+                  </motion.div>
                 </div>
                 <div className={'process-box process-box-right ps-md-5 mb-5 pb-5'}>
 
-                  <div className={'pb-icon'}>
+                  <motion.div className={'pb-icon'} initial={{ opacity: 0, scale: 0.5 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, margin: "-40px" }} transition={{ type: "spring", stiffness: 280, damping: 12 }}>
                     <svg width="110" height="98" viewBox="0 0 110 98" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <g clip-path="url(#clip0_40000903_739)">
                         <path
@@ -337,12 +632,12 @@ const NewHeroSection = () => {
                     </svg>
 
 
-                  </div>
+                  </motion.div>
                   <div className={'px-text'}>
                     <h1 className={'mb-2'}>4</h1>
                     <h4 className={'mb-2'}>Choose your Option</h4>
                     <p>
-                      Repurchase . Extend . Exit
+                      Re-purchase . Extend . Exit
                     </p>
                   </div>
                 </div>
@@ -350,7 +645,7 @@ const NewHeroSection = () => {
               <div className={'ps-title text-center mb-5'}>
                 <h3 className={'mb-2'}>This is {" "}<span>not a loan</span></h3>
                 <p>
-                  This is a structured sale with optional repurchase
+                  This is a structured sale with optional re-purchase
                 </p>
               </div>
             </div>
@@ -358,107 +653,7 @@ const NewHeroSection = () => {
         </div>
       </div>
 
-      <div className={'why-section py-5'}>
-        <div className={'container py-3'}>
-          <div className={'row'}>
-            <div className={'col-md-12'}>
-              <motion.div
-                className={'ps-title text-center mb-5'}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.7, ease: "easeOut" }}
-              >
-                <h3 className={'mb-2'}><span>Why</span> Capital Custodia<span>?</span></h3>
-              </motion.div>
-
-              <motion.div
-                className={'why-box mb-5 text-center'}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-              >
-                <motion.div
-                  className={'wb-icon mb-4'}
-                  initial={{ opacity: 0, scale: 0.7 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
-                >
-                  <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g clip-path="url(#clip0_40000923_748)">
-                      <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M79.9339 6.86875C81.2036 6.86875 82.2356 7.90068 82.2356 9.17043C82.2356 10.4402 81.2036 11.4761 79.9339 11.4761C78.6641 11.4761 77.6282 10.4442 77.6282 9.17043C77.6282 7.89665 78.6601 6.86875 79.9339 6.86875ZM72.1098 6.86875C73.3836 6.86875 74.4155 7.90068 74.4155 9.17043C74.4155 10.4402 73.3836 11.4761 72.1098 11.4761C70.836 11.4761 69.8041 10.4442 69.8041 9.17043C69.8041 7.89665 70.84 6.86875 72.1098 6.86875ZM64.2897 6.86875C65.5595 6.86875 66.5914 7.90068 66.5914 9.17043C66.5914 10.4402 65.5595 11.4761 64.2897 11.4761C63.02 11.4761 61.984 10.4442 61.984 9.17043C61.984 7.89665 63.016 6.86875 64.2897 6.86875ZM67.2041 63.8665C66.7607 63.8665 66.3979 64.2293 66.3979 64.6767C66.3979 65.1242 66.7607 65.4869 67.2041 65.4869C67.6475 65.4869 68.0144 65.1242 68.0144 64.6767C68.0144 64.2293 67.6516 63.8665 67.2041 63.8665ZM65.7893 68.0345C64.4792 67.4782 63.5642 66.1843 63.5642 64.6767C63.5642 63.1691 64.4792 61.8712 65.7893 61.3189V60.6256C65.7893 59.8436 66.4221 59.2107 67.2041 59.2107C67.9861 59.2107 68.623 59.8436 68.623 60.6256V61.3189C69.9291 61.8712 70.8481 63.1691 70.8481 64.6767C70.8481 66.1843 69.9291 67.4782 68.623 68.0345V73.7867C68.623 74.5687 67.9861 75.2015 67.2041 75.2015C66.4221 75.2015 65.7893 74.5687 65.7893 73.7867V68.0345ZM75.3023 68.7238C74.8549 68.7238 74.4921 69.0866 74.4921 69.534C74.4921 69.9815 74.8549 70.3442 75.3023 70.3442C75.7498 70.3442 76.1125 69.9815 76.1125 69.534C76.1125 69.0866 75.7498 68.7238 75.3023 68.7238ZM73.8875 72.8918C72.5774 72.3396 71.6583 71.0456 71.6583 69.534C71.6583 68.0224 72.5774 66.7325 73.8875 66.1762V60.6256C73.8875 59.8436 74.5203 59.2107 75.3023 59.2107C76.0843 59.2107 76.7212 59.8436 76.7212 60.6256V66.1762C78.0273 66.7325 78.9463 68.0264 78.9463 69.534C78.9463 71.0416 78.0273 72.3396 76.7212 72.8918V73.7867C76.7212 74.5687 76.0843 75.2015 75.3023 75.2015C74.5203 75.2015 73.8875 74.5687 73.8875 73.7867V72.8918ZM59.11 68.7238C58.6625 68.7238 58.2997 69.0866 58.2997 69.534C58.2997 69.9815 58.6625 70.3442 59.11 70.3442C59.5574 70.3442 59.9202 69.9815 59.9202 69.534C59.9202 69.0866 59.5574 68.7238 59.11 68.7238ZM57.6911 72.8918C56.385 72.3396 55.466 71.0456 55.466 69.534C55.466 68.0224 56.385 66.7325 57.6911 66.1762V60.6256C57.6911 59.8436 58.328 59.2107 59.11 59.2107C59.892 59.2107 60.5248 59.8436 60.5248 60.6256V66.1762C61.8349 66.7325 62.7539 68.0264 62.7539 69.534C62.7539 71.0416 61.8349 72.3396 60.5248 72.8918V73.7867C60.5248 74.5687 59.892 75.2015 59.11 75.2015C58.328 75.2015 57.6911 74.5687 57.6911 73.7867V72.8918ZM67.2082 82.3887C75.5684 82.3887 82.3887 75.5684 82.3887 67.2082C82.3887 58.8479 75.5684 52.0276 67.2082 52.0276C58.8479 52.0276 52.0276 58.8439 52.0276 67.2082C52.0276 75.5724 58.8439 82.3887 67.2082 82.3887ZM67.2082 85.2225C57.2839 85.2225 49.1938 77.1283 49.1938 67.2082C49.1938 57.288 57.2839 49.1938 67.2082 49.1938C77.1324 49.1938 85.2225 57.2839 85.2225 67.2082C85.2225 77.1324 77.1283 85.2225 67.2082 85.2225ZM96.5213 70.9852C96.88 70.9852 97.1662 70.699 97.1662 70.3442V64.068C97.1662 63.7133 96.88 63.4271 96.5213 63.4271C89.0842 63.4271 85.3475 54.4139 90.6079 49.1495C90.8618 48.8995 90.8618 48.4924 90.6079 48.2425L86.1738 43.8044C85.9199 43.5505 85.5127 43.5505 85.2628 43.8044C79.9984 49.0648 70.9852 45.3321 70.9852 37.891C70.9852 37.5363 70.699 37.2461 70.3442 37.2461H64.068C63.7133 37.2461 63.4271 37.5363 63.4271 37.891C63.4271 45.3321 54.4139 49.0648 49.1495 43.8044C48.8995 43.5505 48.4924 43.5505 48.2425 43.8044L43.8044 48.2425C43.5505 48.4924 43.5505 48.8995 43.8044 49.1495C49.0648 54.4139 45.3321 63.4271 37.891 63.4271C37.5363 63.4271 37.2461 63.7133 37.2461 64.068V70.3442C37.2461 70.699 37.5363 70.9852 37.891 70.9852C45.3321 70.9852 49.0648 79.9984 43.8044 85.2628C43.5505 85.5127 43.5505 85.9239 43.8044 86.1738L48.2425 90.6119C48.4924 90.8618 48.8995 90.8618 49.1495 90.6119C54.4179 85.3475 63.4271 89.0761 63.4271 96.5253C63.4271 96.88 63.7133 97.1703 64.068 97.1703H70.3442C70.699 97.1703 70.9852 96.8841 70.9852 96.5253C70.9852 89.0882 79.9984 85.3515 85.2628 90.6119C85.5127 90.8618 85.9199 90.8618 86.1738 90.6119L90.6079 86.1738C90.8618 85.9239 90.8618 85.5127 90.6079 85.2628C85.3475 79.9984 89.0842 70.9852 96.5213 70.9852ZM2.83376 10.682V15.5071H86.4358V10.674C86.4358 8.60206 85.5732 6.61883 84.0414 5.15156C82.4936 3.66817 80.3894 2.83376 78.2006 2.83376H11.073C8.8802 2.83376 6.77604 3.66817 5.22815 5.15156C3.70042 6.61883 2.83376 8.60206 2.83376 10.674V10.682ZM2.83376 18.3409V67.4258C2.83376 69.4977 3.69639 71.485 5.22412 72.9482C6.77604 74.4357 8.8802 75.266 11.073 75.266H41.6317C40.6845 74.3833 39.4026 73.8189 37.891 73.8189C35.9682 73.8189 34.4123 72.263 34.4123 70.3442V64.068C34.4123 62.1493 35.9682 60.5934 37.891 60.5934C42.8088 60.5934 45.2757 54.6316 41.797 51.1569C40.4426 49.7985 40.4426 47.5975 41.797 46.2391L46.2391 41.797C47.5975 40.4426 49.7985 40.4426 51.1569 41.797C54.6316 45.2757 60.5934 42.8088 60.5934 37.891C60.5934 35.9723 62.1493 34.4123 64.068 34.4123H70.3442C72.263 34.4123 73.8189 35.9723 73.8189 37.891C73.8189 42.8088 79.7807 45.2757 83.2554 41.797C84.118 40.9384 85.3233 40.624 86.4358 40.8578V18.3409H2.83376ZM43.2723 78.0998H11.073C8.14253 78.0998 5.33699 76.9832 3.26508 74.996C1.17301 72.9886 0 70.2636 0 67.4258V10.674C0 4.79684 4.94195 0 11.073 0H78.2006C84.3276 0 89.2696 4.79684 89.2696 10.674V42.8934L92.6153 46.2391C93.9697 47.5975 93.9697 49.7985 92.6153 51.1569C89.1366 54.6316 91.6035 60.5934 96.5213 60.5934C98.4481 60.5934 100 62.1493 100 64.068V70.3442C100 72.263 98.4481 73.8189 96.5213 73.8189C91.6035 73.8189 89.1366 79.7807 92.6153 83.2554C93.9697 84.6138 93.9697 86.8188 92.6153 88.1772L88.1772 92.6153C86.8188 93.9737 84.6138 93.9737 83.2554 92.6153C79.7807 89.1366 73.8189 91.6076 73.8189 96.5253C73.8189 98.4521 72.263 100.004 70.3442 100.004H64.068C62.1493 100.004 60.5934 98.4521 60.5934 96.5253C60.5934 91.6035 54.6356 89.1366 51.1569 92.6153C49.7985 93.9737 47.5975 93.9737 46.2391 92.6153L41.797 88.1772C40.4426 86.8188 40.4426 84.6138 41.797 83.2554C43.2844 81.772 43.6835 79.8331 43.2723 78.0998Z"
-                            fill="white"/>
-                    </g>
-                    <defs>
-                      <clipPath id="clip0_40000923_748">
-                        <rect width="100" height="100" fill="white"/>
-                      </clipPath>
-                    </defs>
-                  </svg>
-
-                </motion.div>
-                <motion.div
-                  className={'wb-text'}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
-                >
-                  <h5 className={'mb-3'}><span>A Platform</span>, not a dealer </h5>
-                  <p className={'text-white'}>
-                    We buy and store with TransGuard, UAE's most trusted custodian
-                  </p>
-                </motion.div>
-              </motion.div>
-              <motion.div
-                className={'why-box text-center'}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-              >
-                <motion.div
-                  className={'wb-icon mb-4'}
-                  initial={{ opacity: 0, scale: 0.7 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
-                >
-                  <svg width="87" height="94" viewBox="0 0 87 94" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g opacity="0.5" clip-path="url(#clip0_40000923_758)">
-                      <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M65.781 63.6035C64.7932 62.6199 63.1905 62.6199 62.2027 63.6035L56.4716 69.3098C55.4856 70.2934 55.4856 71.8892 56.4716 72.8727L73.9066 90.2324C74.8945 91.216 76.4971 91.216 77.4831 90.2324L83.2142 84.5261C84.202 83.5425 84.202 81.9468 83.2142 80.9651L65.7791 63.6054L65.781 63.6035ZM14.165 65.4058C13.5769 64.8088 13.5864 63.8461 14.1878 63.2624C14.7874 62.6768 15.7524 62.6881 16.3406 63.2851L18.4724 65.4532L23.4535 60.3874C24.0417 59.7904 25.0067 59.7791 25.6063 60.3647C26.2058 60.9503 26.2172 61.9111 25.6291 62.5081L19.5592 68.6806C19.2737 68.9725 18.8816 69.1355 18.4705 69.1355C18.0593 69.1355 17.6691 68.9706 17.3836 68.6806L14.1631 65.4058H14.165ZM51.0317 36.3814C50.8357 34.6417 50.4131 32.9701 49.7907 31.3971L37.1903 43.9412C38.2371 44.9817 39.3811 45.9254 40.6049 46.7612L51.0298 36.3814H51.0317ZM47.5009 50.0057C49.4271 47.3108 50.6891 44.1156 51.0488 40.6531L43.3097 48.3588C44.6401 49.0316 46.041 49.585 47.5009 50.0038V50.0057ZM48.3746 28.5222C47.6075 27.2448 46.7015 26.0604 45.6756 24.9896L32.744 37.8653C33.4349 39.2109 34.2495 40.4825 35.1727 41.667L48.3746 28.5222ZM43.4067 22.9599C42.2076 22.0407 40.8981 21.2561 39.5029 20.6288L30.2886 29.8033C30.4942 31.5525 30.8901 33.2468 31.4554 34.8615L43.4086 22.9599H43.4067ZM36.3166 19.5107C34.7863 19.1165 33.1836 18.9023 31.5334 18.8872C30.7644 21.0154 30.2905 23.284 30.1573 25.6415L36.3147 19.5107H36.3166ZM14.4334 48.8231C16.1464 48.2319 17.9832 47.9116 19.898 47.9116C26.7578 47.9116 32.6564 52.0392 35.2241 57.9351C39.147 57.16 42.6549 55.2288 45.3729 52.5149C43.4943 51.8706 41.7089 51.0272 40.0396 50.0095C40.0225 50 40.0054 49.9906 39.9883 49.9792C37.7289 48.5919 35.6885 46.8863 33.9317 44.9191C33.9317 44.9191 33.9317 44.9191 33.9298 44.9191C32.1482 42.9254 30.6598 40.6683 29.5291 38.214C29.5215 38.1951 29.512 38.178 29.5044 38.161C28.2615 35.4433 27.4564 32.485 27.1823 29.375C27.1137 28.5885 27.0776 27.7925 27.0776 26.9909C27.0776 24.2562 27.4868 21.6181 28.2482 19.1317C18.7978 20.6194 11.5631 28.7761 11.5631 38.6006C11.5631 42.3436 12.6137 45.844 14.4353 48.825L14.4334 48.8231ZM8.53098 57.0102C7.09012 59.165 6.24882 61.7519 6.24882 64.534C6.24882 72.0351 12.3644 78.1242 19.898 78.1242C27.4316 78.1242 33.5472 72.0351 33.5472 64.534C33.5472 57.033 27.4316 50.9438 19.898 50.9438C17.9623 50.9438 16.1198 51.3456 14.4505 52.0715C14.4467 52.0715 14.441 52.0752 14.4353 52.0771C12.0446 53.1195 10.0099 54.8232 8.56905 56.9572C8.55763 56.9742 8.54621 56.9932 8.53288 57.0102H8.53098ZM59.0602 62.4456L55.3238 58.7254C54.1818 60.0728 52.9256 61.3217 51.5723 62.4588L55.3086 66.179L59.0602 62.4437V62.4456ZM60.5144 50.1024C70.7241 47.3317 78.2387 38.0264 78.2387 26.9871C78.2387 13.7664 67.4579 3.03226 54.1799 3.03226C48.4697 3.03226 43.2202 5.01839 39.0918 8.33302C52.6629 11.7671 62.7147 24.0212 62.7147 38.5969C62.7147 42.6582 61.9343 46.5395 60.5144 50.1005V50.1024ZM35.62 10.7266C34.2305 10.5181 32.8068 10.4082 31.3583 10.4082C15.7315 10.4082 3.04542 23.0395 3.04542 38.5988C3.04542 44.0928 4.62713 49.223 7.3623 53.5592C8.58237 52.1795 10.027 51.0026 11.6411 50.0853C9.65398 46.7119 8.51385 42.7871 8.51385 38.5988C8.51385 26.3579 18.2459 16.3647 30.418 15.8739C30.418 15.8739 30.418 15.8739 30.4218 15.8739C30.7321 15.8625 31.0442 15.8549 31.3564 15.8549C34.2933 15.8549 37.1008 16.4083 39.6818 17.4146C39.6989 17.4203 39.7161 17.4279 39.7313 17.4336C42.3104 18.4475 44.6592 19.9125 46.6787 21.7356C48.6677 23.5284 50.3389 25.6662 51.5951 28.0522C51.6046 28.0711 51.6141 28.0882 51.6237 28.1071C53.0093 30.7547 53.8887 33.7054 54.1285 36.8344C54.1742 37.4162 54.197 38.0037 54.197 38.5988C54.197 43.909 52.3641 48.7985 49.2958 52.6703C49.2958 52.6703 49.2958 52.6703 49.2958 52.6722C46.062 56.7506 41.4558 59.7033 36.1739 60.8328C36.446 62.0229 36.5907 63.2605 36.5907 64.5321C36.5907 65.1367 36.5583 65.7356 36.4955 66.3231C40.8943 65.5176 44.939 63.7002 48.3746 61.1208C48.3746 61.1208 48.3746 61.1208 48.3765 61.1189C50.493 59.5289 52.3812 57.6508 53.9781 55.5434C53.9781 55.5434 53.9781 55.5434 53.9781 55.5415C54.9394 54.2736 55.794 52.9205 56.5306 51.4991C56.5306 51.4991 56.5306 51.4972 56.5306 51.4953C58.5349 47.6292 59.6655 43.2438 59.6655 38.5969C59.6655 24.4817 49.2254 12.7753 35.6181 10.7247H35.6143L35.62 10.7266ZM5.45701 56.1934C2.01378 51.1807 0 45.1219 0 38.5988C0 21.366 14.0508 7.37597 31.3583 7.37597C32.6964 7.37597 34.0154 7.45935 35.3116 7.62234C40.1919 2.90528 46.8481 0 54.1799 0C69.1405 0 81.2841 12.093 81.2841 26.9871C81.2841 40.2873 71.5997 51.3513 58.8756 53.5686C58.3597 54.5067 57.7963 55.4164 57.1892 56.292L61.388 60.4727C63.4932 59.3659 66.1636 59.6938 67.9338 61.4582L85.3688 78.8179C87.5444 80.984 87.5444 84.5014 85.3688 86.6676L79.6377 92.374C77.4621 94.5401 73.9294 94.5401 71.7539 92.374L54.3189 75.0143C52.5487 73.2518 52.2194 70.5929 53.3291 68.4968L49.1302 64.3161C45.2397 66.9864 40.7172 68.8057 35.8313 69.5031C33.7071 76.2518 27.3726 81.1546 19.8961 81.1546C10.6818 81.1546 3.2015 73.7066 3.2015 64.5321C3.2015 61.4942 4.02186 58.6439 5.45511 56.1915L5.45701 56.1934Z"
-                            fill="white"/>
-                    </g>
-                    <defs>
-                      <clipPath id="clip0_40000923_758">
-                        <rect width="87" height="94" fill="white"/>
-                      </clipPath>
-                    </defs>
-                  </svg>
-
-
-                </motion.div>
-                <motion.div
-                  className={'wb-text'}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
-                >
-                  <h5 className={'mb-3'}><span>Complete Transparency,</span> no hidden fees or surprises </h5>
-                  <p className={'text-white'}>
-                    Your watch is priced through a competitive global dealer network. You see real market value.
-                  </p>
-                </motion.div>
-              </motion.div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <WhyCarousel />
 
       <LuxryFrame/>
     </>
