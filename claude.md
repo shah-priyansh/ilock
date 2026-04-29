@@ -154,7 +154,8 @@ Modern browsers with ES6+ support (Chrome, Firefox, Safari, Edge)
   - Auto-restart on reboot via systemd unit `pm2-ec2-user.service`
   - `max_memory_restart: 300M` circuit breaker
 - **Nginx Config Snippets** (loaded inside the HTTPS server block via `include /etc/nginx/default.d/*.conf`):
-  - `/etc/nginx/default.d/api-proxy.conf`     — `/api/*` → `http://127.0.0.1:3001`
+  - `/etc/nginx/conf.d/zz-rate-limit.conf`    — `limit_req_zone` definitions (http scope)
+  - `/etc/nginx/default.d/api-proxy.conf`     — `/api/*` → `http://127.0.0.1:3001` with per-endpoint rate limits (contact 5/min, valuation 2/min)
   - `/etc/nginx/default.d/spa-fallback.conf`  — `try_files $uri $uri/ /index.html` for React Router
 - **Domain**: capitalcustodia.com / www.capitalcustodia.com
 - **SSL**: Let's Encrypt (Certbot managed; certs at `/etc/letsencrypt/live/capitalcustodia.com/`)
@@ -162,9 +163,9 @@ Modern browsers with ES6+ support (Chrome, Firefox, Safari, Edge)
 
 ### SSH Access
 - **Key**: `C:\GitHub\KEYS\vice-platform.pem` (kept outside any project repo)
-- **Host**: `13.212.240.90` (no Elastic IP — Public IP may change on stop/start)
+- **Host**: `52.74.167.253` (Elastic IP `eipalloc-0cfcff80f5853cdc2`, stable across stop/start)
 - **User**: `ec2-user`
-- **Command**: `ssh -i "C:/GitHub/KEYS/vice-platform.pem" ec2-user@13.212.240.90`
+- **Command**: `ssh -i "C:/GitHub/KEYS/vice-platform.pem" ec2-user@52.74.167.253`
 
 ### AWS Access (local dev)
 - Credentials in `.env.local`: `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_REGION`
@@ -213,6 +214,13 @@ Rollback: `sudo cp -r /tmp/html-backup-<ts>/* /usr/share/nginx/html/ && sudo cho
 1. Edit/replace files in `/etc/nginx/default.d/` (root permission required).
 2. `sudo nginx -t` (syntax-check; never reload before this passes).
 3. `sudo systemctl reload nginx` (zero-downtime).
+
+### Operations Hardening (added 2026-04-29)
+
+- **EBS daily snapshots** — DLM policy `policy-0254f87652decb06f` runs daily at 02:00 UTC against any volume tagged `Backup=daily`, retains 7 most recent. To list snapshots: `aws ec2 describe-snapshots --owner-ids self --filters "Name=tag:BackupType,Values=daily-automated"`. To restore: create new volume from snapshot, detach old, attach new.
+- **PM2 log rotation** — `pm2-logrotate` module installed; 10 MB rotation threshold, retain 7 gzipped, daily check at midnight. Config: `pm2 conf pm2-logrotate`.
+- **Nginx rate limiting** — `/api/submit-contact` capped at 5 r/min/IP (burst 3), `/api/submit-valuation` at 2 r/min/IP (burst 2). Triggered limits return HTTP 429. Tune values in `/etc/nginx/conf.d/zz-rate-limit.conf`. Other `/api/*` endpoints (e.g. `/api/health`) are unrestricted.
+- **Honeypot field** — Frontend forms include a hidden `website` input; server silently returns success when it's non-empty (no email sent). When refactoring forms: do NOT remove the `website` field from formData state, the hidden `<input>`, or the server-side `if (website && ...)` check in `server/server.js`. Caught attempts are logged with prefix `[honeypot]` in `pm2 logs capitalcustodia-api`.
 
 ### Operations Cheatsheet
 ```
