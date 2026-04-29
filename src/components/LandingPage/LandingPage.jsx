@@ -12,7 +12,8 @@ export default function LandingPage() {
         modelName: '',
         phone: '',
         email: '',
-        photos: []
+        photos: [],
+        website: '' // honeypot — leave empty
     });
 
     const [loading, setLoading] = useState(false);
@@ -45,6 +46,7 @@ export default function LandingPage() {
             submitData.append('modelName', formData.modelName);
             submitData.append('phone', formData.phone);
             submitData.append('email', formData.email);
+            submitData.append('website', formData.website); // honeypot
             if (formData.photos.length > 0) {
                 formData.photos.forEach((photo) => {
                     submitData.append('photos', photo);
@@ -301,6 +303,17 @@ export default function LandingPage() {
                                         </p>
                                     </div>
                                     <form onSubmit={handleSubmit}>
+                                        {/* Honeypot field — invisible to humans, often filled by bots. Server silently ignores submissions where this is non-empty. */}
+                                        <input
+                                            type="text"
+                                            name="website"
+                                            tabIndex={-1}
+                                            autoComplete="off"
+                                            aria-hidden="true"
+                                            value={formData.website}
+                                            onChange={handleInputChange}
+                                            style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', opacity: 0, pointerEvents: 'none' }}
+                                        />
                                         {message.text && (
                                             <div className={`alert alert-${message.type === 'success' ? 'success' : 'danger'} mb-3`}>
                                                 {message.text}

@@ -85,7 +85,8 @@ export default function ContactUs() {
         fullName: '',
         email: '',
         subject: '',
-        message: ''
+        message: '',
+        website: '' // honeypot — leave empty
     });
 
     const [loading, setLoading] = useState(false);
@@ -467,6 +468,17 @@ export default function ContactUs() {
                                         whileInView="visible"
                                         viewport={{ once: true }}
                                     >
+                                        {/* Honeypot field — invisible to humans, often filled by bots. Server silently ignores submissions where this is non-empty. */}
+                                        <input
+                                            type="text"
+                                            name="website"
+                                            tabIndex={-1}
+                                            autoComplete="off"
+                                            aria-hidden="true"
+                                            value={formData.website}
+                                            onChange={handleInputChange}
+                                            style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', opacity: 0, pointerEvents: 'none' }}
+                                        />
                                         {message.text && (
                                             <motion.div
                                                 className={`alert ${message.type === 'success' ? 'alert-success' : 'alert-danger'} mb-4`}

@@ -52,8 +52,18 @@ app.get('/api/health', (req, res) => {
 // Form submission endpoint
 app.post('/api/submit-valuation', upload.array('photos', 10), async (req, res) => {
     try {
-        const { watchBrand, modelName, phone, email } = req.body;
+        const { watchBrand, modelName, phone, email, website } = req.body;
         const photos = req.files;
+
+        // Honeypot — bots auto-fill the hidden 'website' field; humans never see it.
+        // Reply with a fake success so the bot moves on without retrying.
+        if (website && website.length > 0) {
+            console.log(`[honeypot] /api/submit-valuation rejected (ip=${req.ip}, email=${email})`);
+            return res.json({
+                success: true,
+                message: 'Your valuation request has been submitted successfully!'
+            });
+        }
 
         // Validate required fields
         if (!watchBrand || !modelName || !phone || !email) {
@@ -114,7 +124,17 @@ app.post('/api/submit-valuation', upload.array('photos', 10), async (req, res) =
 // Contact form submission endpoint
 app.post('/api/submit-contact', async (req, res) => {
     try {
-        const { fullName, email, subject, message } = req.body;
+        const { fullName, email, subject, message, website } = req.body;
+
+        // Honeypot — bots auto-fill the hidden 'website' field; humans never see it.
+        // Reply with a fake success so the bot moves on without retrying.
+        if (website && website.length > 0) {
+            console.log(`[honeypot] /api/submit-contact rejected (ip=${req.ip}, email=${email})`);
+            return res.json({
+                success: true,
+                message: 'Your message has been sent successfully! We\'ll get back to you soon.'
+            });
+        }
 
         // Validate required fields
         if (!fullName || !email || !subject || !message) {

@@ -115,7 +115,8 @@ export default function ContactUs() {
         fullName: '',
         email: '',
         subject: '',
-        message: ''
+        message: '',
+        website: '' // honeypot — leave empty
     });
 
     const [loading, setLoading] = useState(false);
