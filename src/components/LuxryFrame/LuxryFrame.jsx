@@ -241,7 +241,7 @@ export const LuxryFrame = () => {
                                     viewport={{once: true, margin: "-100px"}}
                                     transition={{duration: 0.6, ease: "easeOut", delay: 0.1}}
                                 >
-                                    Custody by <span>TransGuard</span>
+                                    Custody by <span>our trusted partner</span>
 
                                 </motion.h1>
                                 <motion.div
@@ -255,7 +255,7 @@ export const LuxryFrame = () => {
                                         We’ve partnered with the best in the business!
                                     </p>
                                     <p className="text-white">
-                                        TransGuard is the trusted custodian of banks, bullion investors and jewelers and holds Billions of dollars in Cash and valuables in their ultra-secured sites across the country
+                                        Our custody partner is trusted by banks, bullion investors and jewelers, holding billions of dollars in cash and valuables across ultra-secured sites in the country
                                     </p>
                                     <p className="text-white">
                                         All assets are:

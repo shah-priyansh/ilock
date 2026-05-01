@@ -82,7 +82,7 @@ const StructuredData = ({ type = 'organization' }) => {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Bank-Vault Storage by Transguard"
+            "name": "Bank-Vault Storage by Trusted Custody Partner"
           }
         }
       ]
@@ -114,7 +114,7 @@ const StructuredData = ({ type = 'organization' }) => {
         "name": "How is the price of my watch determined?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Your watch is priced through a competitive process involving multiple professional dealers from around the world who simultaneously compete to bid their highest price. Watches are professionally authenticated, legal ownership is checked, and Transguard handles storage and shipment. This ensures your price reflects real market demand rather than a single dealer's opinion."
+          "text": "Your watch is priced through a competitive process involving multiple professional dealers from around the world who simultaneously compete to bid their highest price. Watches are professionally authenticated, legal ownership is checked, and our trusted custody partner handles storage and shipment. This ensures your price reflects real market demand rather than a single dealer's opinion."
         }
       },
       {

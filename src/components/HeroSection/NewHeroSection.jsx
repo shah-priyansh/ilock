@@ -123,7 +123,7 @@ const whyItems = [
   },
   {
     title: <><span>Built ground-up for Security,</span> nothing left to luck</>,
-    description: "All watches are authenticated, insured, and stored with Transguard under 24/7 protection.",
+    description: "All watches are authenticated, insured, and stored under 24/7 protection.",
     icon: (
       <svg width="80" height="90" viewBox="0 0 80 90" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="10" y="30" width="60" height="50" rx="5" stroke="white" strokeWidth="2.5" fill="none"/>
@@ -331,9 +331,6 @@ const NewHeroSection = () => {
 
         <div className="hero-text-overlay">
           <div className="hero-text-content">
-            <div className={'text-end security-logo'}>
-              <img src={'/images/secured-logo.png'} alt={'img'} className={'img-fluid'}/>
-            </div>
             <h1 className="hero-main-text">
               {/* Line 1: "A structured platform to" fades in together, then "sell luxury watches" word by word */}
               <motion.span
@@ -559,7 +556,7 @@ const NewHeroSection = () => {
                     <h4 className={'mb-2'}>Secure Custody</h4>
                     <p>
                       We buy and store with<br/>
-                      Transguard, UAE's most trusted<br/>
+                      our trusted<br/>
                       custodian
                     </p>
                   </div>

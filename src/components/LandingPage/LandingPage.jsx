@@ -189,7 +189,7 @@ export default function LandingPage() {
                                         </h1>
                                         <p>
                                             Highest market prices guaranteed. Safe custody
-                                            by TransGuard.
+                                            by our trusted partner.
                                         </p>
                                     </motion.div>
 
@@ -276,7 +276,7 @@ export default function LandingPage() {
                                                         Transit
                                                     </h3>
                                                     <p>
-                                                        Protected by TransGuard custody
+                                                        Protected by trusted custody
                                                         <br />
                                                         services
                                                     </p>
@@ -594,7 +594,7 @@ export default function LandingPage() {
                                         transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
                                     >
                                         Custody by<br />
-                                        TransGuard
+                                        our trusted partner
                                     </motion.h1>
                                     <motion.div
                                         className="sec-pra"
@@ -607,9 +607,9 @@ export default function LandingPage() {
                                             We've partnered with the best in the business!
                                         </p>
                                         <p className="text-white">
-                                            TransGuard is the trusted custodian of banks, bullion investors and jewelers and
-                                            holds Billions of dollars in Cash and valuables in their ultra-secured sites
-                                            across the country
+                                            Our custody partner is trusted by banks, bullion investors and jewelers,
+                                            holding billions of dollars in cash and valuables across ultra-secured sites
+                                            in the country
                                         </p>
                                         <p className="text-white">
                                             Your assets are not only insured and stored under the highest levels of security
@@ -774,7 +774,7 @@ export default function LandingPage() {
 
                                         </div>
                                         <p className="text-base text-center text-[#374151] mb-2">
-                                            "I was hesitant to send my Patek online, but TransGuard's security gave me peace
+                                            "I was hesitant to send my Patek online, but the custody partner's security gave me peace
                                             of mind. Got paid instantly."
                                         </p>
                                         <p className="testimonial-author text-center">- Sarah L.</p>
@@ -1015,7 +1015,7 @@ export default function LandingPage() {
                                                     Analysis
                                                 </h5>
                                                 <p className="small mb-0" style={{ fontSize: '0.875rem' }}>
-                                                    Protected by TransGuard custody
+                                                    Protected by trusted custody
                                                     services
                                                 </p>
                                             </motion.div>

@@ -53,7 +53,7 @@ const Accordion = () => {
             question: "How is the price of my watch determined?",
             answer: "<p>Your watch is priced through a competitive process involving multiple professional dealers from around the world who simultaneously compete to bid their highest price.</p>" +
                 "<p>Global dealers trust our platform to ensure: </p>" +
-                "<ul><li>Watches are professionally authenticated</li><li>Legal ownership is checked and confirmed</li><li>Transguard, our partners, handle storage and shipment to any part of the world</li><li>And we buy the watches up-front so we have Custody before they pay</li></ul>"+
+                "<ul><li>Watches are professionally authenticated</li><li>Legal ownership is checked and confirmed</li><li>Our trusted custody partner handles storage and shipment to any part of the world</li><li>And we buy the watches up-front so we have Custody before they pay</li></ul>"+
                 "<p>This confidence encourages dealers to bid higher and ensures your price reflects real market demand rather than a single dealer’s opinion, providing a more transparent and competitive outcome.</p>"
 
         },
@@ -446,7 +446,7 @@ export default function ContactUs() {
                                                 This gives you the flexibility to get liquidity now without permanently
                                                 parting
                                                 with the asset. And all our watches are insured and stored at
-                                                Transguard’s
+                                                our partner’s
                                                 ultra-high security facilities under 24X7 survelience
 
 
@@ -471,7 +471,7 @@ export default function ContactUs() {
                                             <p>
                                                 Yes. All watches are packed in your presence and professionally managed
                                                 throughout the process. Our watches are fully insured and stored at
-                                                Transguard’s professionally managed, ultra-high security facilities
+                                                our partner’s professionally managed, ultra-high security facilities
                                                 under 24X7 survelience
                                                 <br/>
                                                 <br/>
@@ -703,7 +703,7 @@ export default function ContactUs() {
                                                 This gives you the flexibility to get liquidity now without permanently
                                                 parting
                                                 with the asset. And all our watches are insured and stored at
-                                                Transguard’s
+                                                our partner’s
                                                 ultra-high security facilities under 24X7 survelience
 
 
@@ -777,7 +777,7 @@ export default function ContactUs() {
                                             <p>
                                                 Yes. All watches are packed in your presence and professionally managed
                                                 throughout the process. Our watches are fully insured and stored at
-                                                Transguard’s professionally managed, ultra-high security facilities
+                                                our partner’s professionally managed, ultra-high security facilities
                                                 under
                                                 24X7 survelience
                                                 <br/>

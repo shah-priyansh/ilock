@@ -50,7 +50,7 @@ const PrivacyPolicy = () => {
                     <section>
                         <h2>5. Custody Arrangements</h2>
                         <p>
-                            All watches entrusted to Capital Custodia are stored with Transguard, UAE's most trusted security and logistics provider. Watches are authenticated, insured, and stored under 24/7 surveillance with biometric access controls.
+                            All watches entrusted to Capital Custodia are stored with our trusted custody partner, a leading security and logistics provider. Watches are authenticated, insured, and stored under 24/7 surveillance with biometric access controls.
                         </p>
                     </section>
 
@@ -60,7 +60,7 @@ const PrivacyPolicy = () => {
                             We do not sell or rent your personal information to third parties. We may share your information only with:
                         </p>
                         <ul>
-                            <li>Our trusted partners (e.g., Transguard) solely for the purpose of fulfilling our services.</li>
+                            <li>Our trusted partners solely for the purpose of fulfilling our services.</li>
                             <li>Legal authorities when required by law or to protect our rights.</li>
                         </ul>
                     </section>

@@ -285,7 +285,7 @@ export default function AboutUs() {
                                             <div className={'core-detail mt-3 mt-sm-3 mt-md-5'}>
                                                 <h3 className={'mb-3'}>Security </h3>
                                                 <p>
-                                                    All assets in custody are fully insured and stored with Transguard,
+                                                    All assets in custody are fully insured and stored with our trusted custody partner,
                                                     a leading secure storage provider trusted by major banks, jewellers
                                                     and bullion Traders
                                                 </p>
@@ -575,7 +575,7 @@ export default function AboutUs() {
                                                 <h5 className="fw-semibold mb-0" style={{
                                                     fontSize: 'clamp(1rem, 1.5vw, 1.25rem)'
                                                 }}>
-                                                    TransGuard<br/>
+                                                    Custody<br/>
                                                     Partnership
                                                 </h5>
                                                 <p className="small mb-0" style={{fontSize: '0.875rem'}}>

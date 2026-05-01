@@ -43,7 +43,7 @@ const TermsOfService = () => {
                     <section>
                         <h2>5. Custody and Security</h2>
                         <p>
-                            All watches are professionally authenticated, insured, and stored with Transguard under 24/7 surveillance. Legal ownership is verified and confirmed before any transaction proceeds.
+                            All watches are professionally authenticated, insured, and stored with our trusted custody partner under 24/7 surveillance. Legal ownership is verified and confirmed before any transaction proceeds.
                         </p>
                     </section>
 
